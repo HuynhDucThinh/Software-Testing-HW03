@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.expo/
+**/.expo/
+
+# Reference / Local-only folders
+docs/software-testing-hw03-gui-usability-testing-main/
+.local/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.log
+
+# Final zip archives (built for Moodle)
+*.zip
