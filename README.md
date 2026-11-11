@@ -43,7 +43,8 @@ Software-Testing-HW03/
 │   ├── task3_cross_platform/              # 12 ảnh tổng quan đa nền tảng trên P1, P2, P3
 │   └── github_issues/                     # Ảnh chụp các trang GitHub Issues đã đăng
 ├── tests/                                 # Script kiểm tra dò tự động hỗ trợ đối chiếu trên 3 nền tảng
-├── ai_log/                                # Nhật ký tương tác AI theo từng bước
+├── ai_log/
+│   └── AI_Log.md                          # Nhật ký tương tác AI gộp chung nối tiếp (Entry 01..NN)
 ├── bugs/                                  # Khung dữ kiện và chi tiết từng Bug
 └── .agents/skills/                        # Agent Skills tái sử dụng cho GUI Checklist & Usability Evaluation
 ```
