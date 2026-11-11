@@ -1,0 +1,303 @@
+{
+  "platform": "P2",
+  "kind": "auto",
+  "run_at": "2026-11-11T09:46:51.480Z",
+  "env": "Firefox 159.0 trên Windows 11 (Playwright Gecko engine)",
+  "results": {
+    "CL-01": {
+      "status": "Failed",
+      "notes": "Actual: Trên /login nhãn trường = [\"Username\",\"Mật khẩu\"], nút = [\"Sign In\"], liên kết = [\"Quên mật khẩu?\",\"Đăng ký ngay\"]; xuất hiện từ tiếng Anh không đúng chuẩn tiếng Việt: [\"Username\",\"Sign In\"].",
+      "evidence": []
+    },
+    "CL-04": {
+      "status": "Failed",
+      "notes": "Actual: Trên /login có 0 thẻ <h1> hiển thị ([]); tiêu đề thực tế đang dùng thẻ <h2> với nội dung sai chức năng là [\"Đăng Ký\"].",
+      "evidence": []
+    },
+    "CL-03": {
+      "status": "Failed",
+      "notes": "Actual: Trên /register có 0 thẻ <h1> hiển thị ([]); tiêu đề chính đang dùng thẻ <h2> ([\"Đăng Ký Tài Khoản\"]).",
+      "evidence": []
+    },
+    "CL-16": {
+      "status": "Failed",
+      "notes": "Actual: Form /register chỉ có 3 trường [\"Họ Tên\",\"Email\",\"Mật khẩu\"] (1 ô type=\"password\"), hoàn toàn không có trường \"Xác nhận mật khẩu\".",
+      "evidence": []
+    },
+    "SV-14": {
+      "status": "Failed",
+      "notes": "Actual: Dòng gợi ý dưới ô Mật khẩu trên /register chỉ ghi chung chung \"Yêu cầu: Tối thiểu 8 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.\", không liệt kê tập ký tự đặc biệt hợp lệ (@ $ ! % * ? &).",
+      "evidence": []
+    },
+    "CL-13": {
+      "status": "Failed",
+      "notes": "Actual: Ô Email trên /register khai báo type=\"text\" (khác \"email\") và khi nhập \"nguoimoieshop.com\" vẫn gửi 1 request POST /api/register lên server mà không chặn định dạng email.",
+      "evidence": []
+    },
+    "CL-14": {
+      "status": "Failed",
+      "notes": "Actual: Ô Email trên /login có type=\"text\" (gửi 1 request với \"khongcoacong.com\") và ở Bước 1 /forgot-password có type=\"text\" (gửi 1 request tới server, bật alert \"Lỗi: User not found\"), không chặn định dạng bằng HTML5.",
+      "evidence": []
+    },
+    "CL-26": {
+      "status": "Failed",
+      "notes": "Actual: Màn hình Bước 1 tại /forgot-password chỉ có nút [\"Lấy mã OTP\"] và liên kết trong main = [], hoàn toàn thiếu nút/liên kết \"Quay lại đăng nhập\".",
+      "evidence": []
+    },
+    "CL-05": {
+      "status": "Failed",
+      "notes": "Actual: Trang /forgot-password có 0 thẻ <h1> ở Bước 1 và 0 thẻ <h1> ở Bước 2 (đang dùng thẻ <h2>: [\"Quên Mật Khẩu\"]).",
+      "evidence": []
+    },
+    "CL-17": {
+      "status": "Failed",
+      "notes": "Actual: Cả Bước 1 và Bước 2 trên /forgot-password đều không có thành phần chỉ báo bước (Step Indicator) nào hiển thị vị trí bước hiện tại (ví dụ Bước 1/2, Bước 2/2).",
+      "evidence": []
+    },
+    "CL-18": {
+      "status": "Failed",
+      "notes": "Actual: Bước 2 trang /forgot-password chỉ có 2 trường [\"Mã OTP (4 số)\",\"Mật khẩu mới\"], thiếu trường \"Xác nhận mật khẩu mới\".",
+      "evidence": []
+    },
+    "CL-20": {
+      "status": "Failed",
+      "notes": "Actual: Hệ thống chỉ sinh mã OTP gồm 4 chữ số (\"Mã OTP của bạn là: 2354\") và nhãn ô nhập ghi \"Mã OTP (4 số)\" thay vì 6 chữ số.",
+      "evidence": []
+    },
+    "SV-13": {
+      "status": "Failed",
+      "notes": "Actual: Ở Bước 2 trang /forgot-password không có bất kỳ dòng gợi ý quy tắc mật khẩu nào gần ô \"Mật khẩu mới\" (số thẻ gợi ý = 0).",
+      "evidence": []
+    },
+    "CL-29": {
+      "status": "Passed",
+      "notes": "Actual: Nhấp nút \"← Quay lại\" ở Bước 2 chuyển giao diện trở về Bước 1 hiển thị nhãn [\"Nhập Email của bạn\"] bình thường, không phát sinh lỗi.",
+      "evidence": []
+    },
+    "CL-15": {
+      "status": "Failed",
+      "notes": "Actual: Ô Mật khẩu trên /register có type=\"password\", Bước 2 /forgot-password có type=\"password\", nhưng ô Mật khẩu trên /login lại khai báo type=\"text\" làm lộ rõ toàn bộ ký tự mật khẩu khi gõ.",
+      "evidence": []
+    },
+    "CL-30": {
+      "status": "Failed",
+      "notes": "Actual: Truy cập /profile khi chưa đăng nhập vẫn đứng tại URL \"/profile\", vùng nội dung chính chỉ hiện chữ tĩnh \"Vui lòng đăng nhập\" và có 0 nút/liên kết điều hướng sang /login.",
+      "evidence": []
+    },
+    "CL-06": {
+      "status": "Failed",
+      "notes": "Actual: Trang /profile khi đã đăng nhập có 0 thẻ <h1> hiển thị; đang dùng 2 thẻ <h2> ([\"Hồ sơ của bạn\",\"Lịch sử đơn hàng\"]).",
+      "evidence": []
+    },
+    "CL-21": {
+      "status": "Passed",
+      "notes": "Actual: Ô Email trên /profile hiển thị \"test@eshop.com\", disabled=true, màu nền rgb(243, 244, 246) phân biệt rõ với ô Họ Tên (rgb(255, 255, 255)).",
+      "evidence": []
+    },
+    "CL-02": {
+      "status": "Passed",
+      "notes": "Actual: Đã quét văn bản trên /register, /forgot-password (Bước 1 & 2), khối Hồ sơ /profile và Header (27 chuỗi): tất cả dùng tiếng Việt đúng chính tả (chỉ giữ \"Email\", \"OTP\", \"EShop\").",
+      "evidence": [],
+      "partial": true
+    },
+    "CL-07": {
+      "status": "Failed",
+      "notes": "Actual: Nút Submit trên Login (\"Sign In\": rgb(37, 99, 235)) và Profile (\"Cập nhật\": rgb(37, 99, 235)) dùng màu xanh dương, nhưng nút \"Đăng Ký\" trên /register lại dùng màu đỏ (rgb(220, 38, 38)).",
+      "evidence": []
+    },
+    "CL-08": {
+      "status": "Failed",
+      "notes": "Actual: Bước 1 nút \"Lấy mã OTP\" màu xanh dương (rgb(37, 99, 235)), nút \"Thoát\" trên Header màu đỏ (rgb(239, 68, 68)); tuy nhiên ở Bước 2 cả nút chính \"Đặt lại mật khẩu\" (rgb(22, 163, 74)) lẫn nút phụ \"← Quay lại\" (rgb(22, 163, 74)) đều dùng chung nền xanh lá cây, không dùng xanh dương cho nút chính và không phân biệt vai trò hai nút.",
+      "evidence": []
+    },
+    "CL-09": {
+      "status": "Passed",
+      "notes": "Actual: Đo toạ độ các ô nhập và nút trong form: Register(dLeft=0px, dWidth=0px, hScroll=false); Login(dLeft=0px, dWidth=0px, hScroll=false); ForgotStep1(dLeft=0px, dWidth=0px, hScroll=false); ForgotStep2(dLeft=0px, dWidth=0px, hScroll=false); Profile(dLeft=0px, dWidth=0px, hScroll=false).",
+      "evidence": []
+    },
+    "CL-11": {
+      "status": "Failed",
+      "notes": "Actual: Phát hiện văn bản không đạt ngưỡng tương phản WCAG 4.5:1: Register \"Yêu cầu: Tối thiểu 8 ký tự, có chữ \" (2.54:1 < 4.5:1, fg=rgb(156, 163, 175), bg=rgb(255,255,255)); Register \"Đăng Ký\" (3.76:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(239,68,68)); Login \"Quên mật khẩu?\" (3.68:1 < 4.5:1, fg=rgb(59, 130, 246), bg=rgb(255,255,255)); ForgotStep2 \"Đặt lại mật khẩu\" (3.3:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(22,163,74)); ForgotStep2 \"← Quay lại\" (3.3:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(22,163,74)); Profile+Header \"Chào, Test User\" (3.92:1 < 4.5:1, fg=rgb(253, 224, 71), bg=rgb(37,99,235)); Profile+Header \"Thoát\" (3.76:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(239,68,68)).",
+      "evidence": []
+    },
+    "CL-12": {
+      "status": "Failed",
+      "notes": "Actual: Có 0/9 nhãn trường bắt buộc hiển thị dấu \"*\": Register=[\"Họ Tên\",\"Email\",\"Mật khẩu\"], Login=[\"Username\",\"Mật khẩu\"], ForgotB1=[\"Nhập Email của bạn\"], ForgotB2=[\"Mã OTP (4 số)\",\"Mật khẩu mới\"], Profile(Họ Tên)=\"Họ Tên\".",
+      "evidence": []
+    },
+    "CL-23": {
+      "status": "Failed",
+      "notes": "Actual: Kiểm tra trên cả 4 form (/register, /login, /forgot-password, /profile) có 0/10 thẻ <label> có thuộc tính for/id hoặc bọc trực tiếp ô input; nhấp vào nhãn không làm focus ô nhập tương ứng.",
+      "evidence": []
+    },
+    "CL-24": {
+      "status": "Failed",
+      "notes": "Actual: Khi đang ở /login, liên kết \"Đăng nhập\" có cùng class \"hover:underline\", aria-current=null, màu rgb(255, 255, 255) giống hệt liên kết không chọn \"Đăng ký\" (\"hover:underline\"); trên /profile liên kết \"Chào, <tên>\" cũng giữ nguyên class \"hover:underline text-yellow-300\" như khi đứng ở trang chủ.",
+      "evidence": []
+    },
+    "CL-25": {
+      "status": "Failed",
+      "notes": "Actual: Nút thoát phiên trên Header hiển thị nhãn là \"Thoát\" thay vì nhãn chuẩn \"Đăng xuất\" của FR-23 (chức năng xoá token và chuyển về [\"Giỏ hàng\",\"Đăng nhập\",\"Đăng ký\"] hoạt động=true).",
+      "evidence": []
+    },
+    "CL-28": {
+      "status": "Failed",
+      "notes": "Actual: Phát hiện liên kết làm tải lại toàn bộ trang trình duyệt thay vì điều hướng SPA: Login -> \"Quên mật khẩu?\" (dùng <a href=\"/forgot-password\"> gây reload toàn trang).",
+      "evidence": []
+    },
+    "SV-16": {
+      "status": "Failed",
+      "notes": "Actual: Cả 4 trang đều có cùng document.title mặc định giống hệt nhau: {\"/register\":\"frontend-web\",\"/login\":\"frontend-web\",\"/forgot-password\":\"frontend-web\",\"/profile\":\"frontend-web\"}, không mô tả chức năng từng trang.",
+      "evidence": []
+    },
+    "SV-19": {
+      "status": "Failed",
+      "notes": "Actual: Các liên kết có chiều cao vùng chạm nhỏ hơn ngưỡng 24x24 CSS px: Register \"Đăng nhập\" (68x19px); Login \"Quên mật khẩu?\" (102x19px); Login \"Đăng ký ngay\" (85x19px).",
+      "evidence": []
+    },
+    "CL-19": {
+      "status": "Failed",
+      "notes": "Actual: Mật khẩu hợp lệ chuẩn đặc tả \"Abcd123!\" bị từ chối trên cả /register (\"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\") lẫn Bước 2 /forgot-password (alert \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\") do biểu thức chính quy lỗi trên client.",
+      "evidence": []
+    },
+    "SV-08": {
+      "status": "Failed",
+      "notes": "Actual: Mật khẩu 7 ký tự \"Abc12!x\" bị từ chối=true, nhưng mật khẩu biên hợp lệ 8 ký tự \"Abc123!x\" cũng bị từ chối kèm lỗi \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\" (không chuyển tới /login).",
+      "evidence": []
+    },
+    "SV-09": {
+      "status": "Failed",
+      "notes": "Actual: Cả 7/7 mật khẩu chứa ký tự đặc biệt hợp lệ (Abcd123@, Abcd123$, Abcd123!, Abcd123%, Abcd123*, Abcd123?, Abcd123&) đều bị form /register từ chối với lỗi \"Mật khẩu quá yếu!\".",
+      "evidence": []
+    },
+    "SV-04": {
+      "status": "Failed",
+      "notes": "Actual: Khối lỗi trên /register nằm ngoài thẻ <form> (insideForm=false), phía trên tất cả các ô nhập (cách tiêu đề 24px nhưng cách nút \"Đăng Ký\" tới 306px), không nằm liền kề phía trên nút Submit theo GA6.",
+      "evidence": []
+    },
+    "SV-03": {
+      "status": "Failed",
+      "notes": "Actual: Khối thông báo lỗi trên /login nằm BÊN DƯỚI nút gửi form (error.top=517px > submit.bottom=465px), vi phạm FR-22 yêu cầu nằm phía trên nút submit.",
+      "evidence": []
+    },
+    "CL-32": {
+      "status": "Failed",
+      "notes": "Actual: Khi gửi đăng ký với email đã tồn tại \"test@eshop.com\", hệ thống KHÔNG từ chối và KHÔNG hiện thông báo lỗi nào mà vẫn tạo trùng bản ghi trong CSDL rồi chuyển thẳng sang http://localhost:5173/login.",
+      "evidence": []
+    },
+    "CL-27": {
+      "status": "Passed",
+      "notes": "Actual: Liên kết \"Đăng nhập\" dưới form /register chuyển đúng sang /login (true) và sau khi hoàn tất đăng ký tài khoản mới ứng dụng tự động chuyển hướng về /login (true).",
+      "evidence": []
+    },
+    "CL-34": {
+      "status": "Passed",
+      "notes": "Actual: Khi sai Email (\"Đăng nhập thất bại. Vui lòng kiểm tra lại.\") và khi sai Mật khẩu (\"Đăng nhập thất bại. Vui lòng kiểm tra lại.\") giao diện hiển thị cùng một thông báo tổng quát bằng tiếng Việt, không lộ trường sai.",
+      "evidence": []
+    },
+    "CL-39": {
+      "status": "Passed",
+      "notes": "Actual: Trên /register giữ Họ Tên & Email khi lỗi=true, xoá lỗi/chuyển trang khi gửi đúng=true; trên /login giữ Email khi lỗi=true, xoá lỗi khi đăng nhập đúng=true.",
+      "evidence": []
+    },
+    "CL-22": {
+      "status": "Failed",
+      "notes": "Actual: Nhập SĐT hợp lệ chuẩn Việt Nam \"0912345678\" (khớp chính placeholder form) bị từ chối với hộp thoại alert \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; chuỗi chữ cái \"09123abcde\" báo \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\".",
+      "evidence": []
+    },
+    "SV-10": {
+      "status": "Failed",
+      "notes": "Actual: Thử 3 giá trị biên SĐT không hợp lệ trên /profile: \"091234567\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"091234567890\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; riêng \"9123456789\" (không bắt đầu bằng số 0) lại được lưu thành công (\"Cập nhật thành công!\").",
+      "evidence": []
+    },
+    "CL-35": {
+      "status": "Failed",
+      "notes": "Actual: Cả /forgot-password lẫn /profile đều bật hộp thoại native window.alert() chặn luồng thao tác thay vì thông báo nội trang/toast, đồng thời lộ chuỗi tiếng Anh thô trên /forgot-password (alert: \"Lỗi: User not found\"; /profile alert: \"Cập nhật thành công!\").",
+      "evidence": []
+    },
+    "CL-36": {
+      "status": "Failed",
+      "notes": "Actual: Sau 1 giây bấm Cập nhật hồ sơ, lời chào trên Header vẫn giữ nguyên tên cũ \"Chào, Test User\" (không đồng bộ sang \"Chào, Nguyễn Văn Ánh\" nếu chưa tải lại trang); sau khi F5 dữ liệu lưu bền=true.",
+      "evidence": []
+    },
+    "SV-07": {
+      "status": "Passed",
+      "notes": "Actual: Sau khi lưu và tải lại /profile, Header hiển thị \"Chào, Nguyễn Văn Ánh\", ô Họ Tên = \"Nguyễn Văn Ánh\", Địa chỉ = \"12 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh\" (đầy đủ dấu tiếng Việt, không lỗi ký tự).",
+      "evidence": []
+    },
+    "SV-15": {
+      "status": "Passed",
+      "notes": "Actual: Sau khi tải lại trang /profile, Header hiển thị \"Chào, Test User\" kèm nút \"Thoát\", form Hồ sơ hiển thị=true.",
+      "evidence": []
+    },
+    "SV-11": {
+      "status": "Failed",
+      "notes": "Actual: Cả /register (chuyển sang /login=true) lẫn /profile (alert \"Cập nhật thành công!\") đều chấp nhận lưu Họ Tên chỉ gồm 3 khoảng trắng \"   \", khiến lời chào trên Header chỉ còn \"Chào,\".",
+      "evidence": []
+    },
+    "SV-12": {
+      "status": "Failed",
+      "notes": "Actual: Các ô nhập trên /login ([{\"name\":null,\"autocomplete\":null},{\"name\":null,\"autocomplete\":null}]) và Bước 2 /forgot-password ([{\"name\":null,\"autocomplete\":null},{\"name\":null,\"autocomplete\":null}]) đều thiếu thuộc tính name và autocomplete (null), khiến trình duyệt tự điền nhầm email đã lưu vào ô OTP.",
+      "evidence": [],
+      "partial": true
+    },
+    "CL-38": {
+      "status": "Passed",
+      "notes": "Actual: Sau lần đặt lại mật khẩu thành công (\"Đổi mật khẩu thành công!\"), reset_token về null, thử dùng lại OTP cũ bị từ chối (HTTP 400) và nhập sai OTP hiển thị thông báo tiếng Việt \"Mã OTP không đúng hoặc có lỗi xảy ra.\".",
+      "evidence": []
+    },
+    "SV-01": {
+      "status": "Failed",
+      "notes": "Actual: Nhấn Tab lần đầu tiên trên /login nhảy cóc thẳng tới nút \"Sign In\" (tabIndex=1, y=425px) trước cả thanh Header và trước cả hai ô Username, Mật khẩu; thứ tự thực tế: [\"button:Sign In(y=425)\",\"a:EShop(y=16)\",\"a:Giỏ hàng(y=20)\",\"a:Đăng nhập(y=20)\",\"a:Đăng ký(y=20)\",\"input:text(y=241)\",\"input:text(y=331)\",\"a:Quên mật khẩu?(y=390)\"].",
+      "evidence": []
+    },
+    "SV-02": {
+      "status": "Passed",
+      "notes": "Actual: Thứ tự Tab đi đúng từ trên xuống dưới trên cả /register (INPUT:Họ Tên(y=241) -> INPUT:Email(y=331) -> INPUT:Mật khẩu(y=421) -> BUTTON:Đăng Ký(y=499) -> A:Đăng nhập(y=556)), /forgot-password Bước 1 (INPUT:Nhập Email của bạn(y=241) -> BUTTON:Lấy mã OTP(y=299)) và Bước 2 (INPUT:Mã OTP (4 số)(y=301) -> INPUT:Mật khẩu mới(y=391) -> BUTTON:Đặt lại mật khẩu(y=449) -> BUTTON:← Quay lại(y=505)).",
+      "evidence": []
+    },
+    "SV-17": {
+      "status": "Passed",
+      "notes": "Actual: Mọi ô nhập, nút và liên kết trên 5 vùng giao diện khi nhận focus bằng phím Tab đều hiển thị đường viền outline mặc định rõ ràng của trình duyệt.",
+      "evidence": [],
+      "partial": true
+    },
+    "CL-31": {
+      "status": "Failed",
+      "notes": "Actual: Nhấn phím Enter gửi form=true; tuy nhiên các nút thiếu hiệu ứng đổi màu khi hover hoặc thiếu cursor: pointer gồm: Register <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Login <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 <button> \"Lấy mã OTP\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <button> \"Đặt lại mật khẩu\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <button> \"← Quay lại\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <button> \"Thoát\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <button> \"Cập nhật\" (cursor=pointer, đổi màu/gạch chân khi hover=false).",
+      "evidence": []
+    },
+    "CL-10": {
+      "status": "Passed",
+      "notes": "Actual: Ở cả 3 mức viewport 375px, 768px và 1440px trên 5 vùng giao diện không phát sinh cuộn ngang, không cắt khuất hay chồng lấp phần tử.",
+      "evidence": [],
+      "partial": true
+    },
+    "SV-18": {
+      "status": "Passed",
+      "notes": "Actual: Ở mức phóng to 200% trên màn hình 1440px (CSS reflow 720px), cả 5 vùng giao diện hiển thị rõ, không chồng lấp và không phát sinh thanh cuộn ngang.",
+      "evidence": [],
+      "partial": true
+    },
+    "CL-37": {
+      "status": "Failed",
+      "notes": "Actual: Trong lúc chờ API phản hồi chậm, nút Submit vẫn có disabled=false, giữ nguyên nhãn \"Sign In\" (không có chỉ báo loading) và cho phép bấm đúp phát sinh 2 request API trùng lặp.",
+      "evidence": []
+    },
+    "SV-06": {
+      "status": "Failed",
+      "notes": "Actual: Khi Họ Tên dài 100 ký tự không khoảng trắng, lời chào trên Header không có CSS cắt/xuống dòng làm tràn khung nhìn: 375px: scrollWidth=1146px > clientWidth=375px, nút thoát bị đẩy tới x=1146px ngoài màn hình.",
+      "evidence": []
+    },
+    "SV-05": {
+      "status": "Failed",
+      "notes": "Actual: Lời chào trên Header dùng dangerouslySetInnerHTML nên dựng trực tiếp 1 thẻ <b> (in đậm) và 1 thẻ <i> (in nghiêng) thành \"Chào, TestUser\" thay vì hiển thị văn bản thường (HTML thực tế: <span>Chào, <b>Test</b><i>User</i></span>).",
+      "evidence": []
+    },
+    "CL-33": {
+      "status": "Failed",
+      "notes": "Actual: Tài khoản bị khoá ngay sau lần nhập sai thứ 2 (login_attempts tăng +2 mỗi lần: lần 1=2, lần 2=4), thời gian khoá thực tế ~180 giây (thay vì 30 giây), và khi bị khoá (HTTP 403: \"Tài khoản đã bị khóa. Vui lòng thử lại sau.\") giao diện /login vẫn chỉ hiện \"Đăng nhập thất bại. Vui lòng kiểm tra lại.\" chứ không báo tài khoản đang bị tạm khoá.",
+      "evidence": []
+    }
+  }
+}
