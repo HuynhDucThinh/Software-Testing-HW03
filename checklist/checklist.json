@@ -18,8 +18,8 @@
       "Blocked"
     ],
     "inventory": "checklist/m1_inventory.md",
-    "version": "v4 - Thực thi đủ 3 nền tảng P1, P2, P3 (T1 bước 4)",
-    "step": 4
+    "version": "v5 - Xuất Excel 3 sheet & Test Summary (T1 bước 5)",
+    "step": 5
   },
   "assumptions": {
     "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
