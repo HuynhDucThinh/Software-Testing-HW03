@@ -1,0 +1,489 @@
+{
+  "meta": {
+    "hw": "HW03",
+    "task": "T1 - GUI Checklist",
+    "student": "Huỳnh Đức Thịnh - 23120199 (23120199@student.hcmus.edu.vn)",
+    "scope": "M1 - Auth & Profile (Register, Login, ForgotPassword, Profile, Header)",
+    "sut_version": "eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)",
+    "test_basis": "eshop-sut/README.md (SRS v2.0) FR-01..04, FR-05:81, FR-21..24, SEC-04, SEC-07; docs/Nhom05_GUI_Testing_Slides.md",
+    "platforms": {
+      "P1": "Chrome trên Windows",
+      "P2": "Firefox trên Windows",
+      "P3": "Safari trên iPhone (iOS)"
+    },
+    "result_values": [
+      "Passed",
+      "Failed",
+      "N/A",
+      "Blocked"
+    ],
+    "inventory": "checklist/m1_inventory.md",
+    "version": "v1.2 - AI nháp lượt IA-02 (T1 bước 1)",
+    "step": 1
+  },
+  "assumptions": {
+    "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
+    "GA2": "Đặc tả FR-21 quy định nút hành động tích cực dùng màu xanh dương và nút nguy hiểm/hủy bỏ dùng màu đỏ nhưng không nêu mã HEX; chấp nhận dải màu xanh dương chuẩn (ví dụ Tailwind blue: R < 100, B > 180 trong getComputedStyle.backgroundColor) cho nút Submit chính và dải màu đỏ (R > 180, G < 100, B < 100) cho nút nguy hiểm/đăng xuất.",
+    "GA3": "Đặc tả FR-03 và FR-22 yêu cầu Step Indicator cho form từ 2 bước trở lên nhưng không cố định kiểu trình bày; chấp nhận mọi thành phần hiển thị rõ bước hiện tại trên tổng số bước (ví dụ văn bản 'Bước 1 / 2' hoặc thanh tiến trình 2 mốc đánh dấu bước đang mở).",
+    "NA1": "P3 là Safari trên iPhone (thiết bị di động cảm ứng có kích thước màn hình cố định, không có chế độ chuyển đổi 3 độ phân giải 375px/768px/1440px như DevTools desktop và không có bàn phím vật lý); các mục yêu cầu thay đổi đa viewport trên trình duyệt hoặc nhấn phím vật lý chỉ áp dụng trên P1, P2."
+  },
+  "items": [
+    {
+      "id": "CL-01",
+      "ia": "IA-01",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Nhất quán ngôn ngữ tiếng Việt của nhãn trường và nút gửi trên trang Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:244)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "gia_dinh": "Giả định GA1",
+      "expected": "Các nhãn trường nhập liệu, nút gửi form và liên kết trên trang /login khi mở màn hình Đăng nhập đều hiển thị bằng tiếng Việt tự nhiên, nhất quán (chỉ trừ thuật ngữ chuẩn 'Email'). Fail nếu xuất hiện bất kỳ nhãn hoặc chữ trên nút bằng tiếng Anh thông thường (ví dụ 'Username', 'Sign In', 'Login', 'Password').",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-02",
+      "ia": "IA-01",
+      "man_hinh": "Register, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Nhất quán ngôn ngữ tiếng Việt và chính tả trên Register, ForgotPassword, Profile và Header",
+      "can_cu": "FR-21 (eshop-sut/README.md:244); Slide 10 #3 Typography and Content",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "gia_dinh": "Giả định GA1",
+      "tien_dieu_kien": "Kiểm tra cả trạng thái chưa đăng nhập (/register, /forgot-password Bước 1 & 2) và đã đăng nhập (/profile, Header).",
+      "expected": "Toàn bộ tiêu đề, nhãn trường, placeholder, dòng gợi ý và chữ trên nút tại /register, /forgot-password (cả 2 bước), khối Hồ sơ của /profile và thanh Header khi hiển thị đều dùng tiếng Việt đúng chính tả, không pha trộn tiếng Anh ngoài 'Email', 'OTP', 'EShop'. Fail nếu có từ tiếng Anh không thuộc thuật ngữ chuẩn hoặc có lỗi chính tả tiếng Việt quan sát được.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-03",
+      "ia": "IA-01",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Số lượng và nội dung thẻ tiêu đề chính h1 trên trang Đăng ký",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Tiêu đề chính của trang /register khi kiểm tra DOM (`document.querySelectorAll('h1')`) có đúng 1 thẻ `<h1>` đang hiển thị và văn bản mô tả đúng chức năng đăng ký tài khoản. Fail nếu số lượng thẻ `<h1>` hiển thị bằng 0, lớn hơn 1, hoặc nội dung `<h1>` không phản ánh chức năng đăng ký.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-04",
+      "ia": "IA-01",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Số lượng thẻ h1 và tính chính xác của tiêu đề trang Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Tiêu đề chính trên trang /login khi mở trang và kiểm tra DOM có đúng 1 thẻ `<h1>` hiển thị với văn bản mô tả đúng chức năng 'Đăng nhập'. Fail nếu số lượng thẻ `<h1>` khác 1 hoặc văn bản tiêu đề hiển thị sai tên chức năng (ví dụ hiển thị 'Đăng Ký').",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-05",
+      "ia": "IA-01",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Số lượng và nội dung thẻ tiêu đề chính h1 trên trang Quên mật khẩu ở cả 2 bước",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Kiểm tra ở Bước 1, sau đó nhập email hợp lệ (test@eshop.com) để chuyển sang Bước 2.",
+      "expected": "Tiêu đề chính trên trang /forgot-password khi quan sát và kiểm tra DOM ở cả Bước 1 lẫn Bước 2 luôn có đúng 1 thẻ `<h1>` hiển thị mô tả chức năng quên/đặt lại mật khẩu. Fail nếu ở bất kỳ bước nào số lượng thẻ `<h1>` khác 1 hoặc nội dung tiêu đề sai lệch chức năng.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-06",
+      "ia": "IA-01",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Số lượng thẻ tiêu đề cấp trang h1 trên trang Hồ sơ cá nhân",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Đã đăng nhập bằng tài khoản user (test@eshop.com / Test1234!) và mở /profile.",
+      "expected": "Trang /profile khi đã đăng nhập và kiểm tra DOM có đúng 1 thẻ `<h1>` duy nhất làm tiêu đề cấp trang, các tiêu đề vùng con dùng từ `<h2>` trở xuống. Fail nếu `document.querySelectorAll('h1').length` bằng 0 hoặc lớn hơn 1.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-07",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, Profile",
+      "muc_kiem_tra": "Nhất quán màu xanh dương của nút hành động tích cực Submit trên Register, Login và Profile",
+      "can_cu": "FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA2",
+      "tien_dieu_kien": "Kiểm tra nút Submit trên /register, /login và khối Hồ sơ của /profile (khi đã đăng nhập).",
+      "expected": "Nút Submit chính trên /register ('Đăng Ký'), /login và /profile ('Cập nhật') khi hiển thị ở trạng thái mặc định đều có màu nền xanh dương đồng nhất (kiểm tra mắt thường và `getComputedStyle(btn).backgroundColor` thuộc dải xanh dương). Fail nếu bất kỳ nút Submit tích cực nào dùng màu đỏ (nhầm với nút nguy hiểm/hủy) hoặc màu khác xanh dương.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-08",
+      "ia": "IA-01",
+      "man_hinh": "ForgotPassword, Header",
+      "muc_kiem_tra": "Phân biệt màu sắc nút hành động tích cực, nút điều hướng phụ và nút đăng xuất trên ForgotPassword và Header",
+      "can_cu": "FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA2",
+      "tien_dieu_kien": "Kiểm tra Bước 1 & Bước 2 của /forgot-password và thanh Header khi đã đăng nhập.",
+      "expected": "Các nút hành động tích cực ('Lấy mã OTP', 'Đặt lại mật khẩu') có nền màu xanh dương, nút phụ ('Quay lại') có kiểu trung tính phân biệt rõ với nút chính, và nút thoát phiên đăng nhập trên Header dùng màu đỏ theo quy ước. Fail nếu nút tích cực dùng màu khác xanh dương (ví dụ xanh lá) hoặc nút 'Đặt lại mật khẩu' và nút 'Quay lại' dùng cùng một màu nền gây nhầm lẫn vai trò.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-09",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Căn lề dọc thẳng hàng và không tràn khung giữa nhãn, ô nhập liệu và nút Submit trong form",
+      "can_cu": "Slide 10 #1 Visual Consistency - Alignment, #19 Scroll Boundaries",
+      "loai_nguon": "Control",
+      "loai_loi": "Visual-Layout",
+      "expected": "Các nhãn, ô `input`/`textarea` và nút Submit bên trong khung form tại /register, /login, /forgot-password và cột Hồ sơ /profile trên khung nhìn mặc định của từng nền tảng được căn thẳng mép trái, có cùng chiều rộng nội khung và không tràn ngang khỏi màn hình. Fail nếu chênh lệch toạ độ `left` hoặc `width` giữa các ô nhập và nút toàn chiều rộng trong cùng form vượt quá 2px hoặc xuất hiện thanh cuộn ngang.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "Both"
+    },
+    {
+      "id": "CL-10",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Bố cục đáp ứng khi chuyển đổi 3 độ phân giải 375px, 768px, 1440px",
+      "can_cu": "Slide 10 #17 Breakpoint Layout, #18 Element Overlap, #19 Scroll Boundaries; Slide 31 Responsive",
+      "loai_nguon": "Control",
+      "loai_loi": "Responsive",
+      "viewport": [
+        "375",
+        "768",
+        "1440"
+      ],
+      "tien_dieu_kien": "Mở DevTools Device Toolbar lần lượt đặt chiều rộng 375px (mobile), 768px (tablet) và 1440px (desktop); kiểm tra cả khi đã đăng nhập để có đầy đủ phần tử trên Header và /profile.",
+      "expected": "Thanh Header và khung form trên cả 5 màn hình M1 khi thay đổi viewport ở 375px, 768px và 1440px tự co giãn gọn trong khung nhìn, các liên kết/nút không đè chồng lên nhau và không sinh thanh cuộn ngang. Fail nếu `document.documentElement.scrollWidth > document.documentElement.clientWidth` hoặc bất kỳ nhãn/nút/ô nhập nào bị cắt khuất hay chồng lấp (> 0px).",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: Safari trên iPhone có kích thước khung nhìn di động cố định, không có chế độ chuyển đổi 3 độ phân giải 375px/768px/1440px như trình duyệt desktop."
+      },
+      "nguon": "Both"
+    },
+    {
+      "id": "CL-11",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Độ tương phản màu chữ và màu nền của nhãn, dòng hướng dẫn phụ và nút bấm",
+      "can_cu": "WCAG 2.2 SC 1.4.3 Contrast (Minimum); Nielsen #8 Aesthetic and minimalist design",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "Visual-Layout",
+      "expected": "Toàn bộ văn bản hiển thị gồm tiêu đề, nhãn trường, dòng gợi ý yêu cầu mật khẩu dưới ô nhập, lời chào trên Header và chữ trên nút đều có độ tương phản rõ ràng với màu nền. Fail nếu bất kỳ văn bản thường nào (cỡ chữ < 18pt hoặc < 14pt in đậm) có tỷ lệ tương phản nhỏ hơn 4.5:1 hoặc văn bản lớn nhỏ hơn 3.0:1 (ví dụ chữ xám nhạt `text-gray-400` trên nền trắng).",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-12",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Hiển thị ký hiệu dấu sao (*) bên cạnh nhãn tất cả các trường bắt buộc",
+      "can_cu": "FR-22 (eshop-sut/README.md:252)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Mở lần lượt /register, /login, /forgot-password (Bước 1 & Bước 2) và /profile (khi đã đăng nhập).",
+      "expected": "Tất cả các trường bắt buộc nhập trên /register (Họ Tên, Email, Mật khẩu, Xác nhận mật khẩu), /login (Email, Mật khẩu), /forgot-password (Email ở Bước 1; OTP, Mật khẩu mới, Xác nhận mật khẩu mới ở Bước 2) và /profile (Họ Tên) đều có ký hiệu `*` hiển thị rõ bên cạnh nhãn. Fail nếu bất kỳ trường bắt buộc nào thiếu ký hiệu `*` trên nhãn hiển thị.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-13",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Thuộc tính type=\"email\" và kiểm tra định dạng email hợp lệ trên trang Đăng ký",
+      "can_cu": "FR-01 (eshop-sut/README.md:33); FR-22 (eshop-sut/README.md:253)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "du_lieu": [
+        {
+          "gia_tri": "nguoimoi@eshop.com",
+          "ket_qua_mong_doi": "Hợp lệ, cho phép qua bước kiểm tra định dạng email"
+        },
+        {
+          "gia_tri": "nguoimoieshop.com",
+          "ket_qua_mong_doi": "Bị chặn gửi form kèm cảnh báo sai định dạng email"
+        },
+        {
+          "gia_tri": "nguoimoi@",
+          "ket_qua_mong_doi": "Bị chặn gửi form kèm cảnh báo sai định dạng email"
+        }
+      ],
+      "expected": "Ô nhập Email trên /register có thuộc tính `type=\"email\"` và chặn gửi form khi nhập chuỗi không đúng định dạng `user@domain.com` (kích hoạt bàn phím email trên di động hoặc thông báo lỗi định dạng trước khi gọi API). Fail nếu ô Email có `type` khác `email` hoặc cho phép gửi chuỗi sai định dạng (ví dụ `nguoimoieshop.com`) lên server.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-14",
+      "ia": "IA-02",
+      "man_hinh": "Login, ForgotPassword",
+      "muc_kiem_tra": "Thuộc tính type=\"email\" của ô nhập Email trên trang Đăng nhập và Quên mật khẩu",
+      "can_cu": "FR-02 (eshop-sut/README.md:44); FR-22 (eshop-sut/README.md:253)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "expected": "Ô nhập Email trên trang /login và ở Bước 1 trang /forgot-password đều khai báo `type=\"email\"` và kích hoạt kiểm tra định dạng email chuẩn HTML5 khi bấm gửi với chuỗi thiếu ký tự `@`. Fail nếu bất kỳ ô nào dùng `type=\"text\"` hoặc không chặn định dạng email sai ngay trên form.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-15",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword",
+      "muc_kiem_tra": "Che giấu ký tự nhập bằng type=\"password\" ở tất cả các ô mật khẩu",
+      "can_cu": "FR-22 (eshop-sut/README.md:254)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Mọi ô nhập mật khẩu trên /register, /login và Bước 2 trang /forgot-password khi người dùng gõ ký tự ở trạng thái mặc định đều dùng `type=\"password\"` và hiển thị thành dấu chấm tròn ẩn (`••••`), không lộ ký tự rõ. Fail nếu bất kỳ ô mật khẩu nào dùng `type=\"text\"` hoặc để lộ chuỗi mật khẩu đang gõ.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-16",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Sự tồn tại và kiểm tra khớp của trường Xác nhận mật khẩu trên trang Đăng ký",
+      "can_cu": "FR-01 (eshop-sut/README.md:35)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "expected": "Form /register hiển thị trường `Xác nhận mật khẩu` (`type=\"password\"`) nằm dưới trường `Mật khẩu`; khi nhập hai giá trị khác nhau và bấm `Đăng Ký`, hệ thống chặn gửi và hiển thị thông báo lỗi không khớp. Fail nếu form không có trường `Xác nhận mật khẩu` hoặc vẫn cho phép đăng ký khi hai trường khác giá trị.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-17",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Hiển thị chỉ báo bước (Step Indicator) rõ ràng trên form Quên mật khẩu 2 bước",
+      "can_cu": "FR-03 (eshop-sut/README.md:52); FR-22 (eshop-sut/README.md:256)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA3",
+      "tien_dieu_kien": "Mở /forgot-password quan sát Bước 1, sau đó nhập `test@eshop.com` bấm `Lấy mã OTP` để chuyển sang Bước 2.",
+      "expected": "Form /forgot-password hiển thị thành phần chỉ báo bước (Step Indicator, ví dụ `Bước 1 / 2` ở bước đầu và cập nhật sang `Bước 2 / 2` ở bước đặt lại mật khẩu) giúp người dùng nhận biết vị trí hiện tại trong quy trình. Fail nếu ở Bước 1 hoặc Bước 2 không có bất kỳ chỉ báo bước nào hiển thị trên giao diện.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-18",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Sự tồn tại và kiểm tra khớp của trường Xác nhận mật khẩu mới ở Bước 2 Quên mật khẩu",
+      "can_cu": "FR-03 (eshop-sut/README.md:57-59)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đang ở Bước 2 trang /forgot-password sau khi lấy OTP cho `test@eshop.com`.",
+      "expected": "Form Bước 2 trên /forgot-password hiển thị đầy đủ 3 trường: `OTP`, `Mật khẩu mới` và `Xác nhận mật khẩu mới`; khi nhập `Xác nhận mật khẩu mới` khác với `Mật khẩu mới` và bấm `Đặt lại mật khẩu`, hệ thống từ chối và báo lỗi. Fail nếu thiếu trường `Xác nhận mật khẩu mới` hoặc hệ thống chấp nhận đặt lại khi hai mật khẩu không khớp.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-19",
+      "ia": "IA-02",
+      "man_hinh": "Register, ForgotPassword",
+      "muc_kiem_tra": "Kiểm tra quy tắc mật khẩu mạnh theo đặc tả trên trang Đăng ký và Đặt lại mật khẩu",
+      "can_cu": "FR-01 (eshop-sut/README.md:34); FR-03 (eshop-sut/README.md:58)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "du_lieu": [
+        {
+          "gia_tri": "Abcd123!",
+          "ket_qua_mong_doi": "Hợp lệ (đủ 8 ký tự, chữ hoa, chữ thường, số và ký tự đặc biệt '!'), được chấp nhận"
+        },
+        {
+          "gia_tri": "abcd123!",
+          "ket_qua_mong_doi": "Không hợp lệ (thiếu chữ hoa), bị từ chối kèm thông báo lỗi"
+        },
+        {
+          "gia_tri": "Abcd1234",
+          "ket_qua_mong_doi": "Không hợp lệ (thiếu ký tự đặc biệt @$!%*?&), bị từ chối kèm thông báo lỗi"
+        }
+      ],
+      "expected": "Khi nhập mật khẩu hợp lệ theo đặc tả (ví dụ `Abcd123!` gồm tối thiểu 8 ký tự, chữ hoa, chữ thường, số và ký tự đặc biệt thuộc `@ $ ! % * ? &`) trên /register và Bước 2 /forgot-password, form chấp nhận hợp lệ; khi thiếu một trong các nhóm ký tự trên thì từ chối. Fail nếu mật khẩu đúng chuẩn `Abcd123!` bị báo lỗi từ chối hoặc mật khẩu thiếu điều kiện vẫn vượt qua kiểm tra.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-20",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Độ dài 6 chữ số của mã OTP và nhãn trường OTP ở Bước 2 Quên mật khẩu",
+      "can_cu": "FR-03 (eshop-sut/README.md:51); SEC-07 (eshop-sut/README.md:284); Slide 10 #5 Field Limits",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Nhập `test@eshop.com` tại Bước 1 /forgot-password và bấm `Lấy mã OTP`.",
+      "expected": "Mã OTP demo hiển thị ở Bước 2 gồm đúng 6 chữ số ngẫu nhiên và nhãn/gợi ý của ô nhập OTP mô tả đúng mã 6 chữ số. Fail nếu mã OTP sinh ra có ít hơn 6 chữ số (ví dụ chỉ có 4 chữ số) hoặc nhãn ô nhập ghi sai độ dài mã OTP.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-21",
+      "ia": "IA-02",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Trạng thái vô hiệu hóa chỉnh sửa và khác biệt thị giác của trường Email trên Hồ sơ",
+      "can_cu": "FR-04 (eshop-sut/README.md:66); Slide 10 #6 Disabled States",
+      "loai_nguon": "Control",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đã đăng nhập bằng `test@eshop.com` / `Test1234!` và mở /profile.",
+      "expected": "Ô Email trong khối `Hồ sơ của bạn` tại /profile hiển thị đúng email tài khoản đang đăng nhập, có thuộc tính `disabled` hoặc `readOnly` ngăn người dùng gõ sửa và có màu nền xám phân biệt rõ với các ô cho phép nhập (`Họ Tên`, `Số điện thoại`, `Địa chỉ giao hàng`). Fail nếu người dùng có thể sửa giá trị ô Email hoặc ô Email có giao diện giống hệt ô nhập bình thường.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-22",
+      "ia": "IA-02",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Kiểm tra định dạng Số điện thoại hợp lệ bắt đầu bằng số 0 trên trang Hồ sơ",
+      "can_cu": "FR-04 (eshop-sut/README.md:65)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đã đăng nhập bằng `test@eshop.com` / `Test1234!` và mở /profile.",
+      "du_lieu": [
+        {
+          "gia_tri": "0912345678",
+          "ket_qua_mong_doi": "Hợp lệ (bắt đầu bằng 0, 10 chữ số), cập nhật thành công"
+        },
+        {
+          "gia_tri": "09123456789",
+          "ket_qua_mong_doi": "Hợp lệ (bắt đầu bằng 0, 11 chữ số), cập nhật thành công"
+        },
+        {
+          "gia_tri": "abc1234567",
+          "ket_qua_mong_doi": "Không hợp lệ (chứa chữ cái), bị từ chối kèm thông báo lỗi"
+        }
+      ],
+      "expected": "Khi nhập Số điện thoại bắt đầu bằng `0` có từ 10 đến 11 chữ số (ví dụ `0912345678` khớp với chính placeholder gợi ý trên form) và bấm `Cập nhật`, hệ thống chấp nhận lưu thành công; khi nhập chuỗi chứa chữ cái thì từ chối. Fail nếu số điện thoại hợp lệ bắt đầu bằng `0` (10 hoặc 11 chữ số) bị báo lỗi không hợp lệ hoặc chuỗi chứa chữ cái vẫn lưu thành công.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-23",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Liên kết ngữ nghĩa giữa thẻ label và ô nhập liệu kèm gợi ý định dạng rõ nghĩa",
+      "can_cu": "WCAG 2.2 SC 1.3.1 Info and Relationships, SC 3.3.2 Labels or Instructions; Slide 10 #7 Assistive Hints",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "Visual-Layout",
+      "expected": "Mọi nhãn `<label>` trên các form /register, /login, /forgot-password và /profile được gắn kết với ô nhập tương ứng qua cặp `for`/`id` (hoặc bọc trực tiếp ô nhập) sao cho khi nhấp/chạm vào chữ trên nhãn thì con trỏ tự động focus vào ô nhập đó, đồng thời các trường có định dạng ràng buộc có gợi ý rõ nghĩa. Fail nếu nhấp vào nhãn `<label>` không làm focus ô nhập tương ứng (kiểm tra `label.htmlFor` rỗng và không bọc `input`).",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Item SV tự bổ sung (bước 2) 🔒
+# Item SV tự bổ sung (bước 2)
 
 > Khung do AI dựng (chỉ cấu trúc + quy tắc viết, không có ví dụ item). Nội dung từng item do SV tự viết. Xoá khối hướng dẫn này trước khi nộp.
 >

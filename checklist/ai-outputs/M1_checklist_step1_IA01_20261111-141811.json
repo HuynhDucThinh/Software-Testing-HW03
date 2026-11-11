@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "hw": "HW03",
+    "task": "T1 - GUI Checklist",
+    "student": "Huỳnh Đức Thịnh - 23120199 (23120199@student.hcmus.edu.vn)",
+    "scope": "M1 - Auth & Profile (Register, Login, ForgotPassword, Profile, Header)",
+    "sut_version": "eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)",
+    "test_basis": "eshop-sut/README.md (SRS v2.0) FR-01..04, FR-05:81, FR-21..24, SEC-04, SEC-07; docs/Nhom05_GUI_Testing_Slides.md",
+    "platforms": {
+      "P1": "Chrome trên Windows",
+      "P2": "Firefox trên Windows",
+      "P3": "Safari (macOS/iOS hoặc qua BrowserStack / LambdaTest)"
+    },
+    "result_values": [
+      "Passed",
+      "Failed",
+      "N/A",
+      "Blocked"
+    ],
+    "inventory": "checklist/m1_inventory.md",
+    "version": "v1.1 - AI nháp lượt IA-01 (T1 bước 1)",
+    "step": 1
+  },
+  "assumptions": {
+    "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
+    "GA2": "Đặc tả FR-21 quy định nút hành động tích cực dùng màu xanh dương và nút nguy hiểm/hủy bỏ dùng màu đỏ nhưng không nêu mã HEX; chấp nhận dải màu xanh dương chuẩn (ví dụ Tailwind blue: R < 100, B > 180 trong getComputedStyle.backgroundColor) cho nút Submit chính và dải màu đỏ (R > 180, G < 100, B < 100) cho nút nguy hiểm/đăng xuất."
+  },
+  "items": [
+    {
+      "id": "CL-01",
+      "ia": "IA-01",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Nhất quán ngôn ngữ tiếng Việt của nhãn trường và nút gửi trên trang Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:244)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "gia_dinh": "Giả định GA1",
+      "expected": "Các nhãn trường nhập liệu, nút gửi form và liên kết trên trang /login khi mở màn hình Đăng nhập đều hiển thị bằng tiếng Việt tự nhiên, nhất quán (chỉ trừ thuật ngữ chuẩn 'Email'). Fail nếu xuất hiện bất kỳ nhãn hoặc chữ trên nút bằng tiếng Anh thông thường (ví dụ 'Username', 'Sign In', 'Login', 'Password').",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-02",
+      "ia": "IA-01",
+      "man_hinh": "Register, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Nhất quán ngôn ngữ tiếng Việt và chính tả trên Register, ForgotPassword, Profile và Header",
+      "can_cu": "FR-21 (eshop-sut/README.md:244); Slide 10 #3 Typography and Content",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "gia_dinh": "Giả định GA1",
+      "tien_dieu_kien": "Kiểm tra cả trạng thái chưa đăng nhập (/register, /forgot-password Bước 1 & 2) và đã đăng nhập (/profile, Header).",
+      "expected": "Toàn bộ tiêu đề, nhãn trường, placeholder, dòng gợi ý và chữ trên nút tại /register, /forgot-password (cả 2 bước), khối Hồ sơ của /profile và thanh Header khi hiển thị đều dùng tiếng Việt đúng chính tả, không pha trộn tiếng Anh ngoài 'Email', 'OTP', 'EShop'. Fail nếu có từ tiếng Anh không thuộc thuật ngữ chuẩn hoặc có lỗi chính tả tiếng Việt quan sát được.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-03",
+      "ia": "IA-01",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Số lượng và nội dung thẻ tiêu đề chính h1 trên trang Đăng ký",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Tiêu đề chính của trang /register khi kiểm tra DOM (document.querySelectorAll('h1')) có đúng 1 thẻ <h1> đang hiển thị và văn bản mô tả đúng chức năng đăng ký tài khoản. Fail nếu số lượng thẻ <h1> hiển thị bằng 0, lớn hơn 1, hoặc nội dung <h1> không phản ánh chức năng đăng ký.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-04",
+      "ia": "IA-01",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Số lượng thẻ h1 và tính chính xác của tiêu đề trang Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Tiêu đề chính trên trang /login khi mở trang và kiểm tra DOM có đúng 1 thẻ <h1> hiển thị với văn bản mô tả đúng chức năng 'Đăng nhập'. Fail nếu số lượng thẻ <h1> khác 1 hoặc văn bản tiêu đề hiển thị sai tên chức năng (ví dụ hiển thị 'Đăng Ký').",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-05",
+      "ia": "IA-01",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Số lượng và nội dung thẻ tiêu đề chính h1 trên trang Quên mật khẩu ở cả 2 bước",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Kiểm tra ở Bước 1, sau đó nhập email hợp lệ (test@eshop.com) để chuyển sang Bước 2.",
+      "expected": "Tiêu đề chính trên trang /forgot-password khi quan sát và kiểm tra DOM ở cả Bước 1 lẫn Bước 2 luôn có đúng 1 thẻ <h1> hiển thị mô tả chức năng quên/đặt lại mật khẩu. Fail nếu ở bất kỳ bước nào số lượng thẻ <h1> khác 1 hoặc nội dung tiêu đề sai lệch chức năng.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-06",
+      "ia": "IA-01",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Số lượng thẻ tiêu đề cấp trang h1 trên trang Hồ sơ cá nhân",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Đã đăng nhập bằng tài khoản user (test@eshop.com / Test1234!) và mở /profile.",
+      "expected": "Trang /profile khi đã đăng nhập và kiểm tra DOM có đúng 1 thẻ <h1> duy nhất làm tiêu đề cấp trang, các tiêu đề vùng con dùng từ <h2> trở xuống. Fail nếu document.querySelectorAll('h1').length bằng 0 hoặc lớn hơn 1.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-07",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, Profile",
+      "muc_kiem_tra": "Nhất quán màu xanh dương của nút hành động tích cực Submit trên Register, Login và Profile",
+      "can_cu": "FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA2",
+      "tien_dieu_kien": "Kiểm tra nút Submit trên /register, /login và khối Hồ sơ của /profile (khi đã đăng nhập).",
+      "expected": "Nút Submit chính trên /register ('Đăng Ký'), /login và /profile ('Cập nhật') khi hiển thị ở trạng thái mặc định đều có màu nền xanh dương đồng nhất (kiểm tra mắt thường và getComputedStyle(btn).backgroundColor thuộc dải xanh dương). Fail nếu bất kỳ nút Submit tích cực nào dùng màu đỏ (nhầm với nút nguy hiểm/hủy) hoặc màu khác xanh dương.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-08",
+      "ia": "IA-01",
+      "man_hinh": "ForgotPassword, Header",
+      "muc_kiem_tra": "Phân biệt màu sắc nút hành động tích cực, nút điều hướng phụ và nút đăng xuất trên ForgotPassword và Header",
+      "can_cu": "FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA2",
+      "tien_dieu_kien": "Kiểm tra Bước 1 & Bước 2 của /forgot-password và thanh Header khi đã đăng nhập.",
+      "expected": "Các nút hành động tích cực ('Lấy mã OTP', 'Đặt lại mật khẩu') có nền màu xanh dương, nút phụ ('Quay lại') có kiểu trung tính phân biệt rõ với nút chính, và nút thoát phiên đăng nhập trên Header dùng màu đỏ theo quy ước. Fail nếu nút tích cực dùng màu khác xanh dương (ví dụ xanh lá) hoặc nút 'Đặt lại mật khẩu' và nút 'Quay lại' dùng cùng một màu nền gây nhầm lẫn vai trò.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-09",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Căn lề dọc thẳng hàng giữa các nhãn, ô nhập liệu và nút Submit trong khung form",
+      "can_cu": "Slide 10 #1 Visual Consistency - Alignment",
+      "loai_nguon": "Control",
+      "loai_loi": "Visual-Layout",
+      "viewport": "1440",
+      "expected": "Các nhãn, ô input/textarea và nút Submit bên trong khung form tại /register, /login, /forgot-password và cột Hồ sơ /profile trên viewport 1440px được căn thẳng mép trái và có cùng chiều rộng nội khung. Fail nếu chênh lệch toạ độ left hoặc width (đo bằng getBoundingClientRect() trong DevTools) giữa các ô nhập và nút toàn chiều rộng trong cùng form vượt quá 2px.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-10",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Bố cục đáp ứng và không tràn cuộn ngang ở 3 độ phân giải 375px, 768px, 1440px",
+      "can_cu": "Slide 10 #17 Breakpoint Layout, #18 Element Overlap, #19 Scroll Boundaries; Slide 31 Responsive",
+      "loai_nguon": "Control",
+      "loai_loi": "Responsive",
+      "viewport": [
+        "375",
+        "768",
+        "1440"
+      ],
+      "tien_dieu_kien": "Mở DevTools Device Toolbar lần lượt đặt chiều rộng 375px (mobile), 768px (tablet) và 1440px (desktop); kiểm tra cả khi đã đăng nhập để có đầy đủ phần tử trên Header và /profile.",
+      "expected": "Thanh Header và khung form trên cả 5 màn hình M1 khi thay đổi viewport ở 375px, 768px và 1440px tự co giãn gọn trong khung nhìn, các liên kết/nút không đè chồng lên nhau và không sinh thanh cuộn ngang. Fail nếu document.documentElement.scrollWidth > document.documentElement.clientWidth hoặc bất kỳ nhãn/nút/ô nhập nào bị cắt khuất hay chồng lấp (> 0px).",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    },
+    {
+      "id": "CL-11",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Độ tương phản màu chữ và màu nền của nhãn, dòng hướng dẫn phụ và nút bấm",
+      "can_cu": "WCAG 2.2 SC 1.4.3 Contrast (Minimum); Nielsen #8 Aesthetic and minimalist design",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "Visual-Layout",
+      "expected": "Toàn bộ văn bản hiển thị gồm tiêu đề, nhãn trường, dòng gợi ý yêu cầu mật khẩu dưới ô nhập, lời chào trên Header và chữ trên nút khi đo bằng công cụ Inspect Accessibility/Contrast trong DevTools đều đảm bảo độ dễ đọc. Fail nếu bất kỳ văn bản thường nào (cỡ chữ < 18pt hoặc < 14pt in đậm) có tỷ lệ tương phản nhỏ hơn 4.5:1 hoặc văn bản lớn nhỏ hơn 3.0:1 (ví dụ chữ xám nhạt text-gray-400 trên nền trắng).",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI"
+    }
+  ]
+}
