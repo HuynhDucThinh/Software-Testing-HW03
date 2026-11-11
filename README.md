@@ -62,7 +62,7 @@ Software-Testing-HW03/
 | **Số nền tảng thực thi (Platforms tested)** | **3** | `P1` Chrome 157 (Win 11), `P2` Firefox 137 (Win 11), `P3` Chrome Android 156 (OPPO Reno10 5G) |
 | **Tổng số lượt kiểm tra đã thực thi (Executed checks)** | **168 / 177** | `P1`: 58/59, `P2`: 58/59, `P3`: 52/59 (9 lượt `N/A` có giả định `NA1`, `NA2`) |
 | **Tổng kết quả lượt chạy (Passed / Failed / N/A / Blocked)** | **38 Passed / 130 Failed / 9 N/A / 0 Blocked** | `45 / 59` mục độc lập phát hiện lỗi (`Failed`) trên ít nhất 1 nền tảng (`14 / 59` mục `Passed` hoàn toàn) |
-| **Tổng số Bugs đã báo cáo (GitHub Issues)** | *Đang cập nhật (Bước 6)* | Kèm ảnh chụp màn hình đính kèm trên từng Issue |
+| **Tổng số Bugs đã báo cáo (GitHub Issues)** | **27 Bugs (`#1`..`#27`)** | `5 Critical`, `10 Major`, `11 Minor`, `1 Cosmetic` — [GitHub Issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues) & [`Bug_Report.md`](Bug_Report.md) |
 | **Số người tham gia Usability (Participants)** | *Đang cập nhật (Task 2)* | 7 người thật ngoài lớp học (+ 1 phiên Pilot) |
 | **Video Demo Agent Skills (YouTube)** | *Đang cập nhật (Task 4)* | Link video trình diễn end-to-end |
 

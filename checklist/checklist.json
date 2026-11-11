@@ -18,8 +18,8 @@
       "Blocked"
     ],
     "inventory": "checklist/m1_inventory.md",
-    "version": "v5 - Xuất Excel 3 sheet & Test Summary (T1 bước 5)",
-    "step": 5
+    "version": "v6",
+    "step": 6
   },
   "assumptions": {
     "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
@@ -98,7 +98,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-14",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14"
     },
     {
       "id": "CL-02",
@@ -219,7 +221,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-13",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
     },
     {
       "id": "CL-04",
@@ -284,7 +288,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-13",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
     },
     {
       "id": "CL-05",
@@ -350,7 +356,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-13",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
     },
     {
       "id": "CL-06",
@@ -416,7 +424,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-13",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
     },
     {
       "id": "CL-07",
@@ -483,7 +493,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-19",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19"
     },
     {
       "id": "CL-08",
@@ -550,7 +562,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-19",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19"
     },
     {
       "id": "CL-09",
@@ -726,7 +740,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-20",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/20"
     },
     {
       "id": "CL-12",
@@ -792,7 +808,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-23",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23"
     },
     {
       "id": "CL-13",
@@ -871,7 +889,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-09",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9"
     },
     {
       "id": "CL-14",
@@ -936,7 +956,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-09",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9"
     },
     {
       "id": "CL-15",
@@ -1001,7 +1023,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-04",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/4"
     },
     {
       "id": "CL-16",
@@ -1066,7 +1090,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-07",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7"
     },
     {
       "id": "CL-17",
@@ -1133,7 +1159,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-21",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21"
     },
     {
       "id": "CL-18",
@@ -1199,7 +1227,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-07",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7"
     },
     {
       "id": "CL-19",
@@ -1278,7 +1308,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-01",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
     },
     {
       "id": "CL-20",
@@ -1344,7 +1376,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-08",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/8"
     },
     {
       "id": "CL-21",
@@ -1479,7 +1513,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-05",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5"
     },
     {
       "id": "CL-23",
@@ -1544,7 +1580,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-23",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23"
     },
     {
       "id": "CL-24",
@@ -1610,7 +1648,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-25",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
     },
     {
       "id": "CL-25",
@@ -1676,7 +1716,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-14",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14"
     },
     {
       "id": "CL-26",
@@ -1741,7 +1783,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-21",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21"
     },
     {
       "id": "CL-27",
@@ -1860,7 +1904,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-25",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
     },
     {
       "id": "CL-29",
@@ -1981,7 +2027,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-10",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/10"
     },
     {
       "id": "CL-31",
@@ -2040,7 +2088,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-27",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27"
     },
     {
       "id": "CL-32",
@@ -2106,7 +2156,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-02",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/2"
     },
     {
       "id": "CL-33",
@@ -2172,7 +2224,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-06",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/6"
     },
     {
       "id": "CL-34",
@@ -2293,7 +2347,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-16",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/16"
     },
     {
       "id": "CL-36",
@@ -2360,7 +2416,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-11",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/11"
     },
     {
       "id": "CL-37",
@@ -2421,7 +2479,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-26",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/26"
     },
     {
       "id": "CL-38",
@@ -2594,7 +2654,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-15",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/15"
     },
     {
       "id": "SV-02",
@@ -2720,7 +2782,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-17",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17"
     },
     {
       "id": "SV-04",
@@ -2791,7 +2855,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-17",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17"
     },
     {
       "id": "SV-05",
@@ -2861,7 +2927,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-03",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/3"
     },
     {
       "id": "SV-06",
@@ -2931,7 +2999,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-18",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/18"
     },
     {
       "id": "SV-07",
@@ -3060,7 +3130,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-01",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
     },
     {
       "id": "SV-09",
@@ -3130,7 +3202,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-01",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
     },
     {
       "id": "SV-10",
@@ -3200,7 +3274,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-05",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5"
     },
     {
       "id": "SV-11",
@@ -3271,7 +3347,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-12",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/12"
     },
     {
       "id": "SV-12",
@@ -3341,7 +3419,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-24",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/24"
     },
     {
       "id": "SV-13",
@@ -3411,7 +3491,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-22",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22"
     },
     {
       "id": "SV-14",
@@ -3481,7 +3563,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-22",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22"
     },
     {
       "id": "SV-15",
@@ -3611,7 +3695,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-25",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
     },
     {
       "id": "SV-17",
@@ -3793,7 +3879,9 @@
         "P1": "checklist/runs/P1_20261111-1650.csv",
         "P2": "checklist/runs/P2_20261111-1700.csv",
         "P3": "checklist/runs/P3_20261111-1710.csv"
-      }
+      },
+      "bug_id": "BUG-27",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27"
     },
     {
       "id": "SV-20",
@@ -3849,7 +3937,9 @@
         "P3": [
           "screenshots/task1_failed/P3_SV-20.png"
         ]
-      }
+      },
+      "bug_id": "BUG-24",
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/24"
     }
   ]
 }

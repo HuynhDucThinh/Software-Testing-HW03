@@ -1,0 +1,846 @@
+[
+  {
+    "bug_id": "BUG-01",
+    "group_id": "G-01",
+    "ia": "IA-02",
+    "screens_label": "Register (`/register`), ForgotPassword (`/forgot-password` — Bước 2)",
+    "loai_loi": "State",
+    "severity": "Critical",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-19",
+      "SV-08",
+      "SV-09"
+    ],
+    "title": "[Register, ForgotPassword] Biểu thức chính quy mật khẩu bắt buộc khoảng trắng và từ chối toàn bộ ký tự đặc biệt hợp lệ (@ $ ! % * ? &)",
+    "gh_title": "[HW03-M1] [BUG-01] [IA-02] [Register, ForgotPassword] Biểu thức chính quy mật khẩu bắt buộc khoảng trắng và từ chối toàn bộ ký tự đặc biệt hợp lệ (@ $ ! % * ? &)",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: critical"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-19.png",
+      "screenshots/task1_failed/P3_SV-09.png"
+    ],
+    "issue_number": 1,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
+  },
+  {
+    "bug_id": "BUG-02",
+    "group_id": "G-02",
+    "ia": "IA-04",
+    "screens_label": "Register (`/register`)",
+    "loai_loi": "State",
+    "severity": "Critical",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-32"
+    ],
+    "title": "[Register] Cho phép đăng ký trùng lặp địa chỉ Email đã tồn tại mà không kiểm tra duy nhất hay hiển thị thông báo lỗi",
+    "gh_title": "[HW03-M1] [BUG-02] [IA-04] [Register] Cho phép đăng ký trùng lặp địa chỉ Email đã tồn tại mà không kiểm tra duy nhất hay hiển thị thông báo lỗi",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-04",
+      "severity: critical"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-32.png"
+    ],
+    "issue_number": 2,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/2"
+  },
+  {
+    "bug_id": "BUG-03",
+    "group_id": "G-03",
+    "ia": "IA-04",
+    "screens_label": "Header/Navbar, Profile (`/profile`)",
+    "loai_loi": "State",
+    "severity": "Critical",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "SV-05"
+    ],
+    "title": "[Header, Profile] Lỗ hổng Stored XSS ở lời chào trên Header do hiển thị Họ Tên qua dangerouslySetInnerHTML",
+    "gh_title": "[HW03-M1] [BUG-03] [IA-04] [Header, Profile] Lỗ hổng Stored XSS ở lời chào trên Header do hiển thị Họ Tên qua dangerouslySetInnerHTML",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-04",
+      "severity: critical"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_SV-05.png"
+    ],
+    "issue_number": 3,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/3"
+  },
+  {
+    "bug_id": "BUG-04",
+    "group_id": "G-04",
+    "ia": "IA-02",
+    "screens_label": "Login (`/login`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Critical",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-15"
+    ],
+    "title": "[Login] Ô nhập Mật khẩu trên trang Đăng nhập dùng type='text' làm lộ toàn bộ ký tự mật khẩu trên màn hình",
+    "gh_title": "[HW03-M1] [BUG-04] [IA-02] [Login] Ô nhập Mật khẩu trên trang Đăng nhập dùng type='text' làm lộ toàn bộ ký tự mật khẩu trên màn hình",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: critical"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-15.png",
+      "screenshots/task1_failed/P3_CL-15.png"
+    ],
+    "issue_number": 4,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/4"
+  },
+  {
+    "bug_id": "BUG-05",
+    "group_id": "G-05",
+    "ia": "IA-02",
+    "screens_label": "Profile (`/profile`)",
+    "loai_loi": "State",
+    "severity": "Critical",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-22",
+      "SV-10"
+    ],
+    "title": "[Profile] Kiểm tra Số điện thoại sai biểu thức chính quy: từ chối số hợp lệ bắt đầu bằng 0 nhưng chấp nhận số không có 0 đầu",
+    "gh_title": "[HW03-M1] [BUG-05] [IA-02] [Profile] Kiểm tra Số điện thoại sai biểu thức chính quy: từ chối số hợp lệ bắt đầu bằng 0 nhưng chấp nhận số không có 0 đầu",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: critical"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-22.png",
+      "screenshots/task1_failed/P1_SV-10.png"
+    ],
+    "issue_number": 5,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5"
+  },
+  {
+    "bug_id": "BUG-06",
+    "group_id": "G-06",
+    "ia": "IA-04",
+    "screens_label": "Login (`/login`)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-33"
+    ],
+    "title": "[Login] Khóa tài khoản sớm ngay sau 2 lần nhập sai mật khẩu trong 180 giây và không hiển thị thông báo tài khoản đang bị khóa",
+    "gh_title": "[HW03-M1] [BUG-06] [IA-04] [Login] Khóa tài khoản sớm ngay sau 2 lần nhập sai mật khẩu trong 180 giây và không hiển thị thông báo tài khoản đang bị khóa",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-04",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-33.png"
+    ],
+    "issue_number": 6,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/6"
+  },
+  {
+    "bug_id": "BUG-07",
+    "group_id": "G-07",
+    "ia": "IA-02",
+    "screens_label": "Register (`/register`), ForgotPassword (`/forgot-password` — Bước 2)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-16",
+      "CL-18"
+    ],
+    "title": "[Register, ForgotPassword] Biểu mẫu Đăng ký và Đặt lại mật khẩu (Bước 2) thiếu hoàn toàn trường Xác nhận mật khẩu",
+    "gh_title": "[HW03-M1] [BUG-07] [IA-02] [Register, ForgotPassword] Biểu mẫu Đăng ký và Đặt lại mật khẩu (Bước 2) thiếu hoàn toàn trường Xác nhận mật khẩu",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-16.png",
+      "screenshots/task1_failed/P1_CL-18.png"
+    ],
+    "issue_number": 7,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7"
+  },
+  {
+    "bug_id": "BUG-08",
+    "group_id": "G-08",
+    "ia": "IA-02",
+    "screens_label": "ForgotPassword (`/forgot-password`)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-20"
+    ],
+    "title": "[ForgotPassword] Mã OTP khôi phục mật khẩu chỉ sinh 4 chữ số thay vì 6 chữ số theo đặc tả FR-03 và SEC-07",
+    "gh_title": "[HW03-M1] [BUG-08] [IA-02] [ForgotPassword] Mã OTP khôi phục mật khẩu chỉ sinh 4 chữ số thay vì 6 chữ số theo đặc tả FR-03 và SEC-07",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-20.png"
+    ],
+    "issue_number": 8,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/8"
+  },
+  {
+    "bug_id": "BUG-09",
+    "group_id": "G-09",
+    "ia": "IA-02",
+    "screens_label": "Register (`/register`), Login (`/login`), ForgotPassword (`/forgot-password` — Bước 1)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "High",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-13",
+      "CL-14"
+    ],
+    "title": "[Register, Login, ForgotPassword] Tất cả ô nhập Email khai báo type='text' khiến chuỗi sai định dạng email vẫn gửi request lên API",
+    "gh_title": "[HW03-M1] [BUG-09] [IA-02] [Register, Login, ForgotPassword] Tất cả ô nhập Email khai báo type='text' khiến chuỗi sai định dạng email vẫn gửi request lên API",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-13.png",
+      "screenshots/task1_failed/P1_CL-14.png"
+    ],
+    "issue_number": 9,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9"
+  },
+  {
+    "bug_id": "BUG-10",
+    "group_id": "G-10",
+    "ia": "IA-03",
+    "screens_label": "Profile (`/profile`)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-30"
+    ],
+    "title": "[Profile] Truy cập trực tiếp /profile khi chưa đăng nhập không tự chuyển hướng về /login và không có liên kết đăng nhập trong vùng nội dung",
+    "gh_title": "[HW03-M1] [BUG-10] [IA-03] [Profile] Truy cập trực tiếp /profile khi chưa đăng nhập không tự chuyển hướng về /login và không có liên kết đăng nhập trong vùng nội dung",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-03",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-30.png"
+    ],
+    "issue_number": 10,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/10"
+  },
+  {
+    "bug_id": "BUG-11",
+    "group_id": "G-11",
+    "ia": "IA-04",
+    "screens_label": "Profile (`/profile`), Header/Navbar",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-36"
+    ],
+    "title": "[Profile, Header] Lời chào trên thanh Header không cập nhật theo Họ Tên mới sau khi lưu Hồ sơ thành công",
+    "gh_title": "[HW03-M1] [BUG-11] [IA-04] [Profile, Header] Lời chào trên thanh Header không cập nhật theo Họ Tên mới sau khi lưu Hồ sơ thành công",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-04",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-36.png"
+    ],
+    "issue_number": 11,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/11"
+  },
+  {
+    "bug_id": "BUG-12",
+    "group_id": "G-12",
+    "ia": "IA-02",
+    "screens_label": "Register (`/register`), Profile (`/profile`)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "SV-11"
+    ],
+    "title": "[Register, Profile] Chấp nhận trường Họ Tên chỉ gồm toàn ký tự khoảng trắng khiến lời chào Header hiển thị cụt 'Chào,'",
+    "gh_title": "[HW03-M1] [BUG-12] [IA-02] [Register, Profile] Chấp nhận trường Họ Tên chỉ gồm toàn ký tự khoảng trắng khiến lời chào Header hiển thị cụt 'Chào,'",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_SV-11.png"
+    ],
+    "issue_number": 12,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/12"
+  },
+  {
+    "bug_id": "BUG-13",
+    "group_id": "G-13",
+    "ia": "IA-01",
+    "screens_label": "Register (`/register`), Login (`/login`), ForgotPassword (`/forgot-password`), Profile (`/profile`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Major",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-03",
+      "CL-04",
+      "CL-05",
+      "CL-06"
+    ],
+    "title": "[Register, Login, ForgotPassword, Profile] Cả 4 trang thiếu thẻ tiêu đề cấp trang h1 và trang Đăng nhập hiển thị sai tiêu đề thành 'Đăng Ký'",
+    "gh_title": "[HW03-M1] [BUG-13] [IA-01] [Register, Login, ForgotPassword, Profile] Cả 4 trang thiếu thẻ tiêu đề cấp trang h1 và trang Đăng nhập hiển thị sai tiêu đề thành 'Đăng Ký'",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-01",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-04.png",
+      "screenshots/task1_failed/P1_CL-03.png"
+    ],
+    "issue_number": 13,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
+  },
+  {
+    "bug_id": "BUG-14",
+    "group_id": "G-14",
+    "ia": "IA-01",
+    "screens_label": "Login (`/login`), Header/Navbar",
+    "loai_loi": "Typo-Localization",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-01",
+      "CL-25"
+    ],
+    "title": "[Login, Header] Giao diện không nhất quán tiếng Việt: trang Đăng nhập trộn nhãn tiếng Anh ('Username', 'Sign In') và Header dùng nhãn 'Thoát' thay vì 'Đăng xuất'",
+    "gh_title": "[HW03-M1] [BUG-14] [IA-01] [Login, Header] Giao diện không nhất quán tiếng Việt: trang Đăng nhập trộn nhãn tiếng Anh ('Username', 'Sign In') và Header dùng nhãn 'Thoát' thay vì 'Đăng xuất'",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-01",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-01.png",
+      "screenshots/task1_failed/P1_CL-25.png"
+    ],
+    "issue_number": 14,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14"
+  },
+  {
+    "bug_id": "BUG-15",
+    "group_id": "G-15",
+    "ia": "IA-03",
+    "screens_label": "Login (`/login`)",
+    "loai_loi": "State",
+    "severity": "Major",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2"
+    ],
+    "items": [
+      "SV-01"
+    ],
+    "title": "[Login] Thứ tự di chuyển focus bằng phím Tab bị đảo ngược do nút 'Sign In' gắn cứng tabIndex={1}",
+    "gh_title": "[HW03-M1] [BUG-15] [IA-03] [Login] Thứ tự di chuyển focus bằng phím Tab bị đảo ngược do nút 'Sign In' gắn cứng tabIndex={1}",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-03",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_SV-01.png",
+      "screenshots/task1_failed/P2_SV-01.png"
+    ],
+    "issue_number": 15,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/15"
+  },
+  {
+    "bug_id": "BUG-16",
+    "group_id": "G-16",
+    "ia": "IA-04",
+    "screens_label": "ForgotPassword (`/forgot-password`), Profile (`/profile`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Major",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-35"
+    ],
+    "title": "[ForgotPassword, Profile] Sử dụng hộp thoại chặn window.alert() và hiển thị thông báo lỗi tiếng Anh thô 'Lỗi: User not found'",
+    "gh_title": "[HW03-M1] [BUG-16] [IA-04] [ForgotPassword, Profile] Sử dụng hộp thoại chặn window.alert() và hiển thị thông báo lỗi tiếng Anh thô 'Lỗi: User not found'",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-04",
+      "severity: major"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-35.png"
+    ],
+    "issue_number": 16,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/16"
+  },
+  {
+    "bug_id": "BUG-17",
+    "group_id": "G-17",
+    "ia": "IA-02",
+    "screens_label": "Login (`/login`), Register (`/register`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "SV-03",
+      "SV-04"
+    ],
+    "title": "[Login, Register] Vị trí khối thông báo lỗi đặt sai chuẩn: nằm bên dưới nút 'Sign In' ở Đăng nhập và cách xa nút 'Đăng Ký' 336px ở đầu form Đăng ký",
+    "gh_title": "[HW03-M1] [BUG-17] [IA-02] [Login, Register] Vị trí khối thông báo lỗi đặt sai chuẩn: nằm bên dưới nút 'Sign In' ở Đăng nhập và cách xa nút 'Đăng Ký' 336px ở đầu form Đăng ký",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_SV-03.png",
+      "screenshots/task1_failed/P1_SV-04.png"
+    ],
+    "issue_number": 17,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17"
+  },
+  {
+    "bug_id": "BUG-18",
+    "group_id": "G-18",
+    "ia": "IA-01",
+    "screens_label": "Header/Navbar, Profile (`/profile`)",
+    "loai_loi": "Responsive",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "SV-06"
+    ],
+    "title": "[Header] Họ Tên dài 100 ký tự không khoảng trắng làm tràn ngang thanh Header và đẩy nút 'Thoát' ra khỏi khung nhìn",
+    "gh_title": "[HW03-M1] [BUG-18] [IA-01] [Header] Họ Tên dài 100 ký tự không khoảng trắng làm tràn ngang thanh Header và đẩy nút 'Thoát' ra khỏi khung nhìn",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-01",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P3_SV-06.png",
+      "screenshots/task1_failed/P1_SV-06.png"
+    ],
+    "issue_number": 18,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/18"
+  },
+  {
+    "bug_id": "BUG-19",
+    "group_id": "G-19",
+    "ia": "IA-01",
+    "screens_label": "Register (`/register`), ForgotPassword (`/forgot-password` — Bước 2), Header/Navbar",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-07",
+      "CL-08"
+    ],
+    "title": "[Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám",
+    "gh_title": "[HW03-M1] [BUG-19] [IA-01] [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-01",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-07.png",
+      "screenshots/task1_failed/P1_CL-08.png"
+    ],
+    "issue_number": 19,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19"
+  },
+  {
+    "bug_id": "BUG-20",
+    "group_id": "G-20",
+    "ia": "IA-01",
+    "screens_label": "Register (`/register`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Low",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-11"
+    ],
+    "title": "[Register] Dòng hướng dẫn quy tắc mật khẩu màu xám nhạt (#9ca3af) chỉ đạt độ tương phản 2.54:1, thấp hơn chuẩn WCAG AA 4.5:1",
+    "gh_title": "[HW03-M1] [BUG-20] [IA-01] [Register] Dòng hướng dẫn quy tắc mật khẩu màu xám nhạt (#9ca3af) chỉ đạt độ tương phản 2.54:1, thấp hơn chuẩn WCAG AA 4.5:1",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-01",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-11.png"
+    ],
+    "issue_number": 20,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/20"
+  },
+  {
+    "bug_id": "BUG-21",
+    "group_id": "G-21",
+    "ia": "IA-03",
+    "screens_label": "ForgotPassword (`/forgot-password`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-17",
+      "CL-26"
+    ],
+    "title": "[ForgotPassword] Luồng Quên mật khẩu 2 bước thiếu chỉ báo bước (Step Indicator) và Bước 1 thiếu liên kết 'Quay lại đăng nhập'",
+    "gh_title": "[HW03-M1] [BUG-21] [IA-03] [ForgotPassword] Luồng Quên mật khẩu 2 bước thiếu chỉ báo bước (Step Indicator) và Bước 1 thiếu liên kết 'Quay lại đăng nhập'",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-03",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-17.png",
+      "screenshots/task1_failed/P1_CL-26.png"
+    ],
+    "issue_number": 21,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21"
+  },
+  {
+    "bug_id": "BUG-22",
+    "group_id": "G-22",
+    "ia": "IA-02",
+    "screens_label": "ForgotPassword (`/forgot-password` — Bước 2), Register (`/register`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Low",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "SV-13",
+      "SV-14"
+    ],
+    "title": "[ForgotPassword, Register] Bước 2 Quên mật khẩu thiếu hẳn dòng gợi ý quy tắc mật khẩu và dòng gợi ý trên Đăng ký không liệt kê tập ký tự đặc biệt cho phép",
+    "gh_title": "[HW03-M1] [BUG-22] [IA-02] [ForgotPassword, Register] Bước 2 Quên mật khẩu thiếu hẳn dòng gợi ý quy tắc mật khẩu và dòng gợi ý trên Đăng ký không liệt kê tập ký tự đặc biệt cho phép",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_SV-13.png",
+      "screenshots/task1_failed/P1_SV-14.png"
+    ],
+    "issue_number": 22,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22"
+  },
+  {
+    "bug_id": "BUG-23",
+    "group_id": "G-23",
+    "ia": "IA-02",
+    "screens_label": "Register (`/register`), Login (`/login`), ForgotPassword (`/forgot-password`), Profile (`/profile`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-12",
+      "CL-23"
+    ],
+    "title": "[Register, Login, ForgotPassword, Profile] Tất cả nhãn trường bắt buộc thiếu dấu sao (*) và 10/10 thẻ label không liên kết htmlFor/id với ô nhập liệu",
+    "gh_title": "[HW03-M1] [BUG-23] [IA-02] [Register, Login, ForgotPassword, Profile] Tất cả nhãn trường bắt buộc thiếu dấu sao (*) và 10/10 thẻ label không liên kết htmlFor/id với ô nhập liệu",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-12.png",
+      "screenshots/task1_failed/P1_CL-23.png"
+    ],
+    "issue_number": 23,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23"
+  },
+  {
+    "bug_id": "BUG-24",
+    "group_id": "G-24",
+    "ia": "IA-02",
+    "screens_label": "Login (`/login`), ForgotPassword (`/forgot-password` — Bước 2), Profile (`/profile`)",
+    "loai_loi": "State",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "SV-12",
+      "SV-20"
+    ],
+    "title": "[Login, ForgotPassword, Profile] Ô nhập thiếu thuộc tính name/autocomplete gây tự điền nhầm Email vào ô OTP và ô Số điện thoại thiếu type='tel' mở bàn phím chữ trên di động",
+    "gh_title": "[HW03-M1] [BUG-24] [IA-02] [Login, ForgotPassword, Profile] Ô nhập thiếu thuộc tính name/autocomplete gây tự điền nhầm Email vào ô OTP và ô Số điện thoại thiếu type='tel' mở bàn phím chữ trên di động",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-02",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P3_SV-20.png",
+      "screenshots/task1_failed/P1_SV-12.png"
+    ],
+    "issue_number": 24,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/24"
+  },
+  {
+    "bug_id": "BUG-25",
+    "group_id": "G-25",
+    "ia": "IA-03",
+    "screens_label": "Header/Navbar, Login (`/login`), Register (`/register`), ForgotPassword (`/forgot-password`), Profile (`/profile`)",
+    "loai_loi": "Visual-Layout",
+    "severity": "Minor",
+    "priority": "Low",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-24",
+      "CL-28",
+      "SV-16"
+    ],
+    "title": "[Header, Login] Thanh Navbar không đánh dấu mục trang đang mở, liên kết 'Quên mật khẩu?' gây tải lại toàn trang và tiêu đề tab trình duyệt giữ nguyên 'frontend-web' ở mọi route",
+    "gh_title": "[HW03-M1] [BUG-25] [IA-03] [Header, Login] Thanh Navbar không đánh dấu mục trang đang mở, liên kết 'Quên mật khẩu?' gây tải lại toàn trang và tiêu đề tab trình duyệt giữ nguyên 'frontend-web' ở mọi route",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-03",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-24.png",
+      "screenshots/task1_failed/P1_CL-28.png",
+      "screenshots/task1_failed/P1_SV-16.png"
+    ],
+    "issue_number": 25,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
+  },
+  {
+    "bug_id": "BUG-26",
+    "group_id": "G-26",
+    "ia": "IA-04",
+    "screens_label": "Register (`/register`), Login (`/login`), ForgotPassword (`/forgot-password`), Profile (`/profile`)",
+    "loai_loi": "State",
+    "severity": "Minor",
+    "priority": "Medium",
+    "platforms": [
+      "P1",
+      "P2"
+    ],
+    "items": [
+      "CL-37"
+    ],
+    "title": "[Register, Login, ForgotPassword, Profile] Các nút gửi biểu mẫu thiếu trạng thái đang xử lý (loading) và không khóa tạm (disabled) để chống bấm đúp khi chờ API",
+    "gh_title": "[HW03-M1] [BUG-26] [IA-04] [Register, Login, ForgotPassword, Profile] Các nút gửi biểu mẫu thiếu trạng thái đang xử lý (loading) và không khóa tạm (disabled) để chống bấm đúp khi chờ API",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-04",
+      "severity: minor"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-37.png"
+    ],
+    "issue_number": 26,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/26"
+  },
+  {
+    "bug_id": "BUG-27",
+    "group_id": "G-27",
+    "ia": "IA-03",
+    "screens_label": "Register (`/register`), Login (`/login`), ForgotPassword (`/forgot-password`), Profile (`/profile`), Header/Navbar",
+    "loai_loi": "Visual-Layout",
+    "severity": "Cosmetic",
+    "priority": "Low",
+    "platforms": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "items": [
+      "CL-31",
+      "SV-19"
+    ],
+    "title": "[All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px",
+    "gh_title": "[HW03-M1] [BUG-27] [IA-03] [All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px",
+    "labels": [
+      "bug",
+      "M1",
+      "IA-03",
+      "severity: cosmetic"
+    ],
+    "primary_images": [
+      "screenshots/task1_failed/P1_CL-31.png",
+      "screenshots/task1_failed/P3_SV-19.png"
+    ],
+    "issue_number": 27,
+    "issue_url": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27"
+  }
+]
