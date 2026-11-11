@@ -18,8 +18,8 @@
       "Blocked"
     ],
     "inventory": "checklist/m1_inventory.md",
-    "version": "v2 - Sau khi SV bổ sung SV-01..SV-20 (T1 bước 2)",
-    "step": 2
+    "version": "v3 - Chuẩn bị thực thi RUN.md và dom_probe.js (T1 bước 3)",
+    "step": 3
   },
   "assumptions": {
     "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
@@ -50,7 +50,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát trực tiếp nhãn trường, nút gửi và liên kết kết hợp dom_probe.fields, dom_probe.buttons."
     },
     {
       "id": "CL-02",
@@ -69,7 +71,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc kiểm tra chính tả và ngôn ngữ tiếng Việt bằng mắt thường trên 4 màn hình và Header."
     },
     {
       "id": "CL-03",
@@ -86,7 +90,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /register."
     },
     {
       "id": "CL-04",
@@ -103,7 +109,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /login."
     },
     {
       "id": "CL-05",
@@ -121,7 +129,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 ở cả Bước 1 và Bước 2 trang /forgot-password."
     },
     {
       "id": "CL-06",
@@ -139,7 +149,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings trên /profile khi đã đăng nhập."
     },
     {
       "id": "CL-07",
@@ -158,7 +170,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát màu nút kết hợp dom_probe.buttons[].bg (RGB) trên Register, Login, Profile."
     },
     {
       "id": "CL-08",
@@ -177,7 +191,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát màu và sự phân biệt vai trò nút kết hợp dom_probe.buttons[].bg và nav_links trên ForgotPassword, Header."
     },
     {
       "id": "CL-09",
@@ -194,7 +210,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "Both"
+      "nguon": "Both",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát căn lề kết hợp toạ độ x, w trong dom_probe và horizontal_scroll trên 4 form."
     },
     {
       "id": "CL-10",
@@ -219,7 +237,9 @@
       "na": {
         "P3": "Giả định NA1: Safari trên iPhone có kích thước khung nhìn di động cố định, không có chế độ chuyển đổi 3 độ phân giải 375px/768px/1440px như trình duyệt desktop."
       },
-      "nguon": "Both"
+      "nguon": "Both",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đổi viewport 375px, 768px, 1440px trong DevTools, quan sát chồng lấp và kiểm dom_probe.horizontal_scroll."
     },
     {
       "id": "CL-11",
@@ -236,7 +256,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát độ rõ chữ kết hợp tỷ lệ tương phản dom_probe.buttons[].contrast và kiểm màu chữ phụ bằng DevTools."
     },
     {
       "id": "CL-12",
@@ -254,7 +276,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát nhãn kết hợp dom_probe.fields[].label_has_asterisk trên cả 4 form."
     },
     {
       "id": "CL-13",
@@ -285,7 +309,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /register và thử gửi tay chuỗi email sai định dạng."
     },
     {
       "id": "CL-14",
@@ -302,7 +328,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /login và /forgot-password Bước 1, thử gửi chuỗi thiếu @."
     },
     {
       "id": "CL-15",
@@ -319,7 +347,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type và gõ thử ký tự vào mọi ô mật khẩu để xác nhận che dấu chấm tròn."
     },
     {
       "id": "CL-16",
@@ -336,7 +366,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát các trường trên /register (dom_probe.fields) và thử nhập 2 mật khẩu lệch nhau nếu có trường xác nhận."
     },
     {
       "id": "CL-17",
@@ -355,7 +387,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát giao diện Bước 1 và Bước 2 trên /forgot-password xem có Step Indicator hay không."
     },
     {
       "id": "CL-18",
@@ -373,7 +407,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát form Bước 2 /forgot-password (dom_probe.fields) và thử nhập xác nhận mật khẩu lệch nếu có."
     },
     {
       "id": "CL-19",
@@ -404,7 +440,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập tay mật khẩu chuẩn Abcd123! và mật khẩu yếu trên /register và Bước 2 /forgot-password."
     },
     {
       "id": "CL-20",
@@ -422,7 +460,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lấy OTP tại /forgot-password, đếm số chữ số OTP hiển thị và đọc nhãn ô nhập OTP."
     },
     {
       "id": "CL-21",
@@ -440,7 +480,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát màu nền ô Email trên /profile, thử gõ sửa và đọc dom_probe.fields (disabled/readonly)."
     },
     {
       "id": "CL-22",
@@ -472,7 +514,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập tay SĐT hợp lệ bắt đầu bằng 0 (0912345678) và chuỗi chữ cái trên /profile rồi bấm Cập nhật."
     },
     {
       "id": "CL-23",
@@ -489,7 +533,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấp/chạm trực tiếp vào từng nhãn <label> và đối chiếu dom_probe.fields[].label_linked."
     },
     {
       "id": "CL-24",
@@ -507,7 +553,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Mở /login, /register, /profile quan sát kiểu nổi bật của liên kết đang mở trên Header và dom_probe.nav_links."
     },
     {
       "id": "CL-25",
@@ -525,7 +573,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát nhãn nút kết thúc phiên trên Header và bấm kiểm tra xoá trạng thái đăng nhập."
     },
     {
       "id": "CL-26",
@@ -542,7 +592,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát Bước 1 /forgot-password tìm nút/liên kết Quay lại đăng nhập và bấm kiểm tra điều hướng."
     },
     {
       "id": "CL-27",
@@ -559,7 +611,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Bấm liên kết Đăng nhập trên /register và kiểm tra tự động chuyển hướng sau khi đăng ký thành công."
     },
     {
       "id": "CL-28",
@@ -576,7 +630,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Bấm từng liên kết trên /login và Header, quan sát tab Network/cờ biến window xem trang có bị tải lại toàn bộ không."
     },
     {
       "id": "CL-29",
@@ -594,7 +650,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Tại Bước 2 /forgot-password bấm nút Quay lại và quan sát giao diện trở về Bước 1."
     },
     {
       "id": "CL-30",
@@ -612,7 +670,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Ở trạng thái khách, gõ trực tiếp URL /profile trên thanh địa chỉ và quan sát giao diện/điều hướng."
     },
     {
       "id": "CL-31",
@@ -631,7 +691,9 @@
       "na": {
         "P3": "Giả định NA1: Safari trên iPhone là thiết bị cảm ứng không có con trỏ chuột hover và không có phím Enter vật lý."
       },
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Di chuột hover lên các nút/liên kết kiểm tra cursor/hiệu ứng và nhấn phím Enter trong ô input để gửi form."
     },
     {
       "id": "CL-32",
@@ -649,7 +711,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Gửi form /register với email đã tồn tại test@eshop.com và đọc nguyên văn thông báo lỗi."
     },
     {
       "id": "CL-33",
@@ -667,7 +731,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập sai mật khẩu liên tiếp lần 1, 2, 3 cho test@eshop.com trên /login và bấm giờ đo thời gian khoá."
     },
     {
       "id": "CL-34",
@@ -684,7 +750,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "So sánh nguyên văn thông báo lỗi trên /login khi sai Email so với khi đúng Email nhưng sai Mật khẩu."
     },
     {
       "id": "CL-35",
@@ -703,7 +771,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thực hiện thao tác lỗi/thành công trên /forgot-password và /profile để kiểm tra inline/toast hay window.alert()."
     },
     {
       "id": "CL-36",
@@ -722,7 +792,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Cập nhật Họ Tên trên /profile, quan sát lời chào Header trong 1 giây và tải lại trang kiểm tra giữ dữ liệu."
     },
     {
       "id": "CL-37",
@@ -743,7 +815,9 @@
       "na": {
         "P3": "Giả định NA1: Safari trên iPhone không có công cụ giả lập nghẽn mạng Slow 3G trực tiếp trong trình duyệt như DevTools desktop."
       },
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Bật Slow 3G trong DevTools Network, bấm Submit và kiểm tra trạng thái loading/disabled chống bấm đúp."
     },
     {
       "id": "CL-38",
@@ -761,7 +835,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đặt lại mật khẩu bằng OTP vừa cấp rồi thử dùng lại OTP cũ và nhập OTP sai ở Bước 2 /forgot-password."
     },
     {
       "id": "CL-39",
@@ -778,7 +854,9 @@
         "P2",
         "P3"
       ],
-      "nguon": "AI"
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /register và /login kiểm tra giữ dữ liệu đã nhập, sau đó gửi hợp lệ kiểm tra xoá lỗi cũ."
     },
     {
       "id": "SV-01",
@@ -802,7 +880,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "đặc điểm giao diện",
         "giai_thich": "Lỗi thứ tự Tab chỉ lộ khi đi bằng bàn phím thật, nhìn ảnh chụp hay đọc mã giao diện bằng mắt thường không thấy; AI sinh checklist chủ yếu từ mô tả nhãn và màu nên không nghĩ tới việc duyệt focus từng bước."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /login quan sát thứ tự focus và đối chiếu dom_probe.tab_order."
     },
     {
       "id": "SV-02",
@@ -826,7 +906,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "prompt",
         "giai_thich": "Prompt lượt IA-03 yêu cầu chung về điều hướng nên AI gom vào điều hướng giữa các trang; tôi không yêu cầu riêng \"thứ tự Tab từng form\" nên AI không tách thành mục kiểm tra cụ thể cho từng màn hình."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /register và Bước 1, Bước 2 /forgot-password đối chiếu dom_probe.tab_order."
     },
     {
       "id": "SV-03",
@@ -848,7 +930,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ kiểm tra nội dung thông báo lỗi (CL-32, CL-34) mà không để ý vị trí khối lỗi so với nút; vị trí chỉ phát hiện được khi thật sự kích hoạt lỗi và nhìn bố cục, AI không chạy giao diện."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /login rồi chạy dom_probe.js đọc messages[].above_submit và toạ độ y so với nút gửi."
     },
     {
       "id": "SV-04",
@@ -871,7 +955,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "đặc điểm giao diện",
         "giai_thich": "Quy tắc \"lỗi nằm trên nút submit\" chỉ có ý nghĩa khi so toạ độ thực tế trên giao diện; AI coi mọi khối lỗi hiển thị phía trên nút là đạt nên không tách riêng kiểm tra khoảng cách và vị trí so với tiêu đề."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /register rồi chạy dom_probe.js đo vị trí dọc của khối lỗi so với nút Đăng Ký và tiêu đề."
     },
     {
       "id": "SV-05",
@@ -893,7 +979,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "prompt",
         "giai_thich": "Prompt các lượt IA chỉ nhắm vào yêu cầu giao diện FR-21..24 nên AI bỏ qua điều khoản bảo mật SEC-04 dù nó có trong m1_test_basis; việc hiển thị tên người dùng chỉ lộ lỗi khi nhập thẻ HTML thật."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu Họ Tên chứa thẻ HTML <b>Test</b><i>User</i>, đăng nhập lại quan sát Header và dom_probe.innerhtml_risk."
     },
     {
       "id": "SV-06",
@@ -915,7 +1003,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ nghĩ đến bố cục với dữ liệu mẫu ngắn như \"Test User\" (CL-10) mà không thử dữ liệu cực trị; không có số liệu thật về độ dài tên nên AI khó đoán rủi ro tràn bố cục."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu Họ Tên dài 100 ký tự liền nhau, đăng nhập lại và kiểm tra tràn ngang/chồng lấp Header."
     },
     {
       "id": "SV-07",
@@ -937,7 +1027,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "AI sinh mục kiểm tra chính tả của nhãn tĩnh (CL-02) nhưng không nghĩ tới dữ liệu động có dấu do người dùng nhập và vòng lưu-đọc qua máy chủ; điều này cần dữ liệu thật mới kiểm được."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu Họ Tên và Địa chỉ tiếng Việt có dấu trên /profile, tải lại trang kiểm tra hiển thị dấu."
     },
     {
       "id": "SV-08",
@@ -959,7 +1051,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "prompt",
         "giai_thich": "CL-19 của AI dùng ví dụ thiếu nhóm ký tự chứ không kiểm giá trị biên độ dài vì prompt không nhắc phân tích giá trị biên; mục này tách riêng ranh giới 7 và 8 ký tự."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thử biên mật khẩu 7 ký tự (Abc12!x) và 8 ký tự (Abc123!x) trên /register."
     },
     {
       "id": "SV-09",
@@ -981,7 +1075,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ lấy một ký tự đại diện là `!` trong CL-19 thay vì kiểm từng ký tự trong tập; lỗi bộ lọc ký tự chỉ lộ khi thử nhiều giá trị khác nhau, AI không thực thi nên không thấy."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thử lần lượt 7 mật khẩu chứa từng ký tự đặc biệt (@ $ ! % * ? &) trên /register."
     },
     {
       "id": "SV-10",
@@ -1003,7 +1099,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "prompt",
         "giai_thich": "CL-22 của AI chỉ nêu các giá trị hợp lệ và một giá trị có chữ cái; phần giá trị biên không hợp lệ (9, 12 chữ số, số đầu khác 0) cần prompt yêu cầu phân tích biên, mà prompt của tôi chưa yêu cầu."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thử lưu 3 giá trị biên SĐT không hợp lệ (9 số, 12 số, 10 số bắt đầu khác 0) trên /profile."
     },
     {
       "id": "SV-11",
@@ -1026,7 +1124,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "đặc điểm giao diện",
         "giai_thich": "Thuộc tính `required` của trình duyệt chặn ô rỗng nên AI mặc định ô bắt buộc đã được bảo vệ; lỗ hổng chỉ xuất hiện với chuỗi toàn dấu cách mà AI không nghĩ tới."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập 3 dấu cách vào Họ Tên trên /register và /profile rồi bấm gửi kiểm tra từ chối khoảng trắng."
     },
     {
       "id": "SV-12",
@@ -1048,7 +1148,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "đặc điểm giao diện",
         "giai_thich": "Lỗi này tôi quan sát được khi đối chiếu giao diện thật ở Bước 0 (ảnh chụp ô OTP tự điền email); AI chỉ đọc mô tả control nên không biết hành vi tự điền của trình duyệt."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu tài khoản trong trình duyệt, mở Bước 2 /forgot-password quan sát tự điền ô OTP và đọc dom_probe.fields[].autocomplete."
     },
     {
       "id": "SV-13",
@@ -1070,7 +1172,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "AI chú ý tới quy tắc mật khẩu ở Register (CL-19) nhưng không đối chiếu chéo để thấy form Bước 2 thiếu gợi ý tương ứng; việc so sánh nhất quán giữa hai màn hình cần nhìn cả hai giao diện."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát vùng quanh ô Mật khẩu mới ở Bước 2 /forgot-password xem có dòng gợi ý quy tắc mật khẩu không."
     },
     {
       "id": "SV-14",
@@ -1092,7 +1196,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "prompt",
         "giai_thich": "Prompt chỉ yêu cầu kiểm tra có gợi ý hay không (CL-23) chứ không yêu cầu soát mức độ cụ thể của nội dung gợi ý so với đặc tả nên AI không tách mục này."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dòng gợi ý dưới ô Mật khẩu trên /register kiểm tra việc liệt kê tập ký tự đặc biệt hợp lệ."
     },
     {
       "id": "SV-15",
@@ -1114,7 +1220,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ nhìn từng màn hình tại một thời điểm và không mô phỏng thao tác tải lại trang; trạng thái phiên sau F5 phụ thuộc cách lưu token phía client nên AI không thể suy ra từ mô tả điều khoản."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đăng nhập mở /profile rồi nhấn tải lại trang (F5) kiểm tra duy trì trạng thái đăng nhập."
     },
     {
       "id": "SV-16",
@@ -1137,7 +1245,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "Tiêu đề tab nằm ngoài vùng hiển thị của trang web nên AI khi liệt kê control từ nội dung trang không đưa vào; đây là điểm AI thường bỏ qua khi chỉ nhìn phần thân trang."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Mở 4 trang đọc tiêu đề tab trình duyệt kết hợp dom_probe.title trên từng trang."
     },
     {
       "id": "SV-17",
@@ -1161,7 +1271,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "đặc điểm giao diện",
         "giai_thich": "Slide 12 nêu khả năng dùng chỉ bàn phím là điểm mù của AI; trạng thái focus chỉ thấy khi thao tác bàn phím thật và AI không có trải nghiệm đó."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấn phím Tab đi qua các phần tử trên 5 vùng giao diện quan sát viền/vòng sáng focus thị giác."
     },
     {
       "id": "SV-18",
@@ -1185,7 +1297,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "prompt",
         "giai_thich": "CL-10 của AI chỉ nêu 3 viewport cố định; prompt của tôi không nhắc tới người dùng phóng to chữ nên AI không thêm kịch bản phóng to trình duyệt."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Phóng to trình duyệt lên 200% ở 1440px, mở 5 vùng giao diện kiểm tra cắt chữ, chồng lấp và cuộn ngang."
     },
     {
       "id": "SV-19",
@@ -1207,7 +1321,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "đặc điểm giao diện",
         "giai_thich": "Kích thước vùng chạm chỉ cảm nhận được khi chạm thật trên điện thoại; AI không có thiết bị và khi đánh giá bố cục chỉ nhìn kiểu máy tính để bàn."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đo kích thước w, h bằng getBoundingClientRect()/dom_probe.buttons (>= 24x24px) và chạm thật trên iPhone."
     },
     {
       "id": "SV-20",
@@ -1231,7 +1347,9 @@
       "ly_do_ai_bo_sot": {
         "loai": "giới hạn model",
         "giai_thich": "Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có iPhone nên không đưa mục phụ thuộc thiết bị di động vào checklist."
-      }
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Trên Safari iPhone, chạm vào ô Số điện thoại tại /profile quan sát loại bàn phím ảo bật lên."
     }
   ]
 }

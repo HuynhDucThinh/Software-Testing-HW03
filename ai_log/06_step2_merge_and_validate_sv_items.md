@@ -18,3 +18,4 @@
 **Changed:** Không chỉnh sửa nội dung các mục `CL-01`..`CL-39` hay `SV-01`..`SV-20` trong quá trình gộp tự động.
 **Rejected:** Không loại bỏ mục nào.
 **By hand:** Sinh viên rà soát toàn bộ `checklist/sv_items.md` (bao gồm 20 mục bổ sung, ngưỡng `Fail nếu`, giả định `GA6`..`GA8`, `NA2` và phân tích `ly_do_ai_bo_sot` cho từng mục) trước khi yêu cầu gộp vào `checklist/checklist.json`.
+

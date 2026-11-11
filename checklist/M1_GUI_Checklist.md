@@ -1,6 +1,6 @@
 # Checklist GUI - M1 - Auth & Profile (Register, Login, ForgotPassword, Profile, Header)
 
-> Sinh tự động từ `checklist.json` bằng `render_checklist.py` (skill gui-checklist-testing) - không sửa tay. Phiên bản: v2 - Sau khi SV bổ sung SV-01..SV-20 (T1 bước 2).
+> Sinh tự động từ `checklist.json` bằng `render_checklist.py` (skill gui-checklist-testing) - không sửa tay. Phiên bản: v3 - Chuẩn bị thực thi RUN.md và dom_probe.js (T1 bước 3).
 
 - SUT: eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)
 - Căn cứ: eshop-sut/README.md (SRS v2.0) FR-01..04, FR-05:81, FR-21..24, SEC-04, SEC-07; docs/Nhom05_GUI_Testing_Slides.md
