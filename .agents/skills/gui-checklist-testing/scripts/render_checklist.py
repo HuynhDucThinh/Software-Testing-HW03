@@ -87,6 +87,13 @@ def render(doc):
                 notes.append(f"{p}: {cell(n)}")
             for p, ev in it.get("evidence", {}).items():
                 notes.append(f"{p} ảnh: " + ", ".join(f"`{e}`" for e in ev))
+            if it.get("bug_id"):
+                gh = it.get("github_issue", "")
+                if gh:
+                    issue_num = gh.rstrip("/").split("/")[-1]
+                    notes.append(f"Bug: [`{it['bug_id']}`](../bugs/{it['bug_id']}.md) ([GitHub Issue #{issue_num}]({gh}))")
+                else:
+                    notes.append(f"Bug: `{it['bug_id']}`")
             ly = it.get("ly_do_ai_bo_sot")
             if isinstance(ly, dict):
                 notes.append(f"Vì sao AI bỏ sót ({cell(ly.get('loai', ''))}): {cell(ly.get('giai_thich', ''))}")

@@ -67,8 +67,8 @@ def main():
     cols = ["TC ID", "HW", "Objective", "IA", "Màn hình", "Precondition", "Căn cứ", "Expected"]
     for p in plats:
         cols += [f"Kết quả {p}", f"Notes {p}"]
-    cols += ["Ưu tiên", "Nguồn", "Loại lỗi", "Vì sao AI bỏ sót"]
-    header(ws, 4, cols, [9, 7, 36, 8, 18, 30, 30, 60] + [11, 30] * len(plats) + [11, 8, 16, 50])
+    cols += ["Ưu tiên", "Nguồn", "Loại lỗi", "Vì sao AI bỏ sót", "Bug / GitHub Issue"]
+    header(ws, 4, cols, [9, 7, 36, 8, 18, 30, 30, 60] + [11, 30] * len(plats) + [11, 8, 16, 50, 36])
     for r, it in enumerate(items, 5):
         row = [it["id"], hw, it["muc_kiem_tra"], it["ia"], it["man_hinh"], it.get("tien_dieu_kien", ""),
                it["can_cu"], it["expected"]]
@@ -77,7 +77,10 @@ def main():
         ly = it.get("ly_do_ai_bo_sot", "")
         if isinstance(ly, dict):
             ly = f"[{ly.get('loai', '')}] {ly.get('giai_thich', '')}"
-        row += [it["uu_tien"], it.get("nguon", ""), it.get("loai_loi", ""), ly]
+        bug_ref = ""
+        if it.get("bug_id"):
+            bug_ref = f"{it['bug_id']} ({it.get('github_issue', '')})"
+        row += [it["uu_tien"], it.get("nguon", ""), it.get("loai_loi", ""), ly, bug_ref]
         for c, v in enumerate(row, 1):
             ws.cell(row=r, column=c, value=v).alignment = WRAP
     ws.freeze_panes = "B5"
@@ -87,13 +90,20 @@ def main():
     ck["A1"] = f"{hw} – Checklist GUI: {meta.get('scope', '')}"
     ck["A1"].font = Font(bold=True, size=13)
     ck["A2"] = "Nền tảng: " + "; ".join(f"{k} = {v}" for k, v in meta.get("platforms", {}).items())
-    cols = ["#", "IA", "Màn hình", "Mục kiểm tra", "TC tham chiếu", "Ưu tiên"] + plats + ["Ghi chú"]
-    header(ck, 4, cols, [5, 8, 20, 44, 10, 11] + [11] * len(plats) + [50])
+    cols = ["#", "IA", "Màn hình", "Mục kiểm tra", "TC tham chiếu", "Ưu tiên"] + plats + ["Notes (Ghi chú)"]
+    header(ck, 4, cols, [5, 8, 20, 44, 10, 11] + [11] * len(plats) + [60])
     dv = DataValidation(type="list", formula1='"' + ",".join(values) + '"', allow_blank=True)
     ck.add_data_validation(dv)
     first, last = 5, 4 + len(items)
     for r, it in enumerate(items, first):
-        notes = "; ".join(f"{p}: {n}" for p, n in it.get("notes_nt", {}).items())
+        note_parts = []
+        for p, why in it.get("na", {}).items():
+            note_parts.append(f"{p} N/A: {why}")
+        for p, n in it.get("notes_nt", {}).items():
+            note_parts.append(f"{p}: {n}")
+        if it.get("bug_id"):
+            note_parts.append(f"Bug: {it['bug_id']} ({it.get('github_issue', '')})")
+        notes = "; ".join(note_parts)
         row = [r - 4, it["ia"], it["man_hinh"], it["muc_kiem_tra"], it["id"], it["uu_tien"]] + \
               [result(it, p) for p in plats] + [notes]
         for c, v in enumerate(row, 1):
@@ -138,6 +148,17 @@ def main():
     for i, (k, v) in enumerate(groups, r1 + 2):
         sm.cell(row=i, column=1, value=k)
         sm.cell(row=i, column=2, value=v)
+
+    unique_bugs = sorted({it["bug_id"] for it in items if it.get("bug_id")})
+    if unique_bugs:
+        r2 = r1 + 2 + len(groups) + 1
+        sm.cell(row=r2, column=1, value="3. Tổng hợp lỗi phát hiện (Bug Report & GitHub Issues)").font = Font(bold=True)
+        header(sm, r2 + 1, ["Chỉ số lỗi", "Giá trị"])
+        failed_item_count = sum(1 for it in items if any(v == "Failed" for v in it.get("ket_qua", {}).values()))
+        sm.cell(row=r2 + 2, column=1, value="Số mục Checklist độc lập phát hiện lỗi (Failed)")
+        sm.cell(row=r2 + 2, column=2, value=failed_item_count)
+        sm.cell(row=r2 + 3, column=1, value="Số Bugs sau gom nhóm chống trùng lặp (GitHub Issues)")
+        sm.cell(row=r2 + 3, column=2, value=len(unique_bugs))
 
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     from openpyxl.workbook.properties import CalcProperties

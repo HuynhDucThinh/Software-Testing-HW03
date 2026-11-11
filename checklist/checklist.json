@@ -4,7 +4,7 @@
     "task": "T1 - GUI Checklist",
     "student": "Huỳnh Đức Thịnh - 23120199 (23120199@student.hcmus.edu.vn)",
     "scope": "M1 - Auth & Profile (Register, Login, ForgotPassword, Profile, Header)",
-    "sut_version": "eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)",
+    "sut_version": "eshop-sut @ 1a9304a",
     "test_basis": "eshop-sut/README.md (SRS v2.0) FR-01..04, FR-05:81, FR-21..24, SEC-04, SEC-07; docs/Nhom05_GUI_Testing_Slides.md",
     "platforms": {
       "P1": "Google Chrome 157.0.8103.50 trên Windows 11",
@@ -18,7 +18,7 @@
       "Blocked"
     ],
     "inventory": "checklist/m1_inventory.md",
-    "version": "v6",
+    "version": "v6 - Đồng bộ 27 Bugs & GitHub Issues (#1..#27)",
     "step": 6
   },
   "assumptions": {

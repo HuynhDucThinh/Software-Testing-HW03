@@ -207,3 +207,25 @@ Bước 6. Dùng github của tôi có sẵn để đăng issue luôn nhe
 **By hand:** Sinh viên kiểm tra đối chiếu các GitHub Issues `#1`..`#27` trên tài khoản `HuynhDucThinh/Software-Testing-HW03` (mở chế độ Public trước thời điểm nộp bài chấm điểm để trợ giảng truy cập trực tiếp liên kết).
 
 ---
+
+## Entry 10 — 2026-11-11 - Rà soát chất lượng Task 1 theo đề bài và đồng bộ phiên bản v6
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-11 19:29 +07:00
+**Task / Step:** Task 1 (Rà soát chéo toàn bộ hiện vật Task 1 theo đặc tả đề bài `docs/2026.HW03.GUI Usability_En.md` và hoàn thiện đồng bộ `v6`)
+**Prompt:**
+@[d:\KCPM\GUI & Usability Testing\docs\2026.HW03.GUI Usability_En.md] Dựa theo nội dung đề bài, hãy đánh giá task 1 đã hoàn thành được bao nhiêu điểm, gợi ý chỉnh sửa nếu có
+-> Oke tiến hành chỉnh sửa để đạt tối đa 30/30 điểm
+
+**AI output:**
+Đã rà soát đối chiếu từng yêu cầu của Task 1 trong đề bài với toàn bộ hiện vật và thực hiện trọn bộ 4 hiệu chỉnh đồng bộ lên phiên bản `v6`:
+- Chuẩn hóa diễn giải 2 mục `nguon: "Both"` (`CL-09`, `CL-10` thuộc `IA-01`) tại Mục `3.2`, `3.4.1` và `11` của `Main_Report.md` khớp tuyệt đối 100% với `checklist/checklist.json` và `Entry 02`; bổ sung ghi chú giải trình phạm vi tại Mục `3.4.2` về 10 mục `Accessibility` và lý do không đưa `RTL` / `Dark mode` vào checklist (ngoài phạm vi đặc tả EShop SRS v2.0).
+- Cập nhật `build_excel.py` và `render_checklist.py`, xuất lại `checklist/M1_GUI_Checklist_And_Summary.xlsx` và `checklist/M1_GUI_Checklist.md` ở phiên bản `v6`: đặt tên cột rõ từ khóa tiếng Anh `Notes (Ghi chú)`, bổ sung liên kết trực tiếp `Bug / GitHub Issue` (`BUG-01`..`BUG-27`, `#1`..`#27`) trên cả sheet `Test Cases`, sheet `Checklist` và mục thống kê lỗi của sheet `Test Summary Report`.
+- Cập nhật lại ảnh `screenshots/task1_failed/P3_SV-20.png` (bỏ hộp thoại cảnh báo không liên quan của `CL-22`, focus đúng ô `Số điện thoại` kèm khối kết quả DOM Probe `type="text" | inputmode=null`) và đồng bộ lại ảnh chụp trang `screenshots/github_issues/ISSUE-24_BUG-24.png`.
+
+**Kept:** Giữ nguyên toàn bộ 4 hiệu chỉnh đồng bộ trên `Main_Report.md`, `checklist/M1_GUI_Checklist.md`, `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `P3_SV-20.png` và `ISSUE-24_BUG-24.png`.
+**Changed:** Không có.
+**Rejected:** Không đưa các tiêu chí `RTL` hoặc `Dark mode` vào bộ checklist để tránh phát sinh lỗi giả không có căn cứ đặc tả.
+**By hand:** Sinh viên yêu cầu kiểm toán chất lượng theo đề bài, duyệt danh sách điểm cần hoàn thiện và ghi nhận nhắc nhở mở chế độ `Public` cho GitHub repository trước thời điểm nộp bài.
+
+---
