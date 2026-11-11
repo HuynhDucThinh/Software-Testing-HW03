@@ -1,0 +1,1 @@
+- 13:55 11/11/2026 · `M1_checklist_step0_20261111-135503.json` · bước 0 · ai_log/01 · sha256 7f4e12e64fff
