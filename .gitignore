@@ -6,6 +6,7 @@ node_modules/
 
 # Reference / Local-only folders
 docs/software-testing-hw03-gui-usability-testing-main/
+docs/temp/
 .local/
 
 # OS & Editor files
@@ -15,3 +16,8 @@ Thumbs.db
 
 # Final zip archives (built for Moodle)
 *.zip
+
+
+# Raw (un-compressed) evidence before resizing
+evidence_raw/
+

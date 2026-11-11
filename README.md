@@ -4,12 +4,15 @@
 
 | Hạng mục | Nội dung |
 | :--- | :--- |
+| **Sinh viên thực hiện** | Huỳnh Đức Thịnh |
+| **Mã số sinh viên (MSSV)** | `23120199` |
+| **Email sinh viên** | `23120199@student.hcmus.edu.vn` |
 | **Bài tập** | HW03-AI — GUI & Usability Testing (Individual Assignment) |
 | **Hệ thống kiểm thử (SUT)** | EShop (`./eshop-sut`) |
 | **Phân công trong nhóm** | **M1** — Authentication & Profile (Web) |
 | **Màn hình chính (Task 1)** | `Register` (`/register` — `FR-01`) |
 | **Màn hình bổ trợ (Task 1)** | `Login` (`FR-02`), `Forgot Password 2 bước` (`FR-03`), `Profile` (`FR-04`), Navbar khi đăng nhập |
-| **Luồng Usability (Task 2)** | `F1`: Đăng ký $\rightarrow$ Đăng nhập $\rightarrow$ Cập nhật hồ sơ (`FR-01` / `FR-02` / `FR-04`) |
+| **Luồng Usability (Task 2)** | `F1`: Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` / `FR-02` / `FR-04`) |
 | **Mức độ Bloom-AI** | `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)` |
 
 ---
@@ -28,6 +31,8 @@ Software-Testing-HW03/
 ├── usability/                             # Kế hoạch, Kịch bản, Danh sách 7 người tham gia & Phân tích SUS
 ├── screenshots/                           # Ảnh chụp minh chứng (Task 1 Failed, GitHub Issues, Task 3 Cross-Platform)
 ├── scripts/                               # Script hỗ trợ kiểm thử tự động
+├── ai_log/                                # Nhật ký tương tác AI theo từng bước
+├── bugs/                                  # Khung dữ kiện và chi tiết từng Bug
 └── .agents/skills/                        # Agent Skills tái sử dụng cho GUI Checklist & Usability Evaluation
 ```
 
@@ -57,3 +62,4 @@ Software-Testing-HW03/
 | **3** | **Task 3 — Cross-Browser / Cross-Platform** ($\ge 3$ platforms) | **20** | *TBD* | `./screenshots/task3_cross_platform/` |
 | **4** | **Agent Skills** (skills + YouTube demo video) | **10** | *TBD* | `./.agents/skills/` |
 | | **Total** | **100** | *TBD* | |
+
