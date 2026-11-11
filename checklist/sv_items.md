@@ -7,7 +7,7 @@
 | GA6 | Đặc tả FR-22 yêu cầu thông báo lỗi nằm "trên nút submit"; hiểu là khối lỗi nằm trong form, liền kề phía trên nút Submit (không nằm ở đầu trang phía trên tiêu đề và cũng không nằm dưới nút Submit). | Quyết định Expected | Đặc tả không nói rõ khoảng cách; chọn cách hiểu đo được bằng toạ độ `getBoundingClientRect()`. |
 | GA7 | Đặc tả không nói về Họ Tên chỉ gồm khoảng trắng; áp dụng Nielsen #5 (Error prevention): giá trị chỉ gồm khoảng trắng không được xem là Họ Tên hợp lệ. | Quyết định Expected | Trường Họ Tên là bắt buộc (FR-01:32) nên giá trị rỗng về mặt nội dung phải bị từ chối. |
 | GA8 | Đặc tả không quy định `document.title`; áp dụng WCAG 2.4.2: mỗi trang có tiêu đề tab mô tả riêng, khác nhau giữa các trang. | Quyết định Expected | Giúp người dùng phân biệt tab và công cụ đọc màn hình xác định trang. |
-| NA2 | P3 là Safari trên iPhone có bàn phím ảo trên màn hình, còn P1 và P2 là máy tính để bàn không có bàn phím ảo; mục kiểm tra loại bàn phím ảo hiển thị khi chạm vào ô nhập chỉ áp dụng cho P3. | N/A nền tảng | Máy tính để bàn không có bàn phím ảo để quan sát. |
+| NA2 | P3 là Chrome trên điện thoại Android có bàn phím ảo trên màn hình, còn P1 và P2 là máy tính để bàn không có bàn phím ảo; mục kiểm tra loại bàn phím ảo hiển thị khi chạm vào ô nhập chỉ áp dụng cho P3. | N/A nền tảng | Máy tính để bàn không có bàn phím ảo để quan sát. |
 
 ## Item
 
@@ -288,7 +288,7 @@
 - can_cu: WCAG 2.2 SC 2.5.8 Target Size (Minimum); Slide 10 #18 Element Overlap
 - loai_nguon: Heuristic
 - tien_dieu_kien: Mở DevTools đo kích thước các nút và liên kết (`Đăng nhập`, `Đăng ký`, `Quên mật khẩu?`, `Đăng ký ngay`, `Đăng nhập`, `Đăng xuất`); trên P3 thử chạm bằng ngón tay.
-- expected: Mọi nút và liên kết dạng chữ trên 5 vùng giao diện có vùng chạm tối thiểu 24 x 24 CSS px (đo bằng `getBoundingClientRect()`), và trên iPhone chạm đúng một lần vào phần tử cần chọn mà không bấm nhầm phần tử kề bên. Fail nếu có nút hoặc liên kết có chiều cao hoặc chiều rộng nhỏ hơn 24 CSS px, hoặc chạm một lần trên iPhone kích hoạt nhầm phần tử kề bên.
+- expected: Mọi nút và liên kết dạng chữ trên 5 vùng giao diện có vùng chạm tối thiểu 24 x 24 CSS px (đo bằng `getBoundingClientRect()`), và trên điện thoại Android chạm đúng một lần vào phần tử cần chọn mà không bấm nhầm phần tử kề bên. Fail nếu có nút hoặc liên kết có chiều cao hoặc chiều rộng nhỏ hơn 24 CSS px, hoặc chạm một lần trên điện thoại Android kích hoạt nhầm phần tử kề bên.
 - nen_tang: P1, P2, P3
 - uu_tien: Optional
 - luc_them: trước khi chạy
@@ -302,11 +302,11 @@
 - muc_kiem_tra: Loại bàn phím ảo hiển thị khi chạm vào ô Số điện thoại
 - can_cu: Slide 10 #5 Field Limits; WCAG 2.2 SC 1.3.5 Identify Input Purpose; Giả định NA2
 - loai_nguon: Control
-- tien_dieu_kien: Trên iPhone, Safari, đăng nhập và mở /profile, chạm vào ô `Số điện thoại`.
-- expected: Khi chạm vào ô `Số điện thoại` trên iPhone, bàn phím ảo hiển thị dạng bàn phím số hoặc bàn phím điện thoại (ô khai báo `type="tel"` hoặc `inputmode="numeric"`) để nhập chữ số nhanh. Fail nếu bàn phím chữ cái thông thường hiện ra và người dùng phải chuyển sang bàn phím số thủ công.
+- tien_dieu_kien: Trên điện thoại Android (Chrome), đăng nhập và mở /profile, chạm vào ô `Số điện thoại`.
+- expected: Khi chạm vào ô `Số điện thoại` trên điện thoại Android, bàn phím ảo hiển thị dạng bàn phím số hoặc bàn phím điện thoại (ô khai báo `type="tel"` hoặc `inputmode="numeric"`) để nhập chữ số nhanh. Fail nếu bàn phím chữ cái thông thường hiện ra và người dùng phải chuyển sang bàn phím số thủ công.
 - nen_tang: P3 (P1, P2 N/A theo NA2)
 - uu_tien: Optional
 - luc_them: trước khi chạy
 - ly_do_AI_bo_sot:
   - loai: giới hạn model
-  - giai_thich: Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có iPhone nên không đưa mục phụ thuộc thiết bị di động vào checklist.
+  - giai_thich: Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có điện thoại thật nên không đưa mục phụ thuộc thiết bị di động vào checklist.

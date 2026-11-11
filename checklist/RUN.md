@@ -33,24 +33,24 @@ Do đường dẫn gốc có ký tự `&`, luôn chạy lệnh qua thư mục li
   - Họ Tên nhận diện: `23120199 - Huỳnh Đức Thịnh`
   - Email sinh viên (dùng làm lớp phủ overlay trên mọi ảnh chụp): `23120199@student.hcmus.edu.vn`
 
-### 1.3. Cấu hình 3 nền tảng thực thi (cần điền đủ phiên bản thực tế trước khi chạy)
+### 1.3. Cấu hình 3 nền tảng thực thi chính thức
 
 | Mã | Nền tảng | Trình duyệt & Phiên bản | Hệ điều hành & Thiết bị | Độ phân giải / Viewport mặc định | Cách kết nối `localhost` |
 |---|---|---|---|---|---|
-| `P1` | Chrome trên Windows | `Chrome <điền phiên bản>` | `Windows <10/11, bản build>` - Desktop PC | `<ví dụ 1920x1080>` | Trực tiếp `http://localhost:5173` |
-| `P2` | Firefox trên Windows | `Firefox <điền phiên bản>` | `Windows <10/11, bản build>` - Desktop PC | `<ví dụ 1920x1080>` | Trực tiếp `http://localhost:5173` |
-| `P3` | Safari trên iPhone (iOS) | `Mobile Safari <điền phiên bản>` | `iPhone <dòng máy> - iOS <phiên bản>` | `<đọc từ dom_probe.viewport>` | Qua **BrowserStack Local** hoặc **LambdaTest Tunnel** (xem mục 1.4) |
+| `P1` | Chrome trên Windows | `Google Chrome 157.0.8103.50` | `Windows 11 (Build 26300)` - Desktop PC | `1920x1080` | Trực tiếp `http://localhost:5173` |
+| `P2` | Firefox trên Windows | `Mozilla Firefox 137.0.1` | `Windows 11 (Build 26300)` - Desktop PC | `1920x1080` | Trực tiếp `http://localhost:5173` |
+| `P3` | Chrome trên Android | `Chrome Android 156.0.8078.79` | `OPPO Reno10 5G (CPH2531) - Android 15` | `1080x2412` (vật lý) | Qua cáp USB + `adb reverse tcp:5173` & `tcp:3000` (xem mục 1.4) |
 
-### 1.4. Lưu ý kỹ thuật bắt buộc cho `P3` (`Safari trên iPhone`)
+### 1.4. Kết nối `localhost` trên `P3` (`Chrome trên Android - OPPO Reno10 5G`)
 - Các trang frontend của SUT gọi trực tiếp `http://localhost:3000/api/...`, đồng thời Mục 6 của đề yêu cầu ảnh chụp phải hiển thị rõ **tên trình duyệt / OS / thiết bị cùng URL `localhost`**.
-- **Không mở qua IP Wi-Fi LAN (`192.168.x.x:5173`) trên iPhone rời**, vì thanh địa chỉ sẽ mất chữ `localhost` và mọi lệnh gọi `http://localhost:3000` trên iPhone sẽ lỗi kết nối (trỏ nhầm vào chính điện thoại).
-- **Cách chạy chuẩn qua BrowserStack Live / LambdaTest Real-Time:**
-  1. Đảm bảo Backend (`localhost:3000`) và Frontend (`localhost:5173`) đang chạy trên máy Windows.
-  2. Chạy công cụ đường hầm trên máy Windows:
-     - Với BrowserStack: `BrowserStackLocal.exe --key <ACCESS_KEY>` (hoặc bật ứng dụng BrowserStack Local).
-     - Với LambdaTest: `LT.exe --user <EMAIL> --key <ACCESS_KEY>`.
-  3. Mở phiên **Real Device -> iOS -> iPhone -> Safari**, gõ `http://localhost:5173/register`.
-  4. Mở **DevTools / Web Inspector** tích hợp sẵn trên thanh công cụ BrowserStack/LambdaTest để dán `dom_probe.js` khi cần lấy thông số DOM.
+- Cắm cáp USB điện thoại `OPPO Reno10 5G` ở chế độ **Truyền tệp** kèm bật **Gỡ lỗi USB**, chạy lệnh nối cổng từ thư mục gốc dự án:
+  ```powershell
+  .local\platform-tools\adb.exe devices -l
+  .local\platform-tools\adb.exe reverse tcp:5173 tcp:5173
+  .local\platform-tools\adb.exe reverse tcp:3000 tcp:3000
+  ```
+- Mở ứng dụng **Chrome** trên điện thoại `OPPO Reno10 5G`, gõ trực tiếp `http://localhost:5173/register` (thanh địa chỉ hiện đúng chữ `localhost:5173` và API cổng `3000` đi xuyên qua cáp USB về máy tính).
+- Để chạy `dom_probe.js` trên `P3`, mở `chrome://inspect/#devices` trên trình duyệt Chrome máy tính, bấm **Inspect** vào tab `localhost:5173` của `OPPO Reno10 5G` rồi dán `dom_probe.js` vào Console.
 
 ---
 
@@ -62,7 +62,7 @@ Do đường dẫn gốc có ký tự `&`, luôn chạy lệnh qua thư mục li
 2. **Thông tin trong form trên ảnh tổng quan đa nền tảng (`Task 3`):**
    - Trước khi chụp ảnh tổng quan ở từng nền tảng (`P1`, `P2`, `P3`), nhập trực tiếp **`23120199 - Huỳnh Đức Thịnh`** vào ô nhập trên form (`Họ Tên` tại `/register` hoặc `/profile`; ô tài khoản tại `/login`) mà chưa cần bấm gửi.
 3. **Khung chụp màn hình:**
-   - Phải chụp thấy rõ **thanh địa chỉ chứa `localhost:5173/...`** và **dấu hiệu nhận biết trình duyệt / hệ điều hành / thiết bị** (thanh tiêu đề trình duyệt + taskbar hệ điều hành trên Desktop, hoặc thanh thông tin thiết bị iPhone/iOS của BrowserStack/LambdaTest trên `P3`).
+   - Phải chụp thấy rõ **thanh địa chỉ chứa `localhost:5173/...`** và **dấu hiệu nhận biết trình duyệt / hệ điều hành / thiết bị** (thanh tiêu đề trình duyệt + taskbar hệ điều hành trên Desktop, hoặc thanh trạng thái Android + thanh điều hướng/địa chỉ của Chrome Android trên `OPPO Reno10 5G` đối với `P3`).
 4. **Quy ước đường dẫn và đặt tên file ảnh:**
    - **Ảnh minh chứng mục `Failed` (chỉ chụp khi kết quả là `Failed`):**
      `screenshots/task1_failed/P<n>_<ID>.png` (ví dụ: `screenshots/task1_failed/P1_CL-01.png`; nếu 1 mục cần 2 ảnh: `P1_CL-05_1.png`, `P1_CL-05_2.png`).
@@ -77,7 +77,7 @@ Do đường dẫn gốc có ký tự `&`, luôn chạy lệnh qua thư mục li
 
 ## 3. Danh sách kiểm nhanh trước khi lưu mỗi bức ảnh
 
-- [ ] Nhìn thấy rõ tên trình duyệt / hệ điều hành / khung thiết bị (`Chrome`, `Firefox`, `iPhone Safari`).
+- [ ] Nhìn thấy rõ tên trình duyệt / hệ điều hành / khung thiết bị (`Chrome`, `Firefox`, `Chrome Android` trên `OPPO Reno10 5G`).
 - [ ] Thanh URL hiển thị rõ `localhost:5173/...`.
 - [ ] Đã có lớp phủ (overlay) email sinh viên `23120199@student.hcmus.edu.vn`.
 - [ ] Ô nhập trên form có chuỗi `23120199 - Huỳnh Đức Thịnh` (bắt buộc với mọi ảnh `task3_cross_platform`, khuyến khích giữ cả khi chụp form lỗi nếu không ảnh hưởng kịch bản test).
@@ -141,7 +141,7 @@ Trên từng trang (`/register`, `/login`, `/forgot-password` Bước 1, `/forgo
 4. Tạo **1 Git commit riêng cho mỗi nền tảng** ngay sau khi `check_checklist.py` báo `0 lỗi`:
    - `test(task1): execute checklist on P1 (Chrome Windows)`
    - `test(task1): execute checklist on P2 (Firefox Windows)`
-   - `test(task1): execute checklist on P3 (Safari iPhone)`
+   - `test(task1): execute checklist on P3 (Chrome Android)`
 
 ---
 
@@ -149,6 +149,7 @@ Trên từng trang (`/register`, `/login`, `/forgot-password` Bước 1, `/forgo
 
 | Lượt | Nền tảng | Thời gian (Bắt đầu - Kết thúc) | Môi trường chi tiết | File CSV kết quả | Chính thức? | Ghi chú |
 |---|---|---|---|---|---|---|
-| 1 | `P1` | `(chờ chạy Bước 4)` | `(điền trước/khi chạy)` | `checklist/runs/P1_...csv` | Có | Reset CSDL trước khi chạy G1..G7 |
-| 2 | `P2` | `(chờ chạy Bước 4)` | `(điền trước/khi chạy)` | `checklist/runs/P2_...csv` | Có | Reset CSDL trước khi chạy G1..G7 |
-| 3 | `P3` | `(chờ chạy Bước 4)` | `(điền trước/khi chạy)` | `checklist/runs/P3_...csv` | Có | Reset CSDL + bật Local Tunnel trước khi chạy |
+| 1 | `P1` | `(chờ chạy Bước 4)` | `Google Chrome 157.0.8103.50 / Windows 11 (1920x1080)` | `checklist/runs/P1_...csv` | Có | Reset CSDL trước khi chạy G1..G7 |
+| 2 | `P2` | `(chờ chạy Bước 4)` | `Mozilla Firefox 137.0.1 / Windows 11 (1920x1080)` | `checklist/runs/P2_...csv` | Có | Reset CSDL trước khi chạy G1..G7 |
+| 3 | `P3` | `(chờ chạy Bước 4)` | `Chrome Android 156.0.8078.79 / OPPO Reno10 5G - Android 15` | `checklist/runs/P3_...csv` | Có | Reset CSDL + bật `adb reverse` 5173 & 3000 trước khi chạy |
+

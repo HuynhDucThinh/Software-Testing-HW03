@@ -15,6 +15,7 @@ Thực hiện bước 3. Bạn quét thử xem cần thông tin gì từ tôi th
 - Đồng thời rà soát mã nguồn SUT và đề xuất 5 nhóm thông tin cần sinh viên xác nhận trước khi bước vào Bước 4 (phương thức chạy `P3` để giữ URL `localhost` và gọi được cổng `3000`, phiên bản cụ thể của `P1`/`P2`/`P3`, công cụ chèn watermark email, ranh giới nhóm ở `/profile` + repo đăng GitHub Issues, và cách phối hợp điền CSV).
 
 **Kept:** Giữ nguyên `checklist/RUN.md`, `checklist/dom_probe.js`, phân loại `che_do` trong `checklist/checklist.json` và 3 file khung CSV trong `checklist/runs/` để rà soát thông tin môi trường trước khi chạy Bước 4.
-**Changed:** Chờ sinh viên cung cấp phiên bản trình duyệt/OS/thiết bị thực tế và xác nhận phương thức tunnel cho `P3` để điền hoàn chỉnh mục 1.3 của `checklist/RUN.md` trước lượt chạy đầu tiên.
-**Rejected:** Không loại bỏ mục nào.
-**By hand:** Sinh viên rà soát quy trình trong `checklist/RUN.md`, chuẩn bị công cụ chụp ảnh kèm overlay email cá nhân và cung cấp thông số phiên bản môi trường thực tế của 3 nền tảng trước khi thực thi Bước 4.
+**Changed:** Sau khi rà soát giới hạn kết nối `localhost:3000` trên iPhone vật lý và thời lượng phiên dùng thử Cloud ngắn, sinh viên quyết định chuyển `P3` sang thiết bị thật `Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)` (hợp lệ theo Mục 6 của đề bài), cài đặt bổ sung `Mozilla Firefox 137.0.1` cho `P2`, cập nhật đồng bộ thông số phiên bản thực tế của cả 3 nền tảng (`P1`, `P2`, `P3`) vào `checklist/checklist.json`, `checklist/sv_items.md`, `checklist/M1_GUI_Checklist.md`, `checklist/RUN.md` và đóng băng lại bản `--step 3b` trước khi bắt đầu Bước 4.
+**Rejected:** Loại bỏ phương án dùng Safari trên iPhone rời / Cloud Trial và không dùng Microsoft Edge thay cho Firefox (do trùng nhân Chromium với Chrome).
+**By hand:** Sinh viên kết nối cáp USB điện thoại `OPPO Reno10 5G`, bật chế độ nhà phát triển và cấp quyền khóa RSA cho `adb`, đồng ý cài đặt Firefox `137.0.1` và chốt cấu hình 3 nền tảng thực thi trước khi bước sang Bước 4.
+

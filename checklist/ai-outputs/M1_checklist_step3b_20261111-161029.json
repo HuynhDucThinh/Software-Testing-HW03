@@ -1,0 +1,1355 @@
+{
+  "meta": {
+    "hw": "HW03",
+    "task": "T1 - GUI Checklist",
+    "student": "Huỳnh Đức Thịnh - 23120199 (23120199@student.hcmus.edu.vn)",
+    "scope": "M1 - Auth & Profile (Register, Login, ForgotPassword, Profile, Header)",
+    "sut_version": "eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)",
+    "test_basis": "eshop-sut/README.md (SRS v2.0) FR-01..04, FR-05:81, FR-21..24, SEC-04, SEC-07; docs/Nhom05_GUI_Testing_Slides.md",
+    "platforms": {
+      "P1": "Google Chrome 157.0.8103.50 trên Windows 11",
+      "P2": "Mozilla Firefox 137.0.1 trên Windows 11",
+      "P3": "Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)"
+    },
+    "result_values": [
+      "Passed",
+      "Failed",
+      "N/A",
+      "Blocked"
+    ],
+    "inventory": "checklist/m1_inventory.md",
+    "version": "v3b - Chốt cấu hình 3 nền tảng thực thi P1 Chrome / P2 Firefox / P3 Chrome Android (T1 bước 3)",
+    "step": 3
+  },
+  "assumptions": {
+    "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
+    "GA2": "Đặc tả FR-21 quy định nút hành động tích cực dùng màu xanh dương và nút nguy hiểm/hủy bỏ dùng màu đỏ nhưng không nêu mã HEX; chấp nhận dải màu xanh dương chuẩn (ví dụ Tailwind blue: R < 100, B > 180 trong getComputedStyle.backgroundColor) cho nút Submit chính và dải màu đỏ (R > 180, G < 100, B < 100) cho nút nguy hiểm/đăng xuất.",
+    "GA3": "Đặc tả FR-03 và FR-22 yêu cầu Step Indicator cho form từ 2 bước trở lên nhưng không cố định kiểu trình bày; chấp nhận mọi thành phần hiển thị rõ bước hiện tại trên tổng số bước (ví dụ văn bản 'Bước 1 / 2' hoặc thanh tiến trình 2 mốc đánh dấu bước đang mở).",
+    "GA4": "Đặc tả FR-22, FR-24 và Slide 10 #15/#16 yêu cầu phản hồi lỗi và kết quả thao tác hiển thị trực quan nhất quán trên giao diện; việc bật hộp thoại native window.alert() chặn luồng trình duyệt thay vì thông báo nội trang/toast đồng nhất với Register và Login được xem là không đạt chuẩn phản hồi GUI.",
+    "GA5": "Đặc tả không nêu con số thời gian phản hồi giao diện; áp dụng ngưỡng chuẩn của bài giảng (Slide 8 & Nielsen #1): phản hồi thị giác và đồng bộ trạng thái trên giao diện sau thao tác phải xuất hiện trong khoảng 0,1 đến 1 giây mà không bắt buộc người dùng đăng xuất đăng nhập lại.",
+    "NA1": "P3 là Chrome trên điện thoại Android (OPPO Reno10 5G - thiết bị di động cảm ứng màn hình cố định, không có chế độ chuyển đổi đa viewport 375px/768px/1440px, không có con trỏ hover hay bàn phím vật lý và không có tab Network throttling trực tiếp trên trình duyệt điện thoại); các mục phụ thuộc các công cụ/thao tác này chỉ áp dụng trên P1, P2.",
+    "GA6": "Đặc tả FR-22 yêu cầu thông báo lỗi nằm \"trên nút submit\"; hiểu là khối lỗi nằm trong form, liền kề phía trên nút Submit (không nằm ở đầu trang phía trên tiêu đề và cũng không nằm dưới nút Submit).",
+    "GA7": "Đặc tả không nói về Họ Tên chỉ gồm khoảng trắng; áp dụng Nielsen #5 (Error prevention): giá trị chỉ gồm khoảng trắng không được xem là Họ Tên hợp lệ.",
+    "GA8": "Đặc tả không quy định `document.title`; áp dụng WCAG 2.4.2: mỗi trang có tiêu đề tab mô tả riêng, khác nhau giữa các trang.",
+    "NA2": "P3 là Chrome trên điện thoại Android có bàn phím ảo trên màn hình, còn P1 và P2 là máy tính để bàn không có bàn phím ảo; mục kiểm tra loại bàn phím ảo hiển thị khi chạm vào ô nhập chỉ áp dụng cho P3."
+  },
+  "items": [
+    {
+      "id": "CL-01",
+      "ia": "IA-01",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Nhất quán ngôn ngữ tiếng Việt của nhãn trường và nút gửi trên trang Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:244)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "gia_dinh": "Giả định GA1",
+      "expected": "Các nhãn trường nhập liệu, nút gửi form và liên kết trên trang /login khi mở màn hình Đăng nhập đều hiển thị bằng tiếng Việt tự nhiên, nhất quán (chỉ trừ thuật ngữ chuẩn 'Email'). Fail nếu xuất hiện bất kỳ nhãn hoặc chữ trên nút bằng tiếng Anh thông thường (ví dụ 'Username', 'Sign In', 'Login', 'Password').",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát trực tiếp nhãn trường, nút gửi và liên kết kết hợp dom_probe.fields, dom_probe.buttons."
+    },
+    {
+      "id": "CL-02",
+      "ia": "IA-01",
+      "man_hinh": "Register, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Nhất quán ngôn ngữ tiếng Việt và chính tả trên Register, ForgotPassword, Profile và Header",
+      "can_cu": "FR-21 (eshop-sut/README.md:244); Slide 10 #3 Typography and Content",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "gia_dinh": "Giả định GA1",
+      "tien_dieu_kien": "Kiểm tra cả trạng thái chưa đăng nhập (/register, /forgot-password Bước 1 & 2) và đã đăng nhập (/profile, Header).",
+      "expected": "Toàn bộ tiêu đề, nhãn trường, placeholder, dòng gợi ý và chữ trên nút tại /register, /forgot-password (cả 2 bước), khối Hồ sơ của /profile và thanh Header khi hiển thị đều dùng tiếng Việt đúng chính tả, không pha trộn tiếng Anh ngoài 'Email', 'OTP', 'EShop'. Fail nếu có từ tiếng Anh không thuộc thuật ngữ chuẩn hoặc có lỗi chính tả tiếng Việt quan sát được.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc kiểm tra chính tả và ngôn ngữ tiếng Việt bằng mắt thường trên 4 màn hình và Header."
+    },
+    {
+      "id": "CL-03",
+      "ia": "IA-01",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Số lượng và nội dung thẻ tiêu đề chính h1 trên trang Đăng ký",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Tiêu đề chính của trang /register khi kiểm tra DOM (`document.querySelectorAll('h1')`) có đúng 1 thẻ `<h1>` đang hiển thị và văn bản mô tả đúng chức năng đăng ký tài khoản. Fail nếu số lượng thẻ `<h1>` hiển thị bằng 0, lớn hơn 1, hoặc nội dung `<h1>` không phản ánh chức năng đăng ký.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /register."
+    },
+    {
+      "id": "CL-04",
+      "ia": "IA-01",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Số lượng thẻ h1 và tính chính xác của tiêu đề trang Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Tiêu đề chính trên trang /login khi mở trang và kiểm tra DOM có đúng 1 thẻ `<h1>` hiển thị với văn bản mô tả đúng chức năng 'Đăng nhập'. Fail nếu số lượng thẻ `<h1>` khác 1 hoặc văn bản tiêu đề hiển thị sai tên chức năng (ví dụ hiển thị 'Đăng Ký').",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /login."
+    },
+    {
+      "id": "CL-05",
+      "ia": "IA-01",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Số lượng và nội dung thẻ tiêu đề chính h1 trên trang Quên mật khẩu ở cả 2 bước",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Kiểm tra ở Bước 1, sau đó nhập email hợp lệ (test@eshop.com) để chuyển sang Bước 2.",
+      "expected": "Tiêu đề chính trên trang /forgot-password khi quan sát và kiểm tra DOM ở cả Bước 1 lẫn Bước 2 luôn có đúng 1 thẻ `<h1>` hiển thị mô tả chức năng quên/đặt lại mật khẩu. Fail nếu ở bất kỳ bước nào số lượng thẻ `<h1>` khác 1 hoặc nội dung tiêu đề sai lệch chức năng.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 ở cả Bước 1 và Bước 2 trang /forgot-password."
+    },
+    {
+      "id": "CL-06",
+      "ia": "IA-01",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Số lượng thẻ tiêu đề cấp trang h1 trên trang Hồ sơ cá nhân",
+      "can_cu": "FR-21 (eshop-sut/README.md:247); FR-05 (eshop-sut/README.md:81)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Đã đăng nhập bằng tài khoản user (test@eshop.com / Test1234!) và mở /profile.",
+      "expected": "Trang /profile khi đã đăng nhập và kiểm tra DOM có đúng 1 thẻ `<h1>` duy nhất làm tiêu đề cấp trang, các tiêu đề vùng con dùng từ `<h2>` trở xuống. Fail nếu `document.querySelectorAll('h1').length` bằng 0 hoặc lớn hơn 1.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings trên /profile khi đã đăng nhập."
+    },
+    {
+      "id": "CL-07",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, Profile",
+      "muc_kiem_tra": "Nhất quán màu xanh dương của nút hành động tích cực Submit trên Register, Login và Profile",
+      "can_cu": "FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA2",
+      "tien_dieu_kien": "Kiểm tra nút Submit trên /register, /login và khối Hồ sơ của /profile (khi đã đăng nhập).",
+      "expected": "Nút Submit chính trên /register ('Đăng Ký'), /login và /profile ('Cập nhật') khi hiển thị ở trạng thái mặc định đều có màu nền xanh dương đồng nhất (kiểm tra mắt thường và `getComputedStyle(btn).backgroundColor` thuộc dải xanh dương). Fail nếu bất kỳ nút Submit tích cực nào dùng màu đỏ (nhầm với nút nguy hiểm/hủy) hoặc màu khác xanh dương.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát màu nút kết hợp dom_probe.buttons[].bg (RGB) trên Register, Login, Profile."
+    },
+    {
+      "id": "CL-08",
+      "ia": "IA-01",
+      "man_hinh": "ForgotPassword, Header",
+      "muc_kiem_tra": "Phân biệt màu sắc nút hành động tích cực, nút điều hướng phụ và nút đăng xuất trên ForgotPassword và Header",
+      "can_cu": "FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA2",
+      "tien_dieu_kien": "Kiểm tra Bước 1 & Bước 2 của /forgot-password và thanh Header khi đã đăng nhập.",
+      "expected": "Các nút hành động tích cực ('Lấy mã OTP', 'Đặt lại mật khẩu') có nền màu xanh dương, nút phụ ('Quay lại') có kiểu trung tính phân biệt rõ với nút chính, và nút thoát phiên đăng nhập trên Header dùng màu đỏ theo quy ước. Fail nếu nút tích cực dùng màu khác xanh dương (ví dụ xanh lá) hoặc nút 'Đặt lại mật khẩu' và nút 'Quay lại' dùng cùng một màu nền gây nhầm lẫn vai trò.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát màu và sự phân biệt vai trò nút kết hợp dom_probe.buttons[].bg và nav_links trên ForgotPassword, Header."
+    },
+    {
+      "id": "CL-09",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Căn lề dọc thẳng hàng và không tràn khung giữa nhãn, ô nhập liệu và nút Submit trong form",
+      "can_cu": "Slide 10 #1 Visual Consistency - Alignment, #19 Scroll Boundaries",
+      "loai_nguon": "Control",
+      "loai_loi": "Visual-Layout",
+      "expected": "Các nhãn, ô `input`/`textarea` và nút Submit bên trong khung form tại /register, /login, /forgot-password và cột Hồ sơ /profile trên khung nhìn mặc định của từng nền tảng được căn thẳng mép trái, có cùng chiều rộng nội khung và không tràn ngang khỏi màn hình. Fail nếu chênh lệch toạ độ `left` hoặc `width` giữa các ô nhập và nút toàn chiều rộng trong cùng form vượt quá 2px hoặc xuất hiện thanh cuộn ngang.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "Both",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát căn lề kết hợp toạ độ x, w trong dom_probe và horizontal_scroll trên 4 form."
+    },
+    {
+      "id": "CL-10",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Bố cục đáp ứng khi chuyển đổi 3 độ phân giải 375px, 768px, 1440px",
+      "can_cu": "Slide 10 #17 Breakpoint Layout, #18 Element Overlap, #19 Scroll Boundaries; Slide 31 Responsive",
+      "loai_nguon": "Control",
+      "loai_loi": "Responsive",
+      "viewport": [
+        "375",
+        "768",
+        "1440"
+      ],
+      "tien_dieu_kien": "Mở DevTools Device Toolbar lần lượt đặt chiều rộng 375px (mobile), 768px (tablet) và 1440px (desktop); kiểm tra cả khi đã đăng nhập để có đầy đủ phần tử trên Header và /profile.",
+      "expected": "Thanh Header và khung form trên cả 5 màn hình M1 khi thay đổi viewport ở 375px, 768px và 1440px tự co giãn gọn trong khung nhìn, các liên kết/nút không đè chồng lên nhau và không sinh thanh cuộn ngang. Fail nếu `document.documentElement.scrollWidth > document.documentElement.clientWidth` hoặc bất kỳ nhãn/nút/ô nhập nào bị cắt khuất hay chồng lấp (> 0px).",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: Chrome trên điện thoại Android có kích thước khung nhìn di động cố định, không có chế độ chuyển đổi 3 độ phân giải 375px/768px/1440px như trình duyệt desktop."
+      },
+      "nguon": "Both",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đổi viewport 375px, 768px, 1440px trong DevTools, quan sát chồng lấp và kiểm dom_probe.horizontal_scroll."
+    },
+    {
+      "id": "CL-11",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Độ tương phản màu chữ và màu nền của nhãn, dòng hướng dẫn phụ và nút bấm",
+      "can_cu": "WCAG 2.2 SC 1.4.3 Contrast (Minimum); Nielsen #8 Aesthetic and minimalist design",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "Visual-Layout",
+      "expected": "Toàn bộ văn bản hiển thị gồm tiêu đề, nhãn trường, dòng gợi ý yêu cầu mật khẩu dưới ô nhập, lời chào trên Header và chữ trên nút đều có độ tương phản rõ ràng với màu nền. Fail nếu bất kỳ văn bản thường nào (cỡ chữ < 18pt hoặc < 14pt in đậm) có tỷ lệ tương phản nhỏ hơn 4.5:1 hoặc văn bản lớn nhỏ hơn 3.0:1 (ví dụ chữ xám nhạt `text-gray-400` trên nền trắng).",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát độ rõ chữ kết hợp tỷ lệ tương phản dom_probe.buttons[].contrast và kiểm màu chữ phụ bằng DevTools."
+    },
+    {
+      "id": "CL-12",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Hiển thị ký hiệu dấu sao (*) bên cạnh nhãn tất cả các trường bắt buộc",
+      "can_cu": "FR-22 (eshop-sut/README.md:252)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Mở lần lượt /register, /login, /forgot-password (Bước 1 & Bước 2) và /profile (khi đã đăng nhập).",
+      "expected": "Tất cả các trường bắt buộc nhập trên /register (Họ Tên, Email, Mật khẩu, Xác nhận mật khẩu), /login (Email, Mật khẩu), /forgot-password (Email ở Bước 1; OTP, Mật khẩu mới, Xác nhận mật khẩu mới ở Bước 2) và /profile (Họ Tên) đều có ký hiệu `*` hiển thị rõ bên cạnh nhãn. Fail nếu bất kỳ trường bắt buộc nào thiếu ký hiệu `*` trên nhãn hiển thị.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát nhãn kết hợp dom_probe.fields[].label_has_asterisk trên cả 4 form."
+    },
+    {
+      "id": "CL-13",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Thuộc tính type=\"email\" và kiểm tra định dạng email hợp lệ trên trang Đăng ký",
+      "can_cu": "FR-01 (eshop-sut/README.md:33); FR-22 (eshop-sut/README.md:253)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "du_lieu": [
+        {
+          "gia_tri": "nguoimoi@eshop.com",
+          "ket_qua_mong_doi": "Hợp lệ, cho phép qua bước kiểm tra định dạng email"
+        },
+        {
+          "gia_tri": "nguoimoieshop.com",
+          "ket_qua_mong_doi": "Bị chặn gửi form kèm cảnh báo sai định dạng email"
+        },
+        {
+          "gia_tri": "nguoimoi@",
+          "ket_qua_mong_doi": "Bị chặn gửi form kèm cảnh báo sai định dạng email"
+        }
+      ],
+      "expected": "Ô nhập Email trên /register có thuộc tính `type=\"email\"` và chặn gửi form khi nhập chuỗi không đúng định dạng `user@domain.com` (kích hoạt bàn phím email trên di động hoặc thông báo lỗi định dạng trước khi gọi API). Fail nếu ô Email có `type` khác `email` hoặc cho phép gửi chuỗi sai định dạng (ví dụ `nguoimoieshop.com`) lên server.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /register và thử gửi tay chuỗi email sai định dạng."
+    },
+    {
+      "id": "CL-14",
+      "ia": "IA-02",
+      "man_hinh": "Login, ForgotPassword",
+      "muc_kiem_tra": "Thuộc tính type=\"email\" của ô nhập Email trên trang Đăng nhập và Quên mật khẩu",
+      "can_cu": "FR-02 (eshop-sut/README.md:44); FR-22 (eshop-sut/README.md:253)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "expected": "Ô nhập Email trên trang /login và ở Bước 1 trang /forgot-password đều khai báo `type=\"email\"` và kích hoạt kiểm tra định dạng email chuẩn HTML5 khi bấm gửi với chuỗi thiếu ký tự `@`. Fail nếu bất kỳ ô nào dùng `type=\"text\"` hoặc không chặn định dạng email sai ngay trên form.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /login và /forgot-password Bước 1, thử gửi chuỗi thiếu @."
+    },
+    {
+      "id": "CL-15",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword",
+      "muc_kiem_tra": "Che giấu ký tự nhập bằng type=\"password\" ở tất cả các ô mật khẩu",
+      "can_cu": "FR-22 (eshop-sut/README.md:254)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Mọi ô nhập mật khẩu trên /register, /login và Bước 2 trang /forgot-password khi người dùng gõ ký tự ở trạng thái mặc định đều dùng `type=\"password\"` và hiển thị thành dấu chấm tròn ẩn (`••••`), không lộ ký tự rõ. Fail nếu bất kỳ ô mật khẩu nào dùng `type=\"text\"` hoặc để lộ chuỗi mật khẩu đang gõ.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type và gõ thử ký tự vào mọi ô mật khẩu để xác nhận che dấu chấm tròn."
+    },
+    {
+      "id": "CL-16",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Sự tồn tại và kiểm tra khớp của trường Xác nhận mật khẩu trên trang Đăng ký",
+      "can_cu": "FR-01 (eshop-sut/README.md:35)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "expected": "Form /register hiển thị trường `Xác nhận mật khẩu` (`type=\"password\"`) nằm dưới trường `Mật khẩu`; khi nhập hai giá trị khác nhau và bấm `Đăng Ký`, hệ thống chặn gửi và hiển thị thông báo lỗi không khớp. Fail nếu form không có trường `Xác nhận mật khẩu` hoặc vẫn cho phép đăng ký khi hai trường khác giá trị.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát các trường trên /register (dom_probe.fields) và thử nhập 2 mật khẩu lệch nhau nếu có trường xác nhận."
+    },
+    {
+      "id": "CL-17",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Hiển thị chỉ báo bước (Step Indicator) rõ ràng trên form Quên mật khẩu 2 bước",
+      "can_cu": "FR-03 (eshop-sut/README.md:52); FR-22 (eshop-sut/README.md:256)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA3",
+      "tien_dieu_kien": "Mở /forgot-password quan sát Bước 1, sau đó nhập `test@eshop.com` bấm `Lấy mã OTP` để chuyển sang Bước 2.",
+      "expected": "Form /forgot-password hiển thị thành phần chỉ báo bước (Step Indicator, ví dụ `Bước 1 / 2` ở bước đầu và cập nhật sang `Bước 2 / 2` ở bước đặt lại mật khẩu) giúp người dùng nhận biết vị trí hiện tại trong quy trình. Fail nếu ở Bước 1 hoặc Bước 2 không có bất kỳ chỉ báo bước nào hiển thị trên giao diện.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát giao diện Bước 1 và Bước 2 trên /forgot-password xem có Step Indicator hay không."
+    },
+    {
+      "id": "CL-18",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Sự tồn tại và kiểm tra khớp của trường Xác nhận mật khẩu mới ở Bước 2 Quên mật khẩu",
+      "can_cu": "FR-03 (eshop-sut/README.md:57-59)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đang ở Bước 2 trang /forgot-password sau khi lấy OTP cho `test@eshop.com`.",
+      "expected": "Form Bước 2 trên /forgot-password hiển thị đầy đủ 3 trường: `OTP`, `Mật khẩu mới` và `Xác nhận mật khẩu mới`; khi nhập `Xác nhận mật khẩu mới` khác với `Mật khẩu mới` và bấm `Đặt lại mật khẩu`, hệ thống từ chối và báo lỗi. Fail nếu thiếu trường `Xác nhận mật khẩu mới` hoặc hệ thống chấp nhận đặt lại khi hai mật khẩu không khớp.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát form Bước 2 /forgot-password (dom_probe.fields) và thử nhập xác nhận mật khẩu lệch nếu có."
+    },
+    {
+      "id": "CL-19",
+      "ia": "IA-02",
+      "man_hinh": "Register, ForgotPassword",
+      "muc_kiem_tra": "Kiểm tra quy tắc mật khẩu mạnh theo đặc tả trên trang Đăng ký và Đặt lại mật khẩu",
+      "can_cu": "FR-01 (eshop-sut/README.md:34); FR-03 (eshop-sut/README.md:58)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "du_lieu": [
+        {
+          "gia_tri": "Abcd123!",
+          "ket_qua_mong_doi": "Hợp lệ (đủ 8 ký tự, chữ hoa, chữ thường, số và ký tự đặc biệt '!'), được chấp nhận"
+        },
+        {
+          "gia_tri": "abcd123!",
+          "ket_qua_mong_doi": "Không hợp lệ (thiếu chữ hoa), bị từ chối kèm thông báo lỗi"
+        },
+        {
+          "gia_tri": "Abcd1234",
+          "ket_qua_mong_doi": "Không hợp lệ (thiếu ký tự đặc biệt @$!%*?&), bị từ chối kèm thông báo lỗi"
+        }
+      ],
+      "expected": "Khi nhập mật khẩu hợp lệ theo đặc tả (ví dụ `Abcd123!` gồm tối thiểu 8 ký tự, chữ hoa, chữ thường, số và ký tự đặc biệt thuộc `@ $ ! % * ? &`) trên /register và Bước 2 /forgot-password, form chấp nhận hợp lệ; khi thiếu một trong các nhóm ký tự trên thì từ chối. Fail nếu mật khẩu đúng chuẩn `Abcd123!` bị báo lỗi từ chối hoặc mật khẩu thiếu điều kiện vẫn vượt qua kiểm tra.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập tay mật khẩu chuẩn Abcd123! và mật khẩu yếu trên /register và Bước 2 /forgot-password."
+    },
+    {
+      "id": "CL-20",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Độ dài 6 chữ số của mã OTP và nhãn trường OTP ở Bước 2 Quên mật khẩu",
+      "can_cu": "FR-03 (eshop-sut/README.md:51); SEC-07 (eshop-sut/README.md:284); Slide 10 #5 Field Limits",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Nhập `test@eshop.com` tại Bước 1 /forgot-password và bấm `Lấy mã OTP`.",
+      "expected": "Mã OTP demo hiển thị ở Bước 2 gồm đúng 6 chữ số ngẫu nhiên và nhãn/gợi ý của ô nhập OTP mô tả đúng mã 6 chữ số. Fail nếu mã OTP sinh ra có ít hơn 6 chữ số (ví dụ chỉ có 4 chữ số) hoặc nhãn ô nhập ghi sai độ dài mã OTP.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lấy OTP tại /forgot-password, đếm số chữ số OTP hiển thị và đọc nhãn ô nhập OTP."
+    },
+    {
+      "id": "CL-21",
+      "ia": "IA-02",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Trạng thái vô hiệu hóa chỉnh sửa và khác biệt thị giác của trường Email trên Hồ sơ",
+      "can_cu": "FR-04 (eshop-sut/README.md:66); Slide 10 #6 Disabled States",
+      "loai_nguon": "Control",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đã đăng nhập bằng `test@eshop.com` / `Test1234!` và mở /profile.",
+      "expected": "Ô Email trong khối `Hồ sơ của bạn` tại /profile hiển thị đúng email tài khoản đang đăng nhập, có thuộc tính `disabled` hoặc `readOnly` ngăn người dùng gõ sửa và có màu nền xám phân biệt rõ với các ô cho phép nhập (`Họ Tên`, `Số điện thoại`, `Địa chỉ giao hàng`). Fail nếu người dùng có thể sửa giá trị ô Email hoặc ô Email có giao diện giống hệt ô nhập bình thường.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát màu nền ô Email trên /profile, thử gõ sửa và đọc dom_probe.fields (disabled/readonly)."
+    },
+    {
+      "id": "CL-22",
+      "ia": "IA-02",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Kiểm tra định dạng Số điện thoại hợp lệ bắt đầu bằng số 0 trên trang Hồ sơ",
+      "can_cu": "FR-04 (eshop-sut/README.md:65)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đã đăng nhập bằng `test@eshop.com` / `Test1234!` và mở /profile.",
+      "du_lieu": [
+        {
+          "gia_tri": "0912345678",
+          "ket_qua_mong_doi": "Hợp lệ (bắt đầu bằng 0, 10 chữ số), cập nhật thành công"
+        },
+        {
+          "gia_tri": "09123456789",
+          "ket_qua_mong_doi": "Hợp lệ (bắt đầu bằng 0, 11 chữ số), cập nhật thành công"
+        },
+        {
+          "gia_tri": "abc1234567",
+          "ket_qua_mong_doi": "Không hợp lệ (chứa chữ cái), bị từ chối kèm thông báo lỗi"
+        }
+      ],
+      "expected": "Khi nhập Số điện thoại bắt đầu bằng `0` có từ 10 đến 11 chữ số (ví dụ `0912345678` khớp với chính placeholder gợi ý trên form) và bấm `Cập nhật`, hệ thống chấp nhận lưu thành công; khi nhập chuỗi chứa chữ cái thì từ chối. Fail nếu số điện thoại hợp lệ bắt đầu bằng `0` (10 hoặc 11 chữ số) bị báo lỗi không hợp lệ hoặc chuỗi chứa chữ cái vẫn lưu thành công.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập tay SĐT hợp lệ bắt đầu bằng 0 (0912345678) và chuỗi chữ cái trên /profile rồi bấm Cập nhật."
+    },
+    {
+      "id": "CL-23",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Liên kết ngữ nghĩa giữa thẻ label và ô nhập liệu kèm gợi ý định dạng rõ nghĩa",
+      "can_cu": "WCAG 2.2 SC 1.3.1 Info and Relationships, SC 3.3.2 Labels or Instructions; Slide 10 #7 Assistive Hints",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "Visual-Layout",
+      "expected": "Mọi nhãn `<label>` trên các form /register, /login, /forgot-password và /profile được gắn kết với ô nhập tương ứng qua cặp `for`/`id` (hoặc bọc trực tiếp ô nhập) sao cho khi nhấp/chạm vào chữ trên nhãn thì con trỏ tự động focus vào ô nhập đó, đồng thời các trường có định dạng ràng buộc có gợi ý rõ nghĩa. Fail nếu nhấp vào nhãn `<label>` không làm focus ô nhập tương ứng (kiểm tra `label.htmlFor` rỗng và không bọc `input`).",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấp/chạm trực tiếp vào từng nhãn <label> và đối chiếu dom_probe.fields[].label_linked."
+    },
+    {
+      "id": "CL-24",
+      "ia": "IA-03",
+      "man_hinh": "Header",
+      "muc_kiem_tra": "Đánh dấu nổi bật (highlight) liên kết của trang đang mở trên thanh Navbar",
+      "can_cu": "FR-23 (eshop-sut/README.md:260)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "tien_dieu_kien": "Mở lần lượt /login, /register (khi chưa đăng nhập) và /profile (khi đã đăng nhập).",
+      "expected": "Thanh điều hướng trên Header khi người dùng đang đứng tại /login, /register hoặc /profile làm nổi bật rõ liên kết tương ứng của trang đang chọn (bằng màu nền, đường gạch chân cố định, độ đậm hoặc `aria-current=\"page\"`) so với các liên kết khác. Fail nếu liên kết của trang đang mở có kiểu hiển thị giống hệt các liên kết không được chọn.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Mở /login, /register, /profile quan sát kiểu nổi bật của liên kết đang mở trên Header và dom_probe.nav_links."
+    },
+    {
+      "id": "CL-25",
+      "ia": "IA-03",
+      "man_hinh": "Header",
+      "muc_kiem_tra": "Nhãn chuẩn 'Đăng xuất' và điều hướng kết thúc phiên đăng nhập trên Header",
+      "can_cu": "FR-23 (eshop-sut/README.md:262)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "tien_dieu_kien": "Đã đăng nhập bằng `test@eshop.com` / `Test1234!`.",
+      "expected": "Nút kết thúc phiên trên thanh Header khi đã đăng nhập hiển thị nhãn chính xác là `Đăng xuất` (không dùng từ `Thoát`), và khi nhấp/chạm vào nút thì xóa trạng thái đăng nhập, chuyển Header về hiển thị hai liên kết `Đăng nhập` và `Đăng ký`. Fail nếu nhãn nút khác `Đăng xuất` (ví dụ hiển thị `Thoát`) hoặc sau khi bấm vẫn còn lời chào người dùng.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát nhãn nút kết thúc phiên trên Header và bấm kiểm tra xoá trạng thái đăng nhập."
+    },
+    {
+      "id": "CL-26",
+      "ia": "IA-03",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Sự tồn tại và điều hướng của nút 'Quay lại đăng nhập' ở Bước 1 trang Quên mật khẩu",
+      "can_cu": "FR-03 (eshop-sut/README.md:53)",
+      "loai_nguon": "SRS",
+      "loai_loi": "Visual-Layout",
+      "expected": "Màn hình Bước 1 tại /forgot-password hiển thị rõ nút hoặc liên kết `Quay lại đăng nhập`; khi người dùng nhấp/chạm vào thành phần này thì trình duyệt chuyển hướng ngay về trang `/login`. Fail nếu Bước 1 không có nút/liên kết `Quay lại đăng nhập` hoặc bấm vào không điều hướng về `/login`.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát Bước 1 /forgot-password tìm nút/liên kết Quay lại đăng nhập và bấm kiểm tra điều hướng."
+    },
+    {
+      "id": "CL-27",
+      "ia": "IA-03",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Chuyển hướng sang trang Đăng nhập từ liên kết phụ và sau khi đăng ký thành công",
+      "can_cu": "FR-01 (eshop-sut/README.md:36); Slide 31 Link Checker",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "expected": "Trên trang /register, liên kết `Đăng nhập` dưới nút gửi điều hướng đúng tới `/login`, và khi người dùng hoàn tất đăng ký tài khoản hợp lệ thành công thì ứng dụng tự động chuyển hướng sang `/login`. Fail nếu liên kết `Đăng nhập` bị lỗi đường dẫn hoặc sau khi đăng ký thành công URL không chuyển về `/login`.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Bấm liên kết Đăng nhập trên /register và kiểm tra tự động chuyển hướng sau khi đăng ký thành công."
+    },
+    {
+      "id": "CL-28",
+      "ia": "IA-03",
+      "man_hinh": "Login, Header",
+      "muc_kiem_tra": "Điều hướng nội bộ SPA không tải lại toàn bộ trang của các liên kết trên Login và Header",
+      "can_cu": "Slide 31 Link Checker; Nielsen #4 Consistency and standards",
+      "loai_nguon": "Control",
+      "loai_loi": "State",
+      "expected": "Các liên kết điều hướng trên /login (`Quên mật khẩu?`, `Đăng ký ngay`) và trên Header (`EShop`, `Đăng nhập`, `Đăng ký`, `Chào, <tên>`) đều chuyển đúng tới route đích bằng cơ chế SPA của React Router mà không gây tải lại toàn trang trình duyệt. Fail nếu bất kỳ liên kết nào dẫn sai route hoặc dùng thẻ `<a href>` thường làm tải lại toàn bộ trang (làm mất state bộ nhớ tạm của ứng dụng).",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Bấm từng liên kết trên /login và Header, quan sát tab Network/cờ biến window xem trang có bị tải lại toàn bộ không."
+    },
+    {
+      "id": "CL-29",
+      "ia": "IA-03",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Điều hướng quay về Bước 1 khi bấm nút 'Quay lại' ở Bước 2 Quên mật khẩu",
+      "can_cu": "Nielsen #3 User control and freedom",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Nhập `test@eshop.com` ở Bước 1 trang /forgot-password và bấm `Lấy mã OTP` để vào Bước 2.",
+      "expected": "Tại Bước 2 trang /forgot-password, khi người dùng nhấp/chạm nút `← Quay lại`, giao diện lập tức quay trở về form Bước 1 để cho phép nhập lại Email mà không bị treo hoặc báo lỗi. Fail nếu nút `← Quay lại` không chuyển giao diện về Bước 1 hoặc làm phát sinh lỗi trang.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Tại Bước 2 /forgot-password bấm nút Quay lại và quan sát giao diện trở về Bước 1."
+    },
+    {
+      "id": "CL-30",
+      "ia": "IA-03",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Xử lý điều hướng khi người dùng chưa đăng nhập truy cập trực tiếp đường dẫn /profile",
+      "can_cu": "FR-04 (eshop-sut/README.md:64); Nielsen #3 User control and freedom",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đảm bảo đang ở trạng thái khách (chưa đăng nhập), gõ trực tiếp URL `/profile`.",
+      "expected": "Khi truy cập `/profile` lúc chưa đăng nhập, ứng dụng tự động chuyển hướng về `/login` hoặc hiển thị thông báo yêu cầu đăng nhập kèm nút/liên kết điều hướng trực tiếp sang `/login` ngay trong vùng nội dung chính. Fail nếu trang hiển thị form rỗng lỗi hoặc chỉ hiện dòng chữ tĩnh `Vui lòng đăng nhập` cụt đường mà không tự chuyển hướng hay có nút/liên kết đi tới `/login` trong vùng thông báo.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Ở trạng thái khách, gõ trực tiếp URL /profile trên thanh địa chỉ và quan sát giao diện/điều hướng."
+    },
+    {
+      "id": "CL-31",
+      "ia": "IA-03",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Phản hồi thị giác khi hover chuột lên nút/liên kết và gửi form mặc định bằng phím Enter",
+      "can_cu": "Slide 10 #10 Default Actions, #12 Hover and Focus",
+      "loai_nguon": "Control",
+      "loai_loi": "Visual-Layout",
+      "expected": "Trên các màn hình M1 và Header, khi di con trỏ chuột (`hover`) lên các nút bấm hoặc liên kết điều hướng thì con trỏ chuyển thành `pointer` kèm hiệu ứng đổi màu nền hoặc gạch chân rõ ràng; đồng thời khi đang đặt con trỏ tại ô `input` trong form và nhấn phím `Enter` thì kích hoạt gửi form tương ứng. Fail nếu nút/liên kết không có phản hồi thị giác khi hover, thiếu `cursor: pointer`, hoặc nhấn `Enter` trong ô `input` không gửi form.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: Điện thoại Android là thiết bị cảm ứng không có con trỏ chuột hover và không có phím Enter vật lý."
+      },
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Di chuột hover lên các nút/liên kết kiểm tra cursor/hiệu ứng và nhấn phím Enter trong ô input để gửi form."
+    },
+    {
+      "id": "CL-32",
+      "ia": "IA-04",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Thông báo lỗi tiếng Việt thân thiện khi đăng ký bằng địa chỉ Email đã tồn tại",
+      "can_cu": "FR-01 (eshop-sut/README.md:33); FR-21 (eshop-sut/README.md:244); Slide 10 #15 Error Messages",
+      "loai_nguon": "SRS",
+      "loai_loi": "Typo-Localization",
+      "tien_dieu_kien": "Tại /register, nhập Họ Tên bất kỳ, Email đã có sẵn trong hệ thống (`test@eshop.com`), mật khẩu hợp lệ rồi bấm `Đăng Ký`.",
+      "expected": "Khi gửi form đăng ký với Email trùng tài khoản đã tồn tại, giao diện từ chối đăng ký và hiển thị thông báo lỗi bằng tiếng Việt rõ ràng, thân thiện với người dùng cuối (ví dụ `Email này đã được đăng ký`). Fail nếu không hiển thị lỗi hoặc hiển thị nguyên văn mã lỗi kỹ thuật/CSDL bằng tiếng Anh (ví dụ `SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email`).",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Gửi form /register với email đã tồn tại test@eshop.com và đọc nguyên văn thông báo lỗi."
+    },
+    {
+      "id": "CL-33",
+      "ia": "IA-04",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Khóa tạm thời tài khoản 30 giây kèm thông báo phù hợp sau đúng 3 lần đăng nhập sai liên tiếp",
+      "can_cu": "FR-02 (eshop-sut/README.md:41-42)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Đảm bảo tài khoản `test@eshop.com` đang ở trạng thái bộ đếm lỗi bằng 0 (vừa khởi động lại backend hoặc vừa đăng nhập thành công rồi đăng xuất); thực hiện nhập sai mật khẩu liên tiếp lần 1, lần 2, lần 3.",
+      "expected": "Ở lần nhập sai thứ 1 và thứ 2 trên `/login`, tài khoản chưa bị khóa (nếu nhập đúng mật khẩu ở lần kế sẽ vào được); từ lần nhập sai thứ 3 liên tiếp, tài khoản bị tạm khóa trong đúng 30 giây, giao diện hiển thị thông báo cho biết tài khoản đang bị tạm khóa, và cho phép đăng nhập lại sau khi hết 30 giây. Fail nếu tài khoản bị khóa sớm hơn 3 lần sai (ví dụ khóa ngay sau lần sai thứ 2), không hiển thị thông báo bị khóa trên giao diện, hoặc thời gian khóa thực tế lệch quá 5 giây so với 30 giây.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập sai mật khẩu liên tiếp lần 1, 2, 3 cho test@eshop.com trên /login và bấm giờ đo thời gian khoá."
+    },
+    {
+      "id": "CL-34",
+      "ia": "IA-04",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Không tiết lộ nguyên nhân chi tiết trong thông báo lỗi khi đăng nhập sai Email so với sai Mật khẩu",
+      "can_cu": "FR-02 (eshop-sut/README.md:42); Slide 10 #15 Error Messages",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "expected": "Khi đăng nhập thất bại do nhập Email chưa tồn tại (`khongtontai@eshop.com`) so với khi nhập Email đúng (`test@eshop.com`) nhưng sai mật khẩu trên `/login`, giao diện hiển thị cùng một thông báo lỗi tổng quát bằng tiếng Việt, không chỉ đích danh trường nào bị sai. Fail nếu hai trường hợp hiển thị hai thông điệp khác nhau làm lộ việc Email có tồn tại hay không hoặc hiển thị lỗi tiếng Anh.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "So sánh nguyên văn thông báo lỗi trên /login khi sai Email so với khi đúng Email nhưng sai Mật khẩu."
+    },
+    {
+      "id": "CL-35",
+      "ia": "IA-04",
+      "man_hinh": "ForgotPassword, Profile",
+      "muc_kiem_tra": "Phản hồi thành công và lỗi hiển thị trực quan nội trang thay vì hộp thoại window.alert()",
+      "can_cu": "Slide 10 #15 Error Messages, #16 Input Validation; Nielsen #4 Consistency and standards",
+      "loai_nguon": "Control",
+      "loai_loi": "Visual-Layout",
+      "gia_dinh": "Giả định GA4",
+      "tien_dieu_kien": "Thử gửi Email không tồn tại / đặt lại mật khẩu trên `/forgot-password` và thử cập nhật thông tin trên `/profile`.",
+      "expected": "Mọi phản hồi thành công hoặc báo lỗi trên `/forgot-password` và `/profile` đều được render thành khối thông báo nội trang (inline banner) hoặc toast trực quan bằng tiếng Việt, nhất quán với kiểu thông báo của `/register` và `/login`. Fail nếu trình duyệt bật hộp thoại hệ thống `window.alert()` chặn thao tác người dùng hoặc hiển thị chuỗi lỗi tiếng Anh thô (ví dụ `Lỗi: User not found`).",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thực hiện thao tác lỗi/thành công trên /forgot-password và /profile để kiểm tra inline/toast hay window.alert()."
+    },
+    {
+      "id": "CL-36",
+      "ia": "IA-04",
+      "man_hinh": "Profile, Header",
+      "muc_kiem_tra": "Đồng bộ tên người dùng trên Header và bền vững dữ liệu sau khi cập nhật Hồ sơ thành công",
+      "can_cu": "FR-04 (eshop-sut/README.md:64); Nielsen #1 Visibility of system status",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "gia_dinh": "Giả định GA5",
+      "tien_dieu_kien": "Đăng nhập `test@eshop.com` / `Test1234!`, mở `/profile`, đổi `Họ Tên` sang giá trị mới hợp lệ, nhập SĐT hợp lệ và bấm `Cập nhật`.",
+      "expected": "Trong vòng 1 giây sau khi cập nhật hồ sơ thành công tại `/profile`, lời chào `Chào, <tên>` trên thanh Header tự động cập nhật sang `Họ Tên` mới mà không cần đăng xuất, đồng thời khi tải lại trang `/profile` các trường `Họ Tên`, `Số điện thoại`, `Địa chỉ giao hàng` vẫn hiển thị đúng giá trị vừa lưu. Fail nếu lời chào trên Header vẫn giữ tên cũ sau khi cập nhật hoặc khi tải lại trang `/profile` dữ liệu quay về giá trị cũ.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Cập nhật Họ Tên trên /profile, quan sát lời chào Header trong 1 giây và tải lại trang kiểm tra giữ dữ liệu."
+    },
+    {
+      "id": "CL-37",
+      "ia": "IA-04",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Chỉ báo đang xử lý (loading) và khóa tạm nút Submit chống bấm đúp khi chờ API",
+      "can_cu": "Slide 10 #13 Processing States; Slide 11 IA-04",
+      "loai_nguon": "Control",
+      "loai_loi": "State",
+      "gia_dinh": "Giả định GA5",
+      "tien_dieu_kien": "Mở DevTools > Network bật chế độ `Slow 3G` rồi bấm nút Submit hợp lệ trên `/register`, `/login`, `/forgot-password` và `/profile`.",
+      "expected": "Trong vòng 0,1 giây sau khi bấm gửi form và trong suốt lúc chờ API phản hồi, nút Submit hiển thị trạng thái đang xử lý (đổi nhãn hoặc hiện biểu tượng xoay) và có thuộc tính `disabled` ngăn bấm lặp lại nhiều lần, sau đó trở về bình thường khi hoàn tất. Fail nếu nút Submit vẫn cho phép nhấp liên tiếp phát sinh nhiều request API trùng nhau trong lúc đang chờ phản hồi.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: Chrome trên điện thoại Android không có tab Network throttling Slow 3G trực tiếp trên trình duyệt như DevTools desktop."
+      },
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Bật Slow 3G trong DevTools Network, bấm Submit và kiểm tra trạng thái loading/disabled chống bấm đúp."
+    },
+    {
+      "id": "CL-38",
+      "ia": "IA-04",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Vô hiệu hóa mã OTP sau khi đã sử dụng và phản hồi lỗi khi nhập sai hoặc dùng lại OTP cũ",
+      "can_cu": "FR-03 (eshop-sut/README.md:60); SEC-07 (eshop-sut/README.md:284)",
+      "loai_nguon": "SRS",
+      "loai_loi": "State",
+      "tien_dieu_kien": "Lấy mã OTP cho `test@eshop.com`, ghi nhớ mã OTP vừa cấp và thực hiện đặt lại mật khẩu thành công; sau đó thử dùng lại chính mã OTP đó hoặc nhập mã OTP sai ở Bước 2.",
+      "expected": "Khi nhập sai mã OTP hoặc nhập lại mã OTP đã sử dụng thành công trước đó tại Bước 2 `/forgot-password`, hệ thống từ chối đổi mật khẩu và hiển thị thông báo lỗi tiếng Việt rõ nghĩa. Fail nếu hệ thống vẫn chấp nhận đổi mật khẩu lần thứ hai bằng mã OTP cũ hoặc không hiển thị thông báo lỗi khi nhập sai OTP.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đặt lại mật khẩu bằng OTP vừa cấp rồi thử dùng lại OTP cũ và nhập OTP sai ở Bước 2 /forgot-password."
+    },
+    {
+      "id": "CL-39",
+      "ia": "IA-04",
+      "man_hinh": "Register, Login",
+      "muc_kiem_tra": "Giữ nguyên dữ liệu người dùng đã nhập khi gửi form báo lỗi và xóa lỗi cũ khi thao tác lại thành công",
+      "can_cu": "Nielsen #9 Help users recognize, diagnose, and recover from errors; Nielsen #5 Error prevention",
+      "loai_nguon": "Heuristic",
+      "loai_loi": "State",
+      "expected": "Khi gửi form `/register` hoặc `/login` bị từ chối kèm thông báo lỗi, các giá trị văn bản người dùng đã gõ (`Họ Tên`, `Email`) vẫn được giữ nguyên trong ô nhập để sửa nhanh mà không bị xóa trắng toàn bộ form; khi sửa lại hợp lệ và gửi thành công thì thông báo lỗi cũ biến mất. Fail nếu form xóa sạch `Họ Tên` hoặc `Email` ngay khi vừa báo lỗi hoặc khung báo lỗi cũ vẫn tồn tại sau khi thao tác thành công.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "AI",
+      "che_do": "manual",
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /register và /login kiểm tra giữ dữ liệu đã nhập, sau đó gửi hợp lệ kiểm tra xoá lỗi cũ."
+    },
+    {
+      "id": "SV-01",
+      "ia": "IA-03",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Thứ tự di chuyển focus bằng phím Tab trên form Đăng nhập",
+      "can_cu": "FR-21 (eshop-sut/README.md:248); Slide 10 #9 Tab Order",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Mở /login, click vào vùng trống rồi nhấn Tab liên tiếp, quan sát thứ tự focus.",
+      "expected": "Khi nhấn Tab liên tiếp trên /login, focus đi lần lượt từ trên xuống dưới, trái sang phải qua các thành phần của form theo thứ tự hiển thị (ô tài khoản, ô mật khẩu, liên kết `Quên mật khẩu?`, nút gửi form, liên kết `Đăng ký ngay`) và không nhảy cóc. Fail nếu nút gửi form nhận focus trước ô tài khoản hoặc trước ô mật khẩu, hoặc thứ tự focus khác thứ tự hiển thị từ trên xuống dưới.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: P3 là Chrome trên điện thoại Android (OPPO Reno10 5G - thiết bị di động cảm ứng màn hình cố định, không có chế độ chuyển đổi đa viewport 375px/768px/1440px, không có con trỏ hover hay bàn phím vật lý và không có tab Network throttling trực tiếp trên trình duyệt điện thoại); các mục phụ thuộc các công cụ/thao tác này chỉ áp dụng trên P1, P2."
+      },
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "đặc điểm giao diện",
+        "giai_thich": "Lỗi thứ tự Tab chỉ lộ khi đi bằng bàn phím thật, nhìn ảnh chụp hay đọc mã giao diện bằng mắt thường không thấy; AI sinh checklist chủ yếu từ mô tả nhãn và màu nên không nghĩ tới việc duyệt focus từng bước."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /login quan sát thứ tự focus và đối chiếu dom_probe.tab_order."
+    },
+    {
+      "id": "SV-02",
+      "ia": "IA-03",
+      "man_hinh": "Register, ForgotPassword",
+      "muc_kiem_tra": "Thứ tự di chuyển focus bằng phím Tab trên form Đăng ký và form Quên mật khẩu ở cả 2 bước",
+      "can_cu": "FR-21 (eshop-sut/README.md:248); Slide 10 #9 Tab Order, #11 Keyboard Support",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Mở /register; sau đó mở /forgot-password, nhập `test@eshop.com`, bấm `Lấy mã OTP` để sang Bước 2 rồi kiểm tra lại.",
+      "expected": "Trên /register và ở cả Bước 1 lẫn Bước 2 của /forgot-password, nhấn Tab liên tiếp di chuyển focus qua mọi ô nhập, nút và liên kết theo đúng thứ tự hiển thị từ trên xuống dưới, mỗi phần tử tương tác nhận focus đúng một lần. Fail nếu có phần tử tương tác bị bỏ qua, nhận focus hai lần, hoặc thứ tự focus khác thứ tự hiển thị.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: P3 là Chrome trên điện thoại Android (OPPO Reno10 5G - thiết bị di động cảm ứng màn hình cố định, không có chế độ chuyển đổi đa viewport 375px/768px/1440px, không có con trỏ hover hay bàn phím vật lý và không có tab Network throttling trực tiếp trên trình duyệt điện thoại); các mục phụ thuộc các công cụ/thao tác này chỉ áp dụng trên P1, P2."
+      },
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "prompt",
+        "giai_thich": "Prompt lượt IA-03 yêu cầu chung về điều hướng nên AI gom vào điều hướng giữa các trang; tôi không yêu cầu riêng \"thứ tự Tab từng form\" nên AI không tách thành mục kiểm tra cụ thể cho từng màn hình."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /register và Bước 1, Bước 2 /forgot-password đối chiếu dom_probe.tab_order."
+    },
+    {
+      "id": "SV-03",
+      "ia": "IA-02",
+      "man_hinh": "Login",
+      "muc_kiem_tra": "Vị trí khối thông báo lỗi so với nút gửi form trên trang Đăng nhập",
+      "can_cu": "FR-22 (eshop-sut/README.md:255)",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Tại /login, nhập Email đúng định dạng nhưng sai mật khẩu rồi bấm nút gửi form để hiện thông báo lỗi.",
+      "expected": "Khối thông báo lỗi đăng nhập hiển thị phía trên nút gửi form (toạ độ `bottom` của khối lỗi nhỏ hơn hoặc bằng toạ độ `top` của nút gửi, đo bằng `getBoundingClientRect()`). Fail nếu khối thông báo lỗi nằm bên dưới nút gửi form.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "AI chỉ kiểm tra nội dung thông báo lỗi (CL-32, CL-34) mà không để ý vị trí khối lỗi so với nút; vị trí chỉ phát hiện được khi thật sự kích hoạt lỗi và nhìn bố cục, AI không chạy giao diện."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /login rồi chạy dom_probe.js đọc messages[].above_submit và toạ độ y so với nút gửi."
+    },
+    {
+      "id": "SV-04",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Vị trí khối thông báo lỗi so với nút Đăng Ký trên trang Đăng ký",
+      "can_cu": "FR-22 (eshop-sut/README.md:255); Giả định GA6",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Tại /register, nhập mật khẩu không đạt quy tắc (ví dụ `abc`) rồi bấm `Đăng Ký` để hiện khối thông báo lỗi.",
+      "gia_dinh": "Giả định GA6",
+      "expected": "Khối thông báo lỗi hiển thị trong form, liền kề phía trên nút `Đăng Ký` (khoảng cách dọc giữa mép dưới khối lỗi và mép trên nút nhỏ hơn khoảng cách tới tiêu đề trang, đo bằng `getBoundingClientRect()`). Fail nếu khối lỗi nằm phía trên tiêu đề trang hoặc phía trên tất cả các ô nhập, xa nút `Đăng Ký` đến mức người dùng phải cuộn mới thấy khi form dài.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "đặc điểm giao diện",
+        "giai_thich": "Quy tắc \"lỗi nằm trên nút submit\" chỉ có ý nghĩa khi so toạ độ thực tế trên giao diện; AI coi mọi khối lỗi hiển thị phía trên nút là đạt nên không tách riêng kiểm tra khoảng cách và vị trí so với tiêu đề."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /register rồi chạy dom_probe.js đo vị trí dọc của khối lỗi so với nút Đăng Ký và tiêu đề."
+    },
+    {
+      "id": "SV-05",
+      "ia": "IA-04",
+      "man_hinh": "Profile, Header",
+      "muc_kiem_tra": "Hiển thị an toàn ký tự HTML trong Họ Tên ở lời chào trên Header",
+      "can_cu": "SEC-04 (eshop-sut/README.md:281)",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Đăng nhập `test@eshop.com`, tại /profile đổi Họ Tên thành `<b>Test</b><i>User</i>` kèm SĐT hợp lệ, bấm `Cập nhật`, rồi đăng xuất và đăng nhập lại.",
+      "expected": "Lời chào trên Header hiển thị nguyên văn chuỗi `Chào, <b>Test</b><i>User</i>` dưới dạng văn bản thường (nhìn thấy cả các ký tự `<b>`), không in đậm hoặc in nghiêng phần tên. Fail nếu phần tên được trình duyệt dựng thành định dạng (in đậm, in nghiêng) hoặc thẻ HTML nhập vào bị thực thi.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "prompt",
+        "giai_thich": "Prompt các lượt IA chỉ nhắm vào yêu cầu giao diện FR-21..24 nên AI bỏ qua điều khoản bảo mật SEC-04 dù nó có trong m1_test_basis; việc hiển thị tên người dùng chỉ lộ lỗi khi nhập thẻ HTML thật."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu Họ Tên chứa thẻ HTML <b>Test</b><i>User</i>, đăng nhập lại quan sát Header và dom_probe.innerhtml_risk."
+    },
+    {
+      "id": "SV-06",
+      "ia": "IA-01",
+      "man_hinh": "Header, Profile",
+      "muc_kiem_tra": "Bố cục Header khi Họ Tên người dùng rất dài và không có khoảng trắng",
+      "can_cu": "Slide 10 #5 Field Limits, #18 Element Overlap, #19 Scroll Boundaries",
+      "loai_nguon": "Control",
+      "tien_dieu_kien": "Đăng nhập, đổi Họ Tên tại /profile thành chuỗi 100 ký tự liên tục không có khoảng trắng (ví dụ lặp `Nguyen`), SĐT hợp lệ, bấm `Cập nhật`, đăng nhập lại; kiểm tra ở viewport 375px và 1440px.",
+      "expected": "Thanh Header với lời chào dài vẫn nằm gọn trong chiều rộng khung nhìn, không che nút `Đăng xuất` hay liên kết khác và không sinh thanh cuộn ngang (`document.documentElement.scrollWidth <= document.documentElement.clientWidth`); tên dài được cắt bớt, xuống dòng hoặc rút gọn. Fail nếu lời chào đẩy nút `Đăng xuất` ra ngoài màn hình, chồng lên phần tử khác hoặc tạo thanh cuộn ngang.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "AI chỉ nghĩ đến bố cục với dữ liệu mẫu ngắn như \"Test User\" (CL-10) mà không thử dữ liệu cực trị; không có số liệu thật về độ dài tên nên AI khó đoán rủi ro tràn bố cục."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu Họ Tên dài 100 ký tự liền nhau, đăng nhập lại và kiểm tra tràn ngang/chồng lấp Header."
+    },
+    {
+      "id": "SV-07",
+      "ia": "IA-01",
+      "man_hinh": "Header, Profile",
+      "muc_kiem_tra": "Hiển thị đúng chữ tiếng Việt có dấu trong Họ Tên và Địa chỉ giao hàng",
+      "can_cu": "Slide 10 #3 Typography and Content; FR-21 (eshop-sut/README.md:244)",
+      "loai_nguon": "Control",
+      "tien_dieu_kien": "Tại /profile nhập Họ Tên `Nguyễn Văn Ánh` và Địa chỉ `12 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh`, SĐT hợp lệ, bấm `Cập nhật`, tải lại trang.",
+      "expected": "Sau khi lưu và tải lại, lời chào trên Header và các ô Họ Tên, Địa chỉ giao hàng trên /profile hiển thị đúng và đủ mọi dấu tiếng Việt như đã nhập (`Nguyễn Văn Ánh`, `Đường Lê Lợi`), không có ký tự lỗi `?`, `�` hoặc mất dấu. Fail nếu có ký tự dấu bị mất, bị thay bằng ký tự lạ hoặc hiển thị khác giá trị đã nhập.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "AI sinh mục kiểm tra chính tả của nhãn tĩnh (CL-02) nhưng không nghĩ tới dữ liệu động có dấu do người dùng nhập và vòng lưu-đọc qua máy chủ; điều này cần dữ liệu thật mới kiểm được."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu Họ Tên và Địa chỉ tiếng Việt có dấu trên /profile, tải lại trang kiểm tra hiển thị dấu."
+    },
+    {
+      "id": "SV-08",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Giá trị biên độ dài tối thiểu 8 ký tự của mật khẩu trên trang Đăng ký",
+      "can_cu": "FR-01 (eshop-sut/README.md:34); Slide 10 #5 Field Limits",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Tại /register nhập Họ Tên, Email mới hợp lệ; thử lần lượt từng mật khẩu bên dưới.",
+      "expected": "Mật khẩu `Abc12!x` (7 ký tự, đủ các nhóm) bị từ chối kèm thông báo lỗi; mật khẩu `Abc123!x` (8 ký tự, đủ các nhóm chữ hoa, chữ thường, số, ký tự đặc biệt) được chấp nhận và chuyển tới /login. Fail nếu mật khẩu 7 ký tự được chấp nhận hoặc mật khẩu 8 ký tự đạt đủ nhóm bị từ chối.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "prompt",
+        "giai_thich": "CL-19 của AI dùng ví dụ thiếu nhóm ký tự chứ không kiểm giá trị biên độ dài vì prompt không nhắc phân tích giá trị biên; mục này tách riêng ranh giới 7 và 8 ký tự."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thử biên mật khẩu 7 ký tự (Abc12!x) và 8 ký tự (Abc123!x) trên /register."
+    },
+    {
+      "id": "SV-09",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Từng ký tự đặc biệt trong tập cho phép (@ $ ! % * ? &) được chấp nhận trong mật khẩu",
+      "can_cu": "FR-01 (eshop-sut/README.md:34)",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Tại /register dùng Email mới cho mỗi lần thử, Họ Tên bất kỳ; thử lần lượt các mật khẩu `Abcd123@`, `Abcd123$`, `Abcd123!`, `Abcd123%`, `Abcd123*`, `Abcd123?`, `Abcd123&`.",
+      "expected": "Cả 7 mật khẩu đều được chấp nhận (mỗi mật khẩu chứa đúng một ký tự đặc biệt thuộc tập `@ $ ! % * ? &`) và đăng ký thành công chuyển tới /login. Fail nếu bất kỳ mật khẩu nào trong 7 mật khẩu trên bị báo \"quá yếu\" hoặc bị từ chối dù thoả đủ điều kiện của đặc tả.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "AI chỉ lấy một ký tự đại diện là `!` trong CL-19 thay vì kiểm từng ký tự trong tập; lỗi bộ lọc ký tự chỉ lộ khi thử nhiều giá trị khác nhau, AI không thực thi nên không thấy."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thử lần lượt 7 mật khẩu chứa từng ký tự đặc biệt (@ $ ! % * ? &) trên /register."
+    },
+    {
+      "id": "SV-10",
+      "ia": "IA-02",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Giá trị biên độ dài và chữ số đầu của Số điện thoại trên trang Hồ sơ",
+      "can_cu": "FR-04 (eshop-sut/README.md:65); Slide 10 #5 Field Limits",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Đăng nhập `test@eshop.com`, mở /profile; thử lần lượt từng giá trị SĐT bên dưới rồi bấm `Cập nhật`.",
+      "expected": "SĐT `091234567` (9 chữ số), `091234567890` (12 chữ số) và `9123456789` (10 chữ số nhưng không bắt đầu bằng 0) bị từ chối kèm thông báo lỗi; hệ thống chỉ chấp nhận SĐT bắt đầu bằng `0` và có 10 hoặc 11 chữ số. Fail nếu bất kỳ giá trị nào trong ba giá trị trên được lưu thành công.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "prompt",
+        "giai_thich": "CL-22 của AI chỉ nêu các giá trị hợp lệ và một giá trị có chữ cái; phần giá trị biên không hợp lệ (9, 12 chữ số, số đầu khác 0) cần prompt yêu cầu phân tích biên, mà prompt của tôi chưa yêu cầu."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Thử lưu 3 giá trị biên SĐT không hợp lệ (9 số, 12 số, 10 số bắt đầu khác 0) trên /profile."
+    },
+    {
+      "id": "SV-11",
+      "ia": "IA-02",
+      "man_hinh": "Register, Profile",
+      "muc_kiem_tra": "Từ chối Họ Tên chỉ chứa khoảng trắng",
+      "can_cu": "Nielsen #5 Error prevention; FR-01 (eshop-sut/README.md:32); Giả định GA7",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Tại /register nhập Họ Tên là 3 dấu cách, Email và mật khẩu hợp lệ; tại /profile xoá Họ Tên và nhập 3 dấu cách rồi bấm `Cập nhật`.",
+      "gia_dinh": "Giả định GA7",
+      "expected": "Cả /register và /profile đều từ chối Họ Tên chỉ gồm khoảng trắng và hiển thị thông báo yêu cầu nhập Họ Tên, không lưu giá trị rỗng về nội dung. Fail nếu hệ thống chấp nhận đăng ký hoặc cập nhật với Họ Tên chỉ gồm khoảng trắng, khiến lời chào trên Header chỉ còn `Chào,`.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "đặc điểm giao diện",
+        "giai_thich": "Thuộc tính `required` của trình duyệt chặn ô rỗng nên AI mặc định ô bắt buộc đã được bảo vệ; lỗ hổng chỉ xuất hiện với chuỗi toàn dấu cách mà AI không nghĩ tới."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhập 3 dấu cách vào Họ Tên trên /register và /profile rồi bấm gửi kiểm tra từ chối khoảng trắng."
+    },
+    {
+      "id": "SV-12",
+      "ia": "IA-02",
+      "man_hinh": "Login, ForgotPassword",
+      "muc_kiem_tra": "Thuộc tính autocomplete và hành vi tự điền của trình duyệt trên ô OTP, ô Email và ô mật khẩu",
+      "can_cu": "WCAG 2.2 SC 1.3.5 Identify Input Purpose; Slide 10 #7 Assistive Hints",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Trình duyệt đã lưu một cặp tài khoản/mật khẩu cho localhost; mở /forgot-password, nhập email để sang Bước 2.",
+      "expected": "Ô OTP ở Bước 2 không bị trình duyệt tự điền email hay mật khẩu đã lưu (ô OTP không nhận giá trị trùng email) và các ô email, mật khẩu có thuộc tính `autocomplete` phù hợp (ví dụ `email`, `current-password`, `new-password`, `one-time-code`). Fail nếu ô OTP tự động hiện email đã lưu hoặc các ô trên không khai báo thuộc tính `autocomplete` phù hợp mục đích nhập.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "đặc điểm giao diện",
+        "giai_thich": "Lỗi này tôi quan sát được khi đối chiếu giao diện thật ở Bước 0 (ảnh chụp ô OTP tự điền email); AI chỉ đọc mô tả control nên không biết hành vi tự điền của trình duyệt."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Lưu tài khoản trong trình duyệt, mở Bước 2 /forgot-password quan sát tự điền ô OTP và đọc dom_probe.fields[].autocomplete."
+    },
+    {
+      "id": "SV-13",
+      "ia": "IA-02",
+      "man_hinh": "ForgotPassword",
+      "muc_kiem_tra": "Hiển thị quy tắc mật khẩu mạnh cho ô Mật khẩu mới ở Bước 2",
+      "can_cu": "FR-03 (eshop-sut/README.md:58); Nielsen #6 Recognition rather than recall",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Đang ở Bước 2 trang /forgot-password sau khi lấy OTP.",
+      "expected": "Ở Bước 2, gần ô `Mật khẩu mới` hiển thị dòng gợi ý nêu đủ quy tắc mật khẩu (tối thiểu 8 ký tự, chữ hoa, chữ thường, số, ký tự đặc biệt) giống gợi ý trên /register để người dùng không phải nhớ. Fail nếu Bước 2 không có bất kỳ dòng gợi ý quy tắc mật khẩu nào gần ô `Mật khẩu mới`.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "AI chú ý tới quy tắc mật khẩu ở Register (CL-19) nhưng không đối chiếu chéo để thấy form Bước 2 thiếu gợi ý tương ứng; việc so sánh nhất quán giữa hai màn hình cần nhìn cả hai giao diện."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Quan sát vùng quanh ô Mật khẩu mới ở Bước 2 /forgot-password xem có dòng gợi ý quy tắc mật khẩu không."
+    },
+    {
+      "id": "SV-14",
+      "ia": "IA-02",
+      "man_hinh": "Register",
+      "muc_kiem_tra": "Dòng gợi ý mật khẩu liệt kê các ký tự đặc biệt được chấp nhận",
+      "can_cu": "FR-01 (eshop-sut/README.md:34); Slide 10 #7 Assistive Hints",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Mở /register và quan sát dòng gợi ý bên dưới ô Mật khẩu.",
+      "expected": "Dòng gợi ý dưới ô `Mật khẩu` nêu cụ thể các ký tự đặc biệt hợp lệ `@ $ ! % * ? &` để người dùng biết nên dùng ký tự nào. Fail nếu dòng gợi ý chỉ ghi chung chung \"ký tự đặc biệt\" mà không liệt kê tập ký tự được chấp nhận.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "prompt",
+        "giai_thich": "Prompt chỉ yêu cầu kiểm tra có gợi ý hay không (CL-23) chứ không yêu cầu soát mức độ cụ thể của nội dung gợi ý so với đặc tả nên AI không tách mục này."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đọc dòng gợi ý dưới ô Mật khẩu trên /register kiểm tra việc liệt kê tập ký tự đặc biệt hợp lệ."
+    },
+    {
+      "id": "SV-15",
+      "ia": "IA-04",
+      "man_hinh": "Profile, Header",
+      "muc_kiem_tra": "Duy trì trạng thái đăng nhập sau khi tải lại trang",
+      "can_cu": "FR-02 (eshop-sut/README.md:43); Nielsen #1 Visibility of system status",
+      "loai_nguon": "SRS",
+      "tien_dieu_kien": "Đăng nhập `test@eshop.com` / `Test1234!`, mở /profile rồi nhấn F5 (tải lại trang).",
+      "expected": "Sau khi tải lại /profile, Header vẫn hiển thị `Chào, <tên>` kèm nút `Đăng xuất` và khối Hồ sơ vẫn hiển thị đủ thông tin tài khoản, không bị đẩy về trạng thái khách. Fail nếu sau khi tải lại Header quay về `Đăng nhập`/`Đăng ký` hoặc trang hiển thị `Vui lòng đăng nhập` dù token đã được lưu phía client.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "AI chỉ nhìn từng màn hình tại một thời điểm và không mô phỏng thao tác tải lại trang; trạng thái phiên sau F5 phụ thuộc cách lưu token phía client nên AI không thể suy ra từ mô tả điều khoản."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đăng nhập mở /profile rồi nhấn tải lại trang (F5) kiểm tra duy trì trạng thái đăng nhập."
+    },
+    {
+      "id": "SV-16",
+      "ia": "IA-03",
+      "man_hinh": "Register, Login, ForgotPassword, Profile",
+      "muc_kiem_tra": "Tiêu đề tab trình duyệt mô tả riêng cho từng trang",
+      "can_cu": "WCAG 2.2 SC 2.4.2 Page Titled; Giả định GA8",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Mở lần lượt /register, /login, /forgot-password, /profile (đã đăng nhập) và đọc tiêu đề tab.",
+      "gia_dinh": "Giả định GA8",
+      "expected": "Mỗi trang trong 4 trang trên có tiêu đề tab (`document.title`) mô tả đúng chức năng và khác nhau giữa các trang (ví dụ phân biệt được trang đăng ký và đăng nhập). Fail nếu hai trang bất kỳ có cùng `document.title` hoặc tiêu đề tab không liên quan chức năng trang.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "Tiêu đề tab nằm ngoài vùng hiển thị của trang web nên AI khi liệt kê control từ nội dung trang không đưa vào; đây là điểm AI thường bỏ qua khi chỉ nhìn phần thân trang."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Mở 4 trang đọc tiêu đề tab trình duyệt kết hợp dom_probe.title trên từng trang."
+    },
+    {
+      "id": "SV-17",
+      "ia": "IA-03",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Hiển thị khung focus nhìn thấy được khi di chuyển bằng bàn phím",
+      "can_cu": "WCAG 2.2 SC 2.4.7 Focus Visible; Slide 10 #12 Hover and Focus",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Dùng phím Tab đi qua mọi ô nhập, nút và liên kết trên 5 vùng giao diện (đã đăng nhập khi kiểm Profile/Header).",
+      "expected": "Mỗi phần tử tương tác khi nhận focus bằng Tab có khung hoặc đổi màu nhìn rõ so với trạng thái không focus (đường viền, vòng sáng hoặc nền khác biệt). Fail nếu có ít nhất một phần tử tương tác nhận focus mà không có bất kỳ dấu hiệu thị giác nào cho biết đang focus.",
+      "uu_tien": "Mandatory",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: P3 là Chrome trên điện thoại Android (OPPO Reno10 5G - thiết bị di động cảm ứng màn hình cố định, không có chế độ chuyển đổi đa viewport 375px/768px/1440px, không có con trỏ hover hay bàn phím vật lý và không có tab Network throttling trực tiếp trên trình duyệt điện thoại); các mục phụ thuộc các công cụ/thao tác này chỉ áp dụng trên P1, P2."
+      },
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "đặc điểm giao diện",
+        "giai_thich": "Slide 12 nêu khả năng dùng chỉ bàn phím là điểm mù của AI; trạng thái focus chỉ thấy khi thao tác bàn phím thật và AI không có trải nghiệm đó."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Nhấn phím Tab đi qua các phần tử trên 5 vùng giao diện quan sát viền/vòng sáng focus thị giác."
+    },
+    {
+      "id": "SV-18",
+      "ia": "IA-01",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Bố cục khi phóng to trình duyệt đến 200%",
+      "can_cu": "WCAG 2.2 SC 1.4.4 Resize Text, SC 1.4.10 Reflow; Slide 10 #17 Breakpoint Layout",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Ở viewport 1440px bấm Ctrl và dấu cộng đến mức phóng to 200%, mở lần lượt 5 vùng giao diện.",
+      "expected": "Ở mức phóng to 200% mọi nhãn, ô nhập, nút trên 5 vùng giao diện vẫn đọc được, không bị cắt hay chồng lên nhau và có thể thao tác mà không cần cuộn ngang. Fail nếu xuất hiện thanh cuộn ngang, hoặc nhãn, ô nhập, nút bị che hay chồng lên nhau ở mức 200%.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2"
+      ],
+      "na": {
+        "P3": "Giả định NA1: P3 là Chrome trên điện thoại Android (OPPO Reno10 5G - thiết bị di động cảm ứng màn hình cố định, không có chế độ chuyển đổi đa viewport 375px/768px/1440px, không có con trỏ hover hay bàn phím vật lý và không có tab Network throttling trực tiếp trên trình duyệt điện thoại); các mục phụ thuộc các công cụ/thao tác này chỉ áp dụng trên P1, P2."
+      },
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "prompt",
+        "giai_thich": "CL-10 của AI chỉ nêu 3 viewport cố định; prompt của tôi không nhắc tới người dùng phóng to chữ nên AI không thêm kịch bản phóng to trình duyệt."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Phóng to trình duyệt lên 200% ở 1440px, mở 5 vùng giao diện kiểm tra cắt chữ, chồng lấp và cuộn ngang."
+    },
+    {
+      "id": "SV-19",
+      "ia": "IA-02",
+      "man_hinh": "Register, Login, ForgotPassword, Profile, Header",
+      "muc_kiem_tra": "Kích thước vùng chạm của nút và liên kết",
+      "can_cu": "WCAG 2.2 SC 2.5.8 Target Size (Minimum); Slide 10 #18 Element Overlap",
+      "loai_nguon": "Heuristic",
+      "tien_dieu_kien": "Mở DevTools đo kích thước các nút và liên kết (`Đăng nhập`, `Đăng ký`, `Quên mật khẩu?`, `Đăng ký ngay`, `Đăng nhập`, `Đăng xuất`); trên P3 thử chạm bằng ngón tay.",
+      "expected": "Mọi nút và liên kết dạng chữ trên 5 vùng giao diện có vùng chạm tối thiểu 24 x 24 CSS px (đo bằng `getBoundingClientRect()`), và trên điện thoại Android chạm đúng một lần vào phần tử cần chọn mà không bấm nhầm phần tử kề bên. Fail nếu có nút hoặc liên kết có chiều cao hoặc chiều rộng nhỏ hơn 24 CSS px, hoặc chạm một lần trên điện thoại Android kích hoạt nhầm phần tử kề bên.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "đặc điểm giao diện",
+        "giai_thich": "Kích thước vùng chạm chỉ cảm nhận được khi chạm thật trên điện thoại; AI không có thiết bị và khi đánh giá bố cục chỉ nhìn kiểu máy tính để bàn."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Đo kích thước w, h bằng getBoundingClientRect()/dom_probe.buttons (>= 24x24px) và chạm thật trên điện thoại Android."
+    },
+    {
+      "id": "SV-20",
+      "ia": "IA-02",
+      "man_hinh": "Profile",
+      "muc_kiem_tra": "Loại bàn phím ảo hiển thị khi chạm vào ô Số điện thoại",
+      "can_cu": "Slide 10 #5 Field Limits; WCAG 2.2 SC 1.3.5 Identify Input Purpose; Giả định NA2",
+      "loai_nguon": "Control",
+      "tien_dieu_kien": "Trên điện thoại Android (Chrome), đăng nhập và mở /profile, chạm vào ô `Số điện thoại`.",
+      "expected": "Khi chạm vào ô `Số điện thoại` trên điện thoại Android, bàn phím ảo hiển thị dạng bàn phím số hoặc bàn phím điện thoại (ô khai báo `type=\"tel\"` hoặc `inputmode=\"numeric\"`) để nhập chữ số nhanh. Fail nếu bàn phím chữ cái thông thường hiện ra và người dùng phải chuyển sang bàn phím số thủ công.",
+      "uu_tien": "Optional",
+      "nen_tang": [
+        "P3"
+      ],
+      "na": {
+        "P1": "Giả định NA2: P3 là Chrome trên điện thoại Android có bàn phím ảo trên màn hình, còn P1 và P2 là máy tính để bàn không có bàn phím ảo; mục kiểm tra loại bàn phím ảo hiển thị khi chạm vào ô nhập chỉ áp dụng cho P3.",
+        "P2": "Giả định NA2: P3 là Chrome trên điện thoại Android có bàn phím ảo trên màn hình, còn P1 và P2 là máy tính để bàn không có bàn phím ảo; mục kiểm tra loại bàn phím ảo hiển thị khi chạm vào ô nhập chỉ áp dụng cho P3."
+      },
+      "nguon": "SV",
+      "luc_them": "trước khi chạy",
+      "ly_do_ai_bo_sot": {
+        "loai": "giới hạn model",
+        "giai_thich": "Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có điện thoại thật nên không đưa mục phụ thuộc thiết bị di động vào checklist."
+      },
+      "che_do": "manual",
+      "che_do_ghi_chu": "Trên Chrome Android, chạm vào ô Số điện thoại tại /profile quan sát loại bàn phím ảo bật lên."
+    }
+  ]
+}
