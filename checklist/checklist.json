@@ -18,8 +18,8 @@
       "Blocked"
     ],
     "inventory": "checklist/m1_inventory.md",
-    "version": "v3b - Chốt cấu hình 3 nền tảng thực thi P1 Chrome / P2 Firefox / P3 Chrome Android (T1 bước 3)",
-    "step": 3
+    "version": "v4.1 - Thực thi trên P1 Chrome Windows (T1 bước 4)",
+    "step": 4
   },
   "assumptions": {
     "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
@@ -52,7 +52,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát trực tiếp nhãn trường, nút gửi và liên kết kết hợp dom_probe.fields, dom_probe.buttons."
+      "che_do_ghi_chu": "Quan sát trực tiếp nhãn trường, nút gửi và liên kết kết hợp dom_probe.fields, dom_probe.buttons.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trên /login nhãn trường = [\"Username\",\"Mật khẩu\"], nút = [\"Sign In\"], liên kết = [\"Quên mật khẩu?\",\"Đăng ký ngay\"]; xuất hiện từ tiếng Anh không đúng chuẩn tiếng Việt: [\"Username\",\"Sign In\"]."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trên /login nhãn trường = [\"Username\",\"Mật khẩu\"], nút = [\"Sign In\"], liên kết = [\"Quên mật khẩu?\",\"Đăng ký ngay\"]; xuất hiện từ tiếng Anh không đúng chuẩn tiếng Việt: [\"Username\",\"Sign In\"]."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-01.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-02",
@@ -73,7 +99,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Đọc kiểm tra chính tả và ngôn ngữ tiếng Việt bằng mắt thường trên 4 màn hình và Header."
+      "che_do_ghi_chu": "Đọc kiểm tra chính tả và ngôn ngữ tiếng Việt bằng mắt thường trên 4 màn hình và Header.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Đã quét văn bản trên /register, /forgot-password (Bước 1 & 2), khối Hồ sơ /profile và Header (27 chuỗi): tất cả dùng tiếng Việt đúng chính tả (chỉ giữ \"Email\", \"OTP\", \"EShop\")."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Đã quét văn bản trên /register, /forgot-password (Bước 1 & 2), khối Hồ sơ /profile và Header (27 chuỗi): tất cả dùng tiếng Việt đúng chính tả (chỉ giữ \"Email\", \"OTP\", \"EShop\")."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-03",
@@ -92,7 +139,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /register."
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /register.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trên /register có 0 thẻ <h1> hiển thị ([]); tiêu đề chính đang dùng thẻ <h2> ([\"Đăng Ký Tài Khoản\"])."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trên /register có 0 thẻ <h1> hiển thị ([]); tiêu đề chính đang dùng thẻ <h2> ([\"Đăng Ký Tài Khoản\"])."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-03.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-04",
@@ -111,7 +184,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /login."
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /login.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trên /login có 0 thẻ <h1> hiển thị ([]); tiêu đề thực tế đang dùng thẻ <h2> với nội dung sai chức năng là [\"Đăng Ký\"]."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trên /login có 0 thẻ <h1> hiển thị ([]); tiêu đề thực tế đang dùng thẻ <h2> với nội dung sai chức năng là [\"Đăng Ký\"]."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-04.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-05",
@@ -131,7 +230,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 ở cả Bước 1 và Bước 2 trang /forgot-password."
+      "che_do_ghi_chu": "Dùng dom_probe.h1 ở cả Bước 1 và Bước 2 trang /forgot-password.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trang /forgot-password có 0 thẻ <h1> ở Bước 1 và 0 thẻ <h1> ở Bước 2 (đang dùng thẻ <h2>: [\"Quên Mật Khẩu\"])."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trang /forgot-password có 0 thẻ <h1> ở Bước 1 và 0 thẻ <h1> ở Bước 2 (đang dùng thẻ <h2>: [\"Quên Mật Khẩu\"])."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-05.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-06",
@@ -151,7 +276,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings trên /profile khi đã đăng nhập."
+      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings trên /profile khi đã đăng nhập.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trang /profile khi đã đăng nhập có 0 thẻ <h1> hiển thị; đang dùng 2 thẻ <h2> ([\"Hồ sơ của bạn\",\"Lịch sử đơn hàng\"])."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trang /profile khi đã đăng nhập có 0 thẻ <h1> hiển thị; đang dùng 2 thẻ <h2> ([\"Hồ sơ của bạn\",\"Lịch sử đơn hàng\"])."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-06.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-07",
@@ -172,7 +323,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát màu nút kết hợp dom_probe.buttons[].bg (RGB) trên Register, Login, Profile."
+      "che_do_ghi_chu": "Quan sát màu nút kết hợp dom_probe.buttons[].bg (RGB) trên Register, Login, Profile.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Nút Submit trên Login (\"Sign In\": rgb(37, 99, 235)) và Profile (\"Cập nhật\": rgb(37, 99, 235)) dùng màu xanh dương, nhưng nút \"Đăng Ký\" trên /register lại dùng màu đỏ (rgb(239, 68, 68))."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Nút Submit trên Login (\"Sign In\": rgb(37, 99, 235)) và Profile (\"Cập nhật\": rgb(37, 99, 235)) dùng màu xanh dương, nhưng nút \"Đăng Ký\" trên /register lại dùng màu đỏ (rgb(239, 68, 68))."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-07.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-08",
@@ -193,7 +370,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát màu và sự phân biệt vai trò nút kết hợp dom_probe.buttons[].bg và nav_links trên ForgotPassword, Header."
+      "che_do_ghi_chu": "Quan sát màu và sự phân biệt vai trò nút kết hợp dom_probe.buttons[].bg và nav_links trên ForgotPassword, Header.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Bước 1 nút \"Lấy mã OTP\" màu xanh dương (rgb(37, 99, 235)), nút \"Thoát\" trên Header màu đỏ (rgb(239, 68, 68)); tuy nhiên ở Bước 2 cả nút chính \"Đặt lại mật khẩu\" (rgb(22, 163, 74)) lẫn nút phụ \"← Quay lại\" (rgb(22, 163, 74)) đều dùng chung nền xanh lá cây, không dùng xanh dương cho nút chính và không phân biệt vai trò hai nút."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Bước 1 nút \"Lấy mã OTP\" màu xanh dương (rgb(37, 99, 235)), nút \"Thoát\" trên Header màu đỏ (rgb(239, 68, 68)); tuy nhiên ở Bước 2 cả nút chính \"Đặt lại mật khẩu\" (rgb(22, 163, 74)) lẫn nút phụ \"← Quay lại\" (rgb(22, 163, 74)) đều dùng chung nền xanh lá cây, không dùng xanh dương cho nút chính và không phân biệt vai trò hai nút."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-08.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-09",
@@ -212,7 +415,28 @@
       ],
       "nguon": "Both",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát căn lề kết hợp toạ độ x, w trong dom_probe và horizontal_scroll trên 4 form."
+      "che_do_ghi_chu": "Quan sát căn lề kết hợp toạ độ x, w trong dom_probe và horizontal_scroll trên 4 form.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Đo toạ độ các ô nhập và nút trong form: Register(dLeft=0px, dWidth=0px, hScroll=false); Login(dLeft=0px, dWidth=0px, hScroll=false); ForgotStep1(dLeft=0px, dWidth=0px, hScroll=false); ForgotStep2(dLeft=0px, dWidth=0px, hScroll=false); Profile(dLeft=0px, dWidth=0px, hScroll=false)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Đo toạ độ các ô nhập và nút trong form: Register(dLeft=0px, dWidth=0px, hScroll=false); Login(dLeft=0px, dWidth=0px, hScroll=false); ForgotStep1(dLeft=0px, dWidth=0px, hScroll=false); ForgotStep2(dLeft=0px, dWidth=0px, hScroll=false); Profile(dLeft=0px, dWidth=0px, hScroll=false)."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-10",
@@ -239,7 +463,28 @@
       },
       "nguon": "Both",
       "che_do": "manual",
-      "che_do_ghi_chu": "Đổi viewport 375px, 768px, 1440px trong DevTools, quan sát chồng lấp và kiểm dom_probe.horizontal_scroll."
+      "che_do_ghi_chu": "Đổi viewport 375px, 768px, 1440px trong DevTools, quan sát chồng lấp và kiểm dom_probe.horizontal_scroll.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ở cả 3 mức viewport 375px, 768px và 1440px trên 5 vùng giao diện không phát sinh cuộn ngang, không cắt khuất hay chồng lấp phần tử."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ở cả 3 mức viewport 375px, 768px và 1440px trên 5 vùng giao diện không phát sinh cuộn ngang, không cắt khuất hay chồng lấp phần tử."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-11",
@@ -258,7 +503,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát độ rõ chữ kết hợp tỷ lệ tương phản dom_probe.buttons[].contrast và kiểm màu chữ phụ bằng DevTools."
+      "che_do_ghi_chu": "Quan sát độ rõ chữ kết hợp tỷ lệ tương phản dom_probe.buttons[].contrast và kiểm màu chữ phụ bằng DevTools.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Phát hiện văn bản không đạt ngưỡng tương phản WCAG 4.5:1: Register \"Yêu cầu: Tối thiểu 8 ký tự, có chữ \" (2.54:1 < 4.5:1, fg=rgb(156, 163, 175), bg=rgb(255,255,255)); Register \"Đăng Ký\" (3.76:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(239,68,68)); Login \"Quên mật khẩu?\" (3.68:1 < 4.5:1, fg=rgb(59, 130, 246), bg=rgb(255,255,255)); ForgotStep2 \"Đặt lại mật khẩu\" (3.3:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(22,163,74)); ForgotStep2 \"← Quay lại\" (3.3:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(22,163,74)); Profile+Header \"Chào, Test User\" (3.92:1 < 4.5:1, fg=rgb(253, 224, 71), bg=rgb(37,99,235)); Profile+Header \"Thoát\" (3.76:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(239,68,68))."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Phát hiện văn bản không đạt ngưỡng tương phản WCAG 4.5:1: Register \"Yêu cầu: Tối thiểu 8 ký tự, có chữ \" (2.54:1 < 4.5:1, fg=rgb(156, 163, 175), bg=rgb(255,255,255)); Register \"Đăng Ký\" (3.76:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(239,68,68)); Login \"Quên mật khẩu?\" (3.68:1 < 4.5:1, fg=rgb(59, 130, 246), bg=rgb(255,255,255)); ForgotStep2 \"Đặt lại mật khẩu\" (3.3:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(22,163,74)); ForgotStep2 \"← Quay lại\" (3.3:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(22,163,74)); Profile+Header \"Chào, Test User\" (3.92:1 < 4.5:1, fg=rgb(253, 224, 71), bg=rgb(37,99,235)); Profile+Header \"Thoát\" (3.76:1 < 4.5:1, fg=rgb(255, 255, 255), bg=rgb(239,68,68))."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-11.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-12",
@@ -278,7 +549,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát nhãn kết hợp dom_probe.fields[].label_has_asterisk trên cả 4 form."
+      "che_do_ghi_chu": "Quan sát nhãn kết hợp dom_probe.fields[].label_has_asterisk trên cả 4 form.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Có 0/9 nhãn trường bắt buộc hiển thị dấu \"*\": Register=[\"Họ Tên\",\"Email\",\"Mật khẩu\"], Login=[\"Username\",\"Mật khẩu\"], ForgotB1=[\"Nhập Email của bạn\"], ForgotB2=[\"Mã OTP (4 số)\",\"Mật khẩu mới\"], Profile(Họ Tên)=\"Họ Tên\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Có 0/9 nhãn trường bắt buộc hiển thị dấu \"*\": Register=[\"Họ Tên\",\"Email\",\"Mật khẩu\"], Login=[\"Username\",\"Mật khẩu\"], ForgotB1=[\"Nhập Email của bạn\"], ForgotB2=[\"Mã OTP (4 số)\",\"Mật khẩu mới\"], Profile(Họ Tên)=\"Họ Tên\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-12.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-13",
@@ -311,7 +608,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /register và thử gửi tay chuỗi email sai định dạng."
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /register và thử gửi tay chuỗi email sai định dạng.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ô Email trên /register khai báo type=\"text\" (khác \"email\") và khi nhập \"nguoimoieshop.com\" vẫn gửi 1 request POST /api/register lên server mà không chặn định dạng email."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ô Email trên /register khai báo type=\"text\" (khác \"email\") và khi nhập \"nguoimoieshop.com\" vẫn gửi 1 request POST /api/register lên server mà không chặn định dạng email."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-13.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-14",
@@ -330,7 +653,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /login và /forgot-password Bước 1, thử gửi chuỗi thiếu @."
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /login và /forgot-password Bước 1, thử gửi chuỗi thiếu @.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ô Email trên /login có type=\"text\" (gửi 1 request với \"khongcoacong.com\") và ở Bước 1 /forgot-password có type=\"text\" (gửi 1 request tới server, bật alert \"Lỗi: User not found\"), không chặn định dạng bằng HTML5."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ô Email trên /login có type=\"text\" (gửi 1 request với \"khongcoacong.com\") và ở Bước 1 /forgot-password có type=\"text\" (gửi 1 request tới server, bật alert \"Lỗi: User not found\"), không chặn định dạng bằng HTML5."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-14.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-15",
@@ -349,7 +698,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dom_probe.fields[].type và gõ thử ký tự vào mọi ô mật khẩu để xác nhận che dấu chấm tròn."
+      "che_do_ghi_chu": "Đọc dom_probe.fields[].type và gõ thử ký tự vào mọi ô mật khẩu để xác nhận che dấu chấm tròn.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ô Mật khẩu trên /register có type=\"password\", Bước 2 /forgot-password có type=\"password\", nhưng ô Mật khẩu trên /login lại khai báo type=\"text\" làm lộ rõ toàn bộ ký tự mật khẩu khi gõ."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ô Mật khẩu trên /register có type=\"password\", Bước 2 /forgot-password có type=\"password\", nhưng ô Mật khẩu trên /login lại khai báo type=\"text\" làm lộ rõ toàn bộ ký tự mật khẩu khi gõ."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-15.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-16",
@@ -368,7 +743,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát các trường trên /register (dom_probe.fields) và thử nhập 2 mật khẩu lệch nhau nếu có trường xác nhận."
+      "che_do_ghi_chu": "Quan sát các trường trên /register (dom_probe.fields) và thử nhập 2 mật khẩu lệch nhau nếu có trường xác nhận.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Form /register chỉ có 3 trường [\"Họ Tên\",\"Email\",\"Mật khẩu\"] (1 ô type=\"password\"), hoàn toàn không có trường \"Xác nhận mật khẩu\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Form /register chỉ có 3 trường [\"Họ Tên\",\"Email\",\"Mật khẩu\"] (1 ô type=\"password\"), hoàn toàn không có trường \"Xác nhận mật khẩu\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-16.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-17",
@@ -389,7 +790,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát giao diện Bước 1 và Bước 2 trên /forgot-password xem có Step Indicator hay không."
+      "che_do_ghi_chu": "Quan sát giao diện Bước 1 và Bước 2 trên /forgot-password xem có Step Indicator hay không.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Cả Bước 1 và Bước 2 trên /forgot-password đều không có thành phần chỉ báo bước (Step Indicator) nào hiển thị vị trí bước hiện tại (ví dụ Bước 1/2, Bước 2/2)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Cả Bước 1 và Bước 2 trên /forgot-password đều không có thành phần chỉ báo bước (Step Indicator) nào hiển thị vị trí bước hiện tại (ví dụ Bước 1/2, Bước 2/2)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-17.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-18",
@@ -409,7 +836,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát form Bước 2 /forgot-password (dom_probe.fields) và thử nhập xác nhận mật khẩu lệch nếu có."
+      "che_do_ghi_chu": "Quan sát form Bước 2 /forgot-password (dom_probe.fields) và thử nhập xác nhận mật khẩu lệch nếu có.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Bước 2 trang /forgot-password chỉ có 2 trường [\"Mã OTP (4 số)\",\"Mật khẩu mới\"], thiếu trường \"Xác nhận mật khẩu mới\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Bước 2 trang /forgot-password chỉ có 2 trường [\"Mã OTP (4 số)\",\"Mật khẩu mới\"], thiếu trường \"Xác nhận mật khẩu mới\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-18.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-19",
@@ -442,7 +895,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhập tay mật khẩu chuẩn Abcd123! và mật khẩu yếu trên /register và Bước 2 /forgot-password."
+      "che_do_ghi_chu": "Nhập tay mật khẩu chuẩn Abcd123! và mật khẩu yếu trên /register và Bước 2 /forgot-password.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Mật khẩu hợp lệ chuẩn đặc tả \"Abcd123!\" bị từ chối trên cả /register (\"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\") lẫn Bước 2 /forgot-password (alert \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\") do biểu thức chính quy lỗi trên client."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Mật khẩu hợp lệ chuẩn đặc tả \"Abcd123!\" bị từ chối trên cả /register (\"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\") lẫn Bước 2 /forgot-password (alert \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\") do biểu thức chính quy lỗi trên client."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-19.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-20",
@@ -462,7 +941,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Lấy OTP tại /forgot-password, đếm số chữ số OTP hiển thị và đọc nhãn ô nhập OTP."
+      "che_do_ghi_chu": "Lấy OTP tại /forgot-password, đếm số chữ số OTP hiển thị và đọc nhãn ô nhập OTP.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Hệ thống chỉ sinh mã OTP gồm 4 chữ số (\"Mã OTP của bạn là: 5017\") và nhãn ô nhập ghi \"Mã OTP (4 số)\" thay vì 6 chữ số."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Hệ thống chỉ sinh mã OTP gồm 4 chữ số (\"Mã OTP của bạn là: 5017\") và nhãn ô nhập ghi \"Mã OTP (4 số)\" thay vì 6 chữ số."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-20.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-21",
@@ -482,7 +987,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát màu nền ô Email trên /profile, thử gõ sửa và đọc dom_probe.fields (disabled/readonly)."
+      "che_do_ghi_chu": "Quan sát màu nền ô Email trên /profile, thử gõ sửa và đọc dom_probe.fields (disabled/readonly).",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ô Email trên /profile hiển thị \"test@eshop.com\", disabled=true, màu nền rgb(243, 244, 246) phân biệt rõ với ô Họ Tên (rgb(255, 255, 255))."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ô Email trên /profile hiển thị \"test@eshop.com\", disabled=true, màu nền rgb(243, 244, 246) phân biệt rõ với ô Họ Tên (rgb(255, 255, 255))."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-22",
@@ -516,7 +1042,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhập tay SĐT hợp lệ bắt đầu bằng 0 (0912345678) và chuỗi chữ cái trên /profile rồi bấm Cập nhật."
+      "che_do_ghi_chu": "Nhập tay SĐT hợp lệ bắt đầu bằng 0 (0912345678) và chuỗi chữ cái trên /profile rồi bấm Cập nhật.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Nhập SĐT hợp lệ chuẩn Việt Nam \"0912345678\" (khớp chính placeholder form) bị từ chối với hộp thoại alert \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; chuỗi chữ cái \"09123abcde\" báo \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Nhập SĐT hợp lệ chuẩn Việt Nam \"0912345678\" (khớp chính placeholder form) bị từ chối với hộp thoại alert \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; chuỗi chữ cái \"09123abcde\" báo \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-22.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-23",
@@ -535,7 +1087,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhấp/chạm trực tiếp vào từng nhãn <label> và đối chiếu dom_probe.fields[].label_linked."
+      "che_do_ghi_chu": "Nhấp/chạm trực tiếp vào từng nhãn <label> và đối chiếu dom_probe.fields[].label_linked.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Kiểm tra trên cả 4 form (/register, /login, /forgot-password, /profile) có 0/10 thẻ <label> có thuộc tính for/id hoặc bọc trực tiếp ô input; nhấp vào nhãn không làm focus ô nhập tương ứng."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Kiểm tra trên cả 4 form (/register, /login, /forgot-password, /profile) có 0/10 thẻ <label> có thuộc tính for/id hoặc bọc trực tiếp ô input; nhấp vào nhãn không làm focus ô nhập tương ứng."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-23.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-24",
@@ -555,7 +1133,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Mở /login, /register, /profile quan sát kiểu nổi bật của liên kết đang mở trên Header và dom_probe.nav_links."
+      "che_do_ghi_chu": "Mở /login, /register, /profile quan sát kiểu nổi bật của liên kết đang mở trên Header và dom_probe.nav_links.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Khi đang ở /login, liên kết \"Đăng nhập\" có cùng class \"hover:underline\", aria-current=null, màu rgb(255, 255, 255) giống hệt liên kết không chọn \"Đăng ký\" (\"hover:underline\"); trên /profile liên kết \"Chào, <tên>\" cũng giữ nguyên class \"hover:underline text-yellow-300\" như khi đứng ở trang chủ."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Khi đang ở /login, liên kết \"Đăng nhập\" có cùng class \"hover:underline\", aria-current=null, màu rgb(255, 255, 255) giống hệt liên kết không chọn \"Đăng ký\" (\"hover:underline\"); trên /profile liên kết \"Chào, <tên>\" cũng giữ nguyên class \"hover:underline text-yellow-300\" như khi đứng ở trang chủ."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-24.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-25",
@@ -575,7 +1179,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát nhãn nút kết thúc phiên trên Header và bấm kiểm tra xoá trạng thái đăng nhập."
+      "che_do_ghi_chu": "Quan sát nhãn nút kết thúc phiên trên Header và bấm kiểm tra xoá trạng thái đăng nhập.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Nút thoát phiên trên Header hiển thị nhãn là \"Thoát\" thay vì nhãn chuẩn \"Đăng xuất\" của FR-23 (chức năng xoá token và chuyển về [\"Giỏ hàng\",\"Đăng nhập\",\"Đăng ký\"] hoạt động=true)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Nút thoát phiên trên Header hiển thị nhãn là \"Thoát\" thay vì nhãn chuẩn \"Đăng xuất\" của FR-23 (chức năng xoá token và chuyển về [\"Giỏ hàng\",\"Đăng nhập\",\"Đăng ký\"] hoạt động=true)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-25.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-26",
@@ -594,7 +1224,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát Bước 1 /forgot-password tìm nút/liên kết Quay lại đăng nhập và bấm kiểm tra điều hướng."
+      "che_do_ghi_chu": "Quan sát Bước 1 /forgot-password tìm nút/liên kết Quay lại đăng nhập và bấm kiểm tra điều hướng.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Màn hình Bước 1 tại /forgot-password chỉ có nút [\"Lấy mã OTP\"] và liên kết trong main = [], hoàn toàn thiếu nút/liên kết \"Quay lại đăng nhập\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Màn hình Bước 1 tại /forgot-password chỉ có nút [\"Lấy mã OTP\"] và liên kết trong main = [], hoàn toàn thiếu nút/liên kết \"Quay lại đăng nhập\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-26.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-27",
@@ -613,7 +1269,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Bấm liên kết Đăng nhập trên /register và kiểm tra tự động chuyển hướng sau khi đăng ký thành công."
+      "che_do_ghi_chu": "Bấm liên kết Đăng nhập trên /register và kiểm tra tự động chuyển hướng sau khi đăng ký thành công.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Liên kết \"Đăng nhập\" dưới form /register chuyển đúng sang /login (true) và sau khi hoàn tất đăng ký tài khoản mới ứng dụng tự động chuyển hướng về /login (true)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Liên kết \"Đăng nhập\" dưới form /register chuyển đúng sang /login (true) và sau khi hoàn tất đăng ký tài khoản mới ứng dụng tự động chuyển hướng về /login (true)."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-28",
@@ -632,7 +1309,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Bấm từng liên kết trên /login và Header, quan sát tab Network/cờ biến window xem trang có bị tải lại toàn bộ không."
+      "che_do_ghi_chu": "Bấm từng liên kết trên /login và Header, quan sát tab Network/cờ biến window xem trang có bị tải lại toàn bộ không.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Phát hiện liên kết làm tải lại toàn bộ trang trình duyệt thay vì điều hướng SPA: Login -> \"Quên mật khẩu?\" (dùng <a href=\"/forgot-password\"> gây reload toàn trang)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Phát hiện liên kết làm tải lại toàn bộ trang trình duyệt thay vì điều hướng SPA: Login -> \"Quên mật khẩu?\" (dùng <a href=\"/forgot-password\"> gây reload toàn trang)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-28.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-29",
@@ -652,7 +1355,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Tại Bước 2 /forgot-password bấm nút Quay lại và quan sát giao diện trở về Bước 1."
+      "che_do_ghi_chu": "Tại Bước 2 /forgot-password bấm nút Quay lại và quan sát giao diện trở về Bước 1.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Nhấp nút \"← Quay lại\" ở Bước 2 chuyển giao diện trở về Bước 1 hiển thị nhãn [\"Nhập Email của bạn\"] bình thường, không phát sinh lỗi."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Nhấp nút \"← Quay lại\" ở Bước 2 chuyển giao diện trở về Bước 1 hiển thị nhãn [\"Nhập Email của bạn\"] bình thường, không phát sinh lỗi."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-30",
@@ -672,7 +1396,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Ở trạng thái khách, gõ trực tiếp URL /profile trên thanh địa chỉ và quan sát giao diện/điều hướng."
+      "che_do_ghi_chu": "Ở trạng thái khách, gõ trực tiếp URL /profile trên thanh địa chỉ và quan sát giao diện/điều hướng.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Truy cập /profile khi chưa đăng nhập vẫn đứng tại URL \"/profile\", vùng nội dung chính chỉ hiện chữ tĩnh \"Vui lòng đăng nhập\" và có 0 nút/liên kết điều hướng sang /login."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Truy cập /profile khi chưa đăng nhập vẫn đứng tại URL \"/profile\", vùng nội dung chính chỉ hiện chữ tĩnh \"Vui lòng đăng nhập\" và có 0 nút/liên kết điều hướng sang /login."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-30.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-31",
@@ -693,7 +1443,33 @@
       },
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Di chuột hover lên các nút/liên kết kiểm tra cursor/hiệu ứng và nhấn phím Enter trong ô input để gửi form."
+      "che_do_ghi_chu": "Di chuột hover lên các nút/liên kết kiểm tra cursor/hiệu ứng và nhấn phím Enter trong ô input để gửi form.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Nhấn phím Enter gửi form=true; tuy nhiên các nút thiếu hiệu ứng đổi màu khi hover hoặc thiếu cursor: pointer gồm: Register <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Login <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 <button> \"Lấy mã OTP\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <button> \"Đặt lại mật khẩu\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <button> \"← Quay lại\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <button> \"Thoát\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <button> \"Cập nhật\" (cursor=pointer, đổi màu/gạch chân khi hover=false)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Nhấn phím Enter gửi form=true; tuy nhiên các nút thiếu hiệu ứng đổi màu khi hover hoặc thiếu cursor: pointer gồm: Register <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Login <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 <button> \"Lấy mã OTP\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <button> \"Đặt lại mật khẩu\" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 <button> \"← Quay lại\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <a> \"EShop\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <button> \"Thoát\" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header <button> \"Cập nhật\" (cursor=pointer, đổi màu/gạch chân khi hover=false)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-31.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-32",
@@ -713,7 +1489,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Gửi form /register với email đã tồn tại test@eshop.com và đọc nguyên văn thông báo lỗi."
+      "che_do_ghi_chu": "Gửi form /register với email đã tồn tại test@eshop.com và đọc nguyên văn thông báo lỗi.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Khi gửi đăng ký với email đã tồn tại \"test@eshop.com\", hệ thống KHÔNG từ chối và KHÔNG hiện thông báo lỗi nào mà vẫn tạo trùng bản ghi trong CSDL rồi chuyển thẳng sang http://localhost:5173/login."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Khi gửi đăng ký với email đã tồn tại \"test@eshop.com\", hệ thống KHÔNG từ chối và KHÔNG hiện thông báo lỗi nào mà vẫn tạo trùng bản ghi trong CSDL rồi chuyển thẳng sang http://localhost:5173/login."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-32.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-33",
@@ -733,7 +1535,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhập sai mật khẩu liên tiếp lần 1, 2, 3 cho test@eshop.com trên /login và bấm giờ đo thời gian khoá."
+      "che_do_ghi_chu": "Nhập sai mật khẩu liên tiếp lần 1, 2, 3 cho test@eshop.com trên /login và bấm giờ đo thời gian khoá.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Tài khoản bị khoá ngay sau lần nhập sai thứ 2 (login_attempts tăng +2 mỗi lần: lần 1=2, lần 2=4), thời gian khoá thực tế ~180 giây (thay vì 30 giây), và khi bị khoá (HTTP 403: \"Tài khoản đã bị khóa. Vui lòng thử lại sau.\") giao diện /login vẫn chỉ hiện \"Đăng nhập thất bại. Vui lòng kiểm tra lại.\" chứ không báo tài khoản đang bị tạm khoá."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Tài khoản bị khoá ngay sau lần nhập sai thứ 2 (login_attempts tăng +2 mỗi lần: lần 1=2, lần 2=4), thời gian khoá thực tế ~180 giây (thay vì 30 giây), và khi bị khoá (HTTP 403: \"Tài khoản đã bị khóa. Vui lòng thử lại sau.\") giao diện /login vẫn chỉ hiện \"Đăng nhập thất bại. Vui lòng kiểm tra lại.\" chứ không báo tài khoản đang bị tạm khoá."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-33.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-34",
@@ -752,7 +1580,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "So sánh nguyên văn thông báo lỗi trên /login khi sai Email so với khi đúng Email nhưng sai Mật khẩu."
+      "che_do_ghi_chu": "So sánh nguyên văn thông báo lỗi trên /login khi sai Email so với khi đúng Email nhưng sai Mật khẩu.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Khi sai Email (\"Đăng nhập thất bại. Vui lòng kiểm tra lại.\") và khi sai Mật khẩu (\"Đăng nhập thất bại. Vui lòng kiểm tra lại.\") giao diện hiển thị cùng một thông báo tổng quát bằng tiếng Việt, không lộ trường sai."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Khi sai Email (\"Đăng nhập thất bại. Vui lòng kiểm tra lại.\") và khi sai Mật khẩu (\"Đăng nhập thất bại. Vui lòng kiểm tra lại.\") giao diện hiển thị cùng một thông báo tổng quát bằng tiếng Việt, không lộ trường sai."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-35",
@@ -773,7 +1622,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Thực hiện thao tác lỗi/thành công trên /forgot-password và /profile để kiểm tra inline/toast hay window.alert()."
+      "che_do_ghi_chu": "Thực hiện thao tác lỗi/thành công trên /forgot-password và /profile để kiểm tra inline/toast hay window.alert().",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Cả /forgot-password lẫn /profile đều bật hộp thoại native window.alert() chặn luồng thao tác thay vì thông báo nội trang/toast, đồng thời lộ chuỗi tiếng Anh thô trên /forgot-password (alert: \"Lỗi: User not found\"; /profile alert: \"Cập nhật thành công!\")."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Cả /forgot-password lẫn /profile đều bật hộp thoại native window.alert() chặn luồng thao tác thay vì thông báo nội trang/toast, đồng thời lộ chuỗi tiếng Anh thô trên /forgot-password (alert: \"Lỗi: User not found\"; /profile alert: \"Cập nhật thành công!\")."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-35.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-36",
@@ -794,7 +1669,33 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Cập nhật Họ Tên trên /profile, quan sát lời chào Header trong 1 giây và tải lại trang kiểm tra giữ dữ liệu."
+      "che_do_ghi_chu": "Cập nhật Họ Tên trên /profile, quan sát lời chào Header trong 1 giây và tải lại trang kiểm tra giữ dữ liệu.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Sau 1 giây bấm Cập nhật hồ sơ, lời chào trên Header vẫn giữ nguyên tên cũ \"Chào, Test User\" (không đồng bộ sang \"Chào, Nguyễn Văn Ánh\" nếu chưa tải lại trang); sau khi F5 dữ liệu lưu bền=true."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Sau 1 giây bấm Cập nhật hồ sơ, lời chào trên Header vẫn giữ nguyên tên cũ \"Chào, Test User\" (không đồng bộ sang \"Chào, Nguyễn Văn Ánh\" nếu chưa tải lại trang); sau khi F5 dữ liệu lưu bền=true."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-36.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-37",
@@ -817,7 +1718,33 @@
       },
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Bật Slow 3G trong DevTools Network, bấm Submit và kiểm tra trạng thái loading/disabled chống bấm đúp."
+      "che_do_ghi_chu": "Bật Slow 3G trong DevTools Network, bấm Submit và kiểm tra trạng thái loading/disabled chống bấm đúp.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trong lúc chờ API phản hồi chậm, nút Submit vẫn có disabled=false, giữ nguyên nhãn \"Sign In\" (không có chỉ báo loading) và cho phép bấm đúp phát sinh 2 request API trùng lặp."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trong lúc chờ API phản hồi chậm, nút Submit vẫn có disabled=false, giữ nguyên nhãn \"Sign In\" (không có chỉ báo loading) và cho phép bấm đúp phát sinh 2 request API trùng lặp."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_CL-37.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-38",
@@ -837,7 +1764,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Đặt lại mật khẩu bằng OTP vừa cấp rồi thử dùng lại OTP cũ và nhập OTP sai ở Bước 2 /forgot-password."
+      "che_do_ghi_chu": "Đặt lại mật khẩu bằng OTP vừa cấp rồi thử dùng lại OTP cũ và nhập OTP sai ở Bước 2 /forgot-password.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Sau lần đặt lại mật khẩu thành công (\"Đổi mật khẩu thành công!\"), reset_token về null, thử dùng lại OTP cũ bị từ chối (HTTP 400) và nhập sai OTP hiển thị thông báo tiếng Việt \"Mã OTP không đúng hoặc có lỗi xảy ra.\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Sau lần đặt lại mật khẩu thành công (\"Đổi mật khẩu thành công!\"), reset_token về null, thử dùng lại OTP cũ bị từ chối (HTTP 400) và nhập sai OTP hiển thị thông báo tiếng Việt \"Mã OTP không đúng hoặc có lỗi xảy ra.\"."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "CL-39",
@@ -856,7 +1804,28 @@
       ],
       "nguon": "AI",
       "che_do": "manual",
-      "che_do_ghi_chu": "Kích hoạt lỗi trên /register và /login kiểm tra giữ dữ liệu đã nhập, sau đó gửi hợp lệ kiểm tra xoá lỗi cũ."
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /register và /login kiểm tra giữ dữ liệu đã nhập, sau đó gửi hợp lệ kiểm tra xoá lỗi cũ.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Trên /register giữ Họ Tên & Email khi lỗi=true, xoá lỗi/chuyển trang khi gửi đúng=true; trên /login giữ Email khi lỗi=true, xoá lỗi khi đăng nhập đúng=true."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Trên /register giữ Họ Tên & Email khi lỗi=true, xoá lỗi/chuyển trang khi gửi đúng=true; trên /login giữ Email khi lỗi=true, xoá lỗi khi đăng nhập đúng=true."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-01",
@@ -882,7 +1851,33 @@
         "giai_thich": "Lỗi thứ tự Tab chỉ lộ khi đi bằng bàn phím thật, nhìn ảnh chụp hay đọc mã giao diện bằng mắt thường không thấy; AI sinh checklist chủ yếu từ mô tả nhãn và màu nên không nghĩ tới việc duyệt focus từng bước."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /login quan sát thứ tự focus và đối chiếu dom_probe.tab_order."
+      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /login quan sát thứ tự focus và đối chiếu dom_probe.tab_order.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Nhấn Tab lần đầu tiên trên /login nhảy cóc thẳng tới nút \"Sign In\" (tabIndex=1, y=425px) trước cả thanh Header và trước cả hai ô Username, Mật khẩu; thứ tự thực tế: [\"button:Sign In(y=425)\",\"a:EShop(y=16)\",\"a:Giỏ hàng(y=20)\",\"a:Đăng nhập(y=20)\",\"a:Đăng ký(y=20)\",\"input:text(y=241)\",\"input:text(y=331)\",\"a:Quên mật khẩu?(y=389)\"]."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Nhấn Tab lần đầu tiên trên /login nhảy cóc thẳng tới nút \"Sign In\" (tabIndex=1, y=425px) trước cả thanh Header và trước cả hai ô Username, Mật khẩu; thứ tự thực tế: [\"button:Sign In(y=425)\",\"a:EShop(y=16)\",\"a:Giỏ hàng(y=20)\",\"a:Đăng nhập(y=20)\",\"a:Đăng ký(y=20)\",\"input:text(y=241)\",\"input:text(y=331)\",\"a:Quên mật khẩu?(y=389)\"]."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-01.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-02",
@@ -908,7 +1903,28 @@
         "giai_thich": "Prompt lượt IA-03 yêu cầu chung về điều hướng nên AI gom vào điều hướng giữa các trang; tôi không yêu cầu riêng \"thứ tự Tab từng form\" nên AI không tách thành mục kiểm tra cụ thể cho từng màn hình."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /register và Bước 1, Bước 2 /forgot-password đối chiếu dom_probe.tab_order."
+      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /register và Bước 1, Bước 2 /forgot-password đối chiếu dom_probe.tab_order.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Thứ tự Tab đi đúng từ trên xuống dưới trên cả /register (INPUT:Họ Tên(y=241) -> INPUT:Email(y=331) -> INPUT:Mật khẩu(y=421) -> BUTTON:Đăng Ký(y=499) -> A:Đăng nhập(y=555)), /forgot-password Bước 1 (INPUT:Nhập Email của bạn(y=241) -> BUTTON:Lấy mã OTP(y=299)) và Bước 2 (INPUT:Mã OTP (4 số)(y=301) -> INPUT:Mật khẩu mới(y=391) -> BUTTON:Đặt lại mật khẩu(y=449) -> BUTTON:← Quay lại(y=505))."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Thứ tự Tab đi đúng từ trên xuống dưới trên cả /register (INPUT:Họ Tên(y=241) -> INPUT:Email(y=331) -> INPUT:Mật khẩu(y=421) -> BUTTON:Đăng Ký(y=499) -> A:Đăng nhập(y=555)), /forgot-password Bước 1 (INPUT:Nhập Email của bạn(y=241) -> BUTTON:Lấy mã OTP(y=299)) và Bước 2 (INPUT:Mã OTP (4 số)(y=301) -> INPUT:Mật khẩu mới(y=391) -> BUTTON:Đặt lại mật khẩu(y=449) -> BUTTON:← Quay lại(y=505))."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-03",
@@ -932,7 +1948,33 @@
         "giai_thich": "AI chỉ kiểm tra nội dung thông báo lỗi (CL-32, CL-34) mà không để ý vị trí khối lỗi so với nút; vị trí chỉ phát hiện được khi thật sự kích hoạt lỗi và nhìn bố cục, AI không chạy giao diện."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Kích hoạt lỗi trên /login rồi chạy dom_probe.js đọc messages[].above_submit và toạ độ y so với nút gửi."
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /login rồi chạy dom_probe.js đọc messages[].above_submit và toạ độ y so với nút gửi.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Khối thông báo lỗi trên /login nằm BÊN DƯỚI nút gửi form (error.top=517px > submit.bottom=465px), vi phạm FR-22 yêu cầu nằm phía trên nút submit."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Khối thông báo lỗi trên /login nằm BÊN DƯỚI nút gửi form (error.top=517px > submit.bottom=465px), vi phạm FR-22 yêu cầu nằm phía trên nút submit."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-03.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-04",
@@ -957,7 +1999,33 @@
         "giai_thich": "Quy tắc \"lỗi nằm trên nút submit\" chỉ có ý nghĩa khi so toạ độ thực tế trên giao diện; AI coi mọi khối lỗi hiển thị phía trên nút là đạt nên không tách riêng kiểm tra khoảng cách và vị trí so với tiêu đề."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Kích hoạt lỗi trên /register rồi chạy dom_probe.js đo vị trí dọc của khối lỗi so với nút Đăng Ký và tiêu đề."
+      "che_do_ghi_chu": "Kích hoạt lỗi trên /register rồi chạy dom_probe.js đo vị trí dọc của khối lỗi so với nút Đăng Ký và tiêu đề.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Khối lỗi trên /register nằm ngoài thẻ <form> (insideForm=false), phía trên tất cả các ô nhập (cách tiêu đề 24px nhưng cách nút \"Đăng Ký\" tới 306px), không nằm liền kề phía trên nút Submit theo GA6."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Khối lỗi trên /register nằm ngoài thẻ <form> (insideForm=false), phía trên tất cả các ô nhập (cách tiêu đề 24px nhưng cách nút \"Đăng Ký\" tới 306px), không nằm liền kề phía trên nút Submit theo GA6."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-04.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-05",
@@ -981,7 +2049,33 @@
         "giai_thich": "Prompt các lượt IA chỉ nhắm vào yêu cầu giao diện FR-21..24 nên AI bỏ qua điều khoản bảo mật SEC-04 dù nó có trong m1_test_basis; việc hiển thị tên người dùng chỉ lộ lỗi khi nhập thẻ HTML thật."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Lưu Họ Tên chứa thẻ HTML <b>Test</b><i>User</i>, đăng nhập lại quan sát Header và dom_probe.innerhtml_risk."
+      "che_do_ghi_chu": "Lưu Họ Tên chứa thẻ HTML <b>Test</b><i>User</i>, đăng nhập lại quan sát Header và dom_probe.innerhtml_risk.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Lời chào trên Header dùng dangerouslySetInnerHTML nên dựng trực tiếp 1 thẻ <b> (in đậm) và 1 thẻ <i> (in nghiêng) thành \"Chào, TestUser\" thay vì hiển thị văn bản thường (HTML thực tế: <span>Chào, <b>Test</b><i>User</i></span>)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Lời chào trên Header dùng dangerouslySetInnerHTML nên dựng trực tiếp 1 thẻ <b> (in đậm) và 1 thẻ <i> (in nghiêng) thành \"Chào, TestUser\" thay vì hiển thị văn bản thường (HTML thực tế: <span>Chào, <b>Test</b><i>User</i></span>)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-05.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-06",
@@ -1005,7 +2099,33 @@
         "giai_thich": "AI chỉ nghĩ đến bố cục với dữ liệu mẫu ngắn như \"Test User\" (CL-10) mà không thử dữ liệu cực trị; không có số liệu thật về độ dài tên nên AI khó đoán rủi ro tràn bố cục."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Lưu Họ Tên dài 100 ký tự liền nhau, đăng nhập lại và kiểm tra tràn ngang/chồng lấp Header."
+      "che_do_ghi_chu": "Lưu Họ Tên dài 100 ký tự liền nhau, đăng nhập lại và kiểm tra tràn ngang/chồng lấp Header.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Khi Họ Tên dài 100 ký tự không khoảng trắng, lời chào trên Header không có CSS cắt/xuống dòng làm tràn khung nhìn: 375px: scrollWidth=1146px > clientWidth=375px, nút thoát bị đẩy tới x=1146px ngoài màn hình."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Khi Họ Tên dài 100 ký tự không khoảng trắng, lời chào trên Header không có CSS cắt/xuống dòng làm tràn khung nhìn: 375px: scrollWidth=1146px > clientWidth=375px, nút thoát bị đẩy tới x=1146px ngoài màn hình."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-06.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-07",
@@ -1029,7 +2149,28 @@
         "giai_thich": "AI sinh mục kiểm tra chính tả của nhãn tĩnh (CL-02) nhưng không nghĩ tới dữ liệu động có dấu do người dùng nhập và vòng lưu-đọc qua máy chủ; điều này cần dữ liệu thật mới kiểm được."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Lưu Họ Tên và Địa chỉ tiếng Việt có dấu trên /profile, tải lại trang kiểm tra hiển thị dấu."
+      "che_do_ghi_chu": "Lưu Họ Tên và Địa chỉ tiếng Việt có dấu trên /profile, tải lại trang kiểm tra hiển thị dấu.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Sau khi lưu và tải lại /profile, Header hiển thị \"Chào, Nguyễn Văn Ánh\", ô Họ Tên = \"Nguyễn Văn Ánh\", Địa chỉ = \"12 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh\" (đầy đủ dấu tiếng Việt, không lỗi ký tự)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Sau khi lưu và tải lại /profile, Header hiển thị \"Chào, Nguyễn Văn Ánh\", ô Họ Tên = \"Nguyễn Văn Ánh\", Địa chỉ = \"12 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh\" (đầy đủ dấu tiếng Việt, không lỗi ký tự)."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-08",
@@ -1053,7 +2194,33 @@
         "giai_thich": "CL-19 của AI dùng ví dụ thiếu nhóm ký tự chứ không kiểm giá trị biên độ dài vì prompt không nhắc phân tích giá trị biên; mục này tách riêng ranh giới 7 và 8 ký tự."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Thử biên mật khẩu 7 ký tự (Abc12!x) và 8 ký tự (Abc123!x) trên /register."
+      "che_do_ghi_chu": "Thử biên mật khẩu 7 ký tự (Abc12!x) và 8 ký tự (Abc123!x) trên /register.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Mật khẩu 7 ký tự \"Abc12!x\" bị từ chối=true, nhưng mật khẩu biên hợp lệ 8 ký tự \"Abc123!x\" cũng bị từ chối kèm lỗi \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\" (không chuyển tới /login)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Mật khẩu 7 ký tự \"Abc12!x\" bị từ chối=true, nhưng mật khẩu biên hợp lệ 8 ký tự \"Abc123!x\" cũng bị từ chối kèm lỗi \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\" (không chuyển tới /login)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-08.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-09",
@@ -1077,7 +2244,33 @@
         "giai_thich": "AI chỉ lấy một ký tự đại diện là `!` trong CL-19 thay vì kiểm từng ký tự trong tập; lỗi bộ lọc ký tự chỉ lộ khi thử nhiều giá trị khác nhau, AI không thực thi nên không thấy."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Thử lần lượt 7 mật khẩu chứa từng ký tự đặc biệt (@ $ ! % * ? &) trên /register."
+      "che_do_ghi_chu": "Thử lần lượt 7 mật khẩu chứa từng ký tự đặc biệt (@ $ ! % * ? &) trên /register.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Cả 7/7 mật khẩu chứa ký tự đặc biệt hợp lệ (Abcd123@, Abcd123$, Abcd123!, Abcd123%, Abcd123*, Abcd123?, Abcd123&) đều bị form /register từ chối với lỗi \"Mật khẩu quá yếu!\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Cả 7/7 mật khẩu chứa ký tự đặc biệt hợp lệ (Abcd123@, Abcd123$, Abcd123!, Abcd123%, Abcd123*, Abcd123?, Abcd123&) đều bị form /register từ chối với lỗi \"Mật khẩu quá yếu!\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-09.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-10",
@@ -1101,7 +2294,33 @@
         "giai_thich": "CL-22 của AI chỉ nêu các giá trị hợp lệ và một giá trị có chữ cái; phần giá trị biên không hợp lệ (9, 12 chữ số, số đầu khác 0) cần prompt yêu cầu phân tích biên, mà prompt của tôi chưa yêu cầu."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Thử lưu 3 giá trị biên SĐT không hợp lệ (9 số, 12 số, 10 số bắt đầu khác 0) trên /profile."
+      "che_do_ghi_chu": "Thử lưu 3 giá trị biên SĐT không hợp lệ (9 số, 12 số, 10 số bắt đầu khác 0) trên /profile.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Thử 3 giá trị biên SĐT không hợp lệ trên /profile: \"091234567\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"091234567890\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; riêng \"9123456789\" (không bắt đầu bằng số 0) lại được lưu thành công (\"Cập nhật thành công!\")."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Thử 3 giá trị biên SĐT không hợp lệ trên /profile: \"091234567\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"091234567890\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; riêng \"9123456789\" (không bắt đầu bằng số 0) lại được lưu thành công (\"Cập nhật thành công!\")."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-10.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-11",
@@ -1126,7 +2345,33 @@
         "giai_thich": "Thuộc tính `required` của trình duyệt chặn ô rỗng nên AI mặc định ô bắt buộc đã được bảo vệ; lỗ hổng chỉ xuất hiện với chuỗi toàn dấu cách mà AI không nghĩ tới."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhập 3 dấu cách vào Họ Tên trên /register và /profile rồi bấm gửi kiểm tra từ chối khoảng trắng."
+      "che_do_ghi_chu": "Nhập 3 dấu cách vào Họ Tên trên /register và /profile rồi bấm gửi kiểm tra từ chối khoảng trắng.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Cả /register (chuyển sang /login=true) lẫn /profile (alert \"Cập nhật thành công!\") đều chấp nhận lưu Họ Tên chỉ gồm 3 khoảng trắng \"   \", khiến lời chào trên Header chỉ còn \"Chào,\"."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Cả /register (chuyển sang /login=true) lẫn /profile (alert \"Cập nhật thành công!\") đều chấp nhận lưu Họ Tên chỉ gồm 3 khoảng trắng \"   \", khiến lời chào trên Header chỉ còn \"Chào,\"."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-11.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-12",
@@ -1150,7 +2395,33 @@
         "giai_thich": "Lỗi này tôi quan sát được khi đối chiếu giao diện thật ở Bước 0 (ảnh chụp ô OTP tự điền email); AI chỉ đọc mô tả control nên không biết hành vi tự điền của trình duyệt."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Lưu tài khoản trong trình duyệt, mở Bước 2 /forgot-password quan sát tự điền ô OTP và đọc dom_probe.fields[].autocomplete."
+      "che_do_ghi_chu": "Lưu tài khoản trong trình duyệt, mở Bước 2 /forgot-password quan sát tự điền ô OTP và đọc dom_probe.fields[].autocomplete.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Các ô nhập trên /login ([{\"name\":null,\"autocomplete\":null},{\"name\":null,\"autocomplete\":null}]) và Bước 2 /forgot-password ([{\"name\":null,\"autocomplete\":null},{\"name\":null,\"autocomplete\":null}]) đều thiếu thuộc tính name và autocomplete (null), khiến trình duyệt tự điền nhầm email đã lưu vào ô OTP."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Các ô nhập trên /login ([{\"name\":null,\"autocomplete\":null},{\"name\":null,\"autocomplete\":null}]) và Bước 2 /forgot-password ([{\"name\":null,\"autocomplete\":null},{\"name\":null,\"autocomplete\":null}]) đều thiếu thuộc tính name và autocomplete (null), khiến trình duyệt tự điền nhầm email đã lưu vào ô OTP."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-12.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-13",
@@ -1174,7 +2445,33 @@
         "giai_thich": "AI chú ý tới quy tắc mật khẩu ở Register (CL-19) nhưng không đối chiếu chéo để thấy form Bước 2 thiếu gợi ý tương ứng; việc so sánh nhất quán giữa hai màn hình cần nhìn cả hai giao diện."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát vùng quanh ô Mật khẩu mới ở Bước 2 /forgot-password xem có dòng gợi ý quy tắc mật khẩu không."
+      "che_do_ghi_chu": "Quan sát vùng quanh ô Mật khẩu mới ở Bước 2 /forgot-password xem có dòng gợi ý quy tắc mật khẩu không.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ở Bước 2 trang /forgot-password không có bất kỳ dòng gợi ý quy tắc mật khẩu nào gần ô \"Mật khẩu mới\" (số thẻ gợi ý = 0)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ở Bước 2 trang /forgot-password không có bất kỳ dòng gợi ý quy tắc mật khẩu nào gần ô \"Mật khẩu mới\" (số thẻ gợi ý = 0)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-13.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-14",
@@ -1198,7 +2495,33 @@
         "giai_thich": "Prompt chỉ yêu cầu kiểm tra có gợi ý hay không (CL-23) chứ không yêu cầu soát mức độ cụ thể của nội dung gợi ý so với đặc tả nên AI không tách mục này."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dòng gợi ý dưới ô Mật khẩu trên /register kiểm tra việc liệt kê tập ký tự đặc biệt hợp lệ."
+      "che_do_ghi_chu": "Đọc dòng gợi ý dưới ô Mật khẩu trên /register kiểm tra việc liệt kê tập ký tự đặc biệt hợp lệ.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Dòng gợi ý dưới ô Mật khẩu trên /register chỉ ghi chung chung \"Yêu cầu: Tối thiểu 8 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.\", không liệt kê tập ký tự đặc biệt hợp lệ (@ $ ! % * ? &)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Dòng gợi ý dưới ô Mật khẩu trên /register chỉ ghi chung chung \"Yêu cầu: Tối thiểu 8 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.\", không liệt kê tập ký tự đặc biệt hợp lệ (@ $ ! % * ? &)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-14.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-15",
@@ -1222,7 +2545,28 @@
         "giai_thich": "AI chỉ nhìn từng màn hình tại một thời điểm và không mô phỏng thao tác tải lại trang; trạng thái phiên sau F5 phụ thuộc cách lưu token phía client nên AI không thể suy ra từ mô tả điều khoản."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Đăng nhập mở /profile rồi nhấn tải lại trang (F5) kiểm tra duy trì trạng thái đăng nhập."
+      "che_do_ghi_chu": "Đăng nhập mở /profile rồi nhấn tải lại trang (F5) kiểm tra duy trì trạng thái đăng nhập.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Sau khi tải lại trang /profile, Header hiển thị \"Chào, Test User\" kèm nút \"Thoát\", form Hồ sơ hiển thị=true."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Sau khi tải lại trang /profile, Header hiển thị \"Chào, Test User\" kèm nút \"Thoát\", form Hồ sơ hiển thị=true."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-16",
@@ -1247,7 +2591,33 @@
         "giai_thich": "Tiêu đề tab nằm ngoài vùng hiển thị của trang web nên AI khi liệt kê control từ nội dung trang không đưa vào; đây là điểm AI thường bỏ qua khi chỉ nhìn phần thân trang."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Mở 4 trang đọc tiêu đề tab trình duyệt kết hợp dom_probe.title trên từng trang."
+      "che_do_ghi_chu": "Mở 4 trang đọc tiêu đề tab trình duyệt kết hợp dom_probe.title trên từng trang.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Cả 4 trang đều có cùng document.title mặc định giống hệt nhau: {\"/register\":\"frontend-web\",\"/login\":\"frontend-web\",\"/forgot-password\":\"frontend-web\",\"/profile\":\"frontend-web\"}, không mô tả chức năng từng trang."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Cả 4 trang đều có cùng document.title mặc định giống hệt nhau: {\"/register\":\"frontend-web\",\"/login\":\"frontend-web\",\"/forgot-password\":\"frontend-web\",\"/profile\":\"frontend-web\"}, không mô tả chức năng từng trang."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-16.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-17",
@@ -1273,7 +2643,28 @@
         "giai_thich": "Slide 12 nêu khả năng dùng chỉ bàn phím là điểm mù của AI; trạng thái focus chỉ thấy khi thao tác bàn phím thật và AI không có trải nghiệm đó."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Nhấn phím Tab đi qua các phần tử trên 5 vùng giao diện quan sát viền/vòng sáng focus thị giác."
+      "che_do_ghi_chu": "Nhấn phím Tab đi qua các phần tử trên 5 vùng giao diện quan sát viền/vòng sáng focus thị giác.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Mọi ô nhập, nút và liên kết trên 5 vùng giao diện khi nhận focus bằng phím Tab đều hiển thị đường viền outline mặc định rõ ràng của trình duyệt."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Mọi ô nhập, nút và liên kết trên 5 vùng giao diện khi nhận focus bằng phím Tab đều hiển thị đường viền outline mặc định rõ ràng của trình duyệt."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-18",
@@ -1299,7 +2690,28 @@
         "giai_thich": "CL-10 của AI chỉ nêu 3 viewport cố định; prompt của tôi không nhắc tới người dùng phóng to chữ nên AI không thêm kịch bản phóng to trình duyệt."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Phóng to trình duyệt lên 200% ở 1440px, mở 5 vùng giao diện kiểm tra cắt chữ, chồng lấp và cuộn ngang."
+      "che_do_ghi_chu": "Phóng to trình duyệt lên 200% ở 1440px, mở 5 vùng giao diện kiểm tra cắt chữ, chồng lấp và cuộn ngang.",
+      "auto_status": {
+        "P1": "Passed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Ở mức phóng to 200% trên màn hình 1440px (CSS reflow 720px), cả 5 vùng giao diện hiển thị rõ, không chồng lấp và không phát sinh thanh cuộn ngang."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Passed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Ở mức phóng to 200% trên màn hình 1440px (CSS reflow 720px), cả 5 vùng giao diện hiển thị rõ, không chồng lấp và không phát sinh thanh cuộn ngang."
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-19",
@@ -1323,7 +2735,33 @@
         "giai_thich": "Kích thước vùng chạm chỉ cảm nhận được khi chạm thật trên điện thoại; AI không có thiết bị và khi đánh giá bố cục chỉ nhìn kiểu máy tính để bàn."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Đo kích thước w, h bằng getBoundingClientRect()/dom_probe.buttons (>= 24x24px) và chạm thật trên điện thoại Android."
+      "che_do_ghi_chu": "Đo kích thước w, h bằng getBoundingClientRect()/dom_probe.buttons (>= 24x24px) và chạm thật trên điện thoại Android.",
+      "auto_status": {
+        "P1": "Failed"
+      },
+      "auto_notes": {
+        "P1": "Actual: Các liên kết có chiều cao vùng chạm nhỏ hơn ngưỡng 24x24 CSS px: Register \"Đăng nhập\" (68x19px); Login \"Quên mật khẩu?\" (102x19px); Login \"Đăng ký ngay\" (85x19px)."
+      },
+      "auto_evidence": {
+        "P1": []
+      },
+      "auto_run": {
+        "P1": "checklist/runs/P1_auto_20261111-1620.json"
+      },
+      "ket_qua": {
+        "P1": "Failed"
+      },
+      "notes_nt": {
+        "P1": "Actual: Các liên kết có chiều cao vùng chạm nhỏ hơn ngưỡng 24x24 CSS px: Register \"Đăng nhập\" (68x19px); Login \"Quên mật khẩu?\" (102x19px); Login \"Đăng ký ngay\" (85x19px)."
+      },
+      "evidence": {
+        "P1": [
+          "screenshots/task1_failed/P1_SV-19.png"
+        ]
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     },
     {
       "id": "SV-20",
@@ -1349,7 +2787,13 @@
         "giai_thich": "Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có điện thoại thật nên không đưa mục phụ thuộc thiết bị di động vào checklist."
       },
       "che_do": "manual",
-      "che_do_ghi_chu": "Trên Chrome Android, chạm vào ô Số điện thoại tại /profile quan sát loại bàn phím ảo bật lên."
+      "che_do_ghi_chu": "Trên Chrome Android, chạm vào ô Số điện thoại tại /profile quan sát loại bàn phím ảo bật lên.",
+      "ket_qua": {
+        "P1": "N/A"
+      },
+      "run": {
+        "P1": "checklist/runs/P1_20261111-1650.csv"
+      }
     }
   ]
 }
