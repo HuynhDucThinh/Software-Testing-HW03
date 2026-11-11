@@ -151,5 +151,5 @@ Trên từng trang (`/register`, `/login`, `/forgot-password` Bước 1, `/forgo
 |---|---|---|---|---|---|---|
 | 1 | `P1` | `2026-11-11 16:40 - 16:55` | `Google Chrome 157.0.8103.50 / Windows 11 (1920x1080)` | `checklist/runs/P1_20261111-1650.csv` | Có | Reset CSDL trước khi chạy G1..G7 (58 mục: 14 Passed, 44 Failed, 1 N/A) |
 | 2 | `P2` | `2026-11-11 16:56 - 17:05` | `Mozilla Firefox 137.0.1 / Windows 11 (1920x1080)` | `checklist/runs/P2_20261111-1700.csv` | Có | Reset CSDL trước khi chạy G1..G7 (58 mục: 14 Passed, 44 Failed, 1 N/A) |
-| 3 | `P3` | `(chờ chạy Bước 4)` | `Chrome Android 156.0.8078.79 / OPPO Reno10 5G - Android 15` | `checklist/runs/P3_...csv` | Có | Reset CSDL + bật `adb reverse` 5173 & 3000 trước khi chạy |
+| 3 | `P3` | `2026-11-11 17:06 - 17:16` | `Chrome Android 156.0.8078.79 / OPPO Reno10 5G - Android 15` | `checklist/runs/P3_20261111-1710.csv` | Có | Reset CSDL + bật `adb reverse` 5173 & 3000 trước khi chạy (52 mục: 10 Passed, 42 Failed, 7 N/A) |
 
