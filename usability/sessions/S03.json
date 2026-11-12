@@ -1,0 +1,112 @@
+{
+  "session_id": "S03",
+  "is_pilot": false,
+  "date": "2026-11-12",
+  "participant_code": "P03",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S03.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "00:11",
+      "m2_login_done": "00:26",
+      "m3_profile_opened": "00:30",
+      "m4_profile_saved": "00:48"
+    },
+    "total_duration": "00:48",
+    "completion_status": "co_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:06",
+      "screen": "Register",
+      "type": "E",
+      "description": "Nhập chuỗi 'levanb' không có ký tự '@' vào ô Email trên trang Đăng ký nhưng hệ thống không kiểm tra định dạng hợp lệ và vẫn tạo tài khoản.",
+      "is_bug": true,
+      "known_bug_id": "BUG-09"
+    },
+    {
+      "t": "00:09",
+      "screen": "Register",
+      "type": "Q",
+      "description": "Nhận xét quy tắc mật khẩu bất thường khi bắt buộc mật khẩu phải chứa ký tự dấu cách ('Matkhau 123') mới cho đăng ký.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:12",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Chuyển từ trang Đăng ký sang Đăng nhập không tự lưu giữ thông tin tài khoản người dùng vừa tạo, đồng thời tiêu đề trang vẫn ghi 'Đăng Ký'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-13"
+    },
+    {
+      "t": "00:21",
+      "screen": "Login",
+      "type": "E",
+      "description": "Do trang Đăng ký ghi nhãn 'Email' nhưng trang Đăng nhập lại đổi nhãn thành 'Username', người dùng gõ Họ tên ('lê văn b') vào ô Username và bị báo lỗi 'Đăng nhập thất bại. Vui lòng kiểm tra lại.' (mật khẩu cũng bị lộ chữ thường).",
+      "is_bug": true,
+      "known_bug_id": "BUG-14"
+    },
+    {
+      "t": "00:36",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Nhập số điện thoại mẫu 10 chữ số bắt đầu bằng số 0 đúng như gợi ý trên ô nhập nhưng bị hộp thoại alert chặn báo 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.'",
+      "is_bug": true,
+      "known_bug_id": "BUG-05"
+    },
+    {
+      "t": "00:39",
+      "screen": "Profile",
+      "type": "A",
+      "description": "Điều phối viên hỗ trợ gỡ lỗi chặn BUG-05: hướng dẫn xóa chữ số 0 đầu tiên của số điện thoại để tiếp tục lưu hồ sơ.",
+      "is_bug": false,
+      "known_bug_id": "BUG-05"
+    },
+    {
+      "t": "00:48",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Nhập dãy số vô nghĩa '123456789' vào ô 'Địa chỉ giao hàng' rồi bấm Cập nhật nhưng biểu mẫu không kiểm tra tính hợp lệ của địa chỉ và vẫn báo 'Cập nhật thành công!'",
+      "is_bug": false,
+      "known_bug_id": null
+    }
+  ],
+  "assists": [
+    {
+      "t": "00:39",
+      "screen": "Profile",
+      "reason": "Số điện thoại 10 chữ số bắt đầu bằng 0 bị hộp thoại alert chặn bởi lỗi biểu thức chính quy BUG-05.",
+      "intervention": "Hướng dẫn xóa chữ số 0 đứng đầu của số điện thoại để lưu thông tin cá nhân."
+    }
+  ],
+  "seq": 2,
+  "sus": [
+    2,
+    1,
+    2,
+    3,
+    4,
+    3,
+    2,
+    2,
+    2,
+    2
+  ],
+  "open_probes": {
+    "clarity": "Có, vài tiêu đề chưa thống nhất.",
+    "error_recovery": "Chưa thấy.",
+    "speed": "Tốt.",
+    "trust": "Ổn."
+  },
+  "moderator_notes": "Phiên S03 ghi nhận tình huống nhầm lẫn nhãn rất điển hình ở giây 00:15..00:21: vì trang Đăng ký dùng nhãn 'Email' còn trang Đăng nhập đổi thành 'Username', P03 đã nhập Họ tên 'lê văn b' vào ô Username dẫn tới đăng nhập thất bại trước khi tự sửa lại thành 'levanb'. Ngoài ra ở trang Hồ sơ, P03 thử nhập dãy số '123456789' vào ô Địa chỉ giao hàng và phát hiện hệ thống không kiểm tra nội dung địa chỉ."
+}
