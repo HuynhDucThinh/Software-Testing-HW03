@@ -250,3 +250,26 @@ Làm bước 0 giúp tôi. Làm thật đầy đủ chính xác và trình bày 
 **By hand:** Sinh viên rà soát và xác nhận 6 thông số thiết kế cốt lõi trong `usability/plan.md` (câu chữ kịch bản mục tiêu, mốc thời gian Benchmark `05:00` / tối đa `10:00`, ngưỡng chờ cứu hộ `90 giây` hoặc `>= 3 lần` thử lỗi, cơ cấu người tham gia `non-IT`, cấu hình trạm thử nghiệm Chrome ẩn danh + reset CSDL sạch và quy trình quay cửa sổ trình duyệt) trước khi chốt Git commit Bước 0 và chuyển sang Bước 1.
 
 ---
+
+## Entry 12 — 2026-11-12 - Task 2 Bước 1: Thiết kế Bộ công cụ khảo sát, Kịch bản điều phối và Trạm bấm giờ thu phiếu SUS offline
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-12 11:38 +07:00
+**Task / Step:** Task 2, Bước 1 (Thiết kế `usability/participant_kit.md`, `usability/moderator_script.md`, khung trống `usability/participants.md`, công cụ khởi tạo phiên sạch `usability/start_session.ps1` và trạm bấm giờ — thu phiếu offline `usability/session_helper.html`, kèm đóng băng tại `usability/frozen/`)
+**Prompt:**
+Oke thực hiện tiếp tục
+
+**AI output:**
+Sau khi sinh viên kiểm duyệt và xác nhận giữ nguyên Kế hoạch 9 phần `usability/plan.md` (đã tạo commit `af91496` cho Bước 0), đã triển khai đầy đủ Bước 1 của skill `usability-evaluation`:
+- Soạn thảo `usability/participant_kit.md` gồm 5 mục chuẩn: Lời trấn an tâm lý & Xác nhận đồng ý tham gia (`Consent`), Kịch bản nhiệm vụ định hướng mục tiêu cho luồng `F1` (không lộ bước thao tác hay tên nút/route), câu hỏi đánh giá độ dễ sau nhiệm vụ `SEQ` (thang `1–7`), bảng 10 câu chuẩn `SUS` (thang Likert `1–5`), và 4 câu hỏi phỏng vấn mở bắt buộc (`Clarity`, `Error recovery`, `Speed`, `Trust`).
+- Soạn thảo `usability/moderator_script.md` dành riêng cho điều phối viên với danh sách kiểm trạng thái sạch trước mỗi phiên (`Clean State`), lời thoại trung lập từng phút, bảng Giao thức cứu hộ 3 bước cụ thể cho 2 lỗi chặn mã nguồn (`BUG-01` mật khẩu đòi khoảng trắng ở `/register`, `BUG-05` từ chối SĐT đầu `0` ở `/profile`) cùng rủi ro khóa ngầm `BUG-03` ở `/login`, và bảng tốc ký dự phòng.
+- Khởi tạo khung bảng trống `usability/participants.md` cho `P00` (`S00` Pilot) và `P01..P07` (`S01..S07` Chính thức) với quy tắc che đúng 4 chữ số giữa của SĐT/Zalo (`09x****xxx`), cùng tệp danh mục video `usability/recordings/LINKS.md` (không điền bất kỳ dữ liệu giả nào).
+- Xây dựng bộ công cụ hỗ trợ chạy phiên hợp lệ trên máy cá nhân của sinh viên: `usability/start_session.ps1` (tự động dừng Backend cũ, xóa và tạo mới `database.sqlite`, bật `:3000` & `:5173`, mở cửa sổ Chrome Ẩn danh sạch tại `http://localhost:5173/`) và `usability/session_helper.html` (đồng hồ bấm giờ chặng `m1..m4`, nút ghi nhanh sự kiện `E/H/Q/A`, giao diện cho người tham gia tích chọn `SEQ` + `10 câu SUS` + `4 câu mở`, kiểm tra chống sót câu/chống lộ SĐT và xuất trực tiếp `S0x.json`).
+- Chạy kiểm định `validate_study.py --plan usability/plan.md --kit usability/participant_kit.md --participants usability/participants.md --allow-pending` đạt `0 lỗi, 0 cảnh báo`, và đóng băng bản nháp AI tại `usability/frozen/T2_participant_kit_step1_20261112-113805.md` (`sha256:b70af36e583b`) cùng `usability/frozen/T2_moderator_script_step1_20261112-113805.md` (`sha256:36bc981fb5db`).
+
+**Kept:** Giữ nguyên toàn bộ `participant_kit.md`, `moderator_script.md`, khung trống `participants.md`, `recordings/LINKS.md`, `start_session.ps1` và `session_helper.html`.
+**Changed:** Không có.
+**Rejected:** Không sử dụng các công cụ điều khiển trình duyệt tự động trong phiên người dùng thật nhằm đảm bảo cửa sổ Chrome Ẩn danh hoàn toàn nguyên bản cho người tham gia trực tiếp thao tác.
+**By hand:** Sinh viên rà soát giao diện `usability/session_helper.html`, `participant_kit.md` và `moderator_script.md`, xác nhận tạo Git commit hoàn tất Giai đoạn 1 (Bước 1), sau đó chuyển sang Bước 2 để khởi tạo khung rỗng `S00.json` và trực tiếp điều phối phiên chạy thử Pilot (`S00`) với người tham gia đầu tiên (`P00`).
+
+---
