@@ -229,3 +229,24 @@ Bước 6. Dùng github của tôi có sẵn để đăng issue luôn nhe
 **By hand:** Sinh viên yêu cầu kiểm toán chất lượng theo đề bài, duyệt danh sách điểm cần hoàn thiện và ghi nhận nhắc nhở mở chế độ `Public` cho GitHub repository trước thời điểm nộp bài.
 
 ---
+
+## Entry 11 — 2026-11-12 - Task 2 Bước 0: Lập Kế hoạch đánh giá khả năng sử dụng 9 phần cho luồng F1
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-12 11:21 +07:00
+**Task / Step:** Task 2, Bước 0 (Khảo sát luồng nghiệp vụ `F1` và khởi tạo Kế hoạch đánh giá khả năng sử dụng 9 phần `usability/plan.md` kèm đóng băng bản nháp AI tại `usability/frozen/`)
+**Prompt:**
+Làm bước 0 giúp tôi. Làm thật đầy đủ chính xác và trình bày những nội dung làm được, tôi cần verify những gì?
+
+**AI output:**
+Đã thực hiện quy trình Bước 0 của skill `usability-evaluation` cho luồng đầu-cuối không trùng lặp `F1: Đăng ký -> Đăng nhập -> Cập nhật hồ sơ` (`FR-01`, `FR-02`, `FR-04`):
+- Đối chiếu điều khoản đặc tả tại `checklist/m1_test_basis.md` (`eshop-sut/README.md`) với hành vi thực tế của 4 thành phần giao diện `Register.jsx`, `Login.jsx`, `App.jsx` (`Header`) và `Profile.jsx` cùng `server.js` để xác định đầy đủ các chặng điều hướng và điểm nghẽn kỹ thuật tiềm ẩn trên luồng `F1`.
+- Soạn thảo `usability/plan.md` gồm đủ 9 mục chuẩn Rubin & Chisnell (`1. Mục đích đánh giá`, `2. Câu hỏi nghiên cứu cụ thể RQ1..RQ5`, `3. Mục tiêu kiểm thử & Thiết kế nhiệm vụ`, `4. Hồ sơ người tham gia mục tiêu`, `5. Phương pháp & Thiết kế phiên thử nghiệm`, `6. Môi trường, Thiết bị & Khởi tạo trạng thái sạch`, `7. Vai trò người điều phối & Quy tắc can thiệp`, `8. Chỉ số đo lường & Dữ liệu thu thập`, `9. Cấu trúc nội dung báo cáo`), thiết kế riêng cho mô hình điều phối trực tiếp tại chỗ (`In-person Moderated`) trên máy Windows 11 của sinh viên với quy mô 1 phiên Pilot (`S00`) + 7 phiên chính thức ngoài lớp học (`S01..S07`).
+- Chạy kiểm định tự động `validate_study.py --plan usability/plan.md` đạt kết quả `0 lỗi, 0 cảnh báo`, và đóng băng bất biến bản nháp AI tại `usability/frozen/T2_plan_step0_20261112-112128.md` (`sha256:ebef4e75345d`) kèm `usability/frozen/INDEX.md`.
+
+**Kept:** Giữ nguyên cấu trúc 9 phần của `usability/plan.md`, bộ 5 câu hỏi nghiên cứu `RQ1..RQ5`, kịch bản nhiệm vụ định hướng mục tiêu không lộ tên control/route, 4 mốc thời gian chặng (`m1_register_done`..`m4_profile_saved`), mốc Benchmark `05:00` (tối đa `10:00`) và Giao thức cứu hộ 3 bước (`System-Bug Rescue Protocol`) cho 2 lỗi chặn `BUG-01`, `BUG-05` cùng rủi ro khóa sớm `BUG-03`.
+**Changed:** Hiệu chỉnh cách viết ký hiệu ngưỡng trong Mục 3 và Mục 8 sang diễn đạt tiếng Việt tường minh để không bị bộ kiểm tra nhầm là thẻ giữ chỗ chưa điền.
+**Rejected:** Loại bỏ phương án cấp sẵn tài khoản mẫu `test@eshop.com` hoặc cho trước mật khẩu có khoảng trắng ngay từ đầu phiên vì sẽ làm mất khả năng quan sát phản ứng thực tế của người dùng trên màn hình Đăng ký (`FR-01`).
+**By hand:** Sinh viên rà soát và xác nhận 6 thông số thiết kế cốt lõi trong `usability/plan.md` (câu chữ kịch bản mục tiêu, mốc thời gian Benchmark `05:00` / tối đa `10:00`, ngưỡng chờ cứu hộ `90 giây` hoặc `>= 3 lần` thử lỗi, cơ cấu người tham gia `non-IT`, cấu hình trạm thử nghiệm Chrome ẩn danh + reset CSDL sạch và quy trình quay cửa sổ trình duyệt) trước khi chốt Git commit Bước 0 và chuyển sang Bước 1.
+
+---
