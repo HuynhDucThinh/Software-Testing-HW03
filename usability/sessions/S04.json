@@ -1,0 +1,112 @@
+{
+  "session_id": "S04",
+  "is_pilot": false,
+  "date": "2026-11-12",
+  "participant_code": "P04",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S04.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "00:12",
+      "m2_login_done": "00:50",
+      "m3_profile_opened": "00:54",
+      "m4_profile_saved": "01:17"
+    },
+    "total_duration": "01:17",
+    "completion_status": "co_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:06",
+      "screen": "Register",
+      "type": "E",
+      "description": "Chỉ gõ duy nhất 1 chữ cái 'd' vào ô Email nhưng biểu mẫu Đăng ký không hề báo lỗi định dạng email và vẫn cho phép tạo tài khoản.",
+      "is_bug": true,
+      "known_bug_id": "BUG-09"
+    },
+    {
+      "t": "00:14",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Phản ánh hệ thống không tự lưu giữ thông tin tài khoản giữa màn hình Đăng ký và màn hình Đăng nhập; gõ lệch mật khẩu lúc đăng ký (do thiếu ô xác nhận lại) nên đăng nhập thất bại và phải bấm vào 'Quên mật khẩu?'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-07"
+    },
+    {
+      "t": "00:34",
+      "screen": "ForgotPassword",
+      "type": "E",
+      "description": "Tại Bước 2 Quên mật khẩu (không có dòng hướng dẫn quy tắc mật khẩu, mã OTP chỉ 4 chữ số), người dùng nhập mật khẩu mới 2 lần đều bị hộp thoại window.alert chặn báo 'Mật khẩu quá yếu!' do lỗi biểu thức kiểm tra bắt buộc khoảng trắng.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:38",
+      "screen": "ForgotPassword",
+      "type": "Q",
+      "description": "Nhận xét cơ chế bật hộp thoại thông báo alert mặc định của trình duyệt có trải nghiệm UI/UX chưa tốt và gây ngắt quãng thao tác.",
+      "is_bug": true,
+      "known_bug_id": "BUG-16"
+    },
+    {
+      "t": "00:39",
+      "screen": "ForgotPassword",
+      "type": "A",
+      "description": "Điều phối viên cứu hộ lỗi chặn BUG-01: hướng dẫn đặt lại mật khẩu mới có chứa 1 dấu cách ('Matkhau 123') để khôi phục quyền đăng nhập.",
+      "is_bug": false,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "01:10",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Gõ thiếu 1 chữ số trong ô Số điện thoại (8 chữ số '91234678') bị hộp thoại alert báo 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.' trước khi tự bổ sung đủ 9 chữ số.",
+      "is_bug": false,
+      "known_bug_id": null
+    },
+    {
+      "t": "01:17",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Sửa ô 'Họ Tên' thành toàn chữ số ('91234678') và chỉ gõ 2 ký tự vô nghĩa 'hh' vào ô 'Địa chỉ giao hàng' nhưng hệ thống không kiểm tra hợp lệ mà vẫn lưu thành công, hiển thị lời chào 'Chào, 91234678' trên Header.",
+      "is_bug": false,
+      "known_bug_id": null
+    }
+  ],
+  "assists": [
+    {
+      "t": "00:39",
+      "screen": "ForgotPassword",
+      "reason": "Người tham gia tự dùng tính năng Quên mật khẩu nhưng bị chặn liên tiếp 2 lần ở Bước 2 bởi lỗi biểu thức chính quy BUG-01 (và thiếu dòng gợi ý quy tắc BUG-22).",
+      "intervention": "Hướng dẫn đặt mật khẩu mới có 1 khoảng trắng ('Matkhau 123') để hoàn tất đặt lại mật khẩu."
+    }
+  ],
+  "seq": 3,
+  "sus": [
+    2,
+    3,
+    3,
+    4,
+    3,
+    2,
+    2,
+    3,
+    3,
+    3
+  ],
+  "open_probes": {
+    "clarity": "Chưa tốt, còn vài chi tiết chưa thể hiện được tính năng cụ thể.",
+    "error_recovery": "Chưa kiểm chứng được.",
+    "speed": "Tốt.",
+    "trust": "Ổn."
+  },
+  "moderator_notes": "Phiên S04 rất đáng chú ý vì P04 tự chủ động bấm 'Quên mật khẩu?' khi không đăng nhập được ở lượt đầu, qua đó bộc lộ trực tiếp chuỗi lỗi trên cả /forgot-password (thiếu gợi ý quy tắc mật khẩu mới, OTP 4 số, alert chặn bởi BUG-01). Ở chặng cuối tại /profile, P04 còn phát hiện hệ thống cho phép đổi Họ Tên thành chuỗi toàn chữ số ('91234678') và lưu Địa chỉ giao hàng chỉ gồm 2 chữ 'hh'."
+}
