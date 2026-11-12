@@ -270,8 +270,8 @@
         <div class="btn-group">
           <button class="btn-outline" onclick="quickEvent('Register','E','Nhập mật khẩu hợp lệ có ký tự đặc biệt nhưng bị báo Mật khẩu quá yếu do regex đòi khoảng trắng.',true,'BUG-01')">+ E: Lỗi mật khẩu ĐK (BUG-01)</button>
           <button class="btn-outline" onclick="quickEvent('Login','Q','Chuyển sang màn hình Đăng nhập không hiện thông báo tạo tài khoản thành công và không giữ sẵn email vừa đăng ký.',false,'')">+ Q: ĐK xong không báo / không giữ email</button>
-          <button class="btn-outline" onclick="quickEvent('Login','H','Khựng lại nhìn tiêu đề trang Đăng nhập đang hiển thị chữ Đăng Ký.',true,'BUG-07')">+ H: Khựng tiêu đề Đăng Ký (BUG-07)</button>
-          <button class="btn-outline" onclick="quickEvent('Login','Q','Nhận xét ô mật khẩu lúc đăng nhập hiện rõ nguyên chữ không che dấu chấm.',true,'BUG-08')">+ Q: Thắc mắc lộ mật khẩu (BUG-08)</button>
+          <button class="btn-outline" onclick="quickEvent('Login','H','Khựng lại nhìn tiêu đề trang Đăng nhập đang hiển thị chữ Đăng Ký.',true,'BUG-13')">+ H: Khựng tiêu đề Đăng Ký (BUG-13)</button>
+          <button class="btn-outline" onclick="quickEvent('Login','Q','Nhận xét ô mật khẩu lúc đăng nhập hiện rõ nguyên chữ không che dấu chấm.',true,'BUG-04')">+ Q: Thắc mắc lộ mật khẩu (BUG-04)</button>
           <button class="btn-outline" onclick="quickEvent('Header','H','Ngập ngừng tìm lối vào trang Hồ sơ trên thanh điều hướng (chỉ có chữ Chào, Tên).',false,'')">+ H: Tìm chỗ mở Hồ sơ</button>
           <button class="btn-outline" onclick="quickEvent('Profile','E','Nhập số điện thoại Việt Nam bắt đầu bằng số 0 bị hộp thoại alert báo không hợp lệ.',true,'BUG-05')">+ E: Lỗi SĐT đầu 0 (BUG-05)</button>
           <button class="btn-warn" onclick="quickRescue('Register','BUG-01','Kẹt >= 90s / >= 3 lần thử mật khẩu hợp lệ bị từ chối bởi regex BUG-01.','Cung cấp mật khẩu mẫu có 1 khoảng trắng (Matkhau 123) để đi tiếp sang Đăng nhập.')">+ Cứu hộ A: Mật khẩu (BUG-01)</button>

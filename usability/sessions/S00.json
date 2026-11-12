@@ -54,7 +54,7 @@
       "type": "H",
       "description": "Trang đăng nhập mà ghi tên trang Đăng Ký, nút đăng nhập lại ghi Sign In (chưa thống nhất cách trình bày và ngôn ngữ).",
       "is_bug": true,
-      "known_bug_id": "BUG-07"
+      "known_bug_id": "BUG-13"
     },
     {
       "t": "00:36",
@@ -62,7 +62,7 @@
       "type": "Q",
       "description": "Ô mật khẩu tại màn hình đăng nhập hiển thị rõ nguyên chữ 'Matkhau 123' không được che dấu chấm.",
       "is_bug": true,
-      "known_bug_id": "BUG-08"
+      "known_bug_id": "BUG-04"
     },
     {
       "t": "00:56",

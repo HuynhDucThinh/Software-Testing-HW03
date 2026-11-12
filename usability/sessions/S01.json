@@ -1,0 +1,158 @@
+{
+  "session_id": "S01",
+  "is_pilot": false,
+  "date": "2026-11-12",
+  "participant_code": "P01",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S01.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "01:21",
+      "m2_login_done": "01:36",
+      "m3_profile_opened": "01:45",
+      "m4_profile_saved": "02:40"
+    },
+    "total_duration": "02:40",
+    "completion_status": "co_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:12",
+      "screen": "Register",
+      "type": "E",
+      "description": "Gõ nhầm nhiều khoảng trắng bên trong địa chỉ email ('lva@...   com') nhưng ô Email không kiểm tra định dạng hợp lệ và vẫn cho gửi tạo tài khoản.",
+      "is_bug": true,
+      "known_bug_id": "BUG-09"
+    },
+    {
+      "t": "00:21",
+      "screen": "Register",
+      "type": "E",
+      "description": "Nhập mật khẩu đúng yêu cầu hiển thị trên màn hình nhưng vẫn bị báo đỏ 'Mật khẩu quá yếu!' do bộ lọc ngầm bắt buộc khoảng trắng và cấm ký tự đặc biệt.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:27",
+      "screen": "Register",
+      "type": "Q",
+      "description": "Phản ánh ô mật khẩu không có nút ẩn/hiện mật khẩu và không có ô xác nhận lại nên khó nhìn biết mình vừa gõ ký tự gì.",
+      "is_bug": true,
+      "known_bug_id": "BUG-07"
+    },
+    {
+      "t": "00:30",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Đăng ký xong hệ thống chuyển thẳng sang trang tiếp theo mà không hiện bất kỳ thông báo tạo tài khoản thành công nào.",
+      "is_bug": false,
+      "known_bug_id": null
+    },
+    {
+      "t": "00:34",
+      "screen": "Login",
+      "type": "H",
+      "description": "Ngập ngừng khi thấy trang đăng nhập lại ghi tiêu đề là 'Đăng Ký', nhãn ô là 'Username' và nút bấm ghi 'Sign In' trộn lẫn tiếng Anh với tiếng Việt.",
+      "is_bug": true,
+      "known_bug_id": "BUG-13"
+    },
+    {
+      "t": "00:48",
+      "screen": "Login",
+      "type": "E",
+      "description": "Đăng nhập thất bại ở lượt tạo tài khoản đầu tiên do trước đó gõ nhầm mật khẩu bị che dấu chấm trên trang Đăng ký (ô mật khẩu trang Đăng nhập lại hiện rõ nguyên chữ thường); phải bấm 'Đăng ký ngay' quay lại tạo tài khoản lần 2.",
+      "is_bug": true,
+      "known_bug_id": "BUG-04"
+    },
+    {
+      "t": "01:09",
+      "screen": "Register",
+      "type": "E",
+      "description": "Ở lượt đăng ký lại lần 2 vẫn tiếp tục bị chặn bởi lỗi 'Mật khẩu quá yếu!' dù đã nhập đủ chữ hoa, chữ thường, số và ký tự đặc biệt.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "01:15",
+      "screen": "Register",
+      "type": "A",
+      "description": "Điều phối viên cứu hộ lỗi chặn BUG-01: hướng dẫn nhập mật khẩu có 1 khoảng trắng ('Matkhau 123') để hoàn tất đăng ký.",
+      "is_bug": false,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "01:38",
+      "screen": "Header",
+      "type": "H",
+      "description": "Rà chuột tìm kiếm quanh trang chủ suốt 8 giây vì trên thanh điều hướng không có mục 'Hồ sơ của tôi', gây khó khăn trước khi nhận ra chữ vàng 'Chào, Lê Văn A' có thể bấm được.",
+      "is_bug": false,
+      "known_bug_id": null
+    },
+    {
+      "t": "01:57",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Liên tiếp 5 lần tự thử nhập số điện thoại Việt Nam (bắt đầu bằng số 0, thêm khoảng trắng theo mẫu, đổi đầu +84) đều bị hộp thoại alert chặn báo 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.'",
+      "is_bug": true,
+      "known_bug_id": "BUG-05"
+    },
+    {
+      "t": "02:26",
+      "screen": "Profile",
+      "type": "A",
+      "description": "Điều phối viên cứu hộ lỗi chặn BUG-05: hướng dẫn bỏ chữ số 0 đầu tiên và viết liền 9 chữ số để lưu thông tin.",
+      "is_bug": false,
+      "known_bug_id": "BUG-05"
+    },
+    {
+      "t": "02:42",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Cập nhật Họ tên từ 'Lê Văn A' sang 'Lê Văn An' báo thành công nhưng dòng chào trên góc phải thanh Header vẫn giữ nguyên tên cũ 'Chào, Lê Văn A' kể cả khi quay ra Trang chủ.",
+      "is_bug": true,
+      "known_bug_id": "BUG-11"
+    }
+  ],
+  "assists": [
+    {
+      "t": "01:15",
+      "screen": "Register",
+      "reason": "Người tham gia bị chặn nhiều lần ở cả 2 lượt đăng ký do biểu thức chính quy lỗi BUG-01 cấm ký tự đặc biệt và bắt buộc khoảng trắng.",
+      "intervention": "Hướng dẫn đặt mật khẩu mẫu có 1 khoảng trắng ('Matkhau 123') để vượt qua lỗi chặn hệ thống."
+    },
+    {
+      "t": "02:26",
+      "screen": "Profile",
+      "reason": "Người tham gia tự thử 5 biến thể định dạng số điện thoại hợp lệ (đầu 0, có khoảng trắng, đầu +84) trong gần 30 giây đều bị hộp thoại alert từ chối bởi lỗi BUG-05.",
+      "intervention": "Hướng dẫn xóa chữ số 0 đầu tiên và bỏ khoảng trắng để hoàn tất lưu hồ sơ."
+    }
+  ],
+  "seq": 4,
+  "sus": [
+    2,
+    5,
+    1,
+    5,
+    2,
+    3,
+    2,
+    4,
+    3,
+    1
+  ],
+  "open_probes": {
+    "clarity": "Có một số nội dung chưa thống nhất, tiếng Anh hay tiếng Việt, button...",
+    "error_recovery": "Không có, mình tự tắt thông báo rồi chỉnh sửa",
+    "speed": "Có",
+    "trust": "Không nhé"
+  },
+  "moderator_notes": "Người tham gia P01 (non-IT) ban đầu còn e dè, thao tác cẩn thận nhưng liên tục vấp phải các lỗi hệ thống: email có khoảng trắng vẫn lọt qua kiểm tra ở lượt đầu, thiếu nút hiện mật khẩu dẫn tới gõ lệch phải quay lại đăng ký lần 2, loay hoay tìm mục 'Hồ sơ của tôi' trên Header, tự kiên trì thử tới 5 cách gõ SĐT khác nhau (kể cả +84) trước khi nhận cứu hộ kỹ thuật, và khi đổi tên sang 'Lê Văn An' thì lời chào Header vẫn kẹt ở 'Chào, Lê Văn A'."
+}
