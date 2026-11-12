@@ -1,0 +1,105 @@
+{
+  "session_id": "S07",
+  "is_pilot": false,
+  "date": "2026-11-13",
+  "participant_code": "P07",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S07.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "00:32",
+      "m2_login_done": "00:51",
+      "m3_profile_opened": "00:52",
+      "m4_profile_saved": "01:10"
+    },
+    "total_duration": "01:10",
+    "completion_status": "khong_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:09",
+      "screen": "Register",
+      "type": "E",
+      "description": "Nhập chuỗi 'hhhhhh' không có ký tự '@' vào ô Email nhưng biểu mẫu không kiểm tra định dạng Gmail/Username hợp lệ, đồng thời trình duyệt tự động xổ danh sách tài khoản gợi ý che khuất màn hình.",
+      "is_bug": true,
+      "known_bug_id": "BUG-09"
+    },
+    {
+      "t": "00:18",
+      "screen": "Register",
+      "type": "E",
+      "description": "Nhập mật khẩu bị báo đỏ 'Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.' do quy tắc kiểm tra khoảng trắng lỗi; người dùng nhận xét biểu mẫu cần nâng cấp thêm ô 'Nhập lại mật khẩu'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:32",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Sau khi đăng ký xong, trang nhảy thẳng sang màn hình Đăng nhập không có thông báo xác nhận hay hiệu ứng chuyển đổi trạng thái, bố cục sơ sài và tiêu đề trang bị ghi nhầm thành 'Đăng Ký'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-13"
+    },
+    {
+      "t": "00:40",
+      "screen": "Login",
+      "type": "E",
+      "description": "Gõ nhầm Username thiếu ký tự ('hhhh' thay vì 'hhhhhh') trong khi mật khẩu hiển thị lộ nguyên văn dạng chữ thường; hệ thống báo chung 'Đăng nhập thất bại. Vui lòng kiểm tra lại.'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-04"
+    },
+    {
+      "t": "00:47",
+      "screen": "ForgotPassword",
+      "type": "E",
+      "description": "Bấm sang 'Quên mật khẩu?' và nhập 'hhhh' lấy mã OTP thì bị hộp thoại window.alert mặc định chặn màn hình báo 'Lỗi: User not found'; người dùng nhận xét kiểu hộp thoại alert quá cũ kỹ.",
+      "is_bug": true,
+      "known_bug_id": "BUG-16"
+    },
+    {
+      "t": "01:01",
+      "screen": "Profile",
+      "type": "Q",
+      "description": "Quay lại sửa đúng Username 'hhhhhh' để đăng nhập, điền Số điện thoại '912345678' cùng Địa chỉ giao hàng 'Không có.' rồi bấm 'Cập nhật' (lặp lại ở 01:10): tiếp tục hiện hộp thoại window.alert('Cập nhật thành công!') đơn điệu, giao diện web sơ sài làm trải nghiệm chưa tốt.",
+      "is_bug": true,
+      "known_bug_id": "BUG-16"
+    },
+    {
+      "t": "01:20",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Khi thoát ra kiểm tra lại màn hình Đăng nhập/Đăng ký cuối phiên, người dùng góp ý cơ chế tài khoản mất cân đối: lúc tạo mới thiếu ô nhập lại mật khẩu, nhưng khi nhập đúng email mà gõ sai mật khẩu vài lần thì bị khóa cứng ngay mà không báo rõ số lần thử còn lại.",
+      "is_bug": true,
+      "known_bug_id": "BUG-06"
+    }
+  ],
+  "assists": [],
+  "seq": 4,
+  "sus": [
+    2,
+    3,
+    2,
+    2,
+    2,
+    3,
+    2,
+    2,
+    2,
+    2
+  ],
+  "open_probes": {
+    "clarity": "Tốt.",
+    "error_recovery": "Chưa kiểm chứng được.",
+    "speed": "Ổn.",
+    "trust": "Ổn."
+  },
+  "moderator_notes": "Người tham gia P07 tự xoay xở hoàn thành toàn bộ luồng F1 không cần cứu hộ (lưu hồ sơ lần đầu ở 01:01, sau đó nhấn F5 tải lại trang ở 01:02 nên AuthContext kịp nạp lại dữ liệu từ /api/users/me trước khi P07 chuyển sang Trang chủ ở 01:06 rồi quay về Hồ sơ bấm Cập nhật lần hai ở 01:10 — đối chứng hoàn hảo với lỗi mất dữ liệu SPA BUG-28 khi không nhấn F5 ở phiên S05)."
+}
