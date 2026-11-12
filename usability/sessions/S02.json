@@ -1,0 +1,97 @@
+{
+  "session_id": "S02",
+  "is_pilot": false,
+  "date": "2026-11-12",
+  "participant_code": "P02",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S02.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "00:48",
+      "m2_login_done": "00:57",
+      "m3_profile_opened": "01:00",
+      "m4_profile_saved": "01:44"
+    },
+    "total_duration": "01:44",
+    "completion_status": "khong_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:21",
+      "screen": "Login",
+      "type": "H",
+      "description": "Sau khi bấm Đăng Ký lần đầu, trang chuyển sang màn hình đăng nhập nhưng không có thông báo thành công, không điền sẵn tài khoản vừa tạo và tiêu đề vẫn ghi 'Đăng Ký' khiến người dùng tưởng chưa lưu được nên bấm 'Đăng ký ngay' để tạo lại.",
+      "is_bug": true,
+      "known_bug_id": "BUG-13"
+    },
+    {
+      "t": "00:47",
+      "screen": "Register",
+      "type": "E",
+      "description": "Xóa phần đuôi tên miền email chỉ để lại chuỗi 'nguyenvanc' (không có ký tự @) rồi bấm Đăng Ký thì biểu mẫu không kiểm tra định dạng email và vẫn tạo tài khoản thành công.",
+      "is_bug": true,
+      "known_bug_id": "BUG-09"
+    },
+    {
+      "t": "00:54",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Khi chuyển từ Đăng ký sang Đăng nhập phải gõ lại toàn bộ tài khoản từ đầu, đồng thời ô Mật khẩu hiển thị lộ rõ chuỗi ký tự thường trên màn hình.",
+      "is_bug": true,
+      "known_bug_id": "BUG-04"
+    },
+    {
+      "t": "01:13",
+      "screen": "Profile",
+      "type": "Q",
+      "description": "Bỏ trống hoàn toàn ô 'Địa chỉ giao hàng' rồi bấm Cập nhật nhưng hệ thống vẫn cho lưu bình thường qua hộp thoại window.alert('Cập nhật thành công!') kiểu cũ.",
+      "is_bug": true,
+      "known_bug_id": "BUG-16"
+    },
+    {
+      "t": "01:46",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Đổi Họ tên trong Hồ sơ sang 'Nguyễn Văn C2' và bấm Cập nhật báo thành công nhưng dòng chào trên góc phải thanh Header vẫn giữ tên cũ 'Chào, Nguyễn C2', gây cảm giác quay về Trang chủ không lưu đúng tên mới.",
+      "is_bug": true,
+      "known_bug_id": "BUG-11"
+    },
+    {
+      "t": "01:51",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Bấm nút 'Thoát' ngay khi đang đứng ở trang Hồ sơ thì giao diện không chuyển về Trang chủ hay trang Đăng nhập mà đứng yên ở màn hình trắng chỉ hiện dòng chữ tĩnh 'Vui lòng đăng nhập'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-10"
+    }
+  ],
+  "assists": [],
+  "seq": 5,
+  "sus": [
+    3,
+    2,
+    3,
+    3,
+    4,
+    3,
+    1,
+    5,
+    4,
+    3
+  ],
+  "open_probes": {
+    "clarity": "Tôi thấy không quá khó dùng nhưng có vài chỗ chưa thống nhất.",
+    "error_recovery": "Tôi thấy có lỗi thì hiện alert rất cũ, trang web hiện tại ít dùng.",
+    "speed": "Tốt",
+    "trust": "Tạm"
+  },
+  "moderator_notes": "Người tham gia P02 hoàn thành luồng nhanh và phát hiện thêm 3 vấn đề rất thực tế trên video: ô Email trang Đăng ký chấp nhận chuỗi 'nguyenvanc' không có '@', trang Hồ sơ cho lưu khi Địa chỉ giao hàng để trống kèm hộp thoại alert cũ, lời chào Header không cập nhật kịp theo Họ tên mới sau khi bấm Cập nhật, và khi bấm Thoát tại /profile thì màn hình kẹt ở chữ tĩnh 'Vui lòng đăng nhập'."
+}
