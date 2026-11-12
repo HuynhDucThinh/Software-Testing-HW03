@@ -40,7 +40,7 @@ Software-Testing-HW03/
 ├── usability/                             # Kế hoạch, Kịch bản, Danh sách 7 người tham gia & Phân tích SUS
 ├── screenshots/                           # Ảnh chụp minh chứng (Task 1 Failed, GitHub Issues, Task 3 Cross-Platform)
 │   ├── task1_failed/                      # 130 ảnh minh chứng mục Failed trên P1 (44), P2 (44), P3 (42)
-│   ├── task3_cross_platform/              # 12 ảnh tổng quan đa nền tảng trên P1, P2, P3
+│   ├── task3_cross_platform/              # 15 ảnh đa nền tảng cấp OS/Thiết bị thật (12 ảnh giao diện + 3 ảnh xác thực phiên bản)
 │   └── github_issues/                     # Ảnh chụp các trang GitHub Issues đã đăng
 ├── tests/                                 # Script kiểm tra dò tự động hỗ trợ đối chiếu trên 3 nền tảng
 ├── ai_log/

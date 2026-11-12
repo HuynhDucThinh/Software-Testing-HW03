@@ -503,21 +503,44 @@ Bảng dưới đây trích xuất đầy đủ toàn bộ **`45 / 59` mục ki�
 
 ### 4.3. Thống kê bộ ảnh minh chứng có lớp phủ và Bộ ảnh tổng quan đa nền tảng
 
-| Nền tảng | Thư mục ảnh mục `Failed` | Số ảnh mục `Failed` | Thư mục ảnh tổng quan Task 3 | Số ảnh tổng quan |
+| Nền tảng | Thư mục ảnh mục `Failed` | Số ảnh mục `Failed` | Thư mục ảnh tổng quan & xác thực Task 3 | Số ảnh Task 3 |
 | :--- | :--- | :---: | :--- | :---: |
-| **`P1` — Chrome 157 / Windows 11** | `screenshots/task1_failed/P1_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P1_*_1.png` | **4 ảnh** |
-| **`P2` — Firefox 137 / Windows 11** | `screenshots/task1_failed/P2_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P2_*_1.png` | **4 ảnh** |
-| **`P3` — Chrome Android 156 / OPPO Reno10 5G** | `screenshots/task1_failed/P3_*.png` | **42 ảnh** | `screenshots/task3_cross_platform/P3_*_1.png` | **4 ảnh** |
-| **Tổng cộng toàn bộ bằng chứng Task 1 & Task 3** | **`screenshots/task1_failed/`** | **130 ảnh** | **`screenshots/task3_cross_platform/`** | **12 ảnh** |
+| **`P1` — Chrome 157 / Windows 11** | `screenshots/task1_failed/P1_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P1_*.png` (`4` màn hình + `chrome://version`) | **5 ảnh** |
+| **`P2` — Firefox 137 / Windows 11** | `screenshots/task1_failed/P2_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P2_*.png` (`4` màn hình + `about:support`) | **5 ảnh** |
+| **`P3` — Chrome Android 156 / OPPO Reno10 5G** | `screenshots/task1_failed/P3_*.png` | **42 ảnh** | `screenshots/task3_cross_platform/P3_*.png` (`4` màn hình + `chrome://version`) | **5 ảnh** |
+| **Tổng cộng toàn bộ bằng chứng Task 1 & Task 3** | **`screenshots/task1_failed/`** | **130 ảnh** | **`screenshots/task3_cross_platform/`** | **15 ảnh** |
 
-#### Bảng tra cứu 12 ảnh chụp tổng quan đa nền tảng (`screenshots/task3_cross_platform/`)
+> *Ghi chú xác thực chống gian lận (Mục 6 & Mục 11):* Toàn bộ 15 ảnh trong `screenshots/task3_cross_platform/` đều là ảnh chụp màn hình nguyên gốc cấp Hệ điều hành / Thiết bị vật lý (`1920x1080` kèm thanh Taskbar Windows 11 và khung cửa sổ thật của Google Chrome `157.0.8103.50/.52` / Mozilla Firefox `137.0.1` trên `P1, P2`; `1080x2412` kèm thanh trạng thái Android 15, thanh địa chỉ Chrome Android `156.0.8078.79` và thanh điều hướng trên điện thoại thật `OPPO Reno10 5G` mã `CPH2531` qua `adb reverse` trên `P3`), hiển thị rõ URL `localhost:5173/...`, chuỗi `23120199 - Huỳnh Đức Thịnh` điền trực tiếp trong biểu mẫu và lớp phủ `23120199@student.hcmus.edu.vn`.
 
-| Màn hình kiểm thử | `P1` — Google Chrome 157 (Windows 11) | `P2` — Mozilla Firefox 137 (Windows 11) | `P3` — Chrome Android 156 (`OPPO Reno10 5G`) |
+#### Bảng tra cứu 15 ảnh chụp đa nền tảng cấp Hệ điều hành / Thiết bị thật (`screenshots/task3_cross_platform/`)
+
+| Màn hình / Hạng mục xác thực | `P1` — Google Chrome 157 (Windows 11) | `P2` — Mozilla Firefox 137.0.1 (Windows 11) | `P3` — Chrome Android 156 (`OPPO Reno10 5G`) |
 | :--- | :---: | :---: | :---: |
-| **1. `Register` (`/register`)** | [`P1_Register_1.png`](screenshots/task3_cross_platform/P1_Register_1.png) | [`P2_Register_1.png`](screenshots/task3_cross_platform/P2_Register_1.png) | [`P3_Register_1.png`](screenshots/task3_cross_platform/P3_Register_1.png) |
+| **1. `Register` (`/register` — Màn hình chính)** | [`P1_Register_1.png`](screenshots/task3_cross_platform/P1_Register_1.png) | [`P2_Register_1.png`](screenshots/task3_cross_platform/P2_Register_1.png) | [`P3_Register_1.png`](screenshots/task3_cross_platform/P3_Register_1.png) |
 | **2. `Login` (`/login`)** | [`P1_Login_1.png`](screenshots/task3_cross_platform/P1_Login_1.png) | [`P2_Login_1.png`](screenshots/task3_cross_platform/P2_Login_1.png) | [`P3_Login_1.png`](screenshots/task3_cross_platform/P3_Login_1.png) |
 | **3. `ForgotPassword` (`/forgot-password`)** | [`P1_ForgotPassword_1.png`](screenshots/task3_cross_platform/P1_ForgotPassword_1.png) | [`P2_ForgotPassword_1.png`](screenshots/task3_cross_platform/P2_ForgotPassword_1.png) | [`P3_ForgotPassword_1.png`](screenshots/task3_cross_platform/P3_ForgotPassword_1.png) |
 | **4. `Profile` (`/profile` + `Header` đăng nhập)** | [`P1_Profile_1.png`](screenshots/task3_cross_platform/P1_Profile_1.png) | [`P2_Profile_1.png`](screenshots/task3_cross_platform/P2_Profile_1.png) | [`P3_Profile_1.png`](screenshots/task3_cross_platform/P3_Profile_1.png) |
+| **5. Xác thực Trình duyệt / OS / Thiết bị** | [`P1_Device_Info.png`](screenshots/task3_cross_platform/P1_Device_Info.png) | [`P2_Device_Info.png`](screenshots/task3_cross_platform/P2_Device_Info.png) | [`P3_Device_Info.png`](screenshots/task3_cross_platform/P3_Device_Info.png) |
+
+#### Minh chứng trực quan đối chiếu 3 nền tảng thực tế (`P1`, `P2`, `P3`)
+
+- **Nền tảng `P1` — Google Chrome 157 trên Windows 11 (Màn hình chính `/register` & xác thực `chrome://version`):**
+
+![P1 — Google Chrome 157 trên Windows 11 tại localhost:5173/register](screenshots/task3_cross_platform/P1_Register_1.png)
+
+![P1 — Xác thực phiên bản Google Chrome 157 và Windows 11 Build 26300](screenshots/task3_cross_platform/P1_Device_Info.png)
+
+- **Nền tảng `P2` — Mozilla Firefox 137.0.1 trên Windows 11 (Màn hình chính `/register` & xác thực `about:support`):**
+
+![P2 — Mozilla Firefox 137.0.1 trên Windows 11 tại localhost:5173/register](screenshots/task3_cross_platform/P2_Register_1.png)
+
+![P2 — Xác thực phiên bản Mozilla Firefox 137.0.1 và Windows 11 Build 26300](screenshots/task3_cross_platform/P2_Device_Info.png)
+
+- **Nền tảng `P3` — Chrome Android 156.0.8078.79 trên điện thoại thật `OPPO Reno10 5G` / Android 15 (Màn hình chính `/register` & xác thực `chrome://version`):**
+
+![P3 — Chrome Android 156 trên OPPO Reno10 5G tại localhost:5173/register](screenshots/task3_cross_platform/P3_Register_1.png)
+
+![P3 — Xác thực Chrome Android 156.0.8078.79 và Android 15 trên OPPO Reno10 5G CPH2531](screenshots/task3_cross_platform/P3_Device_Info.png)
 
 ---
 ## 5. Task 2 — Đánh Giá Khả Năng Sử Dụng (Usability Evaluation — Luồng `F1`)
@@ -897,7 +920,7 @@ Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên
 | :---: | :--- | :---: | :---: | :--- |
 | **1** | **Task 1 — GUI Checklist** (design + execution + bug report) | **30** | *Chốt ở Bước 7* | `Main_Report.md` (§3, §6), `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `Bug_Report.md`, 27 GitHub Issues (`#1`..`#27`) |
 | **2** | **Task 2 — Usability Evaluation** (task scenario + 7 sessions + analysis) | **40** | *Chốt ở Bước 7* | `usability/` (Kế hoạch, Kịch bản `F1`, Pilot `S00` + 7 phiên `S01..S07`, bảng `SUS` & phân tích) |
-| **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | *Chốt ở Bước 7* | `Main_Report.md` (§4), `checklist/runs/P1..P3_*.csv`, `screenshots/task3_cross_platform/` (12 ảnh), `screenshots/task1_failed/` (130 ảnh) |
+| **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | *Chốt ở Bước 7* | `Main_Report.md` (§4), `checklist/runs/P1..P3_*.csv`, `screenshots/task3_cross_platform/` (15 ảnh), `screenshots/task1_failed/` (130 ảnh) |
 | **4** | **Agent Skills** (skills + YouTube demo video) | **10** | *Chốt ở Bước 7* | `.agents/skills/gui-checklist-testing/`, `.agents/skills/usability-evaluation/`, link YouTube Demo |
 | | **Total** | **100** | *Chốt ở Bước 7* | |
 
