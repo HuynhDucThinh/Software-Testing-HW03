@@ -1,0 +1,32 @@
+{
+  "session_id": null,
+  "is_pilot": false,
+  "date": null,
+  "participant_code": null,
+  "user_group": null,
+  "platform": null,
+  "clean_state_reset": null,
+  "consent": {
+    "screen_recording": null,
+    "audio_recording": null,
+    "ta_verification_contact": null
+  },
+  "recording_ref": null,
+  "task_execution": {
+    "milestones": {},
+    "total_duration": null,
+    "completion_status": null,
+    "goal_achieved": null
+  },
+  "events": [],
+  "assists": [],
+  "seq": null,
+  "sus": [null, null, null, null, null, null, null, null, null, null],
+  "open_probes": {
+    "clarity": null,
+    "error_recovery": null,
+    "speed": null,
+    "trust": null
+  },
+  "moderator_notes": ""
+}

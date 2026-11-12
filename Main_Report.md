@@ -866,12 +866,17 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 | Tên Agent Skill | Thư mục lưu trữ | Thành phần kỹ thuật | Phạm vi áp dụng trong HW03 | Video Demo (YouTube) |
 | :--- | :--- | :--- | :--- | :--- |
 | **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 4 tài liệu `references/`, 4 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | *Cập nhật ở Bước 7* |
-| **`usability-evaluation`** | `.agents/skills/usability-evaluation/` | `SKILL.md`, tài liệu kế hoạch chuẩn, mẫu phiếu quan sát / SUS / probe và script tổng hợp điểm SUS | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | *Cập nhật ở Bước 7* |
+| **`usability-evaluation`** | [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/) | `SKILL.md`, 3 tài liệu `references/`, 6 mẫu `assets/`, **5 script Python** kiểm định chống gian lận & tính toán `SUS` tự động | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | *Cập nhật ở Bước 7* |
 
 **Cơ chế vận hành kỷ luật của Agent Skill `gui-checklist-testing`:**
 1. **Điều khiển từng bước có điểm dừng bắt buộc (`Step 0` -> `Step 7`):** Mỗi lần kích hoạt chỉ thực hiện đúng một bước rồi dừng để sinh viên kiểm duyệt và tạo Git commit riêng; ngăn chặn việc dùng một câu prompt chung chung sinh toàn bộ bài làm.
 2. **Một nguồn chân lý duy nhất (`Single Source of Truth`):** Mọi dữ liệu khảo sát, giả định `GAx`/`NAx`, mục kiểm tra AI và mục SV bổ sung, kết quả chạy `P1/P2/P3` và liên kết Bug đều quy về [`checklist/checklist.json`](checklist/checklist.json), từ đó các script `render_checklist.py`, `build_excel.py`, `coverage_matrix.py`, `bug_skeleton.py` sinh ra các bảng số liệu khớp nhau tuyệt đối.
 3. **Cổng kiểm định tự động (`check_checklist.py`) & Đóng băng phiên bản (`freeze.py`):** Tự động báo lỗi mã thoát khác 0 nếu thiếu ngưỡng `Fail nếu ...`, thiếu giả định cho ô `N/A`, thiếu giải thích `ly_do_ai_bo_sot` ở mục SV, hoặc thiếu `Notes` và file ảnh vật lý trên ổ đĩa cho bất kỳ ô `Failed` nào.
+
+**Cơ chế vận hành kỷ luật của Agent Skill `usability-evaluation`:**
+1. **Quy trình 6 bước tách biệt (`Bước 0` -> `Bước 5`) & Tái sử dụng đa luồng:** Hỗ trợ lập kế hoạch 9 phần chuẩn Rubin & Chisnell, thiết kế bộ công cụ khảo sát (`participant_kit.md`, `moderator_script.md`, `participants.md`), điều phối Pilot `S00`, thu thập 7 phiên chính thức `S01..S07` và phân tích tổng hợp cho bất kỳ luồng Web/Mobile nào.
+2. **Cổng kiểm định chống gian lận & Bảo mật thông tin cá nhân (`validate_study.py`, `init_session.py`):** Chặn tự động kịch bản lộ bước dẫn/tên control giao diện, bắt buộc che đúng 4 chữ số giữa của SĐT/Zalo (`09x****xxx`), chống trùng lặp người tham gia, cấm tuyệt đối AI tự điền dữ liệu phiên (`init_session.py` chỉ khởi tạo khung `null`) và tích hợp *System-Bug Rescue Protocol* minh bạch khi gặp lỗi chặn của SUT.
+3. **Đóng băng trước/sau Pilot & Thống kê `SUS` chuẩn xác (`freeze_artifact.py`, `pilot_diff.py`, `analyze_usability.py`):** Lưu vết `SHA-256` bản nháp AI, trích xuất bảng đối chiếu tinh chỉnh sau phiên Pilot `S00`, tách riêng `S00` khỏi thống kê 7 phiên chính thức, tính ma trận `Q1..Q10` chuẩn Brooke (1996) (`Mean ± SD`, `Median`, hạng Bangor & Sauro–Lewis) và phân tách `Isolated Bugs` với `Systemic Design Issues`.
 
 ---
 
