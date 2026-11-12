@@ -1,0 +1,113 @@
+{
+  "session_id": "S06",
+  "is_pilot": false,
+  "date": "2026-11-13",
+  "participant_code": "P06",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S06.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "00:18",
+      "m2_login_done": "00:26",
+      "m3_profile_opened": "00:30",
+      "m4_profile_saved": "01:18"
+    },
+    "total_duration": "01:18",
+    "completion_status": "khong_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:08",
+      "screen": "Register",
+      "type": "E",
+      "description": "Gõ chuỗi ký tự rất dài ('lê văn ffffffffffffffffffffffff...') vào ô 'Họ Tên' nhưng biểu mẫu hoàn toàn không kiểm tra giới hạn độ dài tối đa (maxLength).",
+      "is_bug": true,
+      "known_bug_id": "BUG-18"
+    },
+    {
+      "t": "00:14",
+      "screen": "Register",
+      "type": "E",
+      "description": "Nhập 'levanf' không có ký tự '@' vào ô Email nhưng biểu mẫu Đăng ký vẫn cho phép gửi đi không báo lỗi định dạng.",
+      "is_bug": true,
+      "known_bug_id": "BUG-09"
+    },
+    {
+      "t": "00:16",
+      "screen": "Register",
+      "type": "Q",
+      "description": "Nhận xét quy tắc kiểm tra mật khẩu hơi kỳ lạ (bắt buộc khoảng trắng thay vì ký tự đặc biệt thông thường) và không có nút ẩn/hiện mật khẩu.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:19",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Nhận xét giữa các màn hình chuyển tiếp từ Đăng ký sang Đăng nhập không lưu giữ thông tin tài khoản tạm thời để điền sẵn, đồng thời tiêu đề trang lại ghi 'Đăng Ký'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-13"
+    },
+    {
+      "t": "00:24",
+      "screen": "Login",
+      "type": "E",
+      "description": "Mật khẩu ('Matkhau 123') hiển thị lộ nguyên văn dạng chữ thường trên trình duyệt và không có nút ẩn/hiện mật khẩu.",
+      "is_bug": true,
+      "known_bug_id": "BUG-04"
+    },
+    {
+      "t": "00:44",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Bấm 'Cập nhật' khi chưa nhập Số điện thoại bị hộp thoại hệ thống window.alert chặn cứng báo 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.'.",
+      "is_bug": true,
+      "known_bug_id": "BUG-16"
+    },
+    {
+      "t": "00:52",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Nhập 9 chữ số '912345678' vào ô Số điện thoại và để trống hoàn toàn ô 'Địa chỉ giao hàng' nhưng hệ thống vẫn báo 'Cập nhật thành công!'.",
+      "is_bug": true,
+      "known_bug_id": null
+    },
+    {
+      "t": "00:58",
+      "screen": "Header",
+      "type": "E",
+      "description": "Sau khi nối thêm chuỗi dài ký tự 'f' vào 'Họ Tên' và tải lại trang (lặp lại ở 01:18..01:26), dòng 'Chào, lê văn fff...' làm vỡ bố cục thanh Header theo chiều ngang, ép chữ 'Giỏ hàng' gãy dòng và đẩy nút 'Thoát' văng xa khỏi khung nhìn bên phải khiến người dùng phải kéo thanh cuộn ngang qua khoảng trắng lớn mới bấm 'Thoát' được ở 01:26.",
+      "is_bug": true,
+      "known_bug_id": "BUG-18"
+    }
+  ],
+  "assists": [],
+  "seq": 3,
+  "sus": [
+    2,
+    3,
+    3,
+    2,
+    2,
+    2,
+    3,
+    2,
+    2,
+    2
+  ],
+  "open_probes": {
+    "clarity": "Có",
+    "error_recovery": "Ổn",
+    "speed": "Tốt",
+    "trust": "Ổn"
+  },
+  "moderator_notes": "Người tham gia P06 hoàn thành độc lập không cần cứu hộ (lưu hồ sơ hợp lệ lần đầu ở 00:52 với số điện thoại 9 chữ số '912345678', sau đó chủ động thử thêm độ dài trường Họ Tên và lưu lại ở 01:18). P06 tái hiện trực tiếp lỗi tràn thanh điều hướng BUG-18 cực kỳ rõ nét trên video từ 00:56 đến 01:26 khi chuỗi tên dài đẩy nút 'Thoát' văng khỏi màn hình."
+}
