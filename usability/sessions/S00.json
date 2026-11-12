@@ -1,0 +1,118 @@
+{
+  "session_id": "S00",
+  "is_pilot": true,
+  "date": "2026-11-12",
+  "participant_code": "P00",
+  "user_group": "non-IT",
+  "platform": "P1 - Google Chrome 157 (Incognito) / Windows 11",
+  "clean_state_reset": true,
+  "consent": {
+    "screen_recording": true,
+    "audio_recording": false,
+    "ta_verification_contact": true
+  },
+  "recording_ref": "recordings/S00.mp4",
+  "task_execution": {
+    "milestones": {
+      "m1_register_done": "00:25",
+      "m2_login_done": "00:39",
+      "m3_profile_opened": "00:41",
+      "m4_profile_saved": "01:02"
+    },
+    "total_duration": "01:02",
+    "completion_status": "co_tro_giup",
+    "goal_achieved": true
+  },
+  "events": [
+    {
+      "t": "00:11",
+      "screen": "Register",
+      "type": "E",
+      "description": "Nhập mật khẩu hợp lệ có ký tự đặc biệt nhưng bị báo Mật khẩu quá yếu do regex đòi khoảng trắng.",
+      "is_bug": true,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:22",
+      "screen": "Register",
+      "type": "A",
+      "description": "Điều phối viên kích hoạt cứu hộ kỹ thuật cho lỗi chặn BUG-01: cấp mật khẩu mẫu có khoảng trắng ('Matkhau 123') để tiếp tục luồng.",
+      "is_bug": false,
+      "known_bug_id": "BUG-01"
+    },
+    {
+      "t": "00:26",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Tự động chuyển sang trang đăng nhập mà không lưu giữ email ở trang đăng ký và không báo đăng ký thành công.",
+      "is_bug": false,
+      "known_bug_id": null
+    },
+    {
+      "t": "00:29",
+      "screen": "Login",
+      "type": "H",
+      "description": "Trang đăng nhập mà ghi tên trang Đăng Ký, nút đăng nhập lại ghi Sign In (chưa thống nhất cách trình bày và ngôn ngữ).",
+      "is_bug": true,
+      "known_bug_id": "BUG-07"
+    },
+    {
+      "t": "00:36",
+      "screen": "Login",
+      "type": "Q",
+      "description": "Ô mật khẩu tại màn hình đăng nhập hiển thị rõ nguyên chữ 'Matkhau 123' không được che dấu chấm.",
+      "is_bug": true,
+      "known_bug_id": "BUG-08"
+    },
+    {
+      "t": "00:56",
+      "screen": "Profile",
+      "type": "E",
+      "description": "Nhập số điện thoại 10 chữ số bắt đầu bằng số 0 bị hộp thoại alert báo không hợp lệ (người dùng nhận xét SĐT không cho nhập đủ 10 số).",
+      "is_bug": true,
+      "known_bug_id": "BUG-05"
+    },
+    {
+      "t": "00:59",
+      "screen": "Profile",
+      "type": "A",
+      "description": "Điều phối viên hướng dẫn xóa chữ số 0 đầu tiên của số điện thoại (cứu hộ lỗi chặn BUG-05) để bấm Cập nhật lưu hồ sơ thành công.",
+      "is_bug": false,
+      "known_bug_id": "BUG-05"
+    }
+  ],
+  "assists": [
+    {
+      "t": "00:22",
+      "screen": "Register",
+      "reason": "Mật khẩu hợp lệ có ký tự đặc biệt bị từ chối bởi biểu thức chính quy lỗi BUG-01.",
+      "intervention": "Cấp mật khẩu mẫu có 1 khoảng trắng ('Matkhau 123') để đi tiếp sang màn hình Đăng nhập."
+    },
+    {
+      "t": "00:59",
+      "screen": "Profile",
+      "reason": "Số điện thoại Việt Nam 10 chữ số bắt đầu bằng số 0 bị hộp thoại alert chặn bởi lỗi BUG-05.",
+      "intervention": "Hướng dẫn lược bỏ chữ số 0 đầu tiên để lưu hồ sơ thành công."
+    }
+  ],
+  "seq": 5,
+  "sus": [
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    3,
+    3,
+    3,
+    3
+  ],
+  "open_probes": {
+    "clarity": "Tiêu đề chưa nhất quán, lúc tiếng Anh, lúc tiếng Việt",
+    "error_recovery": "Không, nội dung chỉ mô tả chung chung không biết lỗi cụ thể phải giải quyết thế nào",
+    "speed": "Tốc độ tốt",
+    "trust": "Chưa có thông tin xác thực"
+  },
+  "moderator_notes": "Phiên chạy thử Pilot S00: điều phối viên bấm quay màn hình từ đầu chặng Đăng nhập (00:25..01:02, video dài 41 giây) và nhận thấy cụm từ 'số điện thoại di động quen thuộc' trong đề bài khiến người tham gia gõ tên/SĐT thật lên màn hình. Sau Pilot S00, bộ công cụ được bổ sung dữ liệu mẫu giả lập đóng khung rõ ràng và đưa thao tác nhấn Win + Alt + R ngay tại Trang chủ lên trước khi giao nhiệm vụ cho 7 phiên chính thức S01..S07."
+}

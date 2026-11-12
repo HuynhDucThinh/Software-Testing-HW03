@@ -160,9 +160,12 @@
         <div class="scenario-box">
           Bạn vừa biết đến cửa hàng trực tuyến EShop và muốn tạo một tài khoản cá nhân mới để chuẩn bị mua sắm. Sau khi tạo tài khoản xong, bạn hãy truy cập vào tài khoản vừa tạo của mình trên trang web và bổ sung đầy đủ họ tên, số điện thoại liên lạc cùng địa chỉ nhận hàng mặc định để sẵn sàng cho các lần đặt hàng sau.
         </div>
-        <p style="color: var(--muted); font-size: 14px;">
-          Gợi ý: Bạn tự chọn tên gọi, một địa chỉ email đuôi <code>@eshop.com</code> (ví dụ <code>minhanh@eshop.com</code>), tự đặt mật khẩu, nhập số điện thoại quen thuộc và một địa chỉ nhận hàng bất kỳ. Khi cảm thấy đã hoàn tất, hãy nói <strong>"Mình làm xong rồi"</strong>.
-        </p>
+        <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px 14px; font-size: 14px; color: #78350f;">
+          <strong>Lưu ý bảo mật thông tin cá nhân (tinh chỉnh sau Pilot S00):</strong> Vui lòng <strong>không gõ họ tên hay số điện thoại thật</strong> lên trang web; hãy dùng thông tin giả lập mẫu:<br/>
+          • Họ tên mẫu: <code>Trần Minh Khôi</code> &nbsp;|&nbsp; Email mẫu: <code>khoitran@eshop.com</code> &nbsp;|&nbsp; Mật khẩu: <em>tự chọn</em><br/>
+          • Số điện thoại 10 số mẫu: <code>0912 345 678</code> &nbsp;|&nbsp; Địa chỉ mẫu: <code>123 Nguyễn Văn Cừ, Quận 5, TP.HCM</code><br/>
+          Khi cảm thấy đã hoàn tất toàn bộ yêu cầu trên, hãy nói <strong>"Mình làm xong rồi"</strong>.
+        </div>
       </div>
     </section>
 
@@ -266,6 +269,7 @@
         <h2>Ghi nhận nhanh Sự kiện (E / H / Q / A) & Cứu hộ kỹ thuật</h2>
         <div class="btn-group">
           <button class="btn-outline" onclick="quickEvent('Register','E','Nhập mật khẩu hợp lệ có ký tự đặc biệt nhưng bị báo Mật khẩu quá yếu do regex đòi khoảng trắng.',true,'BUG-01')">+ E: Lỗi mật khẩu ĐK (BUG-01)</button>
+          <button class="btn-outline" onclick="quickEvent('Login','Q','Chuyển sang màn hình Đăng nhập không hiện thông báo tạo tài khoản thành công và không giữ sẵn email vừa đăng ký.',false,'')">+ Q: ĐK xong không báo / không giữ email</button>
           <button class="btn-outline" onclick="quickEvent('Login','H','Khựng lại nhìn tiêu đề trang Đăng nhập đang hiển thị chữ Đăng Ký.',true,'BUG-07')">+ H: Khựng tiêu đề Đăng Ký (BUG-07)</button>
           <button class="btn-outline" onclick="quickEvent('Login','Q','Nhận xét ô mật khẩu lúc đăng nhập hiện rõ nguyên chữ không che dấu chấm.',true,'BUG-08')">+ Q: Thắc mắc lộ mật khẩu (BUG-08)</button>
           <button class="btn-outline" onclick="quickEvent('Header','H','Ngập ngừng tìm lối vào trang Hồ sơ trên thanh điều hướng (chỉ có chữ Chào, Tên).',false,'')">+ H: Tìm chỗ mở Hồ sơ</button>

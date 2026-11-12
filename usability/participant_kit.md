@@ -22,7 +22,7 @@ Cảm ơn bạn đã dành thời gian hỗ trợ buổi trải nghiệm hôm na
 
 > Bạn vừa biết đến cửa hàng trực tuyến EShop và muốn tạo một tài khoản cá nhân mới để chuẩn bị mua sắm. Sau khi tạo tài khoản xong, bạn hãy truy cập vào tài khoản vừa tạo của mình trên trang web và bổ sung đầy đủ họ tên, số điện thoại liên lạc cùng địa chỉ nhận hàng mặc định để sẵn sàng cho các lần đặt hàng sau.
 
-*(Lưu ý: Bạn có thể tự chọn tên gọi, đặt một địa chỉ email đuôi `@eshop.com`, tự đặt mật khẩu cá nhân, số điện thoại di động quen thuộc và một địa chỉ nhận hàng bất kỳ. Khi cảm thấy đã hoàn tất toàn bộ yêu cầu trên, bạn hãy nói **"Mình làm xong rồi"** để dừng đồng hồ).*
+*(Lưu ý bảo mật thông tin cá nhân trên video quay màn hình: Vui lòng **không nhập họ tên hay số điện thoại thật của bạn** lên trang web; thay vào đó hãy dùng bộ dữ liệu giả lập mẫu gồm Họ tên `Trần Minh Khôi` (hoặc tên giả bất kỳ), địa chỉ email đuôi `@eshop.com` như `khoitran@eshop.com`, mật khẩu tự đặt, số điện thoại 10 chữ số mẫu `0912 345 678` và địa chỉ nhận hàng mẫu `123 Nguyễn Văn Cừ, Quận 5, TP.HCM`. Khi cảm thấy đã hoàn tất toàn bộ yêu cầu trên, bạn hãy nói **"Mình làm xong rồi"** để dừng đồng hồ).*
 
 ---
 

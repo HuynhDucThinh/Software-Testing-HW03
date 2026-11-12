@@ -18,6 +18,9 @@ Thumbs.db
 *.zip
 
 
-# Raw (un-compressed) evidence before resizing
+# Raw (un-compressed) evidence before resizing & heavy session screen recordings (hosted externally via LINKS.md)
 evidence_raw/
+*.mp4
+*.webm
+*.mkv
 

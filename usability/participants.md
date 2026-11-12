@@ -8,7 +8,7 @@
 
 | Mã người TG | Mã phiên | Họ và tên | Độ tuổi & Nghề nghiệp / Chuyên ngành | Nhóm hồ sơ (`non-IT` / `IT`) | Liên hệ Zalo / SĐT (che 4 số giữa) | Ngoài lớp HW03? | Đồng ý xác minh? |
 | :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: |
-| `P00` | `S00` | *(SV điền)* | *(SV điền)* | *(SV điền)* | *(VD: 090****123)* | `Có` | `Có` |
+| `P00` | `S00` | Lê Kim Tiên | *(SV điền tuổi & nghề nghiệp/chuyên ngành)* | `non-IT` | `038****701` | `Có` | `Có` |
 
 ---
 

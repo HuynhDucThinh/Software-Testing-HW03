@@ -15,7 +15,8 @@ Thực hiện đầy đủ cho phiên chạy thử Pilot (`S00`) và từng phi�
   *(Script tự động dừng Backend cũ, xóa `database.sqlite`, chạy lại `node database.js` + `node server.js`, đảm bảo Frontend `:5173` sẵn sàng, mở trang điều phối `usability/session_helper.html?session=S0x` cho bạn và mở sẵn **1 cửa sổ Chrome Ẩn danh mới tinh** tại `http://localhost:5173/` cho người tham gia).*
 - [ ] **Bước 2:** Sắp xếp cửa sổ `session_helper.html` sang màn hình phụ hoặc thu gọn (chỉ mở lại phần khảo sát khi người tham gia làm xong nhiệm vụ); để cửa sổ Chrome Ẩn danh `http://localhost:5173/` phóng toàn màn hình.
 - [ ] **Bước 3:** Tắt thông báo Zalo / Messenger trên máy tính để không làm gián đoạn phiên thử nghiệm.
-- [ ] **Bước 4:** Chuẩn bị tổ hợp phím **Xbox Game Bar (`Win + Alt + R`)** để quay riêng cửa sổ Chrome (tắt Webcam; bật/tắt Micro bằng `Win + Alt + M` đúng theo lựa chọn đồng ý của người tham gia).
+- [ ] **Bước 4 (Cải tiến sau Pilot `S00` — Bật quay ngay từ Trang chủ):** Nhấp chọn cửa sổ Chrome Ẩn danh đang đứng ở **Trang chủ `http://localhost:5173/`** và nhấn **`Win + Alt + R` ngay trước khi giao chuột cho người tham gia** (kiểm tra thanh đếm giây quay đã chạy để không bị sót chặng 1 tạo tài khoản; tắt Webcam; bật/tắt Micro bằng `Win + Alt + M` đúng theo lựa chọn đồng ý).
+- [ ] **Bước 5 (Cải tiến sau Pilot `S00` — Chống lộ PII trên màn hình):** Nhắc người tham gia chỉ nhập **tên giả và số điện thoại mẫu `0912 345 678`** ghi trên phiếu đề bài, tuyệt đối không gõ SĐT thật lên biểu mẫu web.
 
 ---
 

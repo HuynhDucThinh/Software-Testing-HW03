@@ -273,3 +273,4 @@ Sau khi sinh viên kiểm duyệt và xác nhận giữ nguyên Kế hoạch 9 p
 **By hand:** Sinh viên rà soát giao diện `usability/session_helper.html`, `participant_kit.md` và `moderator_script.md`, xác nhận tạo Git commit hoàn tất Giai đoạn 1 (Bước 1), sau đó chuyển sang Bước 2 để khởi tạo khung rỗng `S00.json` và trực tiếp điều phối phiên chạy thử Pilot (`S00`) với người tham gia đầu tiên (`P00`).
 
 ---
+
