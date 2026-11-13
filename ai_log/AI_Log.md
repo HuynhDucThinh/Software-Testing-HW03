@@ -274,3 +274,47 @@ Sau khi sinh viên kiểm duyệt và xác nhận giữ nguyên Kế hoạch 9 p
 
 ---
 
+
+## Entry 13 — 2026-11-12 - Task 2 Bước 2: Hoàn tất phiên chạy thử Pilot S00 và tinh chỉnh bộ công cụ sau Pilot
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-12 14:50 +07:00
+**Task / Step:** Task 2, Bước 2 (Kiểm tra đối chiếu video phiên Pilot `S00.mp4`, chuẩn hóa hồ sơ `usability/sessions/S00.json`, cập nhật `P00` trong `usability/participants.md` và xuất bảng đối chiếu tinh chỉnh công cụ `usability/pilot_refinements.md`)
+**Prompt:**
+Sinh viên trực tiếp thực hiện phiên chạy thử Pilot `S00` với người tham gia `P00` ngoài nhóm 7 người chính thức, gửi tệp `S00.json`, `S00.mp4` cùng thông tin `P00` để rà soát và tinh chỉnh công cụ trước khi bước vào 7 phiên chính thức.
+
+**AI output:**
+Đã thực hiện quy trình Bước 2 của skill `usability-evaluation`:
+- Khắc phục lỗi mã hóa ký tự PowerShell 5.1 trong `usability/start_session.ps1` bằng cách chuyển toàn bộ tệp sang bảng mã ASCII thuần (`536cdf5`).
+- Đối chiếu video thực tế `usability/recordings/S00.mp4` với biên bản phiên `usability/sessions/S00.json` của `P00` (`non-IT`, `total_duration = 01:02`, `co_tro_giup`, `SEQ = 5`, `SUS = 47.5`), giữ nguyên 100% điểm số và lời nhận xét gốc của `P00`.
+- Từ bài học thực tế ở phiên Pilot `S00` (người tham gia có xu hướng gõ số điện thoại/email cá nhân thật lên biểu mẫu EShop đang quay màn hình), bổ sung hộp thông tin nhân vật giả định mẫu (`Persona mẫu`) vào `usability/participant_kit.md`, `usability/moderator_script.md` và `usability/session_helper.html`, thêm `*.mp4` vào `.gitignore` và chạy `pilot_diff.py` kết xuất `usability/pilot_refinements.md`.
+- Cập nhật thông tin đã che 4 số giữa của `P00` (`038****701`) vào `usability/participants.md` và kiểm định bằng `analyze_usability.py usability/sessions --check` đạt `0 lỗi`.
+
+**Kept:** Giữ nguyên toàn bộ dữ liệu khảo sát gốc của `P00` trong `S00.json`, các tinh chỉnh chống lộ thông tin cá nhân trên `participant_kit.md`, `moderator_script.md`, `session_helper.html` và báo cáo `pilot_refinements.md`.
+**Changed:** Đồng bộ chính xác mã lỗi đối chiếu trong `S00.json` và `session_helper.html` khớp tuyệt đối với bảng đánh số của `Bug_Report.md` (`BUG-13` cho tiêu đề `'Đăng Ký'` đặt sai trên `/login`, `BUG-04` cho ô mật khẩu lộ chữ thường trên `/login`).
+**Rejected:** Không gộp điểm số của phiên Pilot `S00` vào tập thống kê chính thức.
+**By hand:** Sinh viên trực tiếp mời `P00`, điều phối phiên thử nghiệm tại chỗ, quay màn hình `S00.mp4`, thu phiếu đánh giá `SEQ`/`SUS`/`4 câu mở` và tạo commit riêng cho Bước 2 (`66da9d3`, `62d4d5d`).
+
+---
+
+## Entry 14 — 2026-11-13 - Task 2 Bước 3: Kiểm chứng video 7 phiên chính thức S01..S07, tải lưu trữ Google Drive và kiểm định danh sách người tham gia
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-13 23:30 +07:00
+**Task / Step:** Task 2, Bước 3 (Rà soát đối chiếu từng giây video `S01.mp4`..`S07.mp4` với biên bản `usability/sessions/S01.json`..`S07.json`, tải 8 video lên Google Drive `usability/recordings/LINKS.md`, điền thông tin đã che 4 số giữa cho `P01..P07` tại `usability/participants.md` và chạy kiểm định toàn diện Bước 3)
+**Prompt:**
+Sinh viên lần lượt điều phối trực tiếp 7 người tham gia thật ngoài lớp học (`P01..P07`), gửi từng cặp video quay màn hình `S01.mp4`..`S07.mp4` và tệp biên bản thô `S01.json`..`S07.json` để rà soát mốc thời gian/mã lỗi khớp thực tế trên video, yêu cầu dùng skill `gdrive` tải 8 video lên Google Drive (bật quyền xem qua đường dẫn) và điền danh sách 7 người tham gia đã che SĐT vào `usability/participants.md`.
+
+**AI output:**
+Đã thực hiện trọn vẹn quy trình kiểm chứng và lưu trữ của Bước 3:
+- Trích xuất khung hình theo từng mốc giây trên cả 7 video `S01.mp4`..`S07.mp4` để đồng bộ chính xác 4 mốc thời gian chặng (`m1_register_done`..`m4_profile_saved`), tổng thời gian thực thi (`total_duration`), phân loại sự kiện (`E/H/Q/A`), ánh xạ mã lỗi `known_bug_id` (`BUG-01`, `BUG-04`, `BUG-05`, `BUG-06`, `BUG-07`, `BUG-09`, `BUG-10`, `BUG-11`, `BUG-12`, `BUG-13`, `BUG-14`, `BUG-16`, `BUG-18`, `BUG-24`) và diễn đạt rõ hành vi quan sát trên video dựa trên các ý tốc ký của điều phối viên; đồng thời phát hiện lỗi trạng thái mới nghiêm trọng `BUG-28` ở cuối phiên `S05` (`01:46–01:48`: chuyển trang nội bộ SPA từ `/profile` ra Trang chủ rồi quay lại làm mất sạch Số điện thoại và Địa chỉ giao hàng vừa lưu) đối chứng trực tiếp với phiên `S07` (`01:02`: nhấn `F5` tải lại trang giúp `AuthContext` nạp lại `/api/users/me`).
+- Bảo toàn nguyên vẹn 100% dữ liệu gốc của cả 7 người tham gia thật: mảng 10 câu `SUS`, điểm `SEQ`, trạng thái hoàn thành (`3/7` độc lập ở `S02, S06, S07`; `4/7` có cứu hộ lỗi chặn ở `S01, S03, S04, S05`) và nguyên văn 4 câu trả lời phỏng vấn mở. Tạo đủ 7 Git commit độc lập cho `S01`..`S07` (`f4daab1`, `17e9d23`, `59adcb8`, `381d465`, `dc77000`, `77d53e7`, `73afc0e`).
+- Dùng skill `gdrive` tạo thư mục `23120199_HW03_Usability_Recordings`, tải lên toàn bộ 8 video `S00.mp4`..`S07.mp4`, bật quyền xem qua đường dẫn (`anyoneWithLink — reader`) theo xác nhận của sinh viên và cập nhật `usability/recordings/LINKS.md` (`2cb9bbf`).
+- Cập nhật danh sách `P01..P07` vào `usability/participants.md` với số điện thoại được che đúng 4 chữ số giữa (`084****047`..`035****706`), chạy `validate_study.py --plan usability/plan.md --kit usability/participant_kit.md --participants usability/participants.md` đạt `0 lỗi, 0 cảnh báo` và `analyze_usability.py usability/sessions --check --expect 7` đạt `0 lỗi`.
+
+**Kept:** Giữ nguyên toàn bộ `S01.json`..`S07.json`, `usability/recordings/LINKS.md` và `usability/participants.md`.
+**Changed:** Chỉnh lại các mốc giây đồng hồ bấm giờ bị trễ trên `session_helper.html` để khớp chính xác với thời điểm thao tác thật trên từng tệp video `.mp4`.
+**Rejected:** Từ chối đề xuất bỏ qua ghi nhận nhật ký AI khi biên tập câu chữ nhận xét quan sát trong `S0x.json`, đảm bảo tuân thủ tuyệt đối tính minh bạch của Báo cáo kiểm toán AI (`AI Audit Report`).
+**By hand:** Sinh viên tự tuyển chọn, liên hệ và trực tiếp điều phối tại chỗ toàn bộ 7 phiên thử nghiệm với 7 người thật ngoài lớp học (`P01..P07`), tự quay màn hình 7 phiên, thu phiếu chấm `SEQ`/`SUS`/`4 câu mở` từ từng người tham gia và lưu giữ danh sách số điện thoại đầy đủ ở tệp riêng tư ngoài kho mã nguồn để phục vụ trợ giảng xác minh ngẫu nhiên.
+
+---
