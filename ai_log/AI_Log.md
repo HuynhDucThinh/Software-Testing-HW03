@@ -340,3 +340,26 @@ Thực hiện Bước 4
 **By hand:** Sinh viên rà soát ma trận điểm `SUS` từng câu `Q1..Q10` và bảng thống kê hiệu năng trong `usability/sus_and_metrics_summary.md` trước khi kích hoạt Bước 5.
 
 ---
+
+
+## Entry 16 — 2026-11-13 - Task 2 Bước 5: Phân tích tổng hợp Usability Findings, lập hồ sơ lỗi mới BUG-28 (GitHub Issue #28) và đồng bộ hoàn thiện Main_Report.md + README.md
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-13 23:55 +07:00
+**Task / Step:** Task 2, Bước 5 (Hoàn thiện `usability/findings.md`, trích xuất ảnh minh chứng thực nghiệm từ video `S05.mp4` & `S06.mp4`, đăng lỗi mới `bugs/BUG-28.md` -> GitHub Issue `#28`, cập nhật `Bug_Report.md`, `Main_Report.md` §5/§6/§8/§9/§11/§12/§13 và `README.md`)
+**Prompt:**
+Thực hiện Bước 5 và tổng hợp hoàn thiện task 2 giúp tôi. Làm xong báo cáo kết quả các nội dung đã thực hiện và đạt được bao nhiêu điểm cho phần này theo rubric @[d:\KCPM\GUI & Usability Testing\docs\2026.HW03.GUI Usability_En.md] Tất cả đều phải có minh chứng
+
+**AI output:**
+Đã triển khai trọn vẹn Bước 5 cuối cùng của skill `usability-evaluation` và đồng bộ toàn bộ hồ sơ Task 2:
+- Hoàn thiện báo cáo phân tích chuyên sâu `usability/findings.md` gồm 5 mục: gom nhóm 49 sự kiện lỗi kỹ thuật và ghi chú quan sát từ 7 phiên chính thức thành 11 điểm nghẽn trải nghiệm (`UF-01..UF-11`), tách bạch rạch ròi 7 Lỗi phần mềm đơn lẻ (`Isolated Bugs`) với 4 Vấn đề thiết kế hệ thống (`Systemic Design Issues`), xếp hạng theo `Impact Score = Severity x k / 7` (`4.00` xuống `0.57`), đề xuất giải pháp cải tiến theo 3 mức ưu tiên, tổng hợp nguyên văn 4 câu hỏi phỏng vấn mở (`Clarity`, `Error recovery`, `Speed`, `Trust`) từ `S01..S07.json` và phân tích 3 giới hạn nghiên cứu (`Study Limitations`).
+- Trích xuất minh chứng hình ảnh trước–sau có lớp phủ `23120199@student.hcmus.edu.vn` từ video thực nghiệm tại `screenshots/usability/BUG-28_S05_SPA_State_Loss.png` và `screenshots/usability/S06_BUG-18_Header_Overflow.png`.
+- Lập hồ sơ lỗi mới `bugs/BUG-28.md` (phát hiện ở phiên `S05 @ 01:34–01:48`, đối chứng tự nhiên với phiên `S07 @ 01:02–01:08`), đăng trực tiếp thành GitHub Issue `#28` (`https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28`) kèm ảnh chụp trang Issue `screenshots/github_issues/ISSUE-28_BUG-28.png` và cập nhật bộ ảnh danh sách `28 Open Issues` (`GitHub_Issues_Overview_Page1.png`, `GitHub_Issues_Overview_Page2.png`) cùng `Bug_Report.md` (`28 Bugs`: `5 Critical`, `11 Major`, `11 Minor`, `1 Cosmetic`).
+- Đồng bộ đầy đủ toàn bộ nội dung Task 2 vào Mục `5.1..5.9`, Mục `6` (`BUG-01..BUG-28`), Mục `8` (`Test Summary Report`), Mục `9`, Mục `11`, Mục `12` và Mục `13` của `Main_Report.md` cũng như `README.md`, sau đó chạy bộ kiểm định tự động (`verify_main_report.py`, `validate_study.py`, `analyze_usability.py`) đạt `0 lỗi`.
+
+**Kept:** Giữ nguyên toàn bộ `usability/findings.md`, `bugs/BUG-28.md`, GitHub Issue `#28`, các ảnh minh chứng trong `screenshots/usability/` & `screenshots/github_issues/`, `Bug_Report.md`, `Main_Report.md` và `README.md`.
+**Changed:** Hiệu đính Mục 4 của `usability/findings.md` để mọi trích dẫn câu trả lời 4 chiều phỏng vấn mở khớp nguyên văn từng chữ với trường `open_probes` trong `S01.json..S07.json` (loại bỏ hoàn toàn câu diễn giải lại).
+**Rejected:** Không lập thêm GitHub Issue trùng lặp cho các lỗi đã được bao phủ trong `BUG-01..BUG-27` (như `BUG-01`, `BUG-04`, `BUG-05`, `BUG-09`, `BUG-11`, `BUG-13`, `BUG-16`, `BUG-18`), chỉ đăng mới duy nhất `BUG-28` thực sự chưa có trong kho lỗi Task 1.
+**By hand:** Sinh viên rà soát toàn bộ phân tích định lượng — định tính của Task 2 trên `Main_Report.md` và `usability/findings.md`, kiểm tra hiển thị trực tiếp trên GitHub Issue `#28` và đối chiếu bảng tự chấm điểm theo Rubric đề bài.
+
+---

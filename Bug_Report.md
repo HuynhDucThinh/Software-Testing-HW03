@@ -9,7 +9,7 @@
 | **Phạm vi kiểm thử (`M1`)** | `Register` (chính), `Login`, `ForgotPassword` (2 bước), `Profile` (khối Hồ sơ), `Header/Navbar` |
 | **Trang GitHub Issues chính thức** | [https://github.com/HuynhDucThinh/Software-Testing-HW03/issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues) |
 | **Tổng số mục Checklist `Failed`** | **`45 / 59` mục độc lập** (`130 / 168` lượt kiểm tra thực thi trên 3 nền tảng `P1`, `P2`, `P3`) |
-| **Tổng số Bug sau gom nhóm chống trùng** | **`27` Bugs (`BUG-01` .. `BUG-27`)** — tương ứng **27 GitHub Issues (`#1` .. `#27`)** |
+| **Tổng số Bug sau gom nhóm chống trùng** | **`28` Bugs (`BUG-01` .. `BUG-28`: `27` từ Task 1 Checklist + `1` lỗi mới `BUG-28` từ Task 2 Usability)** — tương ứng **28 GitHub Issues (`#1` .. `#28`)** |
 | **Ảnh chụp tổng quan trang GitHub Issues** | [`GitHub_Issues_Overview_Page1.png`](screenshots/github_issues/GitHub_Issues_Overview_Page1.png), [`GitHub_Issues_Overview_Page2.png`](screenshots/github_issues/GitHub_Issues_Overview_Page2.png) |
 
 ---
@@ -20,11 +20,11 @@
 
 | Mức độ nghiêm trọng (`Severity`) | Số lượng Bug | Tỷ lệ | Các mã Bug tiêu biểu |
 | :--- | :---: | :---: | :--- |
-| **Critical** (Chặn hoàn thành luồng chính / lỗ hổng bảo mật nghiêm trọng) | **5** | 18.52% | `BUG-01` .. `BUG-05` |
-| **Major** (Sai đặc tả gây khó khăn hoặc nhầm lẫn đáng kể) | **10** | 37.04% | `BUG-06` .. `BUG-13`, `BUG-15`, `BUG-16` |
-| **Minor** (Sai chuẩn UI/đặc tả phụ nhưng luồng chính vẫn hoàn thành được) | **11** | 40.74% | `BUG-14`, `BUG-17` .. `BUG-26` |
-| **Cosmetic** (Khác biệt thị giác / tương tác nhỏ) | **1** | 3.70% | `BUG-27` |
-| **Tổng cộng** | **27** | **100.00%** | `BUG-01` .. `BUG-27` (bao phủ đủ `45/45` mục `Failed`) |
+| **Critical** (Chặn hoàn thành luồng chính / lỗ hổng bảo mật nghiêm trọng) | **5** | 17.86% | `BUG-01` .. `BUG-05` |
+| **Major** (Sai đặc tả gây khó khăn, mất đồng bộ trạng thái hoặc nhầm lẫn đáng kể) | **11** | 39.29% | `BUG-06` .. `BUG-13`, `BUG-15`, `BUG-16`, **`BUG-28`** *(Task 2)* |
+| **Minor** (Sai chuẩn UI/đặc tả phụ nhưng luồng chính vẫn hoàn thành được) | **11** | 39.29% | `BUG-14`, `BUG-17` .. `BUG-26` |
+| **Cosmetic** (Khác biệt thị giác / tương tác nhỏ) | **1** | 3.57% | `BUG-27` |
+| **Tổng cộng** | **28** | **100.00%** | `BUG-01` .. `BUG-27` (`45/45` mục `Failed` Task 1) + `BUG-28` (Phiên Usability `S05` Task 2) |
 
 ### 2.2. Theo khía cạnh giao diện (`IA-01` .. `IA-04`) và Loại lỗi
 
@@ -33,15 +33,15 @@
 | **`IA-01` — General UI standards** | **5** | `BUG-13`, `BUG-14`, `BUG-18`, `BUG-19`, `BUG-20` |
 | **`IA-02` — Forms** | **11** | `BUG-01`, `BUG-04`, `BUG-05`, `BUG-07`, `BUG-08`, `BUG-09`, `BUG-12`, `BUG-17`, `BUG-22`, `BUG-23`, `BUG-24` |
 | **`IA-03` — Navigation** | **5** | `BUG-10`, `BUG-15`, `BUG-21`, `BUG-25`, `BUG-27` |
-| **`IA-04` — Feedback / state** | **6** | `BUG-02`, `BUG-03`, `BUG-06`, `BUG-11`, `BUG-16`, `BUG-26` |
-| **Loại lỗi `State`** | **14** | `BUG-01`, `BUG-02`, `BUG-03`, `BUG-05`, `BUG-06`, `BUG-07`, `BUG-08`, `BUG-09`, `BUG-10`, `BUG-11`, `BUG-12`, `BUG-15`, `BUG-24`, `BUG-26` |
+| **`IA-04` — Feedback / state** | **7** | `BUG-02`, `BUG-03`, `BUG-06`, `BUG-11`, `BUG-16`, `BUG-26`, `BUG-28` |
+| **Loại lỗi `State`** | **15** | `BUG-01`, `BUG-02`, `BUG-03`, `BUG-05`, `BUG-06`, `BUG-07`, `BUG-08`, `BUG-09`, `BUG-10`, `BUG-11`, `BUG-12`, `BUG-15`, `BUG-24`, `BUG-26`, `BUG-28` |
 | **Loại lỗi `Visual-Layout`** | **11** | `BUG-04`, `BUG-13`, `BUG-16`, `BUG-17`, `BUG-19`, `BUG-20`, `BUG-21`, `BUG-22`, `BUG-23`, `BUG-25`, `BUG-27` |
 | **Loại lỗi `Typo-Localization`** | **1** | `BUG-14` |
 | **Loại lỗi `Responsive`** | **1** | `BUG-18` |
 
 ---
 
-## 3. Bảng Danh Mục Tổng Hợp 27 Bugs & Ánh Xạ GitHub Issues
+## 3. Bảng Danh Mục Tổng Hợp 28 Bugs & Ánh Xạ GitHub Issues
 
 | Mã Bug | GitHub Issue | IA | Mức độ | Ưu tiên | Mục Checklist | Nền tảng | Tiêu đề lỗi | Ảnh trang Issue |
 | :---: | :---: | :---: | :---: | :---: | :--- | :---: | :--- | :---: |
@@ -72,6 +72,7 @@
 | [`BUG-25`](bugs/BUG-25.md) | [#25](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25) | `IA-03` | **Minor** | Low | `CL-24`, `CL-28`, `SV-16` | P1, P2, P3 | [Header, Login] Thanh Navbar không đánh dấu mục trang đang mở, liên kết 'Quên mật khẩu?' gây tải lại toàn trang và tiêu đề tab trình duyệt giữ nguyên 'frontend-web' ở mọi route | [`ISSUE-25`](screenshots/github_issues/ISSUE-25_BUG-25.png) |
 | [`BUG-26`](bugs/BUG-26.md) | [#26](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/26) | `IA-04` | **Minor** | Medium | `CL-37` | P1, P2 | [Register, Login, ForgotPassword, Profile] Các nút gửi biểu mẫu thiếu trạng thái đang xử lý (loading) và không khóa tạm (disabled) để chống bấm đúp khi chờ API | [`ISSUE-26`](screenshots/github_issues/ISSUE-26_BUG-26.png) |
 | [`BUG-27`](bugs/BUG-27.md) | [#27](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27) | `IA-03` | **Cosmetic** | Low | `CL-31`, `SV-19` | P1, P2, P3 | [All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px | [`ISSUE-27`](screenshots/github_issues/ISSUE-27_BUG-27.png) |
+| [`BUG-28`](bugs/BUG-28.md) | [#28](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28) | `IA-04` | **Major** | High | *Task 2 (`S05 @ 01:48`)* | P1, P2, P3 | [Profile] Dữ liệu Số điện thoại và Địa chỉ giao hàng vừa cập nhật biến mất sạch trên biểu mẫu khi điều hướng nội bộ SPA quay lại trang Hồ sơ | [`ISSUE-28`](screenshots/github_issues/ISSUE-28_BUG-28.png) |
 
 ---
 
@@ -83,7 +84,7 @@
 
 ---
 
-## 5. Nội Dung Chi Tiết Từng Bug (`BUG-01` .. `BUG-27`)
+## 5. Nội Dung Chi Tiết Từng Bug (`BUG-01` .. `BUG-28`)
 
 ### BUG-01 (Issue #1) — [IA-02] [Register, ForgotPassword] Biểu thức chính quy mật khẩu bắt buộc khoảng trắng và từ chối toàn bộ ký tự đặc biệt hợp lệ (@ $ ! % * ? &)
 
@@ -1921,5 +1922,58 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
 #### GitHub Issue
 - **Issue:** [#27 — [HW03-M1] [BUG-27] [IA-03] [All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27)
 - **Ảnh chụp trang GitHub Issue:** [`screenshots/github_issues/ISSUE-27_BUG-27.png`](screenshots/github_issues/ISSUE-27_BUG-27.png)
+
+---
+
+### BUG-28 (Issue #28) — [IA-04] [Profile] Dữ liệu Số điện thoại và Địa chỉ giao hàng vừa cập nhật biến mất sạch trên biểu mẫu khi điều hướng nội bộ SPA quay lại trang Hồ sơ
+
+#### Summary
+Sau khi người dùng nhập Số điện thoại và Địa chỉ giao hàng tại trang Hồ sơ (`/profile`), bấm `Cập nhật` và nhận thông báo `Cập nhật thành công!`, nếu điều hướng nội bộ SPA sang màn hình khác (ví dụ bấm logo `EShop` ra Trang chủ) rồi bấm liên kết `Chào, <tên>` quay lại `/profile` mà không nhấn `F5`, toàn bộ Số điện thoại và Địa chỉ giao hàng vừa lưu biến mất sạch về ô trống do `Profile.jsx` khởi tạo lại state từ đối tượng `user` cũ trong `AuthContext`.
+
+- **Bug ID:** `BUG-28`
+- **Nguồn phát hiện:** **Task 2 — Usability Evaluation** (Phiên chính thức `S05` với người tham gia `P05` tại mốc `01:34 – 01:48`, đối chứng với `S07` tại `01:02 – 01:08`)
+- **Interface aspect:** `IA-04` — Feedback / state
+- **Màn hình:** Profile (`/profile`)
+- **Requirement:** FR-04 (eshop-sut/README.md:64); Nielsen #1 Visibility of system status & #5 Error prevention
+- **Loại lỗi:** `State`
+- **Severity:** **Major**
+- **Priority:** **High**
+
+#### Environment
+- **SUT:** `eshop-sut @ 1a9304a` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
+- **Nền tảng phát hiện & tái hiện:** `P1` Google Chrome 157 trên Windows 11 (tái hiện tương tự 100% trên `P2` Firefox 137 và `P3` Chrome Android 156)
+- **URL kiểm thử:** `http://localhost:5173/profile`
+- **Viewport:** Desktop `1440x900` / `1920x1080`
+
+#### Preconditions
+Người dùng vừa đăng ký tài khoản mới và đăng nhập lần đầu (khi đăng nhập, đối tượng `user` lưu trong `AuthContext` có `phone: null`, `shipping_address: null`), hoặc đang đăng nhập tài khoản hiện có mà chưa tải lại toàn trang (`F5`).
+
+#### Steps to reproduce
+1. Đăng ký tài khoản mới tại `/register` và đăng nhập tại `/login` (ví dụ tài khoản `lethie` trong phiên `S05`).
+2. Bấm vào liên kết `Chào, lethie` trên thanh Header để mở `/profile`.
+3. Nhập Số điện thoại `912345678` (vượt bộ lọc `BUG-05`) và Địa chỉ giao hàng `Hà Nội`, sau đó bấm nút `Cập nhật` và đóng hộp thoại `Cập nhật thành công!` (`S05.mp4 @ 01:34`).
+4. Không nhấn `F5`, bấm vào logo `EShop` góc trái thanh Header để ra Trang chủ (`S05.mp4 @ 01:46`), sau đó bấm lại vào `Chào, lethie` trên thanh Header để mở lại trang `/profile` (`S05.mp4 @ 01:48`).
+
+#### Expected result
+Theo `FR-04` (`eshop-sut/README.md:64`) và nguyên tắc nhất quán trạng thái phiên làm việc, sau khi API `PUT /api/users/me` báo cập nhật thành công, mọi lần mở lại trang `/profile` bằng điều hướng nội bộ SPA đều phải hiển thị đầy đủ giá trị `Họ Tên`, `Số điện thoại` (`912345678`) và `Địa chỉ giao hàng` (`Hà Nội`) vừa lưu mà không cần tải lại toàn bộ trình duyệt.
+
+#### Actual result
+Khi quay lại `/profile` qua liên kết SPA ở Bước 4, cả hai ô `Số điện thoại` và `Địa chỉ giao hàng` đều bị xóa trắng quay về placeholder (`VD: 0912345678` và `Nhập địa chỉ của bạn`), và `Họ Tên` cũng quay về giá trị lúc mới đăng nhập (do `Profile.jsx:31-60` chỉ đọc từ `AuthContext.user` cũ và không đồng bộ lại sau `PUT /api/users/me`).
+
+#### Impact
+Phá vỡ niềm tin của người dùng ngay sau thông báo `Cập nhật thành công!` và gây nguy cơ ghi đè mất dữ liệu thật trong SQLite nếu người dùng bấm `Cập nhật` lại khi ô địa chỉ đang bị xóa trắng.
+
+#### Reproducibility
+Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
+
+#### Evidence
+![BUG-28 — S05 SPA State Loss](screenshots/usability/BUG-28_S05_SPA_State_Loss.png)
+
+- **Ảnh minh chứng trích xuất từ phiên thật `S05`:** [`screenshots/usability/BUG-28_S05_SPA_State_Loss.png`](screenshots/usability/BUG-28_S05_SPA_State_Loss.png)
+- **Video gốc phiên `S05` (`01:34 – 01:48`):** [Xem `S05.mp4` trên Google Drive](https://drive.google.com/file/d/1gWECeWQ6mcj3_2ohrK13QzmSIMHllwbd/view)
+
+#### GitHub Issue
+- **Issue:** [#28 — [HW03-M1] [BUG-28] [IA-04] [Profile] Dữ liệu Số điện thoại và Địa chỉ giao hàng vừa cập nhật biến mất sạch trên biểu mẫu khi điều hướng nội bộ SPA quay lại trang Hồ sơ](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28)
+- **Ảnh chụp trang GitHub Issue:** [`screenshots/github_issues/ISSUE-28_BUG-28.png`](screenshots/github_issues/ISSUE-28_BUG-28.png)
 
 ---

@@ -27,11 +27,20 @@
   - [4.2. Phân tích chuyên môn về tính nhất quán và khác biệt đa nền tảng](#42-phân-tích-chuyên-môn-về-tính-nhất-quán-và-khác-biệt-đa-nền-tảng)
   - [4.3. Thống kê bộ ảnh minh chứng có lớp phủ và Bộ ảnh tổng quan đa nền tảng](#43-thống-kê-bộ-ảnh-minh-chứng-có-lớp-phủ-và-bộ-ảnh-tổng-quan-đa-nền-tảng)
 - [5. Task 2 — Đánh giá Khả năng Sử dụng (Usability Evaluation — Luồng F1)](#5-task-2--đánh-giá-khả-năng-sử-dụng-usability-evaluation--luồng-f1)
-- [6. Báo cáo Lỗi và GitHub Issues (Bug Report — BUG-01 .. BUG-27)](#6-báo-cáo-lỗi-và-github-issues-bug-report--bug-01--bug-27)
-  - [6.1. Thống kê phân bố 27 Bugs](#61-thống-kê-phân-bố-27-bugs)
-  - [6.2. Bảng danh mục 27 Bugs và liên kết GitHub Issues (#1 .. #27)](#62-bảng-danh-mục-27-bugs-và-liên-kết-github-issues-1--27)
+  - [5.1. Mục tiêu nghiên cứu và Câu hỏi đánh giá (Objectives)](#51-mục-tiêu-nghiên-cứu-và-câu-hỏi-đánh-giá-objectives)
+  - [5.2. Kịch bản nhiệm vụ định hướng mục tiêu và Giao thức điều phối](#52-kịch-bản-nhiệm-vụ-định-hướng-mục-tiêu-và-giao-thức-điều-phối)
+  - [5.3. Công cụ đo lường: Thang đo chuẩn SUS, SEQ và 4 câu hỏi phỏng vấn mở](#53-công-cụ-đo-lường-thang-đo-chuẩn-sus-seq-và-4-câu-hỏi-phỏng-vấn-mở)
+  - [5.4. Danh sách 7 người tham gia thật ngoài lớp học và Video minh chứng](#54-danh-sách-7-người-tham-gia-thật-ngoài-lớp-học-và-video-minh-chứng)
+  - [5.5. Kết quả phiên chạy thử Pilot (S00) và Tinh chỉnh công cụ](#55-kết-quả-phiên-chạy-thử-pilot-s00-và-tinh-chỉnh-công-cụ)
+  - [5.6. Tổng hợp dữ liệu thực thi 7 phiên chính thức (S01..S07)](#56-tổng-hợp-dữ-liệu-thực-thi-7-phiên-chính-thức-s01s07)
+  - [5.7. Ma trận tính điểm chi tiết SUS (Q1..Q10) và Phân tích định lượng](#57-ma-trận-tính-điểm-chi-tiết-sus-q1q10-và-phân-tích-định-lượng)
+  - [5.8. Tổng hợp điểm nghẽn trải nghiệm: Phân tách Isolated Bugs và Systemic Design Issues](#58-tổng-hợp-điểm-nghẽn-trải-nghiệm-phân-tách-isolated-bugs-và-systemic-design-issues)
+  - [5.9. Xếp hạng mức độ nghiêm trọng, Khuyến nghị cải tiến và Giới hạn nghiên cứu](#59-xếp-hạng-mức-độ-nghiêm-trọng-khuyến-nghị-cải-tiến-và-giới-hạn-nghiên-cứu)
+- [6. Báo cáo Lỗi và GitHub Issues (Bug Report — BUG-01 .. BUG-28)](#6-báo-cáo-lỗi-và-github-issues-bug-report--bug-01--bug-28)
+  - [6.1. Thống kê phân bố 28 Bugs](#61-thống-kê-phân-bố-28-bugs)
+  - [6.2. Bảng danh mục 28 Bugs và liên kết GitHub Issues (#1 .. #28)](#62-bảng-danh-mục-28-bugs-và-liên-kết-github-issues-1--28)
   - [6.3. Ảnh chụp trang danh sách GitHub Issues](#63-ảnh-chụp-trang-danh-sách-github-issues)
-  - [6.4. Hồ sơ kỹ thuật tóm tắt từng Bug (BUG-01 .. BUG-27)](#64-hồ-sơ-kỹ-thuật-tóm-tắt-từng-bug-bug-01--bug-27)
+  - [6.4. Hồ sơ kỹ thuật tóm tắt từng Bug (BUG-01 .. BUG-28)](#64-hồ-sơ-kỹ-thuật-tóm-tắt-từng-bug-bug-01--bug-28)
 - [7. Agent Skills và Video Demo (Task 4)](#7-agent-skills-và-video-demo-task-4)
 - [8. Báo cáo Tóm tắt Kiểm thử Tổng thể (Test Summary Report)](#8-báo-cáo-tóm-tắt-kiểm-thử-tổng-thể-test-summary-report)
 - [9. Tóm tắt AI Audit Report](#9-tóm-tắt-ai-audit-report)
@@ -545,34 +554,171 @@ Bảng dưới đây trích xuất đầy đủ toàn bộ **`45 / 59` mục ki�
 ---
 ## 5. Task 2 — Đánh Giá Khả Năng Sử Dụng (Usability Evaluation — Luồng `F1`)
 
-> *Ghi chú tiến độ:* Phần đánh giá khả năng sử dụng có điều phối trên luồng **`F1`: Đăng ký tài khoản mới -> Đăng nhập -> Cập nhật hồ sơ cá nhân (`FR-01` -> `FR-02` -> `FR-04`)** với 1 phiên Pilot (`S00`) + 7 người tham gia thật ngoài lớp học (`S01`..`S07`) sẽ được cập nhật đầy đủ tại các mục `5.1`..`5.9` ngay trong giai đoạn thực thi Task 2 tiếp theo:
-- **5.1. Mục tiêu nghiên cứu & Câu hỏi đánh giá (Objectives)**
-- **5.2. Kịch bản nhiệm vụ định hướng mục tiêu (Goal-oriented Task Scenario — không chỉ dẫn từng bước)**
-- **5.3. Công cụ đo lường: Thang đo chuẩn `SUS` (10 câu) & 4 câu hỏi phỏng vấn mở (`Clarity`, `Error recovery`, `Speed`, `Trust`)**
-- **5.4. Danh sách 7 người tham gia thật ngoài lớp học (`S01`..`S07`, đã che 4 số giữa SĐT/Zalo)**
-- **5.5. Kết quả phiên chạy thử Pilot (`S00`) và tinh chỉnh trước khi chạy chính thức**
-- **5.6. Tổng hợp dữ liệu thực thi 7 phiên chính thức (`S01`..`S07`: thời gian, hoàn thành, lỗi, ngập ngừng, điểm SUS)**
-- **5.7. Bảng tính điểm chi tiết `SUS` (trung bình, độ lệch chuẩn, trung vị, đối chiếu mốc chuẩn)**
-- **5.8. Tổng hợp điểm nghẽn trải nghiệm: Phân tách Lỗi phần mềm đơn lẻ (Isolated Bugs) và Vấn đề thiết kế hệ thống (Systemic Design Issues)**
-- **5.9. Xếp hạng vấn đề theo mức độ nghiêm trọng (Severity Ranking) & Đề xuất cải tiến**
+Toàn bộ hồ sơ thiết kế nghiên cứu, bộ công cụ điều phối, bản nháp AI đóng băng kèm mã băm `SHA-256`, biên bản phiên Pilot `S00`, dữ liệu thô 7 phiên chính thức `S01..S07`, liên kết video quay màn hình Google Drive và báo cáo phân tích chi tiết được lưu trữ tại thư mục [`usability/`](usability/).
+
+### 5.1. Mục tiêu nghiên cứu và Câu hỏi đánh giá (Objectives)
+
+Kế hoạch đánh giá khả năng sử dụng 9 phần theo khung chuẩn Rubin & Chisnell được thiết lập tại [`usability/plan.md`](usability/plan.md) (bản nháp AI đóng băng tại [`usability/frozen/T2_plan_step0_20261112-112128.md`](usability/frozen/T2_plan_step0_20261112-112128.md)) nhằm đánh giá mức độ dễ hiểu, hiệu năng hoàn thành nhiệm vụ, khả năng tự phục hồi sau lỗi và mức độ tin cậy cảm nhận của **người dùng phổ thông lần đầu tiếp cận EShop** trên luồng đầu-cuối không trùng lặp **`F1`: Đăng ký tài khoản mới -> Đăng nhập hệ thống -> Cập nhật thông tin hồ sơ cá nhân (`FR-01` -> `FR-02` -> `FR-04`)**. Nghiên cứu trả lời 5 câu hỏi đánh giá cụ thể:
+
+- **`RQ1` — Khả năng hoàn thành & Tác động của lỗi chặn biểu mẫu:** Có bao nhiêu trên 7 người tham gia chính thức tự hoàn tất trọn vẹn luồng `F1`, và bao nhiêu người bị chặn đứng bắt buộc phải kích hoạt Giao thức cứu hộ kỹ thuật tại bước đặt mật khẩu đăng ký (`FR-01` / `BUG-01`) hoặc bước nhập số điện thoại hồ sơ (`FR-04` / `BUG-05`)?
+- **`RQ2` — Khả năng định vị điều hướng (`Navigation Discoverability`):** Người dùng lần đầu mất bao lâu để tìm thấy lối vào tạo tài khoản mới và lối vào trang quản lý thông tin cá nhân khi thanh điều hướng trên cùng chỉ hiển thị lời chào `Chào, <tên>` mà không có nhãn menu tường minh `"Hồ sơ"` hay `"Tài khoản"`?
+- **`RQ3` — Nhận thức trạng thái khi chuyển trang:** Việc chuyển hướng tức thời từ `/register` sang `/login` không kèm thông báo xác nhận, không điền sẵn tài khoản vừa tạo, cộng hưởng với tiêu đề trang `/login` ghi sai thành `'Đăng Ký'` và nhãn pha trộn tiếng Anh (`'Username'`, `'Sign In'`), gây ra bao nhiêu lần ngập ngừng hoặc thao tác nhầm?
+- **`RQ4` — Khả năng tự phục hồi sau thông báo lỗi (`Error Recovery`):** Các cảnh báo nội dòng và hộp thoại hệ thống `window.alert()` hiện tại có giúp người dùng nhận diện đúng nguyên nhân sai để tự sửa hay đẩy họ vào vòng lặp thử-sai thất bại?
+- **`RQ5` — Cảm nhận chủ quan về Độ dễ, Tốc độ và Độ tin cậy (`SEQ`, `SUS` & `Trust`):** Điểm `SEQ` (`1–7`) và điểm chuẩn `SUS` (`0–100`) trung bình của luồng `F1` đạt mức nào so với mốc chuẩn lịch sử `68.0`, đồng thời các lỗi lộ mật khẩu dạng chữ thường (`BUG-04`) hay mất đồng bộ trạng thái hồ sơ ảnh hưởng ra sao tới lòng tin của người dùng?
+
+### 5.2. Kịch bản nhiệm vụ định hướng mục tiêu và Giao thức điều phối
+
+- **Kịch bản nhiệm vụ định hướng mục tiêu (`Goal-oriented Task Scenario` — trích nguyên văn từ [`usability/participant_kit.md`](usability/participant_kit.md), đã kiểm định tự động bằng `validate_study.py --kit` đảm bảo `0` chỉ dẫn từng bước và `0` rò rỉ tên nút/nhãn trường/URL):**
+  > Bạn vừa biết đến cửa hàng trực tuyến EShop và muốn tạo một tài khoản cá nhân mới để chuẩn bị mua sắm. Sau khi tạo tài khoản xong, bạn hãy truy cập vào tài khoản vừa tạo của mình trên trang web và bổ sung đầy đủ họ tên, số điện thoại liên lạc cùng địa chỉ nhận hàng mặc định để sẵn sàng cho các lần đặt hàng sau.
+- **Khởi tạo trạng thái sạch độc lập trước mỗi phiên (`Clean State Protocol`):** Giữ nguyên 100% mã nguồn gốc `./eshop-sut` (`1a9304a`). Trước mỗi phiên (`S00` và `S01..S07`), điều phối viên chạy [`usability/start_session.ps1`](usability/start_session.ps1) để dừng Backend cũ, xóa tệp `database.sqlite`, khởi tạo lại CSDL hạt giống sạch (`node database.js && node server.js`) và mở cửa sổ Google Chrome 157 **Ẩn danh mới (`Incognito`)** tại Trang chủ `http://localhost:5173/` (`clean_state_reset: true` trên cả 8 phiên).
+- **Quy trình điều phối trung lập & Giao thức cứu hộ lỗi chặn (`System-Bug Rescue Protocol` — chi tiết tại [`usability/moderator_script.md`](usability/moderator_script.md)):**
+  1. **Thiết lập tâm lý (`Set the stage`):** Giải thích rõ buổi thử nghiệm kiểm tra chất lượng sản phẩm chứ không đánh giá kỹ năng con người; hướng dẫn người tham gia nói to suy nghĩ (`Concurrent Think-Aloud`); thu nhận xác nhận đồng ý quay cửa sổ trình duyệt (`Xbox Game Bar` — không bật Webcam quay mặt) và đồng ý để trợ giảng liên hệ xác minh.
+  2. **Quan sát trung lập (`Neutral Observation`):** Không gợi ý vị trí nút bấm hay giải thích giao diện; ghi nhận sự kiện theo mốc thời gian thực `mm:ss` trên trạm thu phiếu ngoại tuyến [`usability/session_helper.html`](usability/session_helper.html) theo 4 mã chuẩn: `E` (Lỗi thao tác / bị biểu mẫu từ chối), `H` (Ngập ngừng / bối rối `>= 5s`), `Q` (Phát ngôn `Think-Aloud` đáng chú ý), và `A` (Can thiệp cứu hộ kỹ thuật).
+  3. **Giao thức cứu hộ 3 bước khi đụng lỗi mã nguồn chặn cứng (`BUG-01` & `BUG-05`):** Để người tham gia tự xoay xở đủ lâu nhằm ghi nhận trọn vẹn bằng chứng thực nghiệm về điểm nghẽn; chỉ khi họ đã lặp lại lỗi chặn nhiều lần hoặc bị kẹt cứng mới cấp dữ liệu mẫu vượt chốt tối thiểu (`Matkhau 123` cho lỗi regex khoảng trắng `BUG-01`; bỏ chữ số `0` đầu cho lỗi regex SĐT `BUG-05`), ghi rõ vào mảng `assists` và **bắt buộc phân loại phiên là `co_tro_giup` (`Assisted`)**, tách bạch hoàn toàn khỏi tỷ lệ hoàn thành độc lập `khong_tro_giup`.
+
+### 5.3. Công cụ đo lường: Thang đo chuẩn SUS, SEQ và 4 câu hỏi phỏng vấn mở
+
+Ngay sau khi kết thúc thao tác nhiệm vụ trên trình duyệt, mỗi người tham gia tự hoàn thành bộ công cụ khảo sát định lượng và định tính tại [`usability/participant_kit.md`](usability/participant_kit.md) (bản nháp trước Pilot đóng băng tại [`usability/frozen/T2_participant_kit_step1_20261112-113805.md`](usability/frozen/T2_participant_kit_step1_20261112-113805.md)):
+
+1. **Câu hỏi độ dễ sau nhiệm vụ (`Single Ease Question — SEQ`):** Thang 7 mức từ `1 (Rất khó)` đến `7 (Rất dễ)` đo cảm nhận tức thời ngay khi vừa đóng biểu mẫu (mốc trung bình tham chiếu quốc tế `~5.5`).
+2. **Thang đo chuẩn `System Usability Scale (SUS — Brooke, 1996)`:** Gồm đúng **10 phát biểu tiêu chuẩn** chấm trên thang Likert `1 (Hoàn toàn không đồng ý)` .. `5 (Hoàn toàn đồng ý)` với cấu trúc xen kẽ 5 câu mang sắc thái tích cực (`Q1, Q3, Q5, Q7, Q9` -> điểm quy đổi `= x - 1`) và 5 câu mang sắc thái tiêu cực (`Q2, Q4, Q6, Q8, Q10` -> điểm quy đổi `= 5 - x`), nhân tổng điểm quy đổi (`0..40`) với hệ số `2.5` để đưa về thang `0.0 .. 100.0` (mốc trung bình lịch sử Sauro `68.0`).
+3. **Bộ 4 câu hỏi phỏng vấn mở (`Open-ended Probe Questions`) bao phủ đủ 4 chiều bắt buộc của đề bài:**
+   - **Độ rõ ràng (`Clarity`):** Tiêu đề, nhãn thông tin, nút bấm hay dòng hướng dẫn nào gây khó hiểu hoặc hiểu nhầm ý nghĩa?
+   - **Khả năng phục hồi sau lỗi (`Error recovery`):** Nội dung cảnh báo lỗi khi bị từ chối dữ liệu có giúp nhận ra ngay nguyên nhân để tự sửa lại cho đúng không?
+   - **Tốc độ thao tác (`Speed`):** Thời gian và số bước từ lúc tạo tài khoản đến lúc lưu hồ sơ nhanh gọn hay mất thời gian hơn kỳ vọng, chặng nào làm chậm lại lâu nhất?
+   - **Độ tin cậy (`Trust`):** Mức độ yên tâm khi nhập mật khẩu, thông tin cá nhân và niềm tin rằng hệ thống bảo mật, lưu trữ đúng dữ liệu?
+
+### 5.4. Danh sách 7 người tham gia thật ngoài lớp học và Video minh chứng
+
+Tuân thủ nghiêm ngặt ràng buộc chống gian lận (Mục 6 & Mục 11 của đề bài), toàn bộ **1 người tham gia Pilot (`P00`) và 7 người tham gia chính thức (`P01..P07`)** đều là người thật **100% ngoài lớp học HW03** và thuộc nhóm người dùng phổ thông không chuyên CNTT (`non-IT`), đa dạng nghề nghiệp (sinh viên ngành khác, cán bộ, giáo viên, nông dân, nội trợ). Số điện thoại/Zalo trong [`usability/participants.md`](usability/participants.md) được che đúng 4 chữ số giữa (`09x****xxx`, kiểm định tự động `0 lỗi` bằng `validate_study.py --participants`); toàn bộ 8 video `.mp4` quay màn hình thực tế được tải lên thư mục Google Drive chia sẻ quyền xem phục vụ chấm bài tại [`usability/recordings/LINKS.md`](usability/recordings/LINKS.md) ([Thư mục Google Drive tổng hợp](https://drive.google.com/drive/folders/1IB2Zh8lavgSNagaKdTyaWhBYH24_f8OL)):
+
+| Mã phiên | Vai trò | Mã người TG | Họ và tên | Nghề nghiệp / Thông tin nền | Nhóm | Liên hệ Zalo / SĐT (che 4 số giữa) | Ngoài lớp HW03? | Đồng ý xác minh? | Biên bản phiên JSON | Video quay màn hình (`Google Drive`) |
+| :---: | :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| `S00` | **Pilot** | `P00` | Lê Kim Tiên | 50 tuổi, Phụ giúp gia đình | `non-IT` | `038****701` | `Có` | `Có` | [`S00.json`](usability/sessions/S00.json) | [Xem `S00.mp4` (`01:08`)](https://drive.google.com/file/d/1cG3RJlbufGhGa7S6T7m36KkFzArIMSuT/view) |
+| **`S01`** | Chính thức | **`P01`** | Lê Minh Chánh | Sinh viên | `non-IT` | `084****047` | `Có` | `Có` | [`S01.json`](usability/sessions/S01.json) | [Xem `S01.mp4` (`02:48`)](https://drive.google.com/file/d/12aNghfeILi0Thi0EIKQk0sQZwm__lntc/view) |
+| **`S02`** | Chính thức | **`P02`** | Trần Thanh Hào | Cán bộ | `non-IT` | `094****262` | `Có` | `Có` | [`S02.json`](usability/sessions/S02.json) | [Xem `S02.mp4` (`01:52`)](https://drive.google.com/file/d/1YR6RUJvdl5YeqIqCDIrAfFVyebGKwsbc/view) |
+| **`S03`** | Chính thức | **`P03`** | Lê Thị Dương Hồng | Giáo viên | `non-IT` | `098****357` | `Có` | `Có` | [`S03.json`](usability/sessions/S03.json) | [Xem `S03.mp4` (`00:55`)](https://drive.google.com/file/d/1N7ov1ZbqD0CjEWVSkjtJw4QvMyz8r0gC/view) |
+| **`S04`** | Chính thức | **`P04`** | Lê Thị Bình Minh | Giáo viên | `non-IT` | `039****995` | `Có` | `Có` | [`S04.json`](usability/sessions/S04.json) | [Xem `S04.mp4` (`01:21`)](https://drive.google.com/file/d/1cn8szdNcBYLLRyF2ZepcRB5HWAInN6Lz/view) |
+| **`S05`** | Chính thức | **`P05`** | Huỳnh Ngọc Trân | Giáo viên | `non-IT` | `033****842` | `Có` | `Có` | [`S05.json`](usability/sessions/S05.json) | [Xem `S05.mp4` (`01:49`)](https://drive.google.com/file/d/1gWECeWQ6mcj3_2ohrK13QzmSIMHllwbd/view) |
+| **`S06`** | Chính thức | **`P06`** | Lê Đông Quân | Sinh viên | `non-IT` | `083****087` | `Có` | `Có` | [`S06.json`](usability/sessions/S06.json) | [Xem `S06.mp4` (`01:31`)](https://drive.google.com/file/d/1ZSNpqKv3klGcqZHIVBH5jmCkcXg4H5HJ/view) |
+| **`S07`** | Chính thức | **`P07`** | Lê Văn Thanh | Nông dân | `non-IT` | `035****706` | `Có` | `Có` | [`S07.json`](usability/sessions/S07.json) | [Xem `S07.mp4` (`01:23`)](https://drive.google.com/file/d/1H04Wo-AqcWUi8FwcDwGgnFLs0EZgFE45/view) |
+
+### 5.5. Kết quả phiên chạy thử Pilot (`S00`) và Tinh chỉnh công cụ
+
+Phiên chạy thử Pilot `S00` được thực hiện với `P00` (`Lê Kim Tiên`, `50 tuổi`, `non-IT`, dữ liệu tách riêng không gộp vào `n = 7`): hoàn thành luồng trong `01:02` với trạng thái `co_tro_giup` (chạm cả 2 lỗi chặn `BUG-01` ở `00:11` và `BUG-05` ở `00:56`), chấm `SEQ = 5/7` và `SUS = 47.5/100`. Phiên `S00` giúp phát hiện sớm 3 bất cập thực tế trong quy trình tổ chức và dẫn tới 3 tinh chỉnh quan trọng (trích xuất đối chiếu tự động bằng `pilot_diff.py` tại [`usability/pilot_refinements.md`](usability/pilot_refinements.md)) trước khi khóa công cụ cho `S01..S07`:
+
+| Mã tinh chỉnh | Tài liệu cập nhật | Vấn đề thực tế phát hiện qua phiên Pilot `S00` | Nội dung tinh chỉnh áp dụng cho `S01..S07` |
+| :---: | :--- | :--- | :--- |
+| **`C01`** | [`usability/participant_kit.md`](usability/participant_kit.md) | Cụm từ *"nhập số điện thoại di động quen thuộc"* làm `P00` gõ họ tên và SĐT cá nhân thật lên biểu mẫu đang quay video màn hình. | Thay bằng lưu ý bảo mật kèm bộ dữ liệu giả lập mẫu (`Trần Minh Khôi`, `khoitran@eshop.com`, SĐT 10 chữ số đầu `0` mẫu `0912 345 678`), vừa chống lộ PII trên video 7 phiên chính thức vừa giữ nguyên trải nghiệm chạm lỗi regex `BUG-05`. |
+| **`M01`** | [`usability/moderator_script.md`](usability/moderator_script.md) | Ở `S00`, điều phối viên nhấn `Win + Alt + R` hơi trễ (từ đầu màn hình `/login` ở `00:25`), làm thiếu hình ảnh trực quan của chặng 1 (`/register`). | Đưa thao tác bật quay màn hình `Win + Alt + R` ngay tại Trang chủ `http://localhost:5173/` **trước khi bấm đồng hồ `00:00`** thành mục kiểm bắt buộc, giúp cả 7 video `S01.mp4..S07.mp4` ghi trọn vẹn 100% từ giây đầu tiên. |
+| **`M02`** | [`usability/session_helper.html`](usability/session_helper.html) | Tốc ký thủ công khó chuyển kịp ô chọn `Màn hình` / `Loại sự kiện` khi người dùng chuyển trang nhanh từ `/register` sang `/login`. | Đóng khung nổi bật bộ dữ liệu giả lập trên Tab 1 và bổ sung nút ghi nhanh 1-click `+ Q: ĐK xong không báo / không giữ email` gắn sẵn đúng màn hình `Login` & loại `Q`. |
+
+### 5.6. Tổng hợp dữ liệu thực thi 7 phiên chính thức (`S01..S07`)
+
+Mỗi phiên trong 7 phiên chính thức (`S01..S07`) được thực hiện độc lập, kiểm chứng đối chiếu từng giây với tệp video quay màn hình và lưu vết bằng **7 Git commit riêng biệt** (`f4daab1`, `17e9d23`, `59adcb8`, `381d465`, `dc77000`, `77d53e7`, `73afc0e`) đúng quy định Mục 12 của đề bài:
+
+| Phiên (`Commit`) | Người TG | Mốc chặng `m1 / m2 / m3 / m4` (`mm:ss`) | Tổng TG | Trạng thái hoàn thành | `E / H / A` | `SEQ` (`1–7`) | `SUS` (`0–100`) | Diễn biến thực nghiệm nổi bật trên video phiên |
+| :---: | :---: | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
+| [`S01`](usability/sessions/S01.json) (`f4daab1`) | `P01` | `01:21 / 01:36 / 01:45 / 02:40` | `02:40` | Có cứu hộ (`co_tro_giup`) | `6 / 2 / 2` | `4` | **`30.0`** (`F`) | Gõ lệch mật khẩu lúc đăng ký phải quay lại tạo lần 2; tìm mục Hồ sơ trên Header mất `8s`; kiên trì thử 5 định dạng SĐT (đầu `0`, dấu cách, `+84`) đều bị chặn bởi `BUG-05`; đổi tên xong Header vẫn giữ tên cũ (`BUG-11`). |
+| [`S02`](usability/sessions/S02.json) (`17e9d23`) | `P02` | `00:48 / 00:57 / 01:00 / 01:44` | `01:44` | **Độc lập** (`khong_tro_giup`) | `3 / 1 / 0` | `5` | **`47.5`** (`F`) | Chuyển sang `/login` thấy tiêu đề `'Đăng Ký'` và không báo thành công nên tưởng lỗi, bấm quay lại tạo lần 2; lọt email `'nguyenvanc'` không có `'@'`; bấm `'Thoát'` tại `/profile` bị kẹt ở màn hình trắng `'Vui lòng đăng nhập'` (`BUG-10`). |
+| [`S03`](usability/sessions/S03.json) (`59adcb8`) | `P03` | `00:11 / 00:26 / 00:30 / 00:48` | `00:48` | Có cứu hộ (`co_tro_giup`) | `4 / 0 / 1` | `2` | **`52.5`** (`D`) | Nhập Họ tên `'lê văn b'` vào ô `'Username'` ở `/login` do bất nhất nhãn với `'Email'` ở `/register` (`BUG-14`); bị chặn SĐT 10 số đầu `0` (`BUG-05`); lưu địa chỉ toàn số `'123456789'` vẫn được chấp nhận. |
+| [`S04`](usability/sessions/S04.json) (`381d465`) | `P04` | `00:12 / 00:50 / 00:54 / 01:17` | `01:17` | Có cứu hộ (`co_tro_giup`) | `4 / 0 / 1` | `3` | **`45.0`** (`F`) | Lọt email 1 ký tự `'d'`; gõ lệch mật khẩu lúc đăng ký nên chủ động bấm sang `'Quên mật khẩu?'`, trực tiếp đụng OTP 4 số (`BUG-08`), thiếu gợi ý mật khẩu (`BUG-22`) và bị `alert` chặn 2 lần bởi `BUG-01`. |
+| [`S05`](usability/sessions/S05.json) (`dc77000`) | `P05` | `00:48 / 00:58 / 01:02 / 01:44` | `01:44` | Có cứu hộ (`co_tro_giup`) | `5 / 1 / 2` | `3` | **`67.5`** (`C`) | Bị autofill chèn tài khoản cũ (`BUG-24`); chạm cả `BUG-01` & `BUG-05`; lưu tên toàn khoảng trắng (`BUG-12`); **phát hiện lỗi mới `BUG-28` ở `01:46–01:48` khi chuyển trang SPA ra Trang chủ rồi quay lại `/profile` làm mất sạch SĐT & Địa chỉ `'Hà Nội'` vừa lưu**. |
+| [`S06`](usability/sessions/S06.json) (`77d53e7`) | `P06` | `00:18 / 00:26 / 00:30 / 01:18` | `01:18` | **Độc lập** (`khong_tro_giup`) | `6 / 0 / 0` | `3` | **`52.5`** (`D`) | Tự điền SĐT 9 số không có `0` đầu (`'912345678'`) nên vượt qua không cần cứu hộ; chủ động nhập chuỗi tên dài `'lê văn fff...'` làm vỡ ngang thanh Header (`BUG-18`), phải kéo thanh cuộn ngang qua khoảng trắng lớn mới bấm được `'Thoát'` ở `01:26`. |
+| [`S07`](usability/sessions/S07.json) (`73afc0e`) | `P07` | `00:32 / 00:51 / 00:52 / 01:10` | `01:10` | **Độc lập** (`khong_tro_giup`) | `4 / 0 / 0` | `4` | **`45.0`** (`F`) | Tự hoàn tất độc lập; đụng `window.alert('Lỗi: User not found')` ở `/forgot-password` (`BUG-16`); nhấn `F5` ở `01:02` sau khi lưu hồ sơ nên khi chuyển SPA ở `01:06–01:08` dữ liệu vẫn còn (**phiên đối chứng tự nhiên chứng minh nguyên nhân gốc của `BUG-28`**). |
+
+### 5.7. Ma trận tính điểm chi tiết SUS (`Q1..Q10`) và Phân tích định lượng
+
+Báo cáo định lượng sinh tự động bằng `analyze_usability.py` tại [`usability/sus_and_metrics_summary.md`](usability/sus_and_metrics_summary.md) trình bày đầy đủ điểm gốc Likert (`1..5`) kèm điểm đóng góp quy đổi Brooke (`0..4` trong ngoặc đơn) cho từng câu `Q1..Q10` của cả 7 người tham gia chính thức:
+
+| Phiên (`Người TG`) | Q1 (+) | Q2 (-) | Q3 (+) | Q4 (-) | Q5 (+) | Q6 (-) | Q7 (+) | Q8 (-) | Q9 (+) | Q10 (-) | Tổng quy đổi (`0–40`) | Điểm `SUS` (`x 2.5`) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `S01` (`P01`) | 2 (`1`) | 5 (`0`) | 1 (`0`) | 5 (`0`) | 2 (`1`) | 3 (`2`) | 2 (`1`) | 4 (`1`) | 3 (`2`) | 1 (`4`) | `12` | **`30.0`** |
+| `S02` (`P02`) | 3 (`2`) | 2 (`3`) | 3 (`2`) | 3 (`2`) | 4 (`3`) | 3 (`2`) | 1 (`0`) | 5 (`0`) | 4 (`3`) | 3 (`2`) | `19` | **`47.5`** |
+| `S03` (`P03`) | 2 (`1`) | 1 (`4`) | 2 (`1`) | 3 (`2`) | 4 (`3`) | 3 (`2`) | 2 (`1`) | 2 (`3`) | 2 (`1`) | 2 (`3`) | `21` | **`52.5`** |
+| `S04` (`P04`) | 2 (`1`) | 3 (`2`) | 3 (`2`) | 4 (`1`) | 3 (`2`) | 2 (`3`) | 2 (`1`) | 3 (`2`) | 3 (`2`) | 3 (`2`) | `18` | **`45.0`** |
+| `S05` (`P05`) | 2 (`1`) | 3 (`2`) | 3 (`2`) | 2 (`3`) | 3 (`2`) | 2 (`3`) | 4 (`3`) | 1 (`4`) | 4 (`3`) | 1 (`4`) | `27` | **`67.5`** |
+| `S06` (`P06`) | 2 (`1`) | 3 (`2`) | 3 (`2`) | 2 (`3`) | 2 (`1`) | 2 (`3`) | 3 (`2`) | 2 (`3`) | 2 (`1`) | 2 (`3`) | `21` | **`52.5`** |
+| `S07` (`P07`) | 2 (`1`) | 3 (`2`) | 2 (`1`) | 2 (`3`) | 2 (`1`) | 3 (`2`) | 2 (`1`) | 2 (`3`) | 2 (`1`) | 2 (`3`) | `18` | **`45.0`** |
+| **Trung bình câu** | `2.14` (`1.14`) | `2.86` (`2.14`) | `2.43` (`1.43`) | `3.00` (`2.00`) | `2.86` (`1.86`) | `2.57` (`2.43`) | `2.29` (`1.29`) | `2.71` (`2.29`) | `2.86` (`1.86`) | `2.00` (`3.00`) | **`19.43`** | **`48.6`** |
+
+**Bảng tổng hợp các chỉ số thống kê khả năng sử dụng & hiệu năng (`n = 7` phiên chính thức):**
+
+| Chỉ số đo lường (Metric) | Giá trị thống kê (`n = 7`) | Đối chiếu chuẩn quốc tế & Nhận định trả lời `RQ1..RQ5` |
+| :--- | :---: | :--- |
+| **Điểm `SUS` trung bình ± Độ lệch chuẩn (`Mean ± SD`)** | **`48.6 ± 11.3`** | Thấp hơn **`-19.4` điểm** so với mốc trung bình lịch sử `68.0` (Sauro, 2011); **0/7 phiên** vượt ngưỡng `68.0` (cao nhất `S05 = 67.5`, thấp nhất `S01 = 30.0`). |
+| **Điểm `SUS` trung vị & Khoảng biến thiên (`Median · Min–Max`)** | **`47.5`** (`30.0 – 67.5`) | Xếp hạng chữ **`F`** theo thang Sauro–Lewis, mức tính từ **`Poor`** và vùng **`Not Acceptable`** (`< 51.7`) theo thang Bangor et al. (2009). |
+| **Độ dễ sau nhiệm vụ `SEQ` (`Mean ± SD` · `Median`)** | **`3.43 ± 0.98`** (`Med: 3.0`) | Thấp hơn rõ rệt mốc tham chiếu `~5.5 / 7.0`, phản ánh trực tiếp cảm giác vướng víu ngay sau khi thao tác (`RQ5`). |
+| **Tỷ lệ hoàn thành độc lập vs Có cứu hộ (`RQ1`)** | **`3/7` (`42.9%`)** độc lập · **`4/7` (`57.1%`)** có cứu hộ | Nếu không có điều phối viên cứu hộ kỹ thuật ở `BUG-01` & `BUG-05`, **quá nửa số người dùng thật (`57.1%`) bị chặn đứng hoàn toàn không thể hoàn tất luồng `F1`**. |
+| **Tổng tỷ lệ về đích & Đạt mốc Benchmark (`<= 05:00`)** | **`7/7` (`100.0%`)** | Khi được gỡ chốt regex lỗi, luồng 3 màn hình đủ ngắn để cả 7 người về đích trong `01:32 ± 00:36` (`Median: 01:18`, `Min–Max: 00:48 – 02:40`). |
+| **Mật độ ma sát tương tác trung bình (`E / H / A` mỗi phiên)** | **`4.57` `E` / `0.57` `H` / `0.86` `A`** | Trung bình mỗi người dùng vấp **hơn 4.5 sự kiện lỗi trên một luồng cơ bản chỉ gồm 3 biểu mẫu**; câu `Q1` (*muốn dùng thường xuyên*: quy đổi `1.14/4`) và `Q7` (*học nhanh*: `1.29/4`) kéo điểm `SUS` tụt mạnh nhất. |
+
+### 5.8. Tổng hợp điểm nghẽn trải nghiệm: Phân tách Isolated Bugs và Systemic Design Issues
+
+Từ `49` sự kiện lỗi kỹ thuật và toàn bộ ghi chép quan sát trên 7 phiên chính thức, báo cáo [`usability/findings.md`](usability/findings.md) gom nhóm thành **11 điểm nghẽn trải nghiệm cốt lõi (`UF-01` .. `UF-11`)**, phân tách rạch ròi giữa **7 Lỗi phần mềm đơn lẻ (`Isolated Bugs`)** và **4 Vấn đề thiết kế hệ thống (`Systemic Design Issues`)**, xếp theo **Điểm ưu tiên (`Impact Score = Severity x k / 7`)**:
+
+| Mã Finding | Màn hình / Chặng | Mô tả điểm nghẽn trải nghiệm gom nhóm | Tần suất (`k / 7`) | Bản chất vấn đề | Severity | Điểm ưu tiên | Đối chiếu Bug / GitHub Issue |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **`UF-01`** | `Register`, `ForgotPassword` | Biểu thức chính quy mật khẩu bắt buộc khoảng trắng và từ chối ký tự đặc biệt chuẩn (`@ $ ! % * ? &`), chặn người dùng nhập đúng hướng dẫn. | **`7 / 7`** (`100%`) | `Isolated Bug` | **Critical** (`4`) | **`4.00`** | [`BUG-01`](bugs/BUG-01.md) ([#1](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1)) |
+| **`UF-02`** | `Login` | Ô `Mật khẩu` dùng `type="text"` phơi bày toàn bộ ký tự mật khẩu dạng chữ thường trên màn hình và không có nút ẩn/hiện. | **`7 / 7`** (`100%`) | `Isolated Bug` | **Critical** (`4`) | **`4.00`** | [`BUG-04`](bugs/BUG-04.md) ([#4](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/4)) |
+| **`UF-04`** | `Register -> Login` | Chuyển trang đột ngột sau khi đăng ký không báo thành công, không điền sẵn email vừa tạo, cộng hưởng với tiêu đề `/login` ghi sai thành `'Đăng Ký'`. | **`7 / 7`** (`100%`) | `Systemic Design Issue` | **Major** (`3`) | **`3.00`** | Kiến trúc luồng + [`BUG-13`](bugs/BUG-13.md) ([#13](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13)) |
+| **`UF-05`** | `Register` | Ô `Email` dùng `type="text"` không kiểm tra định dạng ở cả client lẫn server, cho lọt mọi chuỗi thiếu `'@'` (`'nguyenvanc'`, `'d'`, `'hhhhhh'`). | **`7 / 7`** (`100%`) | `Isolated Bug` | **Major** (`3`) | **`3.00`** | [`BUG-09`](bugs/BUG-09.md) ([#9](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9)) |
+| **`UF-06`** | Toàn luồng `F1` | Mô hình phản hồi phân mảnh giữa 4 màn hình: banner đầu form, chữ đỏ đáy nút và hộp thoại `window.alert()` chặn luồng kèm lỗi tiếng Anh thô `'Lỗi: User not found'`. | **`7 / 7`** (`100%`) | `Systemic Design Issue` | **Major** (`3`) | **`3.00`** | Hệ thống phản hồi + [`BUG-16`](bugs/BUG-16.md) ([#16](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/16)) |
+| **`UF-03`** | `Profile` | Biểu thức chính quy Số điện thoại từ chối mọi SĐT Việt Nam bắt đầu bằng số `0` (ngược hẳn gợi ý `VD: 0912345678`) nhưng cho lọt 9 số không `0` đầu. | **`4 / 7`** (`57.1%`) | `Isolated Bug` | **Critical** (`4`) | **`2.29`** | [`BUG-05`](bugs/BUG-05.md) ([#5](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5)) |
+| **`UF-07`** | `Register`, `Login`, `Profile` | Bất nhất thuật ngữ Anh–Việt (`'Email'` đổi sang `'Username'`/`'Sign In'` khiến `P03` gõ nhầm Họ tên) và thiếu dấu `*` phân biệt trường bắt buộc/tùy chọn. | **`5 / 7`** (`71.4%`) | `Systemic Design Issue` | **Major** (`3`) | **`2.14`** | Quy ước nhãn + [`BUG-14`](bugs/BUG-14.md) ([#14](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14)), [`BUG-23`](bugs/BUG-23.md) ([#23](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23)) |
+| **`UF-08`** | `Register`, `Forgot`, `Login` | Phòng ngừa lỗi mật khẩu ngược chiều: tạo mới thiếu nút ẩn/hiện và thiếu ô `'Xác nhận mật khẩu'` (`P01, P04` gõ lệch), nhưng đăng nhập sai 2 lần đã khóa ngầm 180 giây. | **`4 / 7`** (`57.1%`) | `Systemic Design Issue` | **Major** (`3`) | **`1.71`** | Phòng ngừa lỗi + [`BUG-07`](bugs/BUG-07.md) ([#7](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7)), [`BUG-06`](bugs/BUG-06.md) ([#6](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/6)) |
+| **`UF-09`** | `Profile`, `Header` | **Mất đồng bộ `AuthContext.user` sau khi lưu Hồ sơ:** Header giữ tên cũ (`BUG-11`) và **điều hướng nội bộ SPA quay lại `/profile` không nhấn `F5` làm mất sạch SĐT & Địa chỉ vừa lưu (`BUG-28` mới)**. | **`3 / 7`** (`42.9%`) | `Isolated Bug` | **Major** (`3`) | **`1.29`** | **[`BUG-28`](bugs/BUG-28.md) ([#28](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28) — Mới)** & [`BUG-11`](bugs/BUG-11.md) ([#11](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/11)) |
+| **`UF-11`** | `Register`, `Profile` | Bấm `'Thoát'` ngay tại `/profile` bị kẹt ở màn hình trắng `'Vui lòng đăng nhập'` (`P02`) và thiếu `name`/`autocomplete` gây tự điền chèn form (`P05, P07`). | **`3 / 7`** (`42.9%`) | `Isolated Bug` | **Minor** (`2`) | **`0.86`** | [`BUG-10`](bugs/BUG-10.md) ([#10](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/10)), [`BUG-24`](bugs/BUG-24.md) ([#24](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/24)) |
+| **`UF-10`** | `Register`, `Profile`, `Header` | Thiếu `maxLength`, thiếu `trim()` trường `Họ Tên` (`P05`) và thiếu `truncate` trên Header khiến tên dài đẩy nút `'Thoát'` văng khỏi màn hình (`P06`). | **`2 / 7`** (`28.6%`) | `Isolated Bug` | **Minor** (`2`) | **`0.57`** | [`BUG-18`](bugs/BUG-18.md) ([#18](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/18)), [`BUG-12`](bugs/BUG-12.md) ([#12](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/12)) |
+
+**Điểm nhấn phân tích chuyên sâu giữa Lỗi đơn lẻ mới (`BUG-28`) và Vấn đề thiết kế hệ thống:**
+
+1. **Giá trị độc nhất của kiểm thử với người dùng thật — Phát hiện lỗi mới [`BUG-28`](bugs/BUG-28.md) ([GitHub Issue #28](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28)):** Ở Task 1 (`CL-36`), kịch bản kiểm tra độ bền lưu trữ dùng thao tác nhấn `F5` tải lại trang nên vô tình kích hoạt `AuthContext.jsx:10-24` gọi lại `GET /api/users/me`, che khuất lỗi mất trạng thái SPA. Trong phiên `S05` (`01:34–01:48`), người tham gia `P05` lưu thành công SĐT `'912345678'` và Địa chỉ `'Hà Nội'`, sau đó hành xử tự nhiên bằng cách bấm logo `EShop` ra Trang chủ rồi bấm lại `'Chào, lethie'` quay về Hồ sơ mà không nhấn `F5`: **toàn bộ Số điện thoại và Địa chỉ giao hàng vừa lưu biến mất sạch về ô trống** (do `Profile.jsx:31-60` đọc lại `AuthContext.user` cũ chưa được cập nhật). Ngược lại, ở phiên `S07` (`01:02`), `P07` nhấn `Reload (F5)` trước khi chuyển trang SPA ở `01:06–01:08` nên dữ liệu còn nguyên — tạo thành cặp đối chứng thực nghiệm hoàn chỉnh chỉ đích danh lỗi mã nguồn và đã được lập hồ sơ đăng mới lên GitHub Issue `#28`.
+
+![Minh chứng thực nghiệm lỗi mới BUG-28 trích xuất từ video phiên S05](screenshots/usability/BUG-28_S05_SPA_State_Loss.png)
+
+2. **Tái hiện trực quan tác động của lỗi biên giao diện trên hành vi người dùng thật (`S06` — `BUG-18`):** Tại phiên `S06` (`00:58–01:26`), người tham gia `P06` thử nối chuỗi dài vào trường `Họ Tên` không giới hạn độ dài, làm thanh điều hướng trên cùng bị kéo giãn tuốt ra ngoài khung nhìn Desktop `1920x1080`, buộc người dùng phải kéo thanh cuộn ngang qua cả một vùng trắng lớn mới tìm thấy nút `'Thoát'`.
+
+![Minh chứng thực nghiệm P06 tái hiện lỗi vỡ ngang thanh Header BUG-18 ở phiên S06](screenshots/usability/S06_BUG-18_Header_Overflow.png)
+
+3. **Tổng hợp định tính từ 4 câu hỏi phỏng vấn mở (`Clarity`, `Error recovery`, `Speed`, `Trust` — nguyên văn từ `S01..S07.json`):**
+
+| Chiều phỏng vấn | Kết quả tổng hợp trên 7 người tham gia (`P01..P07`) | Trích dẫn nguyên văn tiêu biểu |
+| :--- | :--- | :--- |
+| **1. Độ rõ ràng (`Clarity`)** | `6/7` người (`P01..P06`) phản ánh sự thiếu thống nhất về tiêu đề trang (`'Đăng Ký'` đặt sai trên `/login`), trộn nhãn tiếng Anh (`'Username'`, `'Sign In'`, `button`) và chuyển đổi màn hình rời rạc; riêng `P07` đánh giá bố cục cơ bản dễ nhìn. | `P01`: *"Có một số nội dung chưa thống nhất, tiếng Anh hay tiếng Việt, button..."* · `P03`: *"Có, vài tiêu đề chưa thống nhất."* · `P05`: *"Tạm ổn cần khắc phục thêm về ngôn ngữ, hiển thị, chuyển đổi giữa các màn hình"* |
+| **2. Phục hồi sau lỗi (`Error recovery`)** | Nhóm chạm trực tiếp cảnh báo nhận xét thông báo không giúp tự sửa (`P01`) và hộp thoại `window.alert` quá cũ kỹ (`P02`); `4/7` người (`P03, P04, P05, P07`) trả lời chưa thấy/chưa kiểm chứng được cơ chế hỗ trợ sửa lỗi do hộp thoại `alert` biến mất ngay khi bấm `OK`. | `P01`: *"Không có, mình tự tắt thông báo rồi chỉnh sửa"* · `P02`: *"Tôi thấy có lỗi thì hiện alert rất cũ, trang web hiện tại ít dùng."* · `P04`, `P07`: *"Chưa kiểm chứng được."* |
+| **3. Tốc độ thao tác (`Speed`)** | `6/7` người (`P02..P07`) đánh giá tốc độ phản hồi trang nhanh gọn (`"Tốt"`, `"Ổn."`); riêng `P01` (`02:40`) xác nhận `"Có"` mất thời gian hơn kỳ vọng do bị kẹt ở mật khẩu và 5 lần thử sai SĐT đầu `0`. | `P01`: *"Có"* (`02:40`) · `P02..P06`: *"Tốt"* · `P07`: *"Ổn."* |
+| **4. Độ tin cậy (`Trust`)** | Phân hóa theo mức độ va chạm lỗi bảo mật hiển thị: `P01` từ chối tin tưởng (`"Không nhé"`) và `P02` dè dặt (`"Tạm"`) sau khi thấy lộ mật khẩu ở `/login` và lệch tên Header; 5 người còn lại đánh giá `"Ổn"` cho giao diện thử nghiệm. | `P01`: *"Không nhé"* · `P02`: *"Tạm"* · `P03..P07`: *"Ổn"* |
+
+### 5.9. Xếp hạng mức độ nghiêm trọng, Khuyến nghị cải tiến và Giới hạn nghiên cứu
+
+**1. Khuyến nghị cải tiến theo thứ tự ưu tiên mức độ nghiêm trọng (`Severity Ranking`):**
+- **Ưu tiên 1 — `Critical / Blocker` (`Impact Score 2.29 – 4.00`):** (a) Sửa biểu thức chính quy mật khẩu tại `Register.jsx:15` và `ForgotPassword.jsx:26` sang `/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/`; (b) Sửa regex Số điện thoại tại `Profile.jsx:43` sang `/^0\d{9,10}$/` kết hợp `.replace(/\s+/g, '')` để hỗ trợ thói quen gõ tách cụm số của người dùng Việt Nam; (c) Đổi ngay ô `Mật khẩu` tại `Login.jsx:49` sang `type="password"` kèm nút ẩn/hiện mật khẩu đồng nhất trên cả 3 trang xác thực.
+- **Ưu tiên 2 — `Major` (`Impact Score 1.29 – 3.00`):** (a) Bổ sung hàm cập nhật `AuthContext.user` ngay sau `PUT /api/users/me` tại `Profile.jsx` để khắc phục triệt để lỗi mất dữ liệu SPA `BUG-28` và lỗi lệch tên Header `BUG-11`; (b) Đổi toàn bộ ô Email sang `<input type="email" required>`; (c) Sửa tiêu đề `/login` thành `<h1>Đăng Nhập</h1>`, truyền `registeredEmail` kèm banner xanh xác nhận tạo tài khoản thành công khi chuyển từ `/register` sang `/login`; (d) Thay thế toàn bộ `window.alert()` bằng Inline Banner / Toast tiếng Việt thống nhất, Việt hóa `'Username'`/`'Sign In'`/`'Thoát'`, bổ sung ô `'Xác nhận mật khẩu'`, dấu `*` cho trường bắt buộc và thông báo đếm ngược thời gian khóa tài khoản.
+- **Ưu tiên 3 — `Minor` (`Impact Score 0.57 – 0.86`):** Áp `.trim()` + `maxLength={60}` cho trường `Họ Tên`, thêm lớp `max-w-[180px] truncate` cho nhãn `Chào, <tên>` trên Header, chuyển hướng tự động `<Navigate to="/login" replace />` khi đăng xuất khỏi `/profile`, và khai báo đầy đủ `id`/`htmlFor`/`name`/`autocomplete`/`type="tel"`.
+
+**2. Giới hạn của nghiên cứu (`Study Limitations`):**
+- **Quy mô mẫu (`n = 7`, `100% non-IT`):** Đủ phát hiện `> 80%` vấn đề khả dụng phổ biến theo đường cong Nielsen–Landauer, nhưng độ lệch chuẩn `SUS` (`± 11.3`) vẫn phản ánh biên độ khác biệt kỹ năng máy tính cá nhân và chưa đo riêng nhóm người dùng chuyên CNTT.
+- **Hiệu ứng của Giao thức cứu hộ (`System-Bug Rescue Protocol`):** Việc can thiệp gỡ chốt sau khi người dùng đã bộc lộ điểm nghẽn ở `4/7` phiên là bắt buộc để không đứt gãy dữ liệu các chặng sau, song có thể làm thời gian hoàn thành (`01:32 ± 00:36`) và điểm `SEQ` khả quan hơn thực tế tự xoay xở ngoài đời (nơi tỷ lệ bỏ cuộc thực tế sẽ `>= 57.1%`).
+- **Độ trễ mạng bằng `0 ms` trên `localhost`:** Chạy cục bộ với SQLite nội bộ nên người tham gia chưa chịu tác động rõ của lỗi thiếu trạng thái `loading`/chống bấm đúp khi mạng di động chập chờn (`BUG-26`).
 
 ---
-## 6. Báo Cáo Lỗi và GitHub Issues (Bug Report — `BUG-01` .. `BUG-27`)
+## 6. Báo Cáo Lỗi và GitHub Issues (Bug Report — `BUG-01` .. `BUG-28`)
 
-### 6.1. Thống kê phân bố 27 Bugs
+### 6.1. Thống kê phân bố 28 Bugs
 
-Từ `45` mục Checklist bị `Failed` (`130` ô lỗi trên 3 nền tảng), tôi thực hiện gom nhóm chống trùng lặp theo nguyên nhân gốc và thành phần giao diện (chi tiết trong [`bugs/bug_groups.md`](bugs/bug_groups.md)), thu được **`27` báo cáo lỗi độc lập (`BUG-01` .. `BUG-27`)**, toàn bộ đã được đăng thành **27 GitHub Issues (`#1` .. `#27`)** kèm ảnh chụp màn hình đính kèm tại `https://github.com/HuynhDucThinh/Software-Testing-HW03/issues` (hồ sơ nguyên văn từng lỗi nằm tại [`Bug_Report.md`](Bug_Report.md) và [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-27.md`](bugs/BUG-27.md)).
+Từ `45` mục Checklist bị `Failed` (`130` ô lỗi trên 3 nền tảng ở Task 1) kết hợp với **1 lỗi trạng thái SPA mới phát hiện từ hành vi người dùng thật ở phiên `S05` của Task 2 (`BUG-28`)**, tôi thực hiện gom nhóm chống trùng lặp theo nguyên nhân gốc và thành phần giao diện (chi tiết trong [`bugs/bug_groups.md`](bugs/bug_groups.md) và [`usability/findings.md`](usability/findings.md)), thu được **`28` báo cáo lỗi độc lập (`BUG-01` .. `BUG-28`)**, toàn bộ đã được đăng thành **28 GitHub Issues (`#1` .. `#28`)** kèm ảnh chụp màn hình đính kèm tại `https://github.com/HuynhDucThinh/Software-Testing-HW03/issues` (hồ sơ nguyên văn từng lỗi nằm tại [`Bug_Report.md`](Bug_Report.md) và [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-28.md`](bugs/BUG-28.md)).
 
 | Phân nhóm thống kê | Số lượng Bug | Tỷ lệ | Danh sách mã Bug |
 | :--- | :---: | :---: | :--- |
-| **Mức độ `Critical`** (Chặn hoàn thành luồng chính / lỗ hổng bảo mật XSS) | **5** | `18.52%` | `BUG-01`, `BUG-02`, `BUG-03`, `BUG-04`, `BUG-05` |
-| **Mức độ `Major`** (Sai đặc tả gây khó khăn hoặc nhầm lẫn đáng kể) | **10** | `37.04%` | `BUG-06`, `BUG-07`, `BUG-08`, `BUG-09`, `BUG-10`, `BUG-11`, `BUG-12`, `BUG-13`, `BUG-15`, `BUG-16` |
-| **Mức độ `Minor`** (Sai chuẩn UI/đặc tả phụ nhưng luồng chính vẫn dùng được) | **11** | `40.74%` | `BUG-14`, `BUG-17`, `BUG-18`, `BUG-19`, `BUG-20`, `BUG-21`, `BUG-22`, `BUG-23`, `BUG-24`, `BUG-25`, `BUG-26` |
-| **Mức độ `Cosmetic`** (Khác biệt thị giác / tương tác nhỏ) | **1** | `3.70%` | `BUG-27` |
-| **Khía cạnh `IA-01` / `IA-02` / `IA-03` / `IA-04`** | **5 / 11 / 5 / 6** | `100%` | Phủ trọn cả 4 khía cạnh giao diện của phạm vi M1 |
-| **Loại lỗi `State` / `Visual-Layout` / `Typo-Localization` / `Responsive`** | **14 / 11 / 1 / 1** | `100%` | Ánh xạ song ánh đủ `45 / 45` mục Checklist `Failed` |
+| **Mức độ `Critical`** (Chặn hoàn thành luồng chính / lỗ hổng bảo mật XSS) | **5** | `17.86%` | `BUG-01`, `BUG-02`, `BUG-03`, `BUG-04`, `BUG-05` |
+| **Mức độ `Major`** (Sai đặc tả / mất đồng bộ trạng thái gây khó khăn đáng kể) | **11** | `39.29%` | `BUG-06`, `BUG-07`, `BUG-08`, `BUG-09`, `BUG-10`, `BUG-11`, `BUG-12`, `BUG-13`, `BUG-15`, `BUG-16`, `BUG-28` |
+| **Mức độ `Minor`** (Sai chuẩn UI/đặc tả phụ nhưng luồng chính vẫn dùng được) | **11** | `39.29%` | `BUG-14`, `BUG-17`, `BUG-18`, `BUG-19`, `BUG-20`, `BUG-21`, `BUG-22`, `BUG-23`, `BUG-24`, `BUG-25`, `BUG-26` |
+| **Mức độ `Cosmetic`** (Khác biệt thị giác / tương tác nhỏ) | **1** | `3.57%` | `BUG-27` |
+| **Khía cạnh `IA-01` / `IA-02` / `IA-03` / `IA-04`** | **5 / 11 / 5 / 7** | `100%` | Phủ trọn cả 4 khía cạnh giao diện của phạm vi M1 & luồng F1 |
+| **Loại lỗi `State` / `Visual-Layout` / `Typo-Localization` / `Responsive`** | **15 / 11 / 1 / 1** | `100%` | Ánh xạ đủ `45 / 45` mục Checklist `Failed` + `1` lỗi thực nghiệm Task 2 (`BUG-28`) |
 
-### 6.2. Bảng danh mục 27 Bugs và liên kết GitHub Issues (`#1` .. `#27`)
+### 6.2. Bảng danh mục 28 Bugs và liên kết GitHub Issues (`#1` .. `#28`)
 
 | Mã Bug | GitHub Issue | IA | Severity | Priority | Mục Checklist gom chung | Nền tảng | Tiêu đề lỗi | Ảnh trang Issue |
 | :---: | :---: | :---: | :---: | :---: | :--- | :---: | :--- | :---: |
@@ -603,18 +749,19 @@ Từ `45` mục Checklist bị `Failed` (`130` ô lỗi trên 3 nền tảng), t
 | [`BUG-25`](bugs/BUG-25.md) | [#25](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25) | `IA-03` | **Minor** | Low | `CL-24`, `CL-28`, `SV-16` | P1, P2, P3 | [Header, Login] Thanh Navbar không đánh dấu mục trang đang mở, liên kết 'Quên mật khẩu?' gây tải lại toàn trang và tiêu đề tab trình duyệt giữ nguyên 'frontend-web' ở mọi route | [`ISSUE-25`](screenshots/github_issues/ISSUE-25_BUG-25.png) |
 | [`BUG-26`](bugs/BUG-26.md) | [#26](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/26) | `IA-04` | **Minor** | Medium | `CL-37` | P1, P2 | [Register, Login, ForgotPassword, Profile] Các nút gửi biểu mẫu thiếu trạng thái đang xử lý (loading) và không khóa tạm (disabled) để chống bấm đúp khi chờ API | [`ISSUE-26`](screenshots/github_issues/ISSUE-26_BUG-26.png) |
 | [`BUG-27`](bugs/BUG-27.md) | [#27](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27) | `IA-03` | **Cosmetic** | Low | `CL-31`, `SV-19` | P1, P2, P3 | [All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px | [`ISSUE-27`](screenshots/github_issues/ISSUE-27_BUG-27.png) |
+| [`BUG-28`](bugs/BUG-28.md) | [#28](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28) | `IA-04` | **Major** | High | `Task 2 — S05 (UF-09)` | P1, P2, P3 | [Profile] Dữ liệu Số điện thoại và Địa chỉ giao hàng vừa cập nhật biến mất sạch trên biểu mẫu khi điều hướng nội bộ SPA quay lại trang Hồ sơ | [`ISSUE-28`](screenshots/github_issues/ISSUE-28_BUG-28.png) |
 
 ### 6.3. Ảnh chụp trang danh sách GitHub Issues
 
-- Trang danh sách Issues trên repository `HuynhDucThinh/Software-Testing-HW03` (27 Open Issues `#1`..`#27` gắn nhãn `bug`, `M1`, `IA-01..04`, `severity: *`): [https://github.com/HuynhDucThinh/Software-Testing-HW03/issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues)
+- Trang danh sách Issues trên repository `HuynhDucThinh/Software-Testing-HW03` (28 Open Issues `#1`..`#28` gắn nhãn `bug`, `M1`, `IA-01..04`, `severity: *`): [https://github.com/HuynhDucThinh/Software-Testing-HW03/issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues)
 
 ![Danh sách GitHub Issues HW03-M1 — Trang 1 (#1..#14)](screenshots/github_issues/GitHub_Issues_Overview_Page1.png)
 
-![Danh sách GitHub Issues HW03-M1 — Trang 2 (#15..#27)](screenshots/github_issues/GitHub_Issues_Overview_Page2.png)
+![Danh sách GitHub Issues HW03-M1 — Trang 2 (#15..#28)](screenshots/github_issues/GitHub_Issues_Overview_Page2.png)
 
-### 6.4. Hồ sơ kỹ thuật tóm tắt từng Bug (`BUG-01` .. `BUG-27`)
+### 6.4. Hồ sơ kỹ thuật tóm tắt từng Bug (`BUG-01` .. `BUG-28`)
 
-Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả 27 Bug ngay trong báo cáo chính (bản đầy đủ từng bước và toàn bộ log nguyên văn từng nền tảng xem thêm tại [`Bug_Report.md`](Bug_Report.md)):
+Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả 28 Bug ngay trong báo cáo chính (bản đầy đủ từng bước và toàn bộ log nguyên văn từng nền tảng xem thêm tại [`Bug_Report.md`](Bug_Report.md)):
 
 #### `BUG-01` ([GitHub Issue #1](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1)) — [IA-02] [Register, ForgotPassword] Biểu thức chính quy mật khẩu bắt buộc khoảng trắng và từ chối toàn bộ ký tự đặc biệt hợp lệ (@ $ ! % * ? &)
 - **Phân loại:** Severity **Critical** · Priority **High** · Loại lỗi `State` · Mục Checklist: `CL-19`, `SV-08`, `SV-09` · Nền tảng tái hiện: `P1, P2, P3`
@@ -859,6 +1006,15 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 - **Tác động tới người dùng (`Impact`):** Giảm phản hồi cảm nhận tương tác khi dùng chuột trên máy tính và làm người dùng màn hình cảm ứng (`P3`) khó chạm chính xác vào các liên kết nhỏ như `Quên mật khẩu?`.
 - **Bằng chứng đính kèm:** Ảnh lỗi trên SUT: [`P1_CL-31.png`](screenshots/task1_failed/P1_CL-31.png), [`P3_SV-19.png`](screenshots/task1_failed/P3_SV-19.png) · Ảnh chụp trang GitHub Issue: [`ISSUE-27_BUG-27.png`](screenshots/github_issues/ISSUE-27_BUG-27.png)
 
+#### `BUG-28` ([GitHub Issue #28](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28)) — [IA-04] [Profile] Dữ liệu Số điện thoại và Địa chỉ giao hàng vừa cập nhật biến mất sạch trên biểu mẫu khi điều hướng nội bộ SPA quay lại trang Hồ sơ
+- **Phân loại:** Severity **Major** · Priority **High** · Loại lỗi `State` · Nguồn phát hiện: `Task 2 — Phiên S05 (UF-09, đối chứng với S07)` · Nền tảng tái hiện: `P1, P2, P3`
+- **Màn hình & URL:** Profile (`/profile`) (`http://localhost:5173/profile`)
+- **Tóm tắt bước tái hiện:** (1) Đăng ký tài khoản mới tại `/register` và đăng nhập tại `/login` (ví dụ tài khoản `lethie` trong phiên `S05`). -> (2) Bấm liên kết `Chào, lethie` trên thanh Header để mở `/profile`, nhập Số điện thoại `912345678` (vượt bộ lọc `BUG-05`) và Địa chỉ giao hàng `Hà Nội`, bấm `Cập nhật` và đóng hộp thoại `Cập nhật thành công!` (`S05.mp4 @ 01:34`). -> (3) Không nhấn `F5`, bấm logo `EShop` về Trang chủ (`01:46`) rồi bấm lại `Chào, lethie` mở lại `/profile` (`01:48`).
+- **Kết quả mong đợi (`Expected`):** Theo `FR-04` (`eshop-sut/README.md:64`) và nguyên tắc nhất quán trạng thái phiên làm việc, sau khi API `PUT /api/users/me` báo thành công, mọi lần mở lại trang `/profile` bằng điều hướng nội bộ SPA đều phải hiển thị đầy đủ giá trị `Họ Tên`, `Số điện thoại` và `Địa chỉ giao hàng` vừa lưu mà không cần tải lại toàn bộ trình duyệt.
+- **Kết quả thực tế (`Actual`):** Khi quay lại `/profile` qua liên kết SPA ở Bước 3, cả hai ô `Số điện thoại` và `Địa chỉ giao hàng` bị xóa trắng quay về placeholder rỗng (do `Profile.jsx:31-38` khởi tạo form từ `AuthContext.user` cũ mà không gọi `GET /api/users/me`, và `handleUpdate` ở `Profile.jsx:48-60` không cập nhật lại `AuthContext.user`; đối chứng với `S07 @ 01:02` nơi `P07` nhấn `F5` nên `AuthContext.jsx:10-24` nạp lại `/api/users/me`).
+- **Tác động tới người dùng (`Impact`):** Làm sụt giảm nghiêm trọng niềm tin vì hệ thống vừa báo `Cập nhật thành công!` nhưng quay lại kiểm tra thấy dữ liệu biến mất sạch; đồng thời gây nguy cơ ghi đè chuỗi rỗng `""` làm mất địa chỉ thật trong CSDL nếu người dùng bấm `Cập nhật` lần nữa.
+- **Bằng chứng đính kèm:** Ảnh lỗi trích xuất từ phiên thật `S05`: [`BUG-28_S05_SPA_State_Loss.png`](screenshots/usability/BUG-28_S05_SPA_State_Loss.png) · Ảnh chụp trang GitHub Issue: [`ISSUE-28_BUG-28.png`](screenshots/github_issues/ISSUE-28_BUG-28.png)
+
 ---
 
 ## 7. Agent Skills và Video Demo (Task 4)
@@ -891,14 +1047,14 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 | **Số lượt `Failed`** | 44 | 44 | 42 | **130 ô (`45/59` mục độc lập phát hiện lỗi)** |
 | **Số lượt `N/A` (hợp lệ theo `NA1`, `NA2`)** | 1 | 1 | 7 | **9 ô** |
 | **Số lượt `Blocked`** | 0 | 0 | 0 | **0 ô** |
-| **Tổng số Bugs đã lập & đăng GitHub Issues** | — | — | — | **27 Bugs (`#1`..`#27`)**: `5 Critical`, `10 Major`, `11 Minor`, `1 Cosmetic` |
-| **Số phiên đánh giá Usability (Task 2 — Luồng `F1`)** | — | — | — | *Đang cập nhật (1 Pilot `S00` + 7 phiên thật `S01..S07`)* |
+| **Tổng số Bugs đã lập & đăng GitHub Issues** | — | — | — | **28 Bugs (`#1`..`#28`)**: `5 Critical`, `11 Major`, `11 Minor`, `1 Cosmetic` (`27` từ Task 1 + `1` mới `BUG-28` từ Task 2) |
+| **Số phiên đánh giá Usability (Task 2 — Luồng `F1`)** | 8 (`1` Pilot + `7` Chính thức) | — | — | **7 người thật ngoài lớp (`P01..P07`, `100% non-IT`)** + 1 Pilot (`P00`); **`SUS = 48.6 ± 11.3` (`Hạng F`)**, `SEQ = 3.43 ± 0.98`, độc lập `3/7` + cứu hộ `4/7` |
 
 ---
 
 ## 9. Tóm Tắt AI Audit Report
 
-Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ / sửa / loại bỏ của sinh viên) được lưu nối tiếp theo trình tự thời gian trong một file duy nhất [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01` .. `Entry 10`) và sẽ được xuất tổng hợp thành tài liệu bắt buộc `AI_Critique_and_Audit_Report.md` (+ bản `.pdf`) ở Bước 7 bằng script `ai_audit_export.py`.
+Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ / sửa / loại bỏ của sinh viên) được lưu nối tiếp theo trình tự thời gian trong một file duy nhất [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01` .. `Entry 16`) và sẽ được xuất tổng hợp thành tài liệu bắt buộc `AI_Critique_and_Audit_Report.md` (+ bản `.pdf`) ở bước đóng gói cuối cùng bằng script `ai_audit_export.py`.
 
 ---
 
@@ -914,8 +1070,9 @@ Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên
 
 1. **Khảo sát & Nháp Checklist ban đầu (Task 1 — Bước 0 & Bước 1):** Hỗ trợ quét mã nguồn lập bảng `checklist/m1_inventory.md`, trích lục điều khoản đặc tả vào `checklist/m1_test_basis.md` và sinh bản nháp đầu tiên gồm 39 mục (`CL-01`..`CL-39`) qua 4 lượt prompt tách biệt theo từng khía cạnh `IA-01`..`IA-04` (đóng băng tại `checklist/ai-outputs/`).
 2. **Kiểm tra cấu trúc & Chuẩn bị công cụ thực thi (Task 1 — Bước 2 & Bước 3):** Kiểm tra schema JSON khi gộp 20 mục do sinh viên bổ sung (`SV-01`..`SV-20`), tính ma trận độ phủ, sinh hướng dẫn phân cụm chạy `checklist/RUN.md` và script đọc DOM khách quan `checklist/dom_probe.js`.
-3. **Tổng hợp sổ làm việc Excel, gom nhóm dữ kiện Bug & đồng bộ GitHub Issues (Bước 5 & Bước 6):** Sinh sổ làm việc `checklist/M1_GUI_Checklist_And_Summary.xlsx` 3 sheet có công thức tự động, trích xuất danh sách 130 ô `Failed`, hỗ trợ đăng 27 GitHub Issues (`#1`..`#27`) lên `HuynhDucThinh/Software-Testing-HW03` và kết xuất bảng biểu đồng bộ sang `Bug_Report.md`, `Main_Report.md`, `README.md`.
-4. **Phần do sinh viên trực tiếp kiểm duyệt và thực hiện:** Xác định phạm vi không chồng lấn `M1`/`F1`, hiệu chỉnh các mục `CL-09` & `CL-10` (`nguon: "Both"`), tự phát hiện khoảng trống để bổ sung 20 mục `SV-01`..`SV-20` kèm giải thích lý do AI bỏ sót, kiểm duyệt kết quả thực thi trên 3 nền tảng `P1/P2/P3`, quyết định cách gom nhóm 27 Bugs và mức độ nghiêm trọng, cũng như trực tiếp tuyển chọn và điều phối 7 người tham gia thật ngoài lớp học ở Task 2.
+3. **Tổng hợp sổ làm việc Excel, gom nhóm dữ kiện Bug & đồng bộ GitHub Issues (Task 1 & Task 3 — Bước 5 & Bước 6):** Sinh sổ làm việc `checklist/M1_GUI_Checklist_And_Summary.xlsx` 3 sheet có công thức tự động, trích xuất danh sách 130 ô `Failed`, hỗ trợ đăng GitHub Issues lên `HuynhDucThinh/Software-Testing-HW03` và kết xuất bảng biểu đồng bộ.
+4. **Thiết kế công cụ khảo sát, kiểm định dữ liệu & phân tích định lượng Đánh giá Khả năng Sử dụng (Task 2 — Bước 0 .. Bước 5):** Hỗ trợ soạn nháp kế hoạch 9 phần `usability/plan.md`, bộ phiếu khảo sát `usability/participant_kit.md` và `usability/moderator_script.md` (đóng băng mã băm `SHA-256` tại `usability/frozen/`), xây dựng trạm thu phiếu ngoại tuyến `usability/session_helper.html`, đối chiếu khớp mốc giây trên video quay màn hình `S00.mp4..S07.mp4`, chạy `analyze_usability.py` tính toán ma trận điểm chuẩn `SUS` (`Q1..Q10`), tổng hợp `usability/findings.md` và đăng lỗi mới `BUG-28` (`GitHub Issue #28`).
+5. **Phần do sinh viên trực tiếp kiểm duyệt và thực hiện thủ công (`100% Human-Executed`):** Xác định phạm vi không chồng lấn `M1`/`F1`, hiệu chỉnh các mục `CL-09` & `CL-10` (`nguon: "Both"`), tự phát hiện khoảng trống bổ sung 20 mục `SV-01`..`SV-20` kèm giải thích lý do AI bỏ sót, kiểm duyệt kết quả thực thi trên 3 nền tảng `P1/P2/P3`, **trực tiếp tuyển chọn, liên hệ, điều phối tại chỗ và quay màn hình toàn bộ 1 phiên Pilot (`P00`) + 7 phiên người tham gia thật ngoài lớp học (`P01..P07`)**, thu nhận nguyên văn điểm `SEQ`/`SUS`/`4 câu trả lời phỏng vấn mở` từ từng người tham gia, và phê duyệt phân tách `Isolated Bugs` vs `Systemic Design Issues`.
 
 ---
 
@@ -923,18 +1080,19 @@ Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên
 
 | No. | Criteria | Max Grade | Self-Assessed Grade | Hiện vật minh chứng chính |
 | :---: | :--- | :---: | :---: | :--- |
-| **1** | **Task 1 — GUI Checklist** (design + execution + bug report) | **30** | *Chốt ở Bước 7* | `Main_Report.md` (§3, §6), `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `Bug_Report.md`, 27 GitHub Issues (`#1`..`#27`) |
-| **2** | **Task 2 — Usability Evaluation** (task scenario + 7 sessions + analysis) | **40** | *Chốt ở Bước 7* | `usability/` (Kế hoạch, Kịch bản `F1`, Pilot `S00` + 7 phiên `S01..S07`, bảng `SUS` & phân tích) |
-| **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | *Chốt ở Bước 7* | `Main_Report.md` (§4), `checklist/runs/P1..P3_*.csv`, `screenshots/task3_cross_platform/` (15 ảnh), `screenshots/task1_failed/` (130 ảnh) |
-| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | *Chốt ở Bước 7* | `.agents/skills/gui-checklist-testing/`, `.agents/skills/usability-evaluation/`, link YouTube Demo |
-| | **Total** | **100** | *Chốt ở Bước 7* | |
+| **1** | **Task 1 — GUI Checklist** (design + execution + bug report) | **30** | **`30`** | `Main_Report.md` (§3, §6), `checklist/M1_GUI_Checklist_And_Summary.xlsx` (`59` mục, `168` lượt chạy), `checklist/sv_items.md` (`20` mục SV), `Bug_Report.md` & `28` GitHub Issues (`#1`..`#28`) |
+| **2** | **Task 2 — Usability Evaluation** (task scenario + 7 sessions + analysis) | **40** | **`40`** | `Main_Report.md` (§5), `usability/plan.md`, `usability/participant_kit.md`, `usability/participants.md` (`1` Pilot + `7` người thật ngoài lớp che 4 số giữa), `usability/sessions/S00..S07.json` (`7` commit riêng), `usability/recordings/LINKS.md` (`8` video Google Drive), `usability/sus_and_metrics_summary.md`, `usability/findings.md` & `BUG-28` (`#28`) |
+| **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | **`20`** | `Main_Report.md` (§4), `checklist/runs/P1..P3_*.csv`, `screenshots/task3_cross_platform/` (`15` ảnh thực tế có lớp phủ email), `screenshots/task1_failed/` (`130` ảnh) |
+| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | *Chốt sau khi gắn link YouTube Demo* | `.agents/skills/gui-checklist-testing/`, `.agents/skills/usability-evaluation/`, link YouTube Demo |
+| | **Total** | **100** | *Chốt ở bước đóng gói cuối* | |
 
 ---
 
 ## 13. Phụ Lục và Cấu Trúc Hồ Sơ Nộp Bài
 
-- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** `AI_Critique_and_Audit_Report.md` (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/`](ai_log/).
-- **Phụ lục B — Các bản đóng băng đầu ra AI theo từng bước:** [`checklist/ai-outputs/`](checklist/ai-outputs/) (`INDEX.md` + các snapshot JSON Bước 0..Bước 3b).
-- **Phụ lục C — Sổ làm việc Excel & Dữ liệu thực thi gốc:** [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`checklist/checklist.json`](checklist/checklist.json), [`checklist/runs/`](checklist/runs/).
-- **Phụ lục D — Hồ sơ chi tiết 27 Bugs & Bằng chứng GitHub Issues:** [`Bug_Report.md`](Bug_Report.md), [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-27.md`](bugs/BUG-27.md), [`screenshots/github_issues/`](screenshots/github_issues/).
-- **Phụ lục E — Lịch sử Git Commit theo từng bước:** `git_commit_log.txt`.
+- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** `AI_Critique_and_Audit_Report.md` (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 16`).
+- **Phụ lục B — Các bản đóng băng đầu ra AI theo từng bước:** [`checklist/ai-outputs/`](checklist/ai-outputs/) (`INDEX.md` + snapshot JSON Task 1) và [`usability/frozen/`](usability/frozen/) (`INDEX.md` + snapshot `SHA-256` Bước 0 & Bước 1 của Task 2).
+- **Phụ lục C — Sổ làm việc Excel & Dữ liệu thực thi gốc Task 1 & Task 3:** [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`checklist/checklist.json`](checklist/checklist.json), [`checklist/runs/`](checklist/runs/).
+- **Phụ lục D — Hồ sơ chi tiết 28 Bugs & Bằng chứng GitHub Issues:** [`Bug_Report.md`](Bug_Report.md), [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-28.md`](bugs/BUG-28.md), [`screenshots/github_issues/`](screenshots/github_issues/), [`screenshots/usability/`](screenshots/usability/).
+- **Phụ lục E — Bộ hồ sơ thực nghiệm Đánh giá Khả năng Sử dụng (Task 2):** [`usability/plan.md`](usability/plan.md), [`usability/participant_kit.md`](usability/participant_kit.md), [`usability/moderator_script.md`](usability/moderator_script.md), [`usability/participants.md`](usability/participants.md), [`usability/pilot_refinements.md`](usability/pilot_refinements.md), [`usability/sessions/`](usability/sessions/) (`S00.json`..`S07.json`), [`usability/recordings/LINKS.md`](usability/recordings/LINKS.md), [`usability/sus_and_metrics_summary.md`](usability/sus_and_metrics_summary.md), [`usability/findings.md`](usability/findings.md).
+- **Phụ lục F — Lịch sử Git Commit theo từng bước:** `git_commit_log.txt`.
