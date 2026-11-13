@@ -318,3 +318,25 @@ Sinh viên lần lượt điều phối trực tiếp 7 người tham gia thật
 **By hand:** Sinh viên tự tuyển chọn, liên hệ và trực tiếp điều phối tại chỗ toàn bộ 7 phiên thử nghiệm với 7 người thật ngoài lớp học (`P01..P07`), tự quay màn hình 7 phiên, thu phiếu chấm `SEQ`/`SUS`/`4 câu mở` từ từng người tham gia và lưu giữ danh sách số điện thoại đầy đủ ở tệp riêng tư ngoài kho mã nguồn để phục vụ trợ giảng xác minh ngẫu nhiên.
 
 ---
+
+## Entry 15 — 2026-11-13 - Task 2 Bước 4: Tính toán ma trận điểm SUS, thống kê hiệu năng 7 phiên và khởi tạo khung Findings
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-13 23:34 +07:00
+**Task / Step:** Task 2, Bước 4 (Chạy `analyze_usability.py` kết xuất báo cáo định lượng `usability/sus_and_metrics_summary.md` và khởi tạo khung phân tích `usability/findings.md`)
+**Prompt:**
+Thực hiện Bước 4
+
+**AI output:**
+Đã thực hiện trọn vẹn Bước 4 của skill `usability-evaluation` trên bộ dữ liệu thực nghiệm `S00` (Pilot) và `S01..S07` (7 phiên chính thức):
+- Chạy `python .agents/skills/usability-evaluation/scripts/analyze_usability.py usability/sessions --expect 7 --benchmark 05:00 --out usability/sus_and_metrics_summary.md` đạt `0 lỗi`, tách biệt hoàn toàn số liệu phiên Pilot `S00` (`SUS = 47.5`, `SEQ = 5`) khỏi thống kê chính thức.
+- Xuất đầy đủ ma trận điểm gốc (`1..5`) và điểm quy đổi Brooke từng câu `Q1..Q10` của cả 7 người tham gia `P01..P07`: điểm `SUS` trung bình đạt **`48.6 ± 11.3`** (`Median = 47.5`, `Min–Max = 30.0 – 67.5`, lệch `-19.4` điểm so với mốc trung bình lịch sử `68.0`), xếp hạng chữ **`F`** (`Poor` / `Not Acceptable`).
+- Tổng hợp các chỉ số hiệu năng thực thi: độ dễ sau nhiệm vụ `SEQ = 3.43 ± 0.98` (`Median = 3.0`), hoàn thành độc lập `3/7` (`42.9%`), hoàn thành có cứu hộ tại điểm lỗi chặn SUT `4/7` (`57.1%`), tổng tỷ lệ đi hết luồng trong mốc Benchmark `<= 05:00` đạt `7/7` (`100.0%`), thời gian thực hiện trung bình `01:32 ± 00:36` (`Median = 01:18`, `00:48 – 02:40`), trung bình `4.57` lỗi (`E`) / `0.57` do dự (`H`) / `0.86` cứu hộ (`A`) mỗi phiên, kèm danh mục 49 sự kiện lỗi kỹ thuật (`is_bug: true`) đối chiếu mã Bug.
+- Khởi tạo khung tài liệu phân tích `usability/findings.md` cho luồng `F1` để chuẩn bị sang Bước 5.
+
+**Kept:** Giữ nguyên toàn bộ báo cáo định lượng `usability/sus_and_metrics_summary.md` và khung `usability/findings.md`.
+**Changed:** Ánh xạ sự kiện `00:52` của phiên `S06` (hệ thống chấp nhận số điện thoại 9 chữ số `'912345678'` không có số `0` đầu) về đúng mã lỗi gốc `BUG-05`, giúp tách bạch rõ `BUG-28` ở phiên `S05` (`01:48`) là lỗi phần mềm đơn lẻ mới duy nhất cần đăng thêm GitHub Issue `#28` ở Bước 5.
+**Rejected:** Không có.
+**By hand:** Sinh viên rà soát ma trận điểm `SUS` từng câu `Q1..Q10` và bảng thống kê hiệu năng trong `usability/sus_and_metrics_summary.md` trước khi kích hoạt Bước 5.
+
+---

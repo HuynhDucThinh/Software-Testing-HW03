@@ -76,9 +76,9 @@
       "t": "00:52",
       "screen": "Profile",
       "type": "E",
-      "description": "Nhập 9 chữ số '912345678' vào ô Số điện thoại và để trống hoàn toàn ô 'Địa chỉ giao hàng' nhưng hệ thống vẫn báo 'Cập nhật thành công!'.",
+      "description": "Nhập 9 chữ số '912345678' (không bắt đầu bằng số 0) vào ô Số điện thoại và để trống hoàn toàn ô 'Địa chỉ giao hàng' nhưng hệ thống vẫn chấp nhận báo 'Cập nhật thành công!'.",
       "is_bug": true,
-      "known_bug_id": null
+      "known_bug_id": "BUG-05"
     },
     {
       "t": "00:58",
