@@ -1,7 +1,7 @@
 # [IA-03] [All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px
 
 ## Summary
-Các nút hành động và liên kết trên thanh Header/biểu mẫu thiếu lớp CSS phản hồi màu sắc khi rê chuột (`:hover`), đồng thời các liên kết điều hướng nội dòng (`Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay`) chỉ có chiều cao `16px-19px` không có đệm `padding`, thấp hơn ngưỡng vùng chạm tối thiểu `24x24 CSS px` của WCAG 2.2.
+Nhiều nút hành động (`Lấy mã OTP`, `Đặt lại mật khẩu`, `← Quay lại`, `Thoát`, `Cập nhật`) và logo `EShop` thiếu phản hồi màu sắc khi rê chuột (`:hover`), trong khi `Sign In` lại có, gây thiếu nhất quán, đồng thời các liên kết điều hướng nội dòng (`Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay`) chỉ có chiều cao `16px-19px` không có đệm `padding`, thấp hơn ngưỡng vùng chạm tối thiểu `24x24 CSS px` của WCAG 2.2.
 
 - **Bug ID:** `BUG-27`
 - **Checklist item:** `CL-31`, `SV-19`
@@ -15,7 +15,7 @@ Các nút hành động và liên kết trên thanh Header/biểu mẫu thiếu 
 ## Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -24,7 +24,7 @@ Các nút hành động và liên kết trên thanh Header/biểu mẫu thiếu 
 Kiểm tra `:hover` trên Desktop (`P1`, `P2`) và đo bounding box của các liên kết trên cả 3 nền tảng (`P1`, `P2`, `P3`).
 
 ## Steps to reproduce
-1. Trên `P1`/`P2`, di chuyển con trỏ chuột lần lượt lên các liên kết trên Header (`Giỏ hàng`, `Đăng nhập`, `Đăng ký`, `Thoát`) và các nút Submit (`Sign In`, `Lấy mã OTP`, `Đặt lại mật khẩu`, `Cập nhật`) để quan sát thay đổi màu nền/màu chữ.
+1. Trên `P1`/`P2`, di chuyển con trỏ chuột lần lượt lên logo `EShop`, nút `Thoát` trên Header và các nút `Sign In`, `Lấy mã OTP`, `Đặt lại mật khẩu`, `← Quay lại`, `Cập nhật` để so sánh màu nền/màu chữ trước và trong khi hover.
 2. Dùng DevTools đo kích thước `getBoundingClientRect()` của các liên kết `Đăng nhập` (`/register`), `Quên mật khẩu?` và `Đăng ký ngay` (`/login`) trên `P1`, `P2` và `P3`.
 
 ## Expected result
@@ -34,7 +34,7 @@ Theo Slide 10 #12 (Hover and Focus), các nút và liên kết tương tác cầ
 - **`SV-19`** (*Kích thước vùng chạm của nút và liên kết* — căn cứ: `WCAG 2.2 SC 2.5.8 Target Size (Minimum); Slide 10 #18 Element Overlap`): Mọi nút và liên kết dạng chữ trên 5 vùng giao diện có vùng chạm tối thiểu 24 x 24 CSS px (đo bằng `getBoundingClientRect()`), và trên điện thoại Android chạm đúng một lần vào phần tử cần chọn mà không bấm nhầm phần tử kề bên. Fail nếu có nút hoặc liên kết có chiều cao hoặc chiều rộng nhỏ hơn 24 CSS px, hoặc chạm một lần trên điện thoại Android kích hoạt nhầm phần tử kề bên.
 
 ## Actual result
-Hầu hết các nút Submit (trừ nút đỏ trên `/register` có `hover:bg-red-600`) và toàn bộ liên kết Header giữ nguyên màu sắc khi `:hover`; chiều cao thực tế các liên kết `Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay` chỉ đạt `19px` trên `P1`/`P2` và `16px` trên `P3` (`< 24px`).
+Đo `getComputedStyle` trước và trong khi rê chuột trên `P1`, `P2`: 6/8 phần tử được đo **không** đổi màu nền/màu chữ/gạch chân gồm logo `EShop`, nút `Lấy mã OTP`, `Đặt lại mật khẩu`, `← Quay lại`, `Thoát`, `Cập nhật` (riêng `Sign In` đổi nền sang `rgb(29, 78, 216)` và `Quên mật khẩu?` có gạch chân, nên giao diện thiếu nhất quán); chiều cao thực tế các liên kết `Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay` chỉ đạt `19px` trên `P1`/`P2` và `16px` trên `P3` (`< 24px`).
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`CL-31` trên `P1`:** Actual: Nhấn phím Enter gửi form=true; tuy nhiên các nút thiếu hiệu ứng đổi màu khi hover hoặc thiếu cursor: pointer gồm: Register `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); Login `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 `<button>` "Lấy mã OTP" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 `<button>` "Đặt lại mật khẩu" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 `<button>` "← Quay lại" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header `<button>` "Thoát" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header `<button>` "Cập nhật" (cursor=pointer, đổi màu/gạch chân khi hover=false).

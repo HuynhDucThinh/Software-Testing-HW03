@@ -310,3 +310,15 @@
 - ly_do_AI_bo_sot:
   - loai: giới hạn model
   - giai_thich: Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có điện thoại thật nên không đưa mục phụ thuộc thiết bị di động vào checklist.
+
+
+## Ghi chú về các khía cạnh đề bài gợi ý nhưng không đưa thành mục kiểm tra (bổ sung 14/11/2026)
+
+Đề bài (Mục 6, Task 1) nêu ví dụ các khía cạnh AI hay bỏ sót gồm **accessibility, RTL và dark mode**. Accessibility đã được phủ bằng các mục `CL-11` (tương phản), `CL-23` (label), `SV-01`/`SV-02`/`SV-17` (bàn phím, focus), `SV-18` (zoom 200%), `SV-19` (vùng chạm), `SV-12`/`SV-20` (mục đích ô nhập). Hai khía cạnh còn lại được SV khảo sát và quyết định **không lập mục kiểm tra**, với số liệu đo trên `P1` (Google Chrome 157, Playwright `emulateMedia`) như sau:
+
+| Khía cạnh | Số liệu đo trên SUT | Quyết định của SV | Lý do |
+|---|---|---|---|
+| **Dark mode** | Với `colorScheme: 'light'` và `'dark'`, nền khung form `/register` đều là `rgb(255, 255, 255)`; số quy tắc CSS chứa `prefers-color-scheme` hoặc lớp `.dark` = `0`. | Không lập mục | Đặc tả `eshop-sut/README.md` không yêu cầu giao diện tối và SUT không cài đặt chế độ này; một mục "phải có dark mode" sẽ không có căn cứ đặc tả (oracle). Kết quả đo được ghi lại để chứng minh đã kiểm tra. |
+| **RTL (right-to-left)** | `<html lang="en">`, không có thuộc tính `dir`; toàn bộ nội dung là tiếng Việt (viết trái sang phải). | Không lập mục | SUT chỉ có một ngôn ngữ tiếng Việt, không hỗ trợ ngôn ngữ viết phải sang trái, nên bố cục RTL không thể kích hoạt. |
+
+> Quan sát phụ khi khảo sát: thuộc tính `<html lang="en">` không khớp nội dung tiếng Việt (WCAG 2.2 SC 3.1.1 Language of Page). Đây là phát hiện ngoài phạm vi 59 mục đã chạy nên chỉ ghi nhận tại đây, chưa lập Bug.

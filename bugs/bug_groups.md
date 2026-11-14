@@ -26,7 +26,7 @@
 | `G-16` | `BUG-16` | `IA-04` | **Major** | Medium | `CL-35` | P1, P2, P3 | [ForgotPassword, Profile] Sử dụng hộp thoại chặn window.alert() và hiển thị thông báo lỗi tiếng Anh thô 'Lỗi: User not found' |
 | `G-17` | `BUG-17` | `IA-02` | **Minor** | Medium | `SV-03`, `SV-04` | P1, P2, P3 | [Login, Register] Vị trí khối thông báo lỗi đặt sai chuẩn: nằm bên dưới nút 'Sign In' ở Đăng nhập và cách xa nút 'Đăng Ký' 336px ở đầu form Đăng ký |
 | `G-18` | `BUG-18` | `IA-01` | **Minor** | Medium | `SV-06` | P1, P2, P3 | [Header] Họ Tên dài 100 ký tự không khoảng trắng làm tràn ngang thanh Header và đẩy nút 'Thoát' ra khỏi khung nhìn |
-| `G-19` | `BUG-19` | `IA-01` | **Minor** | Medium | `CL-07`, `CL-08` | P1, P2, P3 | [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám |
+| `G-19` | `BUG-19` | `IA-01` | **Minor** | Medium | `CL-07`, `CL-08` | P1, P2, P3 | [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá |
 | `G-20` | `BUG-20` | `IA-01` | **Minor** | Low | `CL-11` | P1, P2, P3 | [Register] Dòng hướng dẫn quy tắc mật khẩu màu xám nhạt (#9ca3af) chỉ đạt độ tương phản 2.54:1, thấp hơn chuẩn WCAG AA 4.5:1 |
 | `G-21` | `BUG-21` | `IA-03` | **Minor** | Medium | `CL-17`, `CL-26` | P1, P2, P3 | [ForgotPassword] Luồng Quên mật khẩu 2 bước thiếu chỉ báo bước (Step Indicator) và Bước 1 thiếu liên kết 'Quay lại đăng nhập' |
 | `G-22` | `BUG-22` | `IA-02` | **Minor** | Low | `SV-13`, `SV-14` | P1, P2, P3 | [ForgotPassword, Register] Bước 2 Quên mật khẩu thiếu hẳn dòng gợi ý quy tắc mật khẩu và dòng gợi ý trên Đăng ký không liệt kê tập ký tự đặc biệt cho phép |
@@ -213,7 +213,7 @@
   - *Actual `P2`:* Actual: Khi Họ Tên dài 100 ký tự không khoảng trắng, lời chào trên Header không có CSS cắt/xuống dòng làm tràn khung nhìn: 375px: scrollWidth=1146px > clientWidth=375px, nút thoát bị đẩy tới x=1146px ngoài màn hình. — Ảnh: `screenshots/task1_failed/P2_SV-06.png`
   - *Actual `P3`:* Actual: Khi Họ Tên dài 100 ký tự không khoảng trắng, lời chào trên Header không có CSS cắt/xuống dòng làm tràn khung nhìn: mobile: scrollWidth=1118px > clientWidth=360px, nút thoát bị đẩy tới x=1118px ngoài màn hình. — Ảnh: `screenshots/task1_failed/P3_SV-06.png`
 
-### Nhóm `G-19` -> `BUG-19`: [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám
+### Nhóm `G-19` -> `BUG-19`: [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá
 - **`CL-07`** (`IA-01` | `R, e, g, i, s, t, e, r, ,,  , L, o, g, i, n, ,,  , P, r, o, f, i, l, e` | Căn cứ: `FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette`)
   - *Expected:* Nút Submit chính trên /register ('Đăng Ký'), /login và /profile ('Cập nhật') khi hiển thị ở trạng thái mặc định đều có màu nền xanh dương đồng nhất (kiểm tra mắt thường và `getComputedStyle(btn).backgroundColor` thuộc dải xanh dương). Fail nếu bất kỳ nút Submit tích cực nào dùng màu đỏ (nhầm với nút nguy hiểm/hủy) hoặc màu khác xanh dương.
   - *Actual `P1`:* Actual: Nút Submit trên Login ("Sign In": rgb(37, 99, 235)) và Profile ("Cập nhật": rgb(37, 99, 235)) dùng màu xanh dương, nhưng nút "Đăng Ký" trên /register lại dùng màu đỏ (rgb(239, 68, 68)). — Ảnh: `screenshots/task1_failed/P1_CL-07.png`

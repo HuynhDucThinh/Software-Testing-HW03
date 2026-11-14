@@ -19,7 +19,8 @@
     ],
     "inventory": "checklist/m1_inventory.md",
     "version": "v6 - Đồng bộ 27 Bugs & GitHub Issues (#1..#27)",
-    "step": 6
+    "step": 6,
+    "evidence_note": "Ảnh task1_failed: P1/P2 chụp lại 14/11/2026 bằng Playwright trên trình duyệt thật, mỗi mục 1 ảnh riêng, dải chú thích ghi nền tảng/URL/title/thời điểm/Expected/Actual; P3 dựng lại từ ảnh trang gốc 11/11 trên điện thoại thật. P2 đo tự động bằng nhân Gecko Firefox 159.0 (Playwright); Firefox 137.0.1 cài đặt dùng cho ảnh native Task 3."
   },
   "assumptions": {
     "GA1": "Đặc tả FR-21 cho phép giữ thuật ngữ kỹ thuật chuẩn quốc tế như 'Email', 'OTP', thương hiệu 'EShop'; mọi nhãn trường phổ thông, tiêu đề, liên kết và nút hành động phải dùng tiếng Việt nhất quán.",
@@ -51,8 +52,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát trực tiếp nhãn trường, nút gửi và liên kết kết hợp dom_probe.fields, dom_probe.buttons.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát trực tiếp nhãn trường, nút gửi và liên kết kết hợp dom_probe.fields, dom_probe.buttons.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -100,7 +101,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-14",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:13.650Z",
+          "actual": "Nhãn trường đo trên DOM: [\"Username\",\"Mật khẩu\"]; chữ trên nút gửi: \"Sign In\". Xuất hiện từ tiếng Anh thông thường: \"Username\", \"Sign In\" (khung đỏ)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:32.348Z",
+          "actual": "Nhãn trường đo trên DOM: [\"Username\",\"Mật khẩu\"]; chữ trên nút gửi: \"Sign In\". Xuất hiện từ tiếng Anh thông thường: \"Username\", \"Sign In\" (khung đỏ)."
+        }
+      }
     },
     {
       "id": "CL-02",
@@ -120,8 +133,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đọc kiểm tra chính tả và ngôn ngữ tiếng Việt bằng mắt thường trên 4 màn hình và Header.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đọc kiểm tra chính tả và ngôn ngữ tiếng Việt bằng mắt thường trên 4 màn hình và Header.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -174,8 +187,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /register.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /register.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -223,7 +236,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-13",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:33.830Z",
+          "actual": "document.querySelectorAll('h1').length = 0; tiêu đề đang dùng thẻ <h2> [\"Đăng Ký Tài Khoản\"] (khung đỏ)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:54.717Z",
+          "actual": "document.querySelectorAll('h1').length = 0; tiêu đề đang dùng thẻ <h2> [\"Đăng Ký Tài Khoản\"] (khung đỏ)."
+        }
+      }
     },
     {
       "id": "CL-04",
@@ -241,8 +266,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /login.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Dùng dom_probe.h1 và dom_probe.headings kết hợp quan sát tiêu đề trên /login.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -290,7 +315,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-13",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:14.257Z",
+          "actual": "document.querySelectorAll('h1').length = 0. Tiêu đề hiển thị là thẻ <h2> với nội dung [\"Đăng Ký\"] -> sai chức năng (đây là trang Đăng nhập)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:32.994Z",
+          "actual": "document.querySelectorAll('h1').length = 0. Tiêu đề hiển thị là thẻ <h2> với nội dung [\"Đăng Ký\"] -> sai chức năng (đây là trang Đăng nhập)."
+        }
+      }
     },
     {
       "id": "CL-05",
@@ -309,8 +346,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 ở cả Bước 1 và Bước 2 trang /forgot-password.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Dùng dom_probe.h1 ở cả Bước 1 và Bước 2 trang /forgot-password.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -358,7 +395,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-13",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:02.068Z",
+          "actual": "Bước 2 (ảnh): h1 = 0, tiêu đề <h2> [\"Quên Mật Khẩu\"]. Bước 1 đo tương tự: h1 = 0."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:24.364Z",
+          "actual": "Bước 2 (ảnh): h1 = 0, tiêu đề <h2> [\"Quên Mật Khẩu\"]. Bước 1 đo tương tự: h1 = 0."
+        }
+      }
     },
     {
       "id": "CL-06",
@@ -377,8 +426,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Dùng dom_probe.h1 và dom_probe.headings trên /profile khi đã đăng nhập.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Dùng dom_probe.h1 và dom_probe.headings trên /profile khi đã đăng nhập.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -426,7 +475,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-13",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/13",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:06.706Z",
+          "actual": "h1 = 0; đang dùng 2 thẻ <h2> [\"Hồ sơ của bạn\",\"Lịch sử đơn hàng\"]."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:31.300Z",
+          "actual": "h1 = 0; đang dùng 2 thẻ <h2> [\"Hồ sơ của bạn\",\"Lịch sử đơn hàng\"]."
+        }
+      }
     },
     {
       "id": "CL-07",
@@ -446,8 +507,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát màu nút kết hợp dom_probe.buttons[].bg (RGB) trên Register, Login, Profile.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát màu nút kết hợp dom_probe.buttons[].bg (RGB) trên Register, Login, Profile.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -495,7 +556,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-19",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:38.150Z",
+          "actual": "Màu nền đo bằng getComputedStyle: /register \"Đăng Ký\" = rgb(239, 68, 68) (đỏ, khung đỏ); /login \"Sign In\" = rgb(37, 99, 235); /profile \"Cập nhật\" = rgb(37, 99, 235)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:59.175Z",
+          "actual": "Màu nền đo bằng getComputedStyle: /register \"Đăng Ký\" = rgb(239, 68, 68) (đỏ, khung đỏ); /login \"Sign In\" = rgb(37, 99, 235); /profile \"Cập nhật\" = rgb(37, 99, 235)."
+        }
+      }
     },
     {
       "id": "CL-08",
@@ -515,8 +588,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát màu và sự phân biệt vai trò nút kết hợp dom_probe.buttons[].bg và nav_links trên ForgotPassword, Header.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát màu và sự phân biệt vai trò nút kết hợp dom_probe.buttons[].bg và nav_links trên ForgotPassword, Header.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -564,7 +637,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-19",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:04.805Z",
+          "actual": "Bước 2: \"Đặt lại mật khẩu\" rgb(22, 163, 74); \"← Quay lại\" rgb(22, 163, 74) -> hai nút cùng màu xanh lá, không phân biệt vai trò (khung đỏ). Đối chiếu: nút \"Thoát\" trên Header (khi đăng nhập) = rgb(239, 68, 68) (đỏ, đúng quy ước)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:29.284Z",
+          "actual": "Bước 2: \"Đặt lại mật khẩu\" rgb(22, 163, 74); \"← Quay lại\" rgb(22, 163, 74) -> hai nút cùng màu xanh lá, không phân biệt vai trò (khung đỏ). Đối chiếu: nút \"Thoát\" trên Header (khi đăng nhập) = rgb(239, 68, 68) (đỏ, đúng quy ước)."
+        }
+      }
     },
     {
       "id": "CL-09",
@@ -582,8 +667,8 @@
         "P3"
       ],
       "nguon": "Both",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát căn lề kết hợp toạ độ x, w trong dom_probe và horizontal_scroll trên 4 form.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát căn lề kết hợp toạ độ x, w trong dom_probe và horizontal_scroll trên 4 form.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -644,8 +729,8 @@
         "P3": "Giả định NA1: Chrome trên điện thoại Android có kích thước khung nhìn di động cố định, không có chế độ chuyển đổi 3 độ phân giải 375px/768px/1440px như trình duyệt desktop."
       },
       "nguon": "Both",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đổi viewport 375px, 768px, 1440px trong DevTools, quan sát chồng lấp và kiểm dom_probe.horizontal_scroll.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đổi viewport 375px, 768px, 1440px trong DevTools, quan sát chồng lấp và kiểm dom_probe.horizontal_scroll.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed"
@@ -693,8 +778,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát độ rõ chữ kết hợp tỷ lệ tương phản dom_probe.buttons[].contrast và kiểm màu chữ phụ bằng DevTools.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát độ rõ chữ kết hợp tỷ lệ tương phản dom_probe.buttons[].contrast và kiểm màu chữ phụ bằng DevTools.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -742,7 +827,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-20",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/20"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/20",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:38.789Z",
+          "actual": "Dòng gợi ý mật khẩu: màu rgb(156, 163, 175) trên nền trắng -> 2.54:1 (< 4.5:1). Chữ nút \"Đăng Ký\": rgb(255, 255, 255) trên rgb(239, 68, 68) -> 3.76:1 (< 4.5:1)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:59.864Z",
+          "actual": "Dòng gợi ý mật khẩu: màu rgb(156, 163, 175) trên nền trắng -> 2.54:1 (< 4.5:1). Chữ nút \"Đăng Ký\": rgb(255, 255, 255) trên rgb(239, 68, 68) -> 3.76:1 (< 4.5:1)."
+        }
+      }
     },
     {
       "id": "CL-12",
@@ -761,8 +858,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát nhãn kết hợp dom_probe.fields[].label_has_asterisk trên cả 4 form.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát nhãn kết hợp dom_probe.fields[].label_has_asterisk trên cả 4 form.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -810,7 +907,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-23",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:35.713Z",
+          "actual": "Nhãn đo trên DOM: /register [\"Họ Tên\",\"Email\",\"Mật khẩu\"]; /login [\"Username\",\"Mật khẩu\"]; /forgot-password B1 [\"Nhập Email của bạn\"], B2 [\"Mã OTP (4 số)\",\"Mật khẩu mới\"]; /profile [\"Email (Không đổi)\",\"Họ Tên\",\"Số điện thoại\",\"Địa chỉ giao hàng\"]. Số nhãn có ký tự \"*\": 0/12."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:56.628Z",
+          "actual": "Nhãn đo trên DOM: /register [\"Họ Tên\",\"Email\",\"Mật khẩu\"]; /login [\"Username\",\"Mật khẩu\"]; /forgot-password B1 [\"Nhập Email của bạn\"], B2 [\"Mã OTP (4 số)\",\"Mật khẩu mới\"]; /profile [\"Email (Không đổi)\",\"Họ Tên\",\"Số điện thoại\",\"Địa chỉ giao hàng\"]. Số nhãn có ký tự \"*\": 0/12."
+        }
+      }
     },
     {
       "id": "CL-13",
@@ -842,8 +951,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /register và thử gửi tay chuỗi email sai định dạng.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đọc dom_probe.fields[].type trên /register và thử gửi tay chuỗi email sai định dạng.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -891,7 +1000,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-09",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:39.415Z",
+          "actual": "Ô Email có type=\"text\"; đang nhập \"nguoimoieshop.com\" (không có @). Bấm \"Đăng Ký\": trình duyệt không chặn, phát sinh 1 request POST /api/register và chuyển sang http://localhost:5173/login."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:00.529Z",
+          "actual": "Ô Email có type=\"text\"; đang nhập \"nguoimoieshop.com\" (không có @). Bấm \"Đăng Ký\": trình duyệt không chặn, phát sinh 1 request POST /api/register và chuyển sang http://localhost:5173/login."
+        }
+      }
     },
     {
       "id": "CL-14",
@@ -909,8 +1030,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dom_probe.fields[].type trên /login và /forgot-password Bước 1, thử gửi chuỗi thiếu @.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đọc dom_probe.fields[].type trên /login và /forgot-password Bước 1, thử gửi chuỗi thiếu @.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -958,7 +1079,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-09",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/9",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:43.098Z",
+          "actual": "/login: type=\"text\", nhập \"khongcoacong.com\" vẫn gửi 1 request POST /api/login. /forgot-password B1: type=\"text\", vẫn gửi 1 request; window.alert() bắt được: \"Lỗi: User not found\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:04.364Z",
+          "actual": "/login: type=\"text\", nhập \"khongcoacong.com\" vẫn gửi 1 request POST /api/login. /forgot-password B1: type=\"text\", vẫn gửi 1 request; window.alert() bắt được: \"Lỗi: User not found\"."
+        }
+      }
     },
     {
       "id": "CL-15",
@@ -976,8 +1109,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dom_probe.fields[].type và gõ thử ký tự vào mọi ô mật khẩu để xác nhận che dấu chấm tròn.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đọc dom_probe.fields[].type và gõ thử ký tự vào mọi ô mật khẩu để xác nhận che dấu chấm tròn.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1025,7 +1158,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-04",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/4"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/4",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:14.874Z",
+          "actual": "Ô \"Mật khẩu\" trên /login có type=\"text\" -> chuỗi \"Test1234!\" hiển thị nguyên văn (khung đỏ). Đối chiếu: /register và Bước 2 /forgot-password dùng type=\"password\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:33.649Z",
+          "actual": "Ô \"Mật khẩu\" trên /login có type=\"text\" -> chuỗi \"Test1234!\" hiển thị nguyên văn (khung đỏ). Đối chiếu: /register và Bước 2 /forgot-password dùng type=\"password\"."
+        }
+      }
     },
     {
       "id": "CL-16",
@@ -1043,8 +1188,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát các trường trên /register (dom_probe.fields) và thử nhập 2 mật khẩu lệch nhau nếu có trường xác nhận.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát các trường trên /register (dom_probe.fields) và thử nhập 2 mật khẩu lệch nhau nếu có trường xác nhận.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1092,7 +1237,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-07",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:34.447Z",
+          "actual": "Form chỉ có 3 trường [\"Họ Tên\",\"Email\",\"Mật khẩu\"] và 1 ô type=\"password\" -> không có trường xác nhận mật khẩu."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:55.356Z",
+          "actual": "Form chỉ có 3 trường [\"Họ Tên\",\"Email\",\"Mật khẩu\"] và 1 ô type=\"password\" -> không có trường xác nhận mật khẩu."
+        }
+      }
     },
     {
       "id": "CL-17",
@@ -1112,8 +1269,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát giao diện Bước 1 và Bước 2 trên /forgot-password xem có Step Indicator hay không.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát giao diện Bước 1 và Bước 2 trên /forgot-password xem có Step Indicator hay không.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1161,7 +1318,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-21",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:02.746Z",
+          "actual": "Toàn bộ văn bản trong <main> ở Bước 2: \"Quên Mật Khẩu | Mã OTP của bạn là: 1318 | Mã OTP (4 số) | Mật khẩu mới | Đặt lại mật khẩu← Quay lại\" -> không có chỉ báo bước."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:25.081Z",
+          "actual": "Toàn bộ văn bản trong <main> ở Bước 2: \"Quên Mật Khẩu | Mã OTP của bạn là: 4074 | Mã OTP (4 số) | Mật khẩu mới | Đặt lại mật khẩu← Quay lại\" -> không có chỉ báo bước."
+        }
+      }
     },
     {
       "id": "CL-18",
@@ -1180,8 +1349,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát form Bước 2 /forgot-password (dom_probe.fields) và thử nhập xác nhận mật khẩu lệch nếu có.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát form Bước 2 /forgot-password (dom_probe.fields) và thử nhập xác nhận mật khẩu lệch nếu có.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1229,7 +1398,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-07",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/7",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:03.422Z",
+          "actual": "Bước 2 chỉ có 2 trường [\"Mã OTP (4 số)\",\"Mật khẩu mới\"], 1 ô type=\"password\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:27.802Z",
+          "actual": "Bước 2 chỉ có 2 trường [\"Mã OTP (4 số)\",\"Mật khẩu mới\"], 1 ô type=\"password\"."
+        }
+      }
     },
     {
       "id": "CL-19",
@@ -1261,8 +1442,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhập tay mật khẩu chuẩn Abcd123! và mật khẩu yếu trên /register và Bước 2 /forgot-password.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhập tay mật khẩu chuẩn Abcd123! và mật khẩu yếu trên /register và Bước 2 /forgot-password.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1310,7 +1491,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-01",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:45.698Z",
+          "actual": "/register: mật khẩu hợp lệ \"Abcd123!\" bị từ chối: \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\", URL vẫn là /register. Bước 2 /forgot-password với mật khẩu mới \"Abcd123!\": window.alert() bắt được \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:07.175Z",
+          "actual": "/register: mật khẩu hợp lệ \"Abcd123!\" bị từ chối: \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\", URL vẫn là /register. Bước 2 /forgot-password với mật khẩu mới \"Abcd123!\": window.alert() bắt được \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\"."
+        }
+      }
     },
     {
       "id": "CL-20",
@@ -1329,8 +1522,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Lấy OTP tại /forgot-password, đếm số chữ số OTP hiển thị và đọc nhãn ô nhập OTP.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Lấy OTP tại /forgot-password, đếm số chữ số OTP hiển thị và đọc nhãn ô nhập OTP.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1378,7 +1571,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-08",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/8"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/8",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:04.120Z",
+          "actual": "Khung thông báo xanh ngay trên trang (không phải hộp thoại): \"Mã OTP của bạn là: 8900\" -> OTP dài 4 chữ số. Nhãn ô nhập: \"Mã OTP (4 số)\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:28.549Z",
+          "actual": "Khung thông báo xanh ngay trên trang (không phải hộp thoại): \"Mã OTP của bạn là: 9827\" -> OTP dài 4 chữ số. Nhãn ô nhập: \"Mã OTP (4 số)\"."
+        }
+      }
     },
     {
       "id": "CL-21",
@@ -1397,8 +1602,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát màu nền ô Email trên /profile, thử gõ sửa và đọc dom_probe.fields (disabled/readonly).",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát màu nền ô Email trên /profile, thử gõ sửa và đọc dom_probe.fields (disabled/readonly).",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -1466,8 +1671,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhập tay SĐT hợp lệ bắt đầu bằng 0 (0912345678) và chuỗi chữ cái trên /profile rồi bấm Cập nhật.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhập tay SĐT hợp lệ bắt đầu bằng 0 (0912345678) và chuỗi chữ cái trên /profile rồi bấm Cập nhật.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1515,7 +1720,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-05",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:09.189Z",
+          "actual": "Placeholder của ô: \"VD: 0912345678\". Nhập \"0912345678\" -> window.alert() bắt được: \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\" (bị từ chối). Nhập \"09123abcde\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:33.968Z",
+          "actual": "Placeholder của ô: \"VD: 0912345678\". Nhập \"0912345678\" -> window.alert() bắt được: \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\" (bị từ chối). Nhập \"09123abcde\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"."
+        }
+      }
     },
     {
       "id": "CL-23",
@@ -1533,8 +1750,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhấp/chạm trực tiếp vào từng nhãn <label> và đối chiếu dom_probe.fields[].label_linked.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhấp/chạm trực tiếp vào từng nhãn <label> và đối chiếu dom_probe.fields[].label_linked.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1582,7 +1799,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-23",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/23",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:36.355Z",
+          "actual": "Số label có liên kết for/id hoặc bọc input: /register 0/3, /login 0/2, /forgot-password 0/1, /profile 0/4. Nhấp vào nhãn \"Email\": phần tử được focus là <body> (không phải ô input)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:57.314Z",
+          "actual": "Số label có liên kết for/id hoặc bọc input: /register 0/3, /login 0/2, /forgot-password 0/1, /profile 0/4. Nhấp vào nhãn \"Email\": phần tử được focus là <body> (không phải ô input)."
+        }
+      }
     },
     {
       "id": "CL-24",
@@ -1601,8 +1830,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Mở /login, /register, /profile quan sát kiểu nổi bật của liên kết đang mở trên Header và dom_probe.nav_links.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Mở /login, /register, /profile quan sát kiểu nổi bật của liên kết đang mở trên Header và dom_probe.nav_links.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1650,7 +1879,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-25",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:32.614Z",
+          "actual": "Đang ở /login. Thuộc tính các liên kết Navbar đo trên DOM: \"EShop\" class=\"text-2xl font-bold\" aria-current=null color=rgb(255, 255, 255) \"Giỏ hàng\" class=\"hover:underline\" aria-current=null color=rgb(255, 255, 255) \"Đăng nhập\" class=\"hover:underline\" aria-current=null color=rgb(255, 255, 255) \"Đăng ký\" class=\"hover:underline\" aria-current=null color=rgb(255, 255, 255) Liên kết \"Đăng nhập\" (trang hiện tại) giống hệt \"Đăng ký\" -> không có trạng thái active."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:53.443Z",
+          "actual": "Đang ở /login. Thuộc tính các liên kết Navbar đo trên DOM: \"EShop\" class=\"text-2xl font-bold\" aria-current=null color=rgb(255, 255, 255) \"Giỏ hàng\" class=\"hover:underline\" aria-current=null color=rgb(255, 255, 255) \"Đăng nhập\" class=\"hover:underline\" aria-current=null color=rgb(255, 255, 255) \"Đăng ký\" class=\"hover:underline\" aria-current=null color=rgb(255, 255, 255) Liên kết \"Đăng nhập\" (trang hiện tại) giống hệt \"Đăng ký\" -> không có trạng thái active."
+        }
+      }
     },
     {
       "id": "CL-25",
@@ -1669,8 +1910,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát nhãn nút kết thúc phiên trên Header và bấm kiểm tra xoá trạng thái đăng nhập.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát nhãn nút kết thúc phiên trên Header và bấm kiểm tra xoá trạng thái đăng nhập.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1718,7 +1959,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-14",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/14",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:13.550Z",
+          "actual": "Nhãn đo trên DOM: \"Thoát\" (khung đỏ), nền rgb(239, 68, 68)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:38.536Z",
+          "actual": "Nhãn đo trên DOM: \"Thoát\" (khung đỏ), nền rgb(239, 68, 68)."
+        }
+      }
     },
     {
       "id": "CL-26",
@@ -1736,8 +1989,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát Bước 1 /forgot-password tìm nút/liên kết Quay lại đăng nhập và bấm kiểm tra điều hướng.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát Bước 1 /forgot-password tìm nút/liên kết Quay lại đăng nhập và bấm kiểm tra điều hướng.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1785,7 +2038,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-21",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:59.963Z",
+          "actual": "Bước 1: nút [\"Lấy mã OTP\"], liên kết trong <main> [] -> không có lối quay lại đăng nhập."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:22.195Z",
+          "actual": "Bước 1: nút [\"Lấy mã OTP\"], liên kết trong <main> [] -> không có lối quay lại đăng nhập."
+        }
+      }
     },
     {
       "id": "CL-27",
@@ -1803,8 +2068,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Bấm liên kết Đăng nhập trên /register và kiểm tra tự động chuyển hướng sau khi đăng ký thành công.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Bấm liên kết Đăng nhập trên /register và kiểm tra tự động chuyển hướng sau khi đăng ký thành công.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -1857,8 +2122,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Bấm từng liên kết trên /login và Header, quan sát tab Network/cờ biến window xem trang có bị tải lại toàn bộ không.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Bấm từng liên kết trên /login và Header, quan sát tab Network/cờ biến window xem trang có bị tải lại toàn bộ không.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -1906,7 +2171,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-25",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:18.007Z",
+          "actual": "Phần tử: <a href=\"/forgot-password\" class=\"text-blue-500 hover:underline\">Quên mật khẩu?< Sau khi bấm: biến JS đặt trước khi bấm = đã mất (trang bị nạp lại toàn bộ); PerformanceNavigationTiming.type=\"navigate\"; href=\"/forgot-password\"."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:37.898Z",
+          "actual": "Phần tử: <a href=\"/forgot-password\" class=\"text-blue-500 hover:underline\">Quên mật khẩu?< Sau khi bấm: biến JS đặt trước khi bấm = đã mất (trang bị nạp lại toàn bộ); PerformanceNavigationTiming.type=\"navigate\"; href=\"/forgot-password\"."
+        }
+      }
     },
     {
       "id": "CL-29",
@@ -1925,8 +2202,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Tại Bước 2 /forgot-password bấm nút Quay lại và quan sát giao diện trở về Bước 1.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Tại Bước 2 /forgot-password bấm nút Quay lại và quan sát giao diện trở về Bước 1.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -1980,8 +2257,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Ở trạng thái khách, gõ trực tiếp URL /profile trên thanh địa chỉ và quan sát giao diện/điều hướng.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Ở trạng thái khách, gõ trực tiếp URL /profile trên thanh địa chỉ và quan sát giao diện/điều hướng.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2029,7 +2306,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-10",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/10"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/10",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:21.838Z",
+          "actual": "URL vẫn là http://localhost:5173/profile; nội dung <main>: \"Vui lòng đăng nhập\"; số nút/liên kết trong <main> = 0."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:47.227Z",
+          "actual": "URL vẫn là http://localhost:5173/profile; nội dung <main>: \"Vui lòng đăng nhập\"; số nút/liên kết trong <main> = 0."
+        }
+      }
     },
     {
       "id": "CL-31",
@@ -2049,8 +2338,8 @@
         "P3": "Giả định NA1: Điện thoại Android là thiết bị cảm ứng không có con trỏ chuột hover và không có phím Enter vật lý."
       },
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Di chuột hover lên các nút/liên kết kiểm tra cursor/hiệu ứng và nhấn phím Enter trong ô input để gửi form.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Di chuột hover lên các nút/liên kết kiểm tra cursor/hiệu ứng và nhấn phím Enter trong ô input để gửi form.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed"
@@ -2090,7 +2379,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-27",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:31.424Z",
+          "actual": "So sánh getComputedStyle (nền|màu chữ|gạch chân) trước và trong khi rê chuột; ảnh chụp lúc con trỏ đang đặt trên nút \"Cập nhật\": KHÔNG đổi khi hover (6/8): Header \"EShop\"; /forgot-password B1 \"Lấy mã OTP\"; /forgot-password B2 \"Đặt lại mật khẩu\"; /forgot-password B2 \"← Quay lại\"; Header \"Thoát\"; /profile \"Cập nhật\". Có đổi: /login \"Sign In\" (rgb(37, 99, 235)|rgb(255, 255, 255)|none -> rgb(29, 78, 216)|rgb(255, 255, 255)|none); /login \"Quên mật khẩu?\" (rgba(0, 0, 0, 0)|rgb(59, 130, 246)|none -> rgba(0, 0, 0, 0)|rgb(59, 130, 246)|underline)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:52.202Z",
+          "actual": "So sánh getComputedStyle (nền|màu chữ|gạch chân) trước và trong khi rê chuột; ảnh chụp lúc con trỏ đang đặt trên nút \"Cập nhật\": KHÔNG đổi khi hover (6/8): Header \"EShop\"; /forgot-password B1 \"Lấy mã OTP\"; /forgot-password B2 \"Đặt lại mật khẩu\"; /forgot-password B2 \"← Quay lại\"; Header \"Thoát\"; /profile \"Cập nhật\". Có đổi: /login \"Sign In\" (rgb(37, 99, 235)|rgb(255, 255, 255)|none -> rgb(29, 78, 216)|rgb(255, 255, 255)|none); /login \"Quên mật khẩu?\" (rgba(0, 0, 0, 0)|rgb(59, 130, 246)|none -> rgba(0, 0, 0, 0)|rgb(59, 130, 246)|underline)."
+        }
+      }
     },
     {
       "id": "CL-32",
@@ -2109,8 +2410,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Gửi form /register với email đã tồn tại test@eshop.com và đọc nguyên văn thông báo lỗi.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Gửi form /register với email đã tồn tại test@eshop.com và đọc nguyên văn thông báo lỗi.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2158,7 +2459,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-02",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/2"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/2",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:57.964Z",
+          "actual": "Đang đăng ký lại bằng email đã có \"test@eshop.com\" (khung đỏ). Sau khi bấm: không có thông báo lỗi, chuyển sang http://localhost:5173/login; bảng users có 2 bản ghi cùng email test@eshop.com."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:20.116Z",
+          "actual": "Đang đăng ký lại bằng email đã có \"test@eshop.com\" (khung đỏ). Sau khi bấm: không có thông báo lỗi, chuyển sang http://localhost:5173/login; bảng users có 2 bản ghi cùng email test@eshop.com."
+        }
+      }
     },
     {
       "id": "CL-33",
@@ -2177,8 +2490,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhập sai mật khẩu liên tiếp lần 1, 2, 3 cho test@eshop.com trên /login và bấm giờ đo thời gian khoá.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhập sai mật khẩu liên tiếp lần 1, 2, 3 cho test@eshop.com trên /login và bấm giờ đo thời gian khoá.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2226,7 +2539,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-06",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/6"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/6",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:24.391Z",
+          "actual": "Lần 1: SaiMatKhau1: HTTP 401 {\"error\":\"Invalid email or password\"} | login_attempts=2, locked_until=null (không khóa) Lần 2: SaiMatKhau2: HTTP 401 {\"error\":\"Invalid email or password\"} | login_attempts=4, locked_until=2026-11-14T16:33:23.472Z (còn ~180s) Lần 3: mật khẩu ĐÚNG: HTTP 403 {\"error\":\"Tài khoản đã bị khóa. Vui lòng thử lại sau.\"} | login_attempts=4, locked_until=2026-11-14T16:33:23.472Z (còn ~180s) Giao diện lần 3 chỉ hiện: \"Đăng nhập thất bại. Vui lòng kiểm tra lại.\" (khung đỏ), không nói tài khoản bị khóa."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:49.862Z",
+          "actual": "Lần 1: SaiMatKhau1: HTTP 401 {\"error\":\"Invalid email or password\"} | login_attempts=2, locked_until=null (không khóa) Lần 2: SaiMatKhau2: HTTP 401 {\"error\":\"Invalid email or password\"} | login_attempts=4, locked_until=2026-11-14T16:34:48.945Z (còn ~180s) Lần 3: mật khẩu ĐÚNG: HTTP 403 {\"error\":\"Tài khoản đã bị khóa. Vui lòng thử lại sau.\"} | login_attempts=4, locked_until=2026-11-14T16:34:48.945Z (còn ~180s) Giao diện lần 3 chỉ hiện: \"Đăng nhập thất bại. Vui lòng kiểm tra lại.\" (khung đỏ), không nói tài khoản bị khóa."
+        }
+      }
     },
     {
       "id": "CL-34",
@@ -2244,8 +2569,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "So sánh nguyên văn thông báo lỗi trên /login khi sai Email so với khi đúng Email nhưng sai Mật khẩu.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: So sánh nguyên văn thông báo lỗi trên /login khi sai Email so với khi đúng Email nhưng sai Mật khẩu.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -2300,8 +2625,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Thực hiện thao tác lỗi/thành công trên /forgot-password và /profile để kiểm tra inline/toast hay window.alert().",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Thực hiện thao tác lỗi/thành công trên /forgot-password và /profile để kiểm tra inline/toast hay window.alert().",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2349,7 +2674,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-16",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/16"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/16",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:01.330Z",
+          "actual": "Bấm \"Lấy mã OTP\" với email chưa đăng ký -> window.alert() thật bắt được qua sự kiện dialog: \"Lỗi: User not found\" (lỗi tiếng Anh thô). /profile cũng dùng window.alert() (xem CL-22, CL-36). Ảnh chụp ngay sau khi hộp thoại được đóng: không còn thông báo nào trên trang."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:23.620Z",
+          "actual": "Bấm \"Lấy mã OTP\" với email chưa đăng ký -> window.alert() thật bắt được qua sự kiện dialog: \"Lỗi: User not found\" (lỗi tiếng Anh thô). /profile cũng dùng window.alert() (xem CL-22, CL-36). Ảnh chụp ngay sau khi hộp thoại được đóng: không còn thông báo nào trên trang."
+        }
+      }
     },
     {
       "id": "CL-36",
@@ -2369,8 +2706,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Cập nhật Họ Tên trên /profile, quan sát lời chào Header trong 1 giây và tải lại trang kiểm tra giữ dữ liệu.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Cập nhật Họ Tên trên /profile, quan sát lời chào Header trong 1 giây và tải lại trang kiểm tra giữ dữ liệu.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2418,7 +2755,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-11",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/11"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/11",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:15.507Z",
+          "actual": "Đổi Họ Tên thành \"23120199 - Huỳnh Đức Thịnh\", bấm Cập nhật -> window.alert() bắt được: \"Cập nhật thành công!\". Lời chào Header ngay sau đó vẫn là \"Chào, Test User\" (khung đỏ)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:40.585Z",
+          "actual": "Đổi Họ Tên thành \"23120199 - Huỳnh Đức Thịnh\", bấm Cập nhật -> window.alert() bắt được: \"Cập nhật thành công!\". Lời chào Header ngay sau đó vẫn là \"Chào, Test User\" (khung đỏ)."
+        }
+      }
     },
     {
       "id": "CL-37",
@@ -2440,8 +2789,8 @@
         "P3": "Giả định NA1: Chrome trên điện thoại Android không có tab Network throttling Slow 3G trực tiếp trên trình duyệt như DevTools desktop."
       },
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Bật Slow 3G trong DevTools Network, bấm Submit và kiểm tra trạng thái loading/disabled chống bấm đúp.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Bật Slow 3G trong DevTools Network, bấm Submit và kiểm tra trạng thái loading/disabled chống bấm đúp.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed"
@@ -2481,7 +2830,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-26",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/26"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/26",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:19.565Z",
+          "actual": "Đã giả lập API /api/login chậm 2,5 giây (page.route). Chụp ở giây thứ 0,3 khi request còn treo. Nút gửi lúc chờ: disabled=false, nhãn vẫn là \"Sign In\" (không có loading). Bấm 2 lần liên tiếp phát sinh 2 request POST /api/login trùng lặp."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:39.962Z",
+          "actual": "Đã giả lập API /api/login chậm 2,5 giây (page.route). Chụp ở giây thứ 0,3 khi request còn treo. Nút gửi lúc chờ: disabled=false, nhãn vẫn là \"Sign In\" (không có loading). Bấm 2 lần liên tiếp phát sinh 2 request POST /api/login trùng lặp."
+        }
+      }
     },
     {
       "id": "CL-38",
@@ -2500,8 +2861,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đặt lại mật khẩu bằng OTP vừa cấp rồi thử dùng lại OTP cũ và nhập OTP sai ở Bước 2 /forgot-password.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đặt lại mật khẩu bằng OTP vừa cấp rồi thử dùng lại OTP cũ và nhập OTP sai ở Bước 2 /forgot-password.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -2554,8 +2915,8 @@
         "P3"
       ],
       "nguon": "AI",
-      "che_do": "manual",
-      "che_do_ghi_chu": "Kích hoạt lỗi trên /register và /login kiểm tra giữ dữ liệu đã nhập, sau đó gửi hợp lệ kiểm tra xoá lỗi cũ.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Kích hoạt lỗi trên /register và /login kiểm tra giữ dữ liệu đã nhập, sau đó gửi hợp lệ kiểm tra xoá lỗi cũ.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -2615,8 +2976,8 @@
         "loai": "đặc điểm giao diện",
         "giai_thich": "Lỗi thứ tự Tab chỉ lộ khi đi bằng bàn phím thật, nhìn ảnh chụp hay đọc mã giao diện bằng mắt thường không thấy; AI sinh checklist chủ yếu từ mô tả nhãn và màu nên không nghĩ tới việc duyệt focus từng bước."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /login quan sát thứ tự focus và đối chiếu dom_probe.tab_order.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhấn phím Tab liên tiếp trên /login quan sát thứ tự focus và đối chiếu dom_probe.tab_order.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed"
@@ -2656,7 +3017,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-15",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/15"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/15",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:16.672Z",
+          "actual": "Lần nhấn Tab đầu tiên focus vào nút \"Sign In\" (tabindex=\"1\") ở cuối form (khung đỏ, đang có focus). Thứ tự 8 lần Tab thực tế: button:Sign In(y=425) -> a:EShop(y=16) -> a:Giỏ hàng(y=20) -> a:Đăng nhập(y=20) -> a:Đăng ký(y=20) -> input:input[text](y=241) -> input:input[text](y=331) -> a:Quên mật khẩu?(y=389)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:36.522Z",
+          "actual": "Lần nhấn Tab đầu tiên focus vào nút \"Sign In\" (tabindex=\"1\") ở cuối form (khung đỏ, đang có focus). Thứ tự 8 lần Tab thực tế: button:Sign In(y=425) -> a:EShop(y=16) -> a:Giỏ hàng(y=20) -> a:Đăng nhập(y=20) -> a:Đăng ký(y=20) -> input:input[text](y=241) -> input:input[text](y=331) -> a:Quên mật khẩu?(y=390)."
+        }
+      }
     },
     {
       "id": "SV-02",
@@ -2681,8 +3054,8 @@
         "loai": "prompt",
         "giai_thich": "Prompt lượt IA-03 yêu cầu chung về điều hướng nên AI gom vào điều hướng giữa các trang; tôi không yêu cầu riêng \"thứ tự Tab từng form\" nên AI không tách thành mục kiểm tra cụ thể cho từng màn hình."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhấn phím Tab liên tiếp trên /register và Bước 1, Bước 2 /forgot-password đối chiếu dom_probe.tab_order.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhấn phím Tab liên tiếp trên /register và Bước 1, Bước 2 /forgot-password đối chiếu dom_probe.tab_order.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed"
@@ -2735,8 +3108,8 @@
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ kiểm tra nội dung thông báo lỗi (CL-32, CL-34) mà không để ý vị trí khối lỗi so với nút; vị trí chỉ phát hiện được khi thật sự kích hoạt lỗi và nhìn bố cục, AI không chạy giao diện."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Kích hoạt lỗi trên /login rồi chạy dom_probe.js đọc messages[].above_submit và toạ độ y so với nút gửi.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Kích hoạt lỗi trên /login rồi chạy dom_probe.js đọc messages[].above_submit và toạ độ y so với nút gửi.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2784,7 +3157,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-17",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:17.374Z",
+          "actual": "Khối lỗi top=517px, nút \"Sign In\" bottom=465px -> khối lỗi nằm BÊN DƯỚI nút gửi (517 > 465)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:37.254Z",
+          "actual": "Khối lỗi top=517px, nút \"Sign In\" bottom=465px -> khối lỗi nằm BÊN DƯỚI nút gửi (517 > 465)."
+        }
+      }
     },
     {
       "id": "SV-04",
@@ -2808,8 +3193,8 @@
         "loai": "đặc điểm giao diện",
         "giai_thich": "Quy tắc \"lỗi nằm trên nút submit\" chỉ có ý nghĩa khi so toạ độ thực tế trên giao diện; AI coi mọi khối lỗi hiển thị phía trên nút là đạt nên không tách riêng kiểm tra khoảng cách và vị trí so với tiêu đề."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Kích hoạt lỗi trên /register rồi chạy dom_probe.js đo vị trí dọc của khối lỗi so với nút Đăng Ký và tiêu đề.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Kích hoạt lỗi trên /register rồi chạy dom_probe.js đo vị trí dọc của khối lỗi so với nút Đăng Ký và tiêu đề.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2857,7 +3242,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-17",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:55.489Z",
+          "actual": "Khối lỗi nằm trong <form> = false; cách tiêu đề 24px nhưng cách nút \"Đăng Ký\" 306px."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:17.475Z",
+          "actual": "Khối lỗi nằm trong <form> = false; cách tiêu đề 24px nhưng cách nút \"Đăng Ký\" 306px."
+        }
+      }
     },
     {
       "id": "SV-05",
@@ -2880,8 +3277,8 @@
         "loai": "prompt",
         "giai_thich": "Prompt các lượt IA chỉ nhắm vào yêu cầu giao diện FR-21..24 nên AI bỏ qua điều khoản bảo mật SEC-04 dù nó có trong m1_test_basis; việc hiển thị tên người dùng chỉ lộ lỗi khi nhập thẻ HTML thật."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Lưu Họ Tên chứa thẻ HTML <b>Test</b><i>User</i>, đăng nhập lại quan sát Header và dom_probe.innerhtml_risk.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Lưu Họ Tên chứa thẻ HTML <b>Test</b><i>User</i>, đăng nhập lại quan sát Header và dom_probe.innerhtml_risk.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -2929,7 +3326,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-03",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/3"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/3",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:18.076Z",
+          "actual": "Họ Tên đã lưu: \"<b>Test</b><i>User</i>\". innerHTML của lời chào sau khi tải lại: Chào, <b>Test</b><i>User</i> Trình duyệt dựng thật thẻ <b>, <i> (chữ in đậm/nghiêng trong khung đỏ) -> nguy cơ Stored XSS."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:43.286Z",
+          "actual": "Họ Tên đã lưu: \"<b>Test</b><i>User</i>\". innerHTML của lời chào sau khi tải lại: Chào, <b>Test</b><i>User</i> Trình duyệt dựng thật thẻ <b>, <i> (chữ in đậm/nghiêng trong khung đỏ) -> nguy cơ Stored XSS."
+        }
+      }
     },
     {
       "id": "SV-06",
@@ -2952,8 +3361,8 @@
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ nghĩ đến bố cục với dữ liệu mẫu ngắn như \"Test User\" (CL-10) mà không thử dữ liệu cực trị; không có số liệu thật về độ dài tên nên AI khó đoán rủi ro tràn bố cục."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Lưu Họ Tên dài 100 ký tự liền nhau, đăng nhập lại và kiểm tra tràn ngang/chồng lấp Header.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Lưu Họ Tên dài 100 ký tự liền nhau, đăng nhập lại và kiểm tra tràn ngang/chồng lấp Header.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3001,7 +3410,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-18",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/18"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/18",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:20.648Z",
+          "actual": "Họ Tên 100 ký tự liền nhau, khung nhìn 375px: scrollWidth=1137px > clientWidth=375px. Nút \"Thoát\" bị đẩy tới x=1073px, nằm ngoài màn hình."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:45.975Z",
+          "actual": "Họ Tên 100 ký tự liền nhau, khung nhìn 375px: scrollWidth=1137px > clientWidth=375px. Nút \"Thoát\" bị đẩy tới x=1073px, nằm ngoài màn hình."
+        }
+      }
     },
     {
       "id": "SV-07",
@@ -3024,8 +3445,8 @@
         "loai": "giới hạn model",
         "giai_thich": "AI sinh mục kiểm tra chính tả của nhãn tĩnh (CL-02) nhưng không nghĩ tới dữ liệu động có dấu do người dùng nhập và vòng lưu-đọc qua máy chủ; điều này cần dữ liệu thật mới kiểm được."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Lưu Họ Tên và Địa chỉ tiếng Việt có dấu trên /profile, tải lại trang kiểm tra hiển thị dấu.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Lưu Họ Tên và Địa chỉ tiếng Việt có dấu trên /profile, tải lại trang kiểm tra hiển thị dấu.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -3083,8 +3504,8 @@
         "loai": "prompt",
         "giai_thich": "CL-19 của AI dùng ví dụ thiếu nhóm ký tự chứ không kiểm giá trị biên độ dài vì prompt không nhắc phân tích giá trị biên; mục này tách riêng ranh giới 7 và 8 ký tự."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Thử biên mật khẩu 7 ký tự (Abc12!x) và 8 ký tự (Abc123!x) trên /register.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Thử biên mật khẩu 7 ký tự (Abc12!x) và 8 ký tự (Abc123!x) trên /register.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3132,7 +3553,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-01",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:47.365Z",
+          "actual": "\"Abc12!x\" (7 ký tự) bị từ chối = true. \"Abc123!x\" (8 ký tự, đủ 4 nhóm) cũng bị từ chối: \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\" (khung đỏ)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:08.979Z",
+          "actual": "\"Abc12!x\" (7 ký tự) bị từ chối = true. \"Abc123!x\" (8 ký tự, đủ 4 nhóm) cũng bị từ chối: \"Mật khẩu quá yếu! Phải dài tối thiểu 8 ký tự, gồm chữ hoa, chữ thường, số và KÝ TỰ ĐẶC BIỆT.\" (khung đỏ)."
+        }
+      }
     },
     {
       "id": "SV-09",
@@ -3155,8 +3588,8 @@
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ lấy một ký tự đại diện là `!` trong CL-19 thay vì kiểm từng ký tự trong tập; lỗi bộ lọc ký tự chỉ lộ khi thử nhiều giá trị khác nhau, AI không thực thi nên không thấy."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Thử lần lượt 7 mật khẩu chứa từng ký tự đặc biệt (@ $ ! % * ? &) trên /register.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Thử lần lượt 7 mật khẩu chứa từng ký tự đặc biệt (@ $ ! % * ? &) trên /register.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3204,7 +3637,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-01",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/1",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:54.799Z",
+          "actual": "Kết quả gửi lần lượt 7 mật khẩu: Abcd123@: bị từ chối; Abcd123$: bị từ chối; Abcd123!: bị từ chối; Abcd123%: bị từ chối; Abcd123*: bị từ chối; Abcd123?: bị từ chối; Abcd123&: bị từ chối. Ảnh là lần thử cuối cùng (Abcd123&)."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:16.738Z",
+          "actual": "Kết quả gửi lần lượt 7 mật khẩu: Abcd123@: bị từ chối; Abcd123$: bị từ chối; Abcd123!: bị từ chối; Abcd123%: bị từ chối; Abcd123*: bị từ chối; Abcd123?: bị từ chối; Abcd123&: bị từ chối. Ảnh là lần thử cuối cùng (Abcd123&)."
+        }
+      }
     },
     {
       "id": "SV-10",
@@ -3227,8 +3672,8 @@
         "loai": "prompt",
         "giai_thich": "CL-22 của AI chỉ nêu các giá trị hợp lệ và một giá trị có chữ cái; phần giá trị biên không hợp lệ (9, 12 chữ số, số đầu khác 0) cần prompt yêu cầu phân tích biên, mà prompt của tôi chưa yêu cầu."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Thử lưu 3 giá trị biên SĐT không hợp lệ (9 số, 12 số, 10 số bắt đầu khác 0) trên /profile.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Thử lưu 3 giá trị biên SĐT không hợp lệ (9 số, 12 số, 10 số bắt đầu khác 0) trên /profile.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3276,7 +3721,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-05",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/5",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:12.325Z",
+          "actual": "\"091234567\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"091234567890\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"9123456789\" -> \"Cập nhật thành công!\". \"9123456789\" (không có số 0 đầu) lại được lưu thành công."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:37.246Z",
+          "actual": "\"091234567\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"091234567890\" -> \"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số.\"; \"9123456789\" -> \"Cập nhật thành công!\". \"9123456789\" (không có số 0 đầu) lại được lưu thành công."
+        }
+      }
     },
     {
       "id": "SV-11",
@@ -3300,8 +3757,8 @@
         "loai": "đặc điểm giao diện",
         "giai_thich": "Thuộc tính `required` của trình duyệt chặn ô rỗng nên AI mặc định ô bắt buộc đã được bảo vệ; lỗ hổng chỉ xuất hiện với chuỗi toàn dấu cách mà AI không nghĩ tới."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhập 3 dấu cách vào Họ Tên trên /register và /profile rồi bấm gửi kiểm tra từ chối khoảng trắng.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhập 3 dấu cách vào Họ Tên trên /register và /profile rồi bấm gửi kiểm tra từ chối khoảng trắng.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3349,7 +3806,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-12",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/12"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/12",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:56.757Z",
+          "actual": "Đăng ký với Họ Tên = 3 dấu cách: được chấp nhận, chuyển sang /login. Đăng nhập tài khoản đó: lời chào Header = \"Chào,\" (khung đỏ) -> tên rỗng."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:18.827Z",
+          "actual": "Đăng ký với Họ Tên = 3 dấu cách: được chấp nhận, chuyển sang /login. Đăng nhập tài khoản đó: lời chào Header = \"Chào,\" (khung đỏ) -> tên rỗng."
+        }
+      }
     },
     {
       "id": "SV-12",
@@ -3372,8 +3841,8 @@
         "loai": "đặc điểm giao diện",
         "giai_thich": "Lỗi này tôi quan sát được khi đối chiếu giao diện thật ở Bước 0 (ảnh chụp ô OTP tự điền email); AI chỉ đọc mô tả control nên không biết hành vi tự điền của trình duyệt."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Lưu tài khoản trong trình duyệt, mở Bước 2 /forgot-password quan sát tự điền ô OTP và đọc dom_probe.fields[].autocomplete.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Lưu tài khoản trong trình duyệt, mở Bước 2 /forgot-password quan sát tự điền ô OTP và đọc dom_probe.fields[].autocomplete.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3421,7 +3890,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-24",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/24"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/24",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:15.498Z",
+          "actual": "/login: [{\"type\":\"text\",\"name\":null,\"autocomplete\":null},{\"type\":\"text\",\"name\":null,\"autocomplete\":null}]. Bước 2 /forgot-password: [{\"type\":\"text\",\"name\":null,\"autocomplete\":null},{\"type\":\"password\",\"name\":null,\"autocomplete\":null}]. Cả hai form đều thiếu name và autocomplete -> trình duyệt không phân biệt được ô OTP với ô email."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:35.252Z",
+          "actual": "/login: [{\"type\":\"text\",\"name\":null,\"autocomplete\":null},{\"type\":\"text\",\"name\":null,\"autocomplete\":null}]. Bước 2 /forgot-password: [{\"type\":\"text\",\"name\":null,\"autocomplete\":null},{\"type\":\"password\",\"name\":null,\"autocomplete\":null}]. Cả hai form đều thiếu name và autocomplete -> trình duyệt không phân biệt được ô OTP với ô email."
+        }
+      }
     },
     {
       "id": "SV-13",
@@ -3444,8 +3925,8 @@
         "loai": "giới hạn model",
         "giai_thich": "AI chú ý tới quy tắc mật khẩu ở Register (CL-19) nhưng không đối chiếu chéo để thấy form Bước 2 thiếu gợi ý tương ứng; việc so sánh nhất quán giữa hai màn hình cần nhìn cả hai giao diện."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Quan sát vùng quanh ô Mật khẩu mới ở Bước 2 /forgot-password xem có dòng gợi ý quy tắc mật khẩu không.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Quan sát vùng quanh ô Mật khẩu mới ở Bước 2 /forgot-password xem có dòng gợi ý quy tắc mật khẩu không.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3493,7 +3974,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-22",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:30:05.496Z",
+          "actual": "Số dòng gợi ý (<p>) trong form Bước 2 = 0; quanh ô \"Mật khẩu mới\" (khung đỏ) không có hướng dẫn quy tắc."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:31:30.012Z",
+          "actual": "Số dòng gợi ý (<p>) trong form Bước 2 = 0; quanh ô \"Mật khẩu mới\" (khung đỏ) không có hướng dẫn quy tắc."
+        }
+      }
     },
     {
       "id": "SV-14",
@@ -3516,8 +4009,8 @@
         "loai": "prompt",
         "giai_thich": "Prompt chỉ yêu cầu kiểm tra có gợi ý hay không (CL-23) chứ không yêu cầu soát mức độ cụ thể của nội dung gợi ý so với đặc tả nên AI không tách mục này."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đọc dòng gợi ý dưới ô Mật khẩu trên /register kiểm tra việc liệt kê tập ký tự đặc biệt hợp lệ.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đọc dòng gợi ý dưới ô Mật khẩu trên /register kiểm tra việc liệt kê tập ký tự đặc biệt hợp lệ.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3565,7 +4058,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-22",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:35.072Z",
+          "actual": "Nội dung dòng gợi ý: \"Yêu cầu: Tối thiểu 8 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.\". Không liệt kê ký tự đặc biệt nào được phép."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:55.985Z",
+          "actual": "Nội dung dòng gợi ý: \"Yêu cầu: Tối thiểu 8 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.\". Không liệt kê ký tự đặc biệt nào được phép."
+        }
+      }
     },
     {
       "id": "SV-15",
@@ -3588,8 +4093,8 @@
         "loai": "giới hạn model",
         "giai_thich": "AI chỉ nhìn từng màn hình tại một thời điểm và không mô phỏng thao tác tải lại trang; trạng thái phiên sau F5 phụ thuộc cách lưu token phía client nên AI không thể suy ra từ mô tả điều khoản."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đăng nhập mở /profile rồi nhấn tải lại trang (F5) kiểm tra duy trì trạng thái đăng nhập.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đăng nhập mở /profile rồi nhấn tải lại trang (F5) kiểm tra duy trì trạng thái đăng nhập.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed",
@@ -3648,8 +4153,8 @@
         "loai": "giới hạn model",
         "giai_thich": "Tiêu đề tab nằm ngoài vùng hiển thị của trang web nên AI khi liệt kê control từ nội dung trang không đưa vào; đây là điểm AI thường bỏ qua khi chỉ nhìn phần thân trang."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Mở 4 trang đọc tiêu đề tab trình duyệt kết hợp dom_probe.title trên từng trang.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Mở 4 trang đọc tiêu đề tab trình duyệt kết hợp dom_probe.title trên từng trang.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3697,7 +4202,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-25",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/25",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:33.213Z",
+          "actual": "document.title đo trên 4 trang: /register=\"frontend-web\", /login=\"frontend-web\", /forgot-password=\"frontend-web\", /profile=\"frontend-web\". Cả 4 trang trùng một tiêu đề mặc định của dự án Vite."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:54.055Z",
+          "actual": "document.title đo trên 4 trang: /register=\"frontend-web\", /login=\"frontend-web\", /forgot-password=\"frontend-web\", /profile=\"frontend-web\". Cả 4 trang trùng một tiêu đề mặc định của dự án Vite."
+        }
+      }
     },
     {
       "id": "SV-17",
@@ -3722,8 +4239,8 @@
         "loai": "đặc điểm giao diện",
         "giai_thich": "Slide 12 nêu khả năng dùng chỉ bàn phím là điểm mù của AI; trạng thái focus chỉ thấy khi thao tác bàn phím thật và AI không có trải nghiệm đó."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Nhấn phím Tab đi qua các phần tử trên 5 vùng giao diện quan sát viền/vòng sáng focus thị giác.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Nhấn phím Tab đi qua các phần tử trên 5 vùng giao diện quan sát viền/vòng sáng focus thị giác.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed"
@@ -3778,8 +4295,8 @@
         "loai": "prompt",
         "giai_thich": "CL-10 của AI chỉ nêu 3 viewport cố định; prompt của tôi không nhắc tới người dùng phóng to chữ nên AI không thêm kịch bản phóng to trình duyệt."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Phóng to trình duyệt lên 200% ở 1440px, mở 5 vùng giao diện kiểm tra cắt chữ, chồng lấp và cuộn ngang.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Phóng to trình duyệt lên 200% ở 1440px, mở 5 vùng giao diện kiểm tra cắt chữ, chồng lấp và cuộn ngang.",
       "auto_status": {
         "P1": "Passed",
         "P2": "Passed"
@@ -3832,8 +4349,8 @@
         "loai": "đặc điểm giao diện",
         "giai_thich": "Kích thước vùng chạm chỉ cảm nhận được khi chạm thật trên điện thoại; AI không có thiết bị và khi đánh giá bố cục chỉ nhìn kiểu máy tính để bàn."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Đo kích thước w, h bằng getBoundingClientRect()/dom_probe.buttons (>= 24x24px) và chạm thật trên điện thoại Android.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Đo kích thước w, h bằng getBoundingClientRect()/dom_probe.buttons (>= 24x24px) và chạm thật trên điện thoại Android.",
       "auto_status": {
         "P1": "Failed",
         "P2": "Failed",
@@ -3881,7 +4398,19 @@
         "P3": "checklist/runs/P3_20261111-1710.csv"
       },
       "bug_id": "BUG-27",
-      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27"
+      "github_issue": "https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/27",
+      "recheck_20261114": {
+        "P1": {
+          "browser": "Google Chrome 157.0.8103.52",
+          "captured_at": "2026-11-14T16:29:24.856Z",
+          "actual": "/login: \"Quên mật khẩu?\" 102x19px; \"Đăng ký ngay\" 85x19px (khung đỏ). /register: \"Đăng nhập\" 68x19px. Chiều cao các liên kết < 24px."
+        },
+        "P2": {
+          "browser": "Mozilla Firefox 159.0 (Gecko, Playwright build)",
+          "captured_at": "2026-11-14T16:30:45.375Z",
+          "actual": "/login: \"Quên mật khẩu?\" 102x19px; \"Đăng ký ngay\" 85x19px (khung đỏ). /register: \"Đăng nhập\" 68x19px. Chiều cao các liên kết < 24px."
+        }
+      }
     },
     {
       "id": "SV-20",
@@ -3906,8 +4435,8 @@
         "loai": "giới hạn model",
         "giai_thich": "Hành vi bàn phím ảo chỉ quan sát được trên thiết bị cảm ứng thật; AI không có điện thoại thật nên không đưa mục phụ thuộc thiết bị di động vào checklist."
       },
-      "che_do": "manual",
-      "che_do_ghi_chu": "Trên Chrome Android, chạm vào ô Số điện thoại tại /profile quan sát loại bàn phím ảo bật lên.",
+      "che_do": "mixed",
+      "che_do_ghi_chu": "Đo tự động bằng Playwright (tests/run_m1_auto.mjs, lượt 11/11) để lấy số liệu DOM/CSS/Network khách quan; sinh viên chuẩn bị môi trường + thiết bị thật, rà soát số đo và ảnh để chốt verdict. Ảnh Failed chụp lại riêng từng mục ngày 14/11 (tests/capture_t1_evidence.mjs) và đo lại xác nhận kết quả. Gợi ý quan sát: Trên Chrome Android, chạm vào ô Số điện thoại tại /profile quan sát loại bàn phím ảo bật lên.",
       "ket_qua": {
         "P1": "N/A",
         "P2": "N/A",

@@ -38,7 +38,7 @@ Do đường dẫn gốc có ký tự `&`, luôn chạy lệnh qua thư mục li
 | Mã | Nền tảng | Trình duyệt & Phiên bản | Hệ điều hành & Thiết bị | Độ phân giải / Viewport mặc định | Cách kết nối `localhost` |
 |---|---|---|---|---|---|
 | `P1` | Chrome trên Windows | `Google Chrome 157.0.8103.50` | `Windows 11 (Build 26300)` - Desktop PC | `1920x1080` | Trực tiếp `http://localhost:5173` |
-| `P2` | Firefox trên Windows | `Mozilla Firefox 137.0.1` | `Windows 11 (Build 26300)` - Desktop PC | `1920x1080` | Trực tiếp `http://localhost:5173` |
+| `P2` | Firefox trên Windows | `Mozilla Firefox 137.0.1` (bản cài đặt — ảnh native Task 3) + `Firefox 159.0` (nhân Gecko bản Playwright — đo DOM tự động & ảnh Failed Task 1) | `Windows 11 (Build 26300)` - Desktop PC | `1920x1080` | Trực tiếp `http://localhost:5173` |
 | `P3` | Chrome trên Android | `Chrome Android 156.0.8078.79` | `OPPO Reno10 5G (CPH2531) - Android 15` | `1080x2412` (vật lý) | Qua cáp USB + `adb reverse tcp:5173` & `tcp:3000` (xem mục 1.4) |
 
 ### 1.4. Kết nối `localhost` trên `P3` (`Chrome trên Android - OPPO Reno10 5G`)
@@ -58,11 +58,14 @@ Do đường dẫn gốc có ký tự `&`, luôn chạy lệnh qua thư mục li
 
 1. **Lớp phủ (Overlay) bắt buộc trên MỌI ảnh chụp:**
    - Mọi ảnh trong `screenshots/task1_failed/` và `screenshots/task3_cross_platform/` phải có lớp phủ chữ **`23120199@student.hcmus.edu.vn`** rõ nét, không che khuất vùng lỗi cần minh chứng.
-   - Sinh viên tự chèn overlay (ví dụ cấu hình Watermark tự động trong ShareX hoặc chèn chữ bằng Snipping Tool / Paint); **AI tuyệt đối không tạo, chỉnh sửa hay ghép ảnh**.
+   - **Ảnh `task3_cross_platform/` (Task 3):** chụp nguyên màn hình cấp hệ điều hành / thiết bị thật (thấy khung cửa sổ trình duyệt, taskbar Windows 11 hoặc thanh trạng thái Android), chỉ chèn thêm lớp phủ email; không chỉnh sửa nội dung.
+   - **Ảnh `task1_failed/` (Task 1 — cập nhật 14/11/2026, thay bản cũ):** chụp bằng Playwright `page.screenshot()` trên trình duyệt thật (`P1` Google Chrome cài trên máy, `P2` Firefox Gecko bản Playwright, `P3` Chrome Android trên điện thoại thật qua `adb`). Script chỉ được phép: (a) thêm viền đỏ CSS `outline` quanh phần tử liên quan; (b) ghép **dải chú thích bên ngoài ảnh trang** ghi nền tảng, URL `page.url()`, `document.title`, thời điểm chụp, Expected và Actual đo trực tiếp lúc chụp; (c) chèn lớp phủ email. **Không vẽ giả thanh địa chỉ, không vẽ giả hộp thoại `window.alert()`** (nội dung hộp thoại được bắt qua sự kiện `dialog` và ghi vào dòng Actual).
+   - Script chụp và ghép ảnh nằm ngay trong kho: [`tests/capture_t1_evidence.mjs`](../tests/capture_t1_evidence.mjs), [`tests/compose_t1_evidence.py`](../tests/compose_t1_evidence.py), [`tests/compose_t1_p3_from_raw.py`](../tests/compose_t1_p3_from_raw.py) để trợ giảng có thể chạy lại và đối chiếu.
 2. **Thông tin trong form trên ảnh tổng quan đa nền tảng (`Task 3`):**
    - Trước khi chụp ảnh tổng quan ở từng nền tảng (`P1`, `P2`, `P3`), nhập trực tiếp **`23120199 - Huỳnh Đức Thịnh`** vào ô nhập trên form (`Họ Tên` tại `/register` hoặc `/profile`; ô tài khoản tại `/login`) mà chưa cần bấm gửi.
 3. **Khung chụp màn hình:**
-   - Phải chụp thấy rõ **thanh địa chỉ chứa `localhost:5173/...`** và **dấu hiệu nhận biết trình duyệt / hệ điều hành / thiết bị** (thanh tiêu đề trình duyệt + taskbar hệ điều hành trên Desktop, hoặc thanh trạng thái Android + thanh điều hướng/địa chỉ của Chrome Android trên `OPPO Reno10 5G` đối với `P3`).
+   - Ảnh Task 3: thấy rõ **thanh địa chỉ thật chứa `localhost:5173/...`** và **dấu hiệu nhận biết trình duyệt / hệ điều hành / thiết bị** (thanh tiêu đề trình duyệt + taskbar hệ điều hành trên Desktop, hoặc thanh trạng thái Android + thanh địa chỉ của Chrome Android trên `OPPO Reno10 5G`).
+   - Ảnh Task 1: `page.screenshot()` chỉ chụp vùng trang web (không có thanh địa chỉ của trình duyệt), vì vậy URL và tên/phiên bản trình duyệt được ghi ở dải chú thích phía trên do Playwright trả về (`page.url()`, `browser.version()`).
 4. **Quy ước đường dẫn và đặt tên file ảnh:**
    - **Ảnh minh chứng mục `Failed` (chỉ chụp khi kết quả là `Failed`):**
      `screenshots/task1_failed/P<n>_<ID>.png` (ví dụ: `screenshots/task1_failed/P1_CL-01.png`; nếu 1 mục cần 2 ảnh: `P1_CL-05_1.png`, `P1_CL-05_2.png`).
@@ -78,7 +81,7 @@ Do đường dẫn gốc có ký tự `&`, luôn chạy lệnh qua thư mục li
 ## 3. Danh sách kiểm nhanh trước khi lưu mỗi bức ảnh
 
 - [ ] Nhìn thấy rõ tên trình duyệt / hệ điều hành / khung thiết bị (`Chrome`, `Firefox`, `Chrome Android` trên `OPPO Reno10 5G`).
-- [ ] Thanh URL hiển thị rõ `localhost:5173/...`.
+- [ ] URL `localhost:5173/...` hiển thị rõ (Task 3: thanh địa chỉ thật của trình duyệt; Task 1: dòng URL trong dải chú thích lấy từ `page.url()`).
 - [ ] Đã có lớp phủ (overlay) email sinh viên `23120199@student.hcmus.edu.vn`.
 - [ ] Ô nhập trên form có chuỗi `23120199 - Huỳnh Đức Thịnh` (bắt buộc với mọi ảnh `task3_cross_platform`, khuyến khích giữ cả khi chụp form lỗi nếu không ảnh hưởng kịch bản test).
 - [ ] Đúng thư mục và đúng tên file chuẩn `P<n>_<ID>.png` hoặc `P<n>_<Screen>_1.png`.

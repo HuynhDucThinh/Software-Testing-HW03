@@ -15,7 +15,7 @@
 ## Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/forgot-password, http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)

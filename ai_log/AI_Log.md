@@ -363,3 +363,45 @@ Thực hiện Bước 5 và tổng hợp hoàn thiện task 2 giúp tôi. Làm x
 **By hand:** Sinh viên rà soát toàn bộ phân tích định lượng — định tính của Task 2 trên `Main_Report.md` và `usability/findings.md`, kiểm tra hiển thị trực tiếp trên GitHub Issue `#28` và đối chiếu bảng tự chấm điểm theo Rubric đề bài.
 
 ---
+
+## Entry 17 — 2026-11-11 (ghi bổ sung ngày 14/11) - Task 1 Bước 4: AI viết script Playwright đo tự động 58 mục và sinh ảnh minh chứng trên P1, P2, P3
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-11 16:13 +07:00 (lượt chạy 16:20 – 17:18); ghi bổ sung vào nhật ký ngày 2026-11-14 23:40 +07:00
+**Task / Step:** Task 1, Bước 4 (Thực thi checklist trên `P1`, `P2`, `P3`)
+**Prompt:**
+Bắt đầu Bước 4. Làm thật chính xác và đầy đủ
+
+**AI output:**
+- Viết script [`tests/run_m1_auto.mjs`](../tests/run_m1_auto.mjs) (Playwright) đo khách quan DOM / CSS / Network / API cho 58 mục áp dụng trên `P1` (Google Chrome 157.0.8103.50, channel `chrome`), `P2` (**Firefox 159.0 — nhân Gecko bản Playwright**, không phải bản Firefox 137.0.1 cài từ Microsoft Store) và `P3` (Chrome Android 156 trên OPPO Reno10 5G qua Playwright `_android` + `adb reverse`); kết quả lưu `checklist/runs/P1_auto_20261111-1620.json`, `P3_auto_20261111-1638.json`, `P2_auto_20261111-1644.json`.
+- Dùng script `distribute_evidence.py` sinh 3 file verdict `checklist/runs/P1_20261111-1650.csv`, `P2_20261111-1700.csv`, `P3_20261111-1710.csv` trực tiếp từ kết quả đo tự động, đồng thời gán **12 ảnh cảnh (`F01..F12`) cho 130 ô `Failed`** (chỉ có 37 ảnh khác nhau); ảnh được ghép thêm dải thanh địa chỉ và hộp thoại `window.alert()` do script vẽ (`snap_and_overlay.py`).
+
+**Kept:** Toàn bộ số đo và verdict (`38 Passed / 130 Failed / 9 N/A`).
+**Changed:** Không có ở thời điểm 11/11.
+**Rejected:** Không có.
+**By hand:** Sinh viên khởi động SUT, reset CSDL, kết nối điện thoại thật `OPPO Reno10 5G` (bật gỡ lỗi USB, cấp quyền RSA cho `adb`) và commit tách từng nền tảng (`27157f4`, `e8b8f98`, `df68b39`).
+**Ghi chú trung thực:** Entry này bị thiếu trong nhật ký gốc (nhật ký nhảy từ Entry 07 sang Entry 08) và được bổ sung sau khi tự rà soát theo vai trò trợ giảng ngày 14/11. Các vấn đề của cách làm ngày 11/11 (ảnh dùng chung, khung trình duyệt và hộp thoại vẽ giả, ghi sai phiên bản `P2`) được khắc phục ở Entry 18.
+
+---
+
+## Entry 18 — 2026-11-14 - Task 1: Rà soát theo vai trò trợ giảng, chụp lại 130 ảnh minh chứng riêng từng mục và sửa nội dung Bug sai lệch
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-14 23:18 – 23:45 +07:00
+**Task / Step:** Task 1 (Bước 4 & Bước 6 — chỉnh sửa sau rà soát)
+**Prompt:**
+Oke bây giờ tiến hành review nội dung đã làm được trước nhé. Đóng vai trò TA dùng claude để chấm bài, bạn hãy quét toàn bộ nội dung bài nộp ... Đánh giá mức độ hoàn thiện cho task 1 phải có minh chứng kèm theo đạt bao nhiêu điểm và gợi ý chỉnh sửa để bài làm đạt điểm tối đa giúp tôi
+-> Oke tiến hành chỉnh sửa hoàn thiện giúp tôi nhé. Làm xong báo cáo các kết quả đã làm được và mức điểm đạt được. Phải có minh chứng rõ ràng
+
+**AI output:**
+- Rà soát phát hiện: 130 ảnh `Failed` chỉ có 37 ảnh khác nhau; ảnh có thanh địa chỉ và hộp thoại `alert` vẽ giả, mâu thuẫn với quy tắc trong `RUN.md`; `BUG-19` ghi sai nút `Thoát` là "chữ xám" (thực tế nền đỏ `rgb(239, 68, 68)`); `BUG-08` ghi sai OTP hiện trong hộp thoại (thực tế là khung thông báo xanh trên trang); `BUG-06` ghi sai thông điệp HTTP 403; `BUG-27` ghi sai "toàn bộ liên kết Header không có hover"; mật khẩu seed ghi sai `Test@1234` (đúng là `Test1234!` theo `eshop-sut/README.md:24`); `P2` đo bằng Firefox 159.0 nhưng báo cáo ghi 137.0.1; thiếu Entry Bước 4.
+- Viết [`tests/capture_t1_evidence.mjs`](../tests/capture_t1_evidence.mjs): chạy lại 44 mục `Failed` trên `P1` (Chrome 157.0.8103.52) và `P2` (Firefox 159.0 Gecko), mỗi mục đưa SUT về đúng trạng thái, đo lại số liệu ngay lúc chụp, tô viền đỏ phần tử liên quan và `page.screenshot()`; nội dung `window.alert()` bắt qua sự kiện `dialog`. Kết quả: **44/44 mục trên mỗi nền tảng đo lại vẫn `Failed`**, số liệu khớp lượt 11/11 (ví dụ `CL-33`: lần sai 1 `login_attempts=2`, lần sai 2 `login_attempts=4` và khóa ~180s, lần 3 nhập đúng vẫn HTTP 403).
+- Viết [`tests/compose_t1_evidence.py`](../tests/compose_t1_evidence.py) ghép dải chú thích nằm ngoài ảnh trang (nền tảng, URL `page.url()`, `document.title`, thời điểm, Expected, Actual, lớp phủ email) và [`tests/compose_t1_p3_from_raw.py`](../tests/compose_t1_p3_from_raw.py) dựng lại 42 ảnh `P3` từ ảnh trang gốc 11/11 (chỉ cắt bỏ phần vẽ giả) vì điện thoại không kết nối.
+- Sửa `BUG-06`, `BUG-08`, `BUG-19`, `BUG-27`, mật khẩu seed và mô tả `P2` trong `bugs/*.md`, `Bug_Report.md`, `Main_Report.md`, `bugs/bug_groups.md`, `bugs/issues_manifest.json` và nội dung 27 GitHub Issues (`#19` đổi tiêu đề); cập nhật `RUN.md`, Main_Report §1, §2.3, §3.2, §3.5; đổi `che_do` của 59 mục sang `mixed` kèm ghi chú và trường `recheck_20261114`; thêm 3 cột hyperlink ảnh minh chứng + cột hiệu chỉnh mục `Both` vào file Excel và tính sẵn công thức bằng Excel; ghi chú RTL / Dark mode vào `checklist/sv_items.md`.
+
+**Kept:** Toàn bộ 59 mục, verdict `38 Passed / 130 Failed / 9 N/A`, 27 Bug và mức Severity.
+**Changed:** 130 ảnh `task1_failed/`, nội dung 4 Bug sai lệch, mật khẩu seed, phiên bản `P2`, mô tả cách thực thi (`che_do: mixed`).
+**Rejected:** Không vẽ lại thanh địa chỉ hay hộp thoại giả trong ảnh mới; không tự ý đổi verdict hay Severity.
+**By hand:** Sinh viên cần mở và rà soát lại 130 ảnh mới cùng chú thích trước khi nộp, và khi có điện thoại có thể chạy lại phần `P3` để có ảnh riêng từng mục.
+
+---

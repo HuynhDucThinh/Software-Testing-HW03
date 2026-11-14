@@ -50,3 +50,4 @@ Luôn luôn (100%) trên mọi trình duyệt (`P1`, `P2`, `P3`) khi điều hư
 ## GitHub Issue
 - **Issue:** [#28 — [HW03-M1] [BUG-28] [IA-04] [Profile] Dữ liệu Số điện thoại và Địa chỉ giao hàng vừa cập nhật biến mất sạch trên biểu mẫu khi điều hướng nội bộ SPA quay lại trang Hồ sơ](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/28)
 - **Ảnh chụp trang GitHub Issue:** [`screenshots/github_issues/ISSUE-28_BUG-28.png`](../screenshots/github_issues/ISSUE-28_BUG-28.png)
+

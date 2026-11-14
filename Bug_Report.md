@@ -63,7 +63,7 @@
 | [`BUG-16`](bugs/BUG-16.md) | [#16](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/16) | `IA-04` | **Major** | Medium | `CL-35` | P1, P2, P3 | [ForgotPassword, Profile] Sử dụng hộp thoại chặn window.alert() và hiển thị thông báo lỗi tiếng Anh thô 'Lỗi: User not found' | [`ISSUE-16`](screenshots/github_issues/ISSUE-16_BUG-16.png) |
 | [`BUG-17`](bugs/BUG-17.md) | [#17](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/17) | `IA-02` | **Minor** | Medium | `SV-03`, `SV-04` | P1, P2, P3 | [Login, Register] Vị trí khối thông báo lỗi đặt sai chuẩn: nằm bên dưới nút 'Sign In' ở Đăng nhập và cách xa nút 'Đăng Ký' 336px ở đầu form Đăng ký | [`ISSUE-17`](screenshots/github_issues/ISSUE-17_BUG-17.png) |
 | [`BUG-18`](bugs/BUG-18.md) | [#18](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/18) | `IA-01` | **Minor** | Medium | `SV-06` | P1, P2, P3 | [Header] Họ Tên dài 100 ký tự không khoảng trắng làm tràn ngang thanh Header và đẩy nút 'Thoát' ra khỏi khung nhìn | [`ISSUE-18`](screenshots/github_issues/ISSUE-18_BUG-18.png) |
-| [`BUG-19`](bugs/BUG-19.md) | [#19](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19) | `IA-01` | **Minor** | Medium | `CL-07`, `CL-08` | P1, P2, P3 | [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám | [`ISSUE-19`](screenshots/github_issues/ISSUE-19_BUG-19.png) |
+| [`BUG-19`](bugs/BUG-19.md) | [#19](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19) | `IA-01` | **Minor** | Medium | `CL-07`, `CL-08` | P1, P2, P3 | [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá | [`ISSUE-19`](screenshots/github_issues/ISSUE-19_BUG-19.png) |
 | [`BUG-20`](bugs/BUG-20.md) | [#20](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/20) | `IA-01` | **Minor** | Low | `CL-11` | P1, P2, P3 | [Register] Dòng hướng dẫn quy tắc mật khẩu màu xám nhạt (#9ca3af) chỉ đạt độ tương phản 2.54:1, thấp hơn chuẩn WCAG AA 4.5:1 | [`ISSUE-20`](screenshots/github_issues/ISSUE-20_BUG-20.png) |
 | [`BUG-21`](bugs/BUG-21.md) | [#21](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/21) | `IA-03` | **Minor** | Medium | `CL-17`, `CL-26` | P1, P2, P3 | [ForgotPassword] Luồng Quên mật khẩu 2 bước thiếu chỉ báo bước (Step Indicator) và Bước 1 thiếu liên kết 'Quay lại đăng nhập' | [`ISSUE-21`](screenshots/github_issues/ISSUE-21_BUG-21.png) |
 | [`BUG-22`](bugs/BUG-22.md) | [#22](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/22) | `IA-02` | **Minor** | Low | `SV-13`, `SV-14` | P1, P2, P3 | [ForgotPassword, Register] Bước 2 Quên mật khẩu thiếu hẳn dòng gợi ý quy tắc mật khẩu và dòng gợi ý trên Đăng ký không liệt kê tập ký tự đặc biệt cho phép | [`ISSUE-22`](screenshots/github_issues/ISSUE-22_BUG-22.png) |
@@ -103,7 +103,7 @@ Biểu mẫu Đăng ký (`/register`) và Đặt lại mật khẩu Bước 2 (`
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register, http://localhost:5173/forgot-password`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -183,7 +183,7 @@ Khi người dùng đăng ký tài khoản mới bằng địa chỉ email đã 
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -246,7 +246,7 @@ Thanh Header/Navbar render lời chào người dùng bằng thuộc tính `dang
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -309,7 +309,7 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -319,7 +319,7 @@ Người dùng chưa đăng nhập, mở trang Đăng nhập `http://localhost:5
 
 #### Steps to reproduce
 1. Truy cập trang Đăng nhập tại `http://localhost:5173/login`.
-2. Nhấp vào ô nhập thứ hai có nhãn `Mật khẩu` và gõ chuỗi `Test@1234`.
+2. Nhấp vào ô nhập thứ hai có nhãn `Mật khẩu` và gõ chuỗi `Test1234!`.
 3. Quan sát ký tự hiển thị trực tiếp trong ô nhập và kiểm tra thuộc tính `type` của thẻ `<input>` trong DevTools.
 
 #### Expected result
@@ -328,7 +328,7 @@ Theo `FR-22` (`eshop-sut/README.md:254`), tất cả các ô nhập mật khẩu
 - **`CL-15`** (*Che giấu ký tự nhập bằng type="password" ở tất cả các ô mật khẩu* — căn cứ: `FR-22 (eshop-sut/README.md:254)`): Mọi ô nhập mật khẩu trên /register, /login và Bước 2 trang /forgot-password khi người dùng gõ ký tự ở trạng thái mặc định đều dùng `type="password"` và hiển thị thành dấu chấm tròn ẩn (`••••`), không lộ ký tự rõ. Fail nếu bất kỳ ô mật khẩu nào dùng `type="text"` hoặc để lộ chuỗi mật khẩu đang gõ.
 
 #### Actual result
-Trên `/login` (`Login.jsx:49`), ô `Mật khẩu` có thuộc tính `type="text"`, hiển thị nguyên văn chuỗi `Test@1234` không che giấu trên cả 3 nền tảng `P1`, `P2` và `P3` (trong khi `/register` và Bước 2 `/forgot-password` có dùng `type="password"`).
+Trên `/login` (`Login.jsx:49`), ô `Mật khẩu` có thuộc tính `type="text"`, hiển thị nguyên văn chuỗi `Test1234!` không che giấu trên cả 3 nền tảng `P1`, `P2` và `P3` (trong khi `/register` và Bước 2 `/forgot-password` có dùng `type="password"`).
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`CL-15` trên `P1`:** Actual: Ô Mật khẩu trên /register có type="password", Bước 2 /forgot-password có type="password", nhưng ô Mật khẩu trên /login lại khai báo type="text" làm lộ rõ toàn bộ ký tự mật khẩu khi gõ.
@@ -374,13 +374,13 @@ Biểu mẫu Hồ sơ cá nhân (`/profile`) kiểm tra Số điện thoại b�
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
 
 #### Preconditions
-Đã đăng nhập bằng tài khoản `test@eshop.com` / `Test@1234` và đang ở trang `http://localhost:5173/profile`.
+Đã đăng nhập bằng tài khoản `test@eshop.com` / `Test1234!` và đang ở trang `http://localhost:5173/profile`.
 
 #### Steps to reproduce
 1. Tại khối `Hồ sơ của bạn` trên `http://localhost:5173/profile`, nhập Số điện thoại hợp lệ 10 chữ số bắt đầu bằng `0` là `0912345678` và bấm `Cập nhật`.
@@ -446,7 +446,7 @@ Hệ thống khóa tài khoản ngay sau 2 lần đăng nhập sai liên tiếp 
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -457,7 +457,7 @@ CSDL vừa khởi tạo sạch, tài khoản `test@eshop.com` có `login_attempt
 #### Steps to reproduce
 1. Truy cập `http://localhost:5173/login`, nhập Username `test@eshop.com` và mật khẩu sai `WrongPass1`, bấm `Sign In` (lần sai 1).
 2. Tiếp tục bấm `Sign In` với mật khẩu sai `WrongPass2` (lần sai 2).
-3. Ở lần thứ 3, nhập đúng mật khẩu hợp lệ `Test@1234` và bấm `Sign In`, đồng thời quan sát mã phản hồi HTTP trong tab Network và nội dung thông báo lỗi trên giao diện.
+3. Ở lần thứ 3, nhập đúng mật khẩu hợp lệ `Test1234!` và bấm `Sign In`, đồng thời quan sát mã phản hồi HTTP trong tab Network và nội dung thông báo lỗi trên giao diện.
 
 #### Expected result
 Theo `FR-02` (`eshop-sut/README.md:41-42`), tài khoản chỉ bị khóa tạm thời sau đúng 3 lần đăng nhập thất bại liên tiếp (tức lần thứ 3 nhập đúng vẫn phải đăng nhập thành công), thời gian khóa là 30 giây, và khi bị khóa giao diện phải hiển thị thông báo nêu rõ trạng thái khóa tạm thời.
@@ -465,7 +465,7 @@ Theo `FR-02` (`eshop-sut/README.md:41-42`), tài khoản chỉ bị khóa tạm 
 - **`CL-33`** (*Khóa tạm thời tài khoản 30 giây kèm thông báo phù hợp sau đúng 3 lần đăng nhập sai liên tiếp* — căn cứ: `FR-02 (eshop-sut/README.md:41-42)`): Ở lần nhập sai thứ 1 và thứ 2 trên `/login`, tài khoản chưa bị khóa (nếu nhập đúng mật khẩu ở lần kế sẽ vào được); từ lần nhập sai thứ 3 liên tiếp, tài khoản bị tạm khóa trong đúng 30 giây, giao diện hiển thị thông báo cho biết tài khoản đang bị tạm khóa, và cho phép đăng nhập lại sau khi hết 30 giây. Fail nếu tài khoản bị khóa sớm hơn 3 lần sai (ví dụ khóa ngay sau lần sai thứ 2), không hiển thị thông báo bị khóa trên giao diện, hoặc thời gian khóa thực tế lệch quá 5 giây so với 30 giây.
 
 #### Actual result
-Ngay ở lần thử thứ 3 dù nhập đúng `Test@1234`, API `POST /api/login` đã trả về HTTP 403 `Account locked. Try again later.` (do `server.js:54` cộng `login_attempts + 2` mỗi lần sai và đặt `lock_until = Date.now() + 180000` ms = 180 giây). Giao diện `Login.jsx:27` bắt chung khối `catch` nên vẫn chỉ hiện `Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin.`, không hề báo tài khoản đang bị khóa.
+Ngay ở lần thử thứ 3 dù nhập đúng `Test1234!`, API `POST /api/login` đã trả về HTTP 403 `{"error":"Tài khoản đã bị khóa. Vui lòng thử lại sau."}` (do `server.js:54` cộng `login_attempts + 2` mỗi lần sai và đặt cột `locked_until` = thời điểm hiện tại + 180 giây). Giao diện `Login.jsx:27` bắt chung khối `catch` nên vẫn chỉ hiện `Đăng nhập thất bại. Vui lòng kiểm tra lại.`, không hề báo tài khoản đang bị khóa.
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`CL-33` trên `P1`:** Actual: Tài khoản bị khoá ngay sau lần nhập sai thứ 2 (login_attempts tăng +2 mỗi lần: lần 1=2, lần 2=4), thời gian khoá thực tế ~180 giây (thay vì 30 giây), và khi bị khoá (HTTP 403: "Tài khoản đã bị khóa. Vui lòng thử lại sau.") giao diện /login vẫn chỉ hiện "Đăng nhập thất bại. Vui lòng kiểm tra lại." chứ không báo tài khoản đang bị tạm khoá.
@@ -509,7 +509,7 @@ Cả trang Đăng ký (`/register`) lẫn Bước 2 trang Quên mật khẩu (`/
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register, http://localhost:5173/forgot-password`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -566,7 +566,7 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
 ### BUG-08 (Issue #8) — [IA-02] [ForgotPassword] Mã OTP khôi phục mật khẩu chỉ sinh 4 chữ số thay vì 6 chữ số theo đặc tả FR-03 và SEC-07
 
 #### Summary
-Khi yêu cầu mã OTP khôi phục mật khẩu, Backend và hộp thoại thông báo trên Frontend chỉ sinh mã OTP gồm 4 chữ số (`1000-9999`) và ô nhập OTP ở Bước 2 không giới hạn độ dài 6 chữ số theo đặc tả `FR-03` và `SEC-07`.
+Khi yêu cầu mã OTP khôi phục mật khẩu, Backend chỉ sinh và khung thông báo xanh trên trang chỉ hiển thị mã OTP gồm 4 chữ số (`1000-9999`) và ô nhập OTP ở Bước 2 không giới hạn độ dài 6 chữ số theo đặc tả `FR-03` và `SEC-07`.
 
 - **Bug ID:** `BUG-08`
 - **Checklist item:** `CL-20`
@@ -580,7 +580,7 @@ Khi yêu cầu mã OTP khôi phục mật khẩu, Backend và hộp thoại thô
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/forgot-password`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -591,7 +591,7 @@ Tài khoản `test@eshop.com` tồn tại trong CSDL.
 #### Steps to reproduce
 1. Truy cập `http://localhost:5173/forgot-password`.
 2. Nhập `test@eshop.com` vào ô Email và bấm `Lấy mã OTP`.
-3. Quan sát mã OTP hiển thị trên hộp thoại thông báo và kiểm tra các thuộc tính `maxLength`/`pattern` của ô `Mã OTP` ở Bước 2.
+3. Quan sát mã OTP hiển thị trong khung thông báo màu xanh ngay trên trang (không phải hộp thoại) và kiểm tra các thuộc tính `maxLength`/`pattern` của ô `Mã OTP` ở Bước 2.
 
 #### Expected result
 Theo `FR-03` (`eshop-sut/README.md:51`) và `SEC-07` (`eshop-sut/README.md:284`), mã OTP dùng một lần phải gồm đúng 6 chữ số ngẫu nhiên (ví dụ `482910`), và trường nhập OTP cần gợi ý/kiểm tra độ dài 6 chữ số.
@@ -599,7 +599,7 @@ Theo `FR-03` (`eshop-sut/README.md:51`) và `SEC-07` (`eshop-sut/README.md:284`)
 - **`CL-20`** (*Độ dài 6 chữ số của mã OTP và nhãn trường OTP ở Bước 2 Quên mật khẩu* — căn cứ: `FR-03 (eshop-sut/README.md:51); SEC-07 (eshop-sut/README.md:284); Slide 10 #5 Field Limits`): Mã OTP demo hiển thị ở Bước 2 gồm đúng 6 chữ số ngẫu nhiên và nhãn/gợi ý của ô nhập OTP mô tả đúng mã 6 chữ số. Fail nếu mã OTP sinh ra có ít hơn 6 chữ số (ví dụ chỉ có 4 chữ số) hoặc nhãn ô nhập ghi sai độ dài mã OTP.
 
 #### Actual result
-Hộp thoại `alert` hiển thị mã OTP chỉ có 4 chữ số (ví dụ `Mã OTP của bạn là: 4823` do `server.js:72` tính `Math.floor(1000 + Math.random() * 9000)`), đồng thời ô `Mã OTP` ở Bước 2 có `maxLength = -1`, `pattern = ''` không kiểm tra định dạng 6 chữ số.
+Khung thông báo màu xanh ngay trên trang (không phải hộp thoại) hiển thị mã OTP chỉ có 4 chữ số (ví dụ `Mã OTP của bạn là: 4823` do `server.js:72` tính `Math.floor(1000 + Math.random() * 9000)`), đồng thời ô `Mã OTP` ở Bước 2 có `maxLength = -1`, `pattern = ''` không kiểm tra định dạng 6 chữ số.
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`CL-20` trên `P1`:** Actual: Hệ thống chỉ sinh mã OTP gồm 4 chữ số ("Mã OTP của bạn là: 5017") và nhãn ô nhập ghi "Mã OTP (4 số)" thay vì 6 chữ số.
@@ -643,7 +643,7 @@ Cả 3 biểu mẫu Đăng ký (`/register`), Đăng nhập (`/login`) và Quên
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register, http://localhost:5173/login, http://localhost:5173/forgot-password`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -715,7 +715,7 @@ Khi khách chưa đăng nhập truy cập trực tiếp đường dẫn được
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -778,7 +778,7 @@ Sau khi người dùng đổi Họ Tên tại trang Hồ sơ (`/profile`) và nh
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -787,7 +787,7 @@ Sau khi người dùng đổi Họ Tên tại trang Hồ sơ (`/profile`) và nh
 Đã đăng nhập bằng tài khoản `test@eshop.com` (tên mặc định `Test User`).
 
 #### Steps to reproduce
-1. Đăng nhập bằng `test@eshop.com` / `Test@1234`, quan sát lời chào trên Header đang là `Chào, Test User`.
+1. Đăng nhập bằng `test@eshop.com` / `Test1234!`, quan sát lời chào trên Header đang là `Chào, Test User`.
 2. Truy cập `http://localhost:5173/profile`, sửa ô Họ Tên thành `23120199 - Huỳnh Đức Thịnh`, nhập SĐT `9123456789` (để vượt qua bộ lọc SĐT hiện tại) rồi bấm `Cập nhật`.
 3. Đóng hộp thoại `Cập nhật thành công!` và quan sát lời chào trên thanh Header trước khi tải lại trang.
 
@@ -841,7 +841,7 @@ Biểu mẫu Đăng ký (`/register`) và Hồ sơ cá nhân (`/profile`) không
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register, http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -903,7 +903,7 @@ Tất cả 4 màn hình thuộc phạm vi xác thực & hồ sơ (`/register`, `
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -988,7 +988,7 @@ Giao diện vi phạm quy chuẩn ngôn ngữ tiếng Việt nhất quán: trang
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -998,7 +998,7 @@ Kiểm tra `/login` ở trạng thái khách và kiểm tra thanh Header sau khi
 
 #### Steps to reproduce
 1. Truy cập `http://localhost:5173/login` và quan sát nhãn các ô nhập liệu cùng nhãn nút gửi biểu mẫu.
-2. Đăng nhập bằng tài khoản `test@eshop.com` / `Test@1234` và quan sát nút kết thúc phiên trên góc phải thanh Header.
+2. Đăng nhập bằng tài khoản `test@eshop.com` / `Test1234!` và quan sát nút kết thúc phiên trên góc phải thanh Header.
 
 #### Expected result
 Theo `FR-21` (`eshop-sut/README.md:244`), toàn bộ giao diện phải sử dụng tiếng Việt nhất quán, không pha trộn tiếng Anh cho nhãn trường và nút hành động. Theo `FR-23` (`eshop-sut/README.md:262`), nút kết thúc phiên trên Header phải mang nhãn chuẩn `Đăng xuất`.
@@ -1059,7 +1059,7 @@ Trên trang Đăng nhập (`/login`), nút gửi biểu mẫu `Sign In` được
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`)
 
@@ -1120,7 +1120,7 @@ Trang Quên mật khẩu (`/forgot-password`) và trang Hồ sơ (`/profile`) s�
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/forgot-password, http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1183,7 +1183,7 @@ Vị trí hiển thị thông báo lỗi biểu mẫu không nhất quán và tr
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login, http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1254,7 +1254,7 @@ Thanh Header không giới hạn chiều rộng tối đa (`max-width` / `text-o
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1301,10 +1301,10 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
 
 ---
 
-### BUG-19 (Issue #19) — [IA-01] [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám
+### BUG-19 (Issue #19) — [IA-01] [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá
 
 #### Summary
-Hệ thống màu sắc các nút hành động trong phân hệ M1 thiếu nhất quán và sai ngữ nghĩa chuẩn `FR-21`: nút chính `Đăng Ký` lại tô màu đỏ (vốn dành cho hành động xóa/nguy hiểm), ở Bước 2 Quên mật khẩu cả nút chính `Đặt lại mật khẩu` và nút phụ `← Quay lại` đều tô cùng màu xanh lá cây giống hệt nhau, còn nút `Thoát` chỉ là chữ xám không có nền/viền phân biệt.
+Hệ thống màu sắc các nút hành động trong phân hệ M1 thiếu nhất quán và sai ngữ nghĩa chuẩn `FR-21`: nút chính `Đăng Ký` lại tô màu đỏ (vốn dành cho hành động xóa/nguy hiểm), ở Bước 2 Quên mật khẩu cả nút chính `Đặt lại mật khẩu` và nút phụ `← Quay lại` đều tô cùng màu xanh lá cây giống hệt nhau.
 
 - **Bug ID:** `BUG-19`
 - **Checklist item:** `CL-07`, `CL-08`
@@ -1318,7 +1318,7 @@ Hệ thống màu sắc các nút hành động trong phân hệ M1 thiếu nh�
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register, http://localhost:5173/forgot-password`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1329,7 +1329,7 @@ Mở trang `/register`, Bước 2 `/forgot-password` và thanh Header khi đã �
 #### Steps to reproduce
 1. So sánh màu nền nút Submit chính trên `/login` (`Sign In`), `/profile` (`Cập nhật`) với nút `Đăng Ký` trên `/register`.
 2. Chuyển sang Bước 2 trang `/forgot-password`, quan sát màu nền của hai nút `Đặt lại mật khẩu` và `← Quay lại`.
-3. Đăng nhập và quan sát kiểu hiển thị của nút `Thoát` trên thanh Header.
+3. (Đối chứng) Đăng nhập và quan sát nút `Thoát` trên thanh Header: nền đỏ `rgb(239, 68, 68)`, đúng quy ước.
 
 #### Expected result
 Theo `FR-21` (`eshop-sut/README.md:245`) và Slide 10 #2 (Color and Palette), nút hành động tích cực chính dùng màu xanh dương nhất quán, màu đỏ chỉ dùng cho hành động xóa/hủy nguy hiểm, và nút điều hướng phụ (`← Quay lại`) phải có kiểu dáng thứ cấp tách biệt rõ với nút gửi chính.
@@ -1338,7 +1338,7 @@ Theo `FR-21` (`eshop-sut/README.md:245`) và Slide 10 #2 (Color and Palette), n�
 - **`CL-08`** (*Phân biệt màu sắc nút hành động tích cực, nút điều hướng phụ và nút đăng xuất trên ForgotPassword và Header* — căn cứ: `FR-21 (eshop-sut/README.md:245); Slide 10 #2 Color and Palette`): Các nút hành động tích cực ('Lấy mã OTP', 'Đặt lại mật khẩu') có nền màu xanh dương, nút phụ ('Quay lại') có kiểu trung tính phân biệt rõ với nút chính, và nút thoát phiên đăng nhập trên Header dùng màu đỏ theo quy ước. Fail nếu nút tích cực dùng màu khác xanh dương (ví dụ xanh lá) hoặc nút 'Đặt lại mật khẩu' và nút 'Quay lại' dùng cùng một màu nền gây nhầm lẫn vai trò.
 
 #### Actual result
-Nút `Đăng Ký` trên `/register` dùng nền đỏ `bg-red-500/600` (`rgb(239, 68, 68)`); ở Bước 2 `/forgot-password` cả hai nút `Đặt lại mật khẩu` và `← Quay lại` đều dùng nền xanh lá `bg-green-600` (`rgb(22, 163, 74)`) giống hệt nhau; nút `Thoát` trên Header có nền trong suốt và chữ xám `rgb(107, 114, 128)` giống liên kết thường.
+Nút `Đăng Ký` trên `/register` dùng nền đỏ `bg-red-500/600` (`rgb(239, 68, 68)`); ở Bước 2 `/forgot-password` cả hai nút `Đặt lại mật khẩu` và `← Quay lại` đều dùng nền xanh lá `bg-green-600` (`rgb(22, 163, 74)`) giống hệt nhau. (Nút `Thoát` trên Header có nền đỏ `rgb(239, 68, 68)` đúng quy ước nút nguy hiểm, nên không thuộc phạm vi lỗi này.)
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`CL-07` trên `P1`:** Actual: Nút Submit trên Login ("Sign In": rgb(37, 99, 235)) và Profile ("Cập nhật": rgb(37, 99, 235)) dùng màu xanh dương, nhưng nút "Đăng Ký" trên /register lại dùng màu đỏ (rgb(239, 68, 68)).
@@ -1368,7 +1368,7 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
 - `CL-08` (`P3`): [`screenshots/task1_failed/P3_CL-08.png`](screenshots/task1_failed/P3_CL-08.png)
 
 #### GitHub Issue
-- **Issue:** [#19 — [HW03-M1] [BUG-19] [IA-01] [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá, nút 'Thoát' chỉ là chữ xám](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19)
+- **Issue:** [#19 — [HW03-M1] [BUG-19] [IA-01] [Register, ForgotPassword, Header] Màu sắc nút bấm vi phạm ngữ nghĩa: nút 'Đăng Ký' dùng màu đỏ nguy hiểm, hai nút Bước 2 Quên mật khẩu trùng màu xanh lá](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues/19)
 - **Ảnh chụp trang GitHub Issue:** [`screenshots/github_issues/ISSUE-19_BUG-19.png`](screenshots/github_issues/ISSUE-19_BUG-19.png)
 
 ---
@@ -1390,7 +1390,7 @@ Dòng văn bản hướng dẫn quy tắc mật khẩu bên dưới ô Mật kh�
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1452,7 +1452,7 @@ Trang Quên mật khẩu (`/forgot-password`) được thiết kế gồm 2 bư�
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/forgot-password`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1523,7 +1523,7 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`, `P3`.
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/forgot-password, http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1594,7 +1594,7 @@ Trên cả 4 biểu mẫu thuộc phạm vi M1, không có bất kỳ nhãn trư
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1665,7 +1665,7 @@ Các ô nhập trên `/login` và Bước 2 `/forgot-password` không khai báo 
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/forgot-password, http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1732,7 +1732,7 @@ Hệ thống định hướng điều hướng gặp 3 lỗi liên quan: (1) tha
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1813,7 +1813,7 @@ Trên cả 4 biểu mẫu Đăng ký, Đăng nhập, Quên mật khẩu và Hồ
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **URL kiểm thử:** `http://localhost:5173/register`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`)
 
@@ -1859,7 +1859,7 @@ Luôn luôn (100%) trên các nền tảng áp dụng: `P1`, `P2`.
 ### BUG-27 (Issue #27) — [IA-03] [All M1 Screens] Nút bấm và liên kết điều hướng thiếu hiệu ứng phản hồi khi rê chuột (:hover) và chiều cao vùng chạm liên kết nhỏ hơn ngưỡng 24x24 CSS px
 
 #### Summary
-Các nút hành động và liên kết trên thanh Header/biểu mẫu thiếu lớp CSS phản hồi màu sắc khi rê chuột (`:hover`), đồng thời các liên kết điều hướng nội dòng (`Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay`) chỉ có chiều cao `16px-19px` không có đệm `padding`, thấp hơn ngưỡng vùng chạm tối thiểu `24x24 CSS px` của WCAG 2.2.
+Nhiều nút hành động (`Lấy mã OTP`, `Đặt lại mật khẩu`, `← Quay lại`, `Thoát`, `Cập nhật`) và logo `EShop` thiếu phản hồi màu sắc khi rê chuột (`:hover`), trong khi `Sign In` lại có, gây thiếu nhất quán, đồng thời các liên kết điều hướng nội dòng (`Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay`) chỉ có chiều cao `16px-19px` không có đệm `padding`, thấp hơn ngưỡng vùng chạm tối thiểu `24x24 CSS px` của WCAG 2.2.
 
 - **Bug ID:** `BUG-27`
 - **Checklist item:** `CL-31`, `SV-19`
@@ -1873,7 +1873,7 @@ Các nút hành động và liên kết trên thanh Header/biểu mẫu thiếu 
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -1882,7 +1882,7 @@ Các nút hành động và liên kết trên thanh Header/biểu mẫu thiếu 
 Kiểm tra `:hover` trên Desktop (`P1`, `P2`) và đo bounding box của các liên kết trên cả 3 nền tảng (`P1`, `P2`, `P3`).
 
 #### Steps to reproduce
-1. Trên `P1`/`P2`, di chuyển con trỏ chuột lần lượt lên các liên kết trên Header (`Giỏ hàng`, `Đăng nhập`, `Đăng ký`, `Thoát`) và các nút Submit (`Sign In`, `Lấy mã OTP`, `Đặt lại mật khẩu`, `Cập nhật`) để quan sát thay đổi màu nền/màu chữ.
+1. Trên `P1`/`P2`, di chuyển con trỏ chuột lần lượt lên logo `EShop`, nút `Thoát` trên Header và các nút `Sign In`, `Lấy mã OTP`, `Đặt lại mật khẩu`, `← Quay lại`, `Cập nhật` để so sánh màu nền/màu chữ trước và trong khi hover.
 2. Dùng DevTools đo kích thước `getBoundingClientRect()` của các liên kết `Đăng nhập` (`/register`), `Quên mật khẩu?` và `Đăng ký ngay` (`/login`) trên `P1`, `P2` và `P3`.
 
 #### Expected result
@@ -1892,7 +1892,7 @@ Theo Slide 10 #12 (Hover and Focus), các nút và liên kết tương tác cầ
 - **`SV-19`** (*Kích thước vùng chạm của nút và liên kết* — căn cứ: `WCAG 2.2 SC 2.5.8 Target Size (Minimum); Slide 10 #18 Element Overlap`): Mọi nút và liên kết dạng chữ trên 5 vùng giao diện có vùng chạm tối thiểu 24 x 24 CSS px (đo bằng `getBoundingClientRect()`), và trên điện thoại Android chạm đúng một lần vào phần tử cần chọn mà không bấm nhầm phần tử kề bên. Fail nếu có nút hoặc liên kết có chiều cao hoặc chiều rộng nhỏ hơn 24 CSS px, hoặc chạm một lần trên điện thoại Android kích hoạt nhầm phần tử kề bên.
 
 #### Actual result
-Hầu hết các nút Submit (trừ nút đỏ trên `/register` có `hover:bg-red-600`) và toàn bộ liên kết Header giữ nguyên màu sắc khi `:hover`; chiều cao thực tế các liên kết `Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay` chỉ đạt `19px` trên `P1`/`P2` và `16px` trên `P3` (`< 24px`).
+Đo `getComputedStyle` trước và trong khi rê chuột trên `P1`, `P2`: 6/8 phần tử được đo **không** đổi màu nền/màu chữ/gạch chân gồm logo `EShop`, nút `Lấy mã OTP`, `Đặt lại mật khẩu`, `← Quay lại`, `Thoát`, `Cập nhật` (riêng `Sign In` đổi nền sang `rgb(29, 78, 216)` và `Quên mật khẩu?` có gạch chân, nên giao diện thiếu nhất quán); chiều cao thực tế các liên kết `Đăng nhập`, `Quên mật khẩu?`, `Đăng ký ngay` chỉ đạt `19px` trên `P1`/`P2` và `16px` trên `P3` (`< 24px`).
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`CL-31` trên `P1`:** Actual: Nhấn phím Enter gửi form=true; tuy nhiên các nút thiếu hiệu ứng đổi màu khi hover hoặc thiếu cursor: pointer gồm: Register `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); Login `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB1 `<button>` "Lấy mã OTP" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 `<button>` "Đặt lại mật khẩu" (cursor=pointer, đổi màu/gạch chân khi hover=false); ForgotB2 `<button>` "← Quay lại" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header `<a>` "EShop" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header `<button>` "Thoát" (cursor=pointer, đổi màu/gạch chân khi hover=false); Profile+Header `<button>` "Cập nhật" (cursor=pointer, đổi màu/gạch chân khi hover=false).

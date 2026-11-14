@@ -15,7 +15,7 @@ Giao diện vi phạm quy chuẩn ngôn ngữ tiếng Việt nhất quán: trang
 ## Environment
 - **SUT:** `eshop-sut @ 1a9304a (repo HEAD 6b6a7a9)` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
 - **P1:** Google Chrome 157.0.8103.50 trên Windows 11
-- **P2:** Mozilla Firefox 137.0.1 trên Windows 11
+- **P2:** Mozilla Firefox trên Windows 11 (bản cài đặt `137.0.1` dùng để quan sát trực tiếp; nhân Gecko `159.0` bản Playwright dùng để đo DOM và chụp ảnh minh chứng)
 - **P3:** Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)
 - **URL kiểm thử:** `http://localhost:5173/login`
 - **Viewport:** Desktop `1440x900` (`P1`, `P2`); Mobile `360x801` / `1080x2412` (`P3`)
@@ -25,7 +25,7 @@ Kiểm tra `/login` ở trạng thái khách và kiểm tra thanh Header sau khi
 
 ## Steps to reproduce
 1. Truy cập `http://localhost:5173/login` và quan sát nhãn các ô nhập liệu cùng nhãn nút gửi biểu mẫu.
-2. Đăng nhập bằng tài khoản `test@eshop.com` / `Test@1234` và quan sát nút kết thúc phiên trên góc phải thanh Header.
+2. Đăng nhập bằng tài khoản `test@eshop.com` / `Test1234!` và quan sát nút kết thúc phiên trên góc phải thanh Header.
 
 ## Expected result
 Theo `FR-21` (`eshop-sut/README.md:244`), toàn bộ giao diện phải sử dụng tiếng Việt nhất quán, không pha trộn tiếng Anh cho nhãn trường và nút hành động. Theo `FR-23` (`eshop-sut/README.md:262`), nút kết thúc phiên trên Header phải mang nhãn chuẩn `Đăng xuất`.
