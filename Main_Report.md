@@ -765,6 +765,7 @@ Từ `45` mục Checklist bị `Failed` (`130` ô lỗi trên 3 nền tảng ở
 ### 6.3. Ảnh chụp trang danh sách GitHub Issues
 
 - Trang danh sách Issues trên repository `HuynhDucThinh/Software-Testing-HW03` (28 Open Issues `#1`..`#28` gắn nhãn `bug`, `M1`, `IA-01..04`, `severity: *`): [https://github.com/HuynhDucThinh/Software-Testing-HW03/issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues)
+- *Cách tạo ảnh trang Issue:* vì repository đang để `Private` trong thời gian làm bài, các ảnh `screenshots/github_issues/*.png` là **bản dựng từ dữ liệu GitHub REST API** (`gh api ... Accept: application/vnd.github.full+json`, dùng nguyên `body_html` do GitHub render, nhãn và thời điểm tạo thật); dải trên cùng mỗi ảnh ghi rõ điều này và thời điểm dựng (cập nhật lần cuối 14/11/2026 sau khi sửa nội dung `BUG-06`, `BUG-08`, `BUG-19`, `BUG-27`). Sau khi chuyển repository sang `Public`, trợ giảng có thể mở trực tiếp đường dẫn trên để đối chiếu.
 
 ![Danh sách GitHub Issues HW03-M1 — Trang 1 (#1..#14)](screenshots/github_issues/GitHub_Issues_Overview_Page1.png)
 
