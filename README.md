@@ -71,7 +71,7 @@ Software-Testing-HW03/
 | **Số màn hình / vùng giao diện kiểm thử (Screens tested)** | **5** | `Register` (chính), `Login`, `ForgotPassword` (2 bước), `Profile`, `Header/Navbar` |
 | **Số luồng Usability (Flows tested)** | **1** | `F1`: Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` / `FR-02` / `FR-04`) |
 | **Số mục Checklist thiết kế (Designed items)** | **59** | Vượt ngưỡng `> 40` mục; phủ đủ 4 IA (`IA-01`: 14, `IA-02`: 23, `IA-03`: 12, `IA-04`: 10) |
-| **Số nền tảng thực thi (Platforms tested)** | **3** | `P1` Chrome 157 (Win 11), `P2` Firefox 137 (Win 11), `P3` Chrome Android 156 (OPPO Reno10 5G) |
+| **Số nền tảng thực thi (Platforms tested)** | **3** | `P1` Chrome 157 (Win 11), `P2` Firefox (Win 11; 137.0.1 cài đặt cho ảnh Task 3, 159.0 Playwright cho đo Task 1), `P3` Chrome Android 156 (OPPO Reno10 5G) |
 | **Tổng số lượt kiểm tra đã thực thi (Executed checks)** | **168 / 177** | `P1`: 58/59, `P2`: 58/59, `P3`: 52/59 (9 lượt `N/A` có giả định `NA1`, `NA2`) |
 | **Tổng kết quả lượt chạy (Passed / Failed / N/A / Blocked)** | **38 Passed / 130 Failed / 9 N/A / 0 Blocked** | `45 / 59` mục độc lập phát hiện lỗi (`Failed`) trên ít nhất 1 nền tảng (`14 / 59` mục `Passed` hoàn toàn) |
 | **Tổng số Bugs đã báo cáo (GitHub Issues)** | **28 Bugs (`#1`..`#28`)** | `5 Critical`, `11 Major`, `11 Minor`, `1 Cosmetic` (`27` Task 1 + `1` mới `BUG-28` Task 2) — [GitHub Issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues) & [`Bug_Report.md`](Bug_Report.md) |
@@ -80,7 +80,7 @@ Software-Testing-HW03/
 
 ### 3.2. Kết quả thực thi Checklist theo từng nền tảng (Task 1 & Task 3)
 
-| Chỉ số | `P1` — Chrome 157 (Windows 11) | `P2` — Firefox 137 (Windows 11) | `P3` — Chrome Android 156 (OPPO Reno10 5G) | Tổng lượt (3 nền tảng) |
+| Chỉ số | `P1` — Chrome 157 (Windows 11) | `P2` — Firefox 137/159 (Windows 11) | `P3` — Chrome Android 156 (OPPO Reno10 5G) | Tổng lượt (3 nền tảng) |
 | :--- | :---: | :---: | :---: | :---: |
 | **Item thiết kế** | 59 | 59 | 59 | **177** |
 | **Đã chạy (Executed)** | 58 | 58 | 52 | **168** |

@@ -509,10 +509,10 @@ Bảng dưới đây trích xuất đầy đủ toàn bộ **`45 / 59` mục ki�
 
 | Mã mục | Hiện tượng kiểm tra | Ghi nhận trên `P1` (Blink Desktop) | Ghi nhận trên `P2` (Gecko Desktop) | Ghi nhận trên `P3` (Blink Android `OPPO Reno10 5G`) |
 | :---: | :--- | :--- | :--- | :--- |
-| `CL-07` | Mã màu RGB tính toán của nút đỏ `Đăng Ký` | `rgb(239, 68, 68)` (`bg-red-500` mặc định) | `rgb(220, 38, 38)` (`bg-red-600` khi con trỏ nằm trên vùng nút) | `rgb(239, 68, 68)` (`bg-red-500`) |
-| `SV-06` | Mức độ tràn ngang thanh Header khi `Họ Tên` dài 100 ký tự liền nhau | Ở `1440px` chưa tràn (`1440px`), thu về `375px` tràn nặng (`scrollWidth = 1138px > 375px`) | Ở `1440px` chưa tràn (`1440px`), thu về `375px` tràn nặng (`scrollWidth = 1138px > 375px`) | **Tràn ngay ở chế độ mặc định của điện thoại:** `scrollWidth = 1118px > clientWidth = 360px`, đẩy mất hoàn toàn nút `Thoát` khỏi màn hình cảm ứng |
+| `CL-07` | Mã màu RGB tính toán của nút đỏ `Đăng Ký` | `rgb(239, 68, 68)` (`bg-red-500` mặc định) | `rgb(220, 38, 38)` ở lượt đo tự động 11/11 (lượt đo lại 14/11 trên cả `P1` và `P2` đều ra `rgb(239, 68, 68)`; chênh lệch có thể do trạng thái `:hover` lúc đo nhưng chưa được kiểm chứng, và không làm thay đổi kết luận `Failed` vì cả hai đều là màu đỏ) | `rgb(239, 68, 68)` (`bg-red-500`) |
+| `SV-06` | Mức độ tràn ngang thanh Header khi `Họ Tên` dài 100 ký tự liền nhau | Ở `1440px` chưa tràn (`1440px`), thu về `375px` tràn nặng (`scrollWidth` xấp xỉ `1137–1146px > 375px` (đo 11/11: `1146px`; đo lại 14/11: `1137px`, chênh lệch do bản trình duyệt và nội dung tên)) | Ở `1440px` chưa tràn (`1440px`), thu về `375px` tràn nặng (`scrollWidth` xấp xỉ `1137–1146px > 375px` (đo 11/11: `1146px`; đo lại 14/11: `1137px`, chênh lệch do bản trình duyệt và nội dung tên)) | **Tràn ngay ở chế độ mặc định của điện thoại:** `scrollWidth = 1118px > clientWidth = 360px`, đẩy mất hoàn toàn nút `Thoát` khỏi màn hình cảm ứng |
 | `SV-19` | Kích thước thực tế (`getBoundingClientRect`) của các liên kết văn bản | `Đăng nhập`: `68x19px`; `Quên mật khẩu?`: `102x19px`; `Đăng ký ngay`: `85x19px` (`< 24px`) | `Đăng nhập`: `68x19px`; `Quên mật khẩu?`: `102x19px`; `Đăng ký ngay`: `85x19px` (`< 24px`) | **Thu nhỏ hơn nữa trên màn hình di động:** `Đăng nhập`: `67x16px`; `Quên mật khẩu?`: `101x16px`; `Đăng ký ngay`: `83x16px` (`16px < 24px`), rất dễ chạm nhầm bằng ngón tay |
-| `CL-22`, `CL-35` | Giao diện hộp thoại chặn `window.alert()` | Hộp thoại modal trắng viền bo góc đặc trưng của Google Chrome Desktop đặt sát cạnh trên trang | Hộp thoại modal chính giữa cửa sổ đặc trưng của Mozilla Firefox (Gecko) làm mờ lớp nền | Hộp thoại cảnh báo hệ thống Android WebView/Chrome Mobile chiếm giữa màn hình dọc điện thoại |
+| `CL-22`, `CL-35` | Giao diện hộp thoại chặn `window.alert()` | Có `window.alert()`; nội dung thật được bắt qua sự kiện `dialog` của Playwright và ghi vào dòng `Actual` của ảnh (ví dụ `"Số điện thoại không hợp lệ. Vui lòng nhập đúng 9-10 chữ số."`, `"Lỗi: User not found"`) | Có `window.alert()` với cùng nội dung | Có `window.alert()` với cùng nội dung (số liệu lượt 11/11). *Ghi chú: hình dạng hộp thoại của từng trình duyệt không được chụp lại vì `page.screenshot()` không chụp được hộp thoại gốc, nên báo cáo không mô tả giao diện hộp thoại.* |
 
 ### 4.2. Phân tích chuyên môn về tính nhất quán và khác biệt đa nền tảng
 
@@ -526,11 +526,15 @@ Bảng dưới đây trích xuất đầy đủ toàn bộ **`45 / 59` mục ki�
 | Nền tảng | Thư mục ảnh mục `Failed` | Số ảnh mục `Failed` | Thư mục ảnh tổng quan & xác thực Task 3 | Số ảnh Task 3 |
 | :--- | :--- | :---: | :--- | :---: |
 | **`P1` — Chrome 157 / Windows 11** | `screenshots/task1_failed/P1_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P1_*.png` (`4` màn hình + `chrome://version`) | **5 ảnh** |
-| **`P2` — Firefox 137 / Windows 11** | `screenshots/task1_failed/P2_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P2_*.png` (`4` màn hình + `about:support`) | **5 ảnh** |
+| **`P2` — Firefox / Windows 11** (ảnh Failed: Firefox `159.0` Playwright; ảnh Task 3: Firefox `137.0.1` cài đặt) | `screenshots/task1_failed/P2_*.png` | **44 ảnh** | `screenshots/task3_cross_platform/P2_*.png` (`4` màn hình + `about:support`) | **5 ảnh** |
 | **`P3` — Chrome Android 156 / OPPO Reno10 5G** | `screenshots/task1_failed/P3_*.png` | **42 ảnh** | `screenshots/task3_cross_platform/P3_*.png` (`4` màn hình + `chrome://version`) | **5 ảnh** |
 | **Tổng cộng toàn bộ bằng chứng Task 1 & Task 3** | **`screenshots/task1_failed/`** | **130 ảnh** | **`screenshots/task3_cross_platform/`** | **15 ảnh** |
 
 > *Ghi chú xác thực chống gian lận (Mục 6 & Mục 11):* Toàn bộ 15 ảnh trong `screenshots/task3_cross_platform/` đều là ảnh chụp màn hình nguyên gốc cấp Hệ điều hành / Thiết bị vật lý (`1920x1080` kèm thanh Taskbar Windows 11 và khung cửa sổ thật của Google Chrome `157.0.8103.50/.52` / Mozilla Firefox `137.0.1` trên `P1, P2`; `1080x2412` kèm thanh trạng thái Android 15, thanh địa chỉ Chrome Android `156.0.8078.79` và thanh điều hướng trên điện thoại thật `OPPO Reno10 5G` mã `CPH2531` qua `adb reverse` trên `P3`), hiển thị rõ URL `localhost:5173/...`, chuỗi `23120199 - Huỳnh Đức Thịnh` điền trực tiếp trong biểu mẫu và lớp phủ `23120199@student.hcmus.edu.vn`.
+
+> *Công khai cách thực hiện ảnh Task 3 (bổ sung 14/11/2026):* Các ảnh là **ảnh chụp thật ở cấp hệ điều hành** vào ngày `12/11/2026` (đồng hồ taskbar `9:47–9:48 AM`), không phải ảnh dựng. Tuy nhiên với `P1` và `P2`, việc mở trình duyệt, điều hướng URL và điền chuỗi `23120199 - Huỳnh Đức Thịnh` vào biểu mẫu được thực hiện bằng script ([`tests/capture_t3_native_p1_p2.mjs`](tests/capture_t3_native_p1_p2.mjs) và [`tests/win_snap_helper.py`](tests/win_snap_helper.py) do AI viết, điều khiển Chrome qua `--remote-debugging-port=9441` và Firefox qua giao thức WebDriver BiDi), và lớp phủ email được chèn bằng script [`tests/watermark_native.py`](tests/watermark_native.py). Dấu vết hiện ngay trong ảnh: dòng `Command Line` ở [`P1_Device_Info.png`](screenshots/task3_cross_platform/P1_Device_Info.png), thanh địa chỉ sọc đỏ có biểu tượng robot của Firefox ở các ảnh `P2`, và đường dẫn `Profile Folder` trỏ vào thư mục tạm. Nội dung trang web trong ảnh vẫn là kết quả hiển thị thật của SUT. Để loại bỏ mọi nghi ngờ, sinh viên sẽ chụp lại 10 ảnh `P1`/`P2` thủ công (trình duyệt mở bình thường, tự gõ chuỗi tên, tự chèn lớp phủ bằng ShareX) và ghi nhận ở bản cập nhật sau (`Entry 19`).
+>
+> *Về BrowserStack / LambdaTest:* đề bài ưu tiên hai dịch vụ này nhưng cho phép dùng thiết bị thật. Sinh viên chọn thiết bị thật (`P3` là điện thoại `OPPO Reno10 5G`) vì cần giữ liên tục trạng thái nhiều phép thử và URL `localhost` nguyên bản; chưa lưu ảnh chụp trang đăng ký gói dùng thử nên không khẳng định gói đã hết hạn.
 
 #### Bảng tra cứu 15 ảnh chụp đa nền tảng cấp Hệ điều hành / Thiết bị thật (`screenshots/task3_cross_platform/`)
 
@@ -933,7 +937,7 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 - **Màn hình & URL:** Header/Navbar, Profile (`/profile`) (`http://localhost:5173/profile`)
 - **Tóm tắt bước tái hiện:** (1) Đăng ký hoặc cập nhật tài khoản với Họ Tên gồm 100 ký tự liền nhau (`NguyenVanA` x 10) rồi đăng nhập. -> (2) Quan sát thanh Header trên thiết bị di động `P3` (`360px`) và trên trình duyệt Desktop ở khung nhìn `375x667`.
 - **Kết quả mong đợi (`Expected`):** Theo Slide 10 #5 (Field Limits), #18 (Element Overlap) và #19 (Scroll Boundaries), phần tử hiển thị tên trên Header phải cắt gọn bằng dấu `...` (`truncate`) hoặc xuống dòng an toàn sao cho `scrollWidth <= clientWidth` và nút đăng xuất luôn nằm trọn trong khung nhìn.
-- **Kết quả thực tế (`Actual`):** Trên `P3` (`360px`), `document.documentElement.scrollWidth` bị kéo giãn lên tới `1118px` (`> clientWidth = 360px`); trên `P1`/`P2` ở khung nhìn `375px`, `scrollWidth = 1138px`, đẩy liên kết `Hồ sơ` và nút `Thoát` tràn hẳn ra ngoài cạnh phải màn hình.
+- **Kết quả thực tế (`Actual`):** Trên `P3` (`360px`), `document.documentElement.scrollWidth` bị kéo giãn lên tới `1118px` (`> clientWidth = 360px`); trên `P1`/`P2` ở khung nhìn `375px`, `scrollWidth` xấp xỉ `1137–1146px` (đo 11/11: `1146px`, đo lại 14/11: `1137px`), đẩy liên kết `Hồ sơ` và nút `Thoát` tràn hẳn ra ngoài cạnh phải màn hình.
 - **Tác động tới người dùng (`Impact`):** Phá vỡ bố cục responsive trên thiết bị di động và khiến người dùng có tên dài không thấy nút đăng xuất nếu không cuộn ngang toàn trang.
 - **Bằng chứng đính kèm:** Ảnh lỗi trên SUT: [`P3_SV-06.png`](screenshots/task1_failed/P3_SV-06.png), [`P1_SV-06.png`](screenshots/task1_failed/P1_SV-06.png) · Ảnh chụp trang GitHub Issue: [`ISSUE-18_BUG-18.png`](screenshots/github_issues/ISSUE-18_BUG-18.png)
 
@@ -1066,7 +1070,7 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 
 ## 9. Tóm Tắt AI Audit Report
 
-Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ / sửa / loại bỏ của sinh viên) được lưu nối tiếp theo trình tự thời gian trong một file duy nhất [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01` .. `Entry 18`) và sẽ được xuất tổng hợp thành tài liệu bắt buộc `AI_Critique_and_Audit_Report.md` (+ bản `.pdf`) ở bước đóng gói cuối cùng bằng script `ai_audit_export.py`.
+Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ / sửa / loại bỏ của sinh viên) được lưu nối tiếp theo trình tự thời gian trong một file duy nhất [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01` .. `Entry 19`) và sẽ được xuất tổng hợp thành tài liệu bắt buộc `AI_Critique_and_Audit_Report.md` (+ bản `.pdf`) ở bước đóng gói cuối cùng bằng script `ai_audit_export.py`.
 
 ---
 
@@ -1102,7 +1106,7 @@ Toàn bộ nhật ký tương tác với công cụ AI theo từng bước (tên
 
 ## 13. Phụ Lục và Cấu Trúc Hồ Sơ Nộp Bài
 
-- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** `AI_Critique_and_Audit_Report.md` (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 18`).
+- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** `AI_Critique_and_Audit_Report.md` (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 19`).
 - **Phụ lục B — Các bản đóng băng đầu ra AI theo từng bước:** [`checklist/ai-outputs/`](checklist/ai-outputs/) (`INDEX.md` + snapshot JSON Task 1) và [`usability/frozen/`](usability/frozen/) (`INDEX.md` + snapshot `SHA-256` Bước 0 & Bước 1 của Task 2).
 - **Phụ lục C — Sổ làm việc Excel & Dữ liệu thực thi gốc Task 1 & Task 3:** [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`checklist/checklist.json`](checklist/checklist.json), [`checklist/runs/`](checklist/runs/).
 - **Phụ lục D — Hồ sơ chi tiết 28 Bugs & Bằng chứng GitHub Issues:** [`Bug_Report.md`](Bug_Report.md), [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-28.md`](bugs/BUG-28.md), [`screenshots/github_issues/`](screenshots/github_issues/), [`screenshots/usability/`](screenshots/usability/).

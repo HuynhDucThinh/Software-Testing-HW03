@@ -1272,7 +1272,7 @@ Theo Slide 10 #5 (Field Limits), #18 (Element Overlap) và #19 (Scroll Boundarie
 - **`SV-06`** (*Bố cục Header khi Họ Tên người dùng rất dài và không có khoảng trắng* — căn cứ: `Slide 10 #5 Field Limits, #18 Element Overlap, #19 Scroll Boundaries`): Thanh Header với lời chào dài vẫn nằm gọn trong chiều rộng khung nhìn, không che nút `Đăng xuất` hay liên kết khác và không sinh thanh cuộn ngang (`document.documentElement.scrollWidth <= document.documentElement.clientWidth`); tên dài được cắt bớt, xuống dòng hoặc rút gọn. Fail nếu lời chào đẩy nút `Đăng xuất` ra ngoài màn hình, chồng lên phần tử khác hoặc tạo thanh cuộn ngang.
 
 #### Actual result
-Trên `P3` (`360px`), `document.documentElement.scrollWidth` bị kéo giãn lên tới `1118px` (`> clientWidth = 360px`); trên `P1`/`P2` ở khung nhìn `375px`, `scrollWidth = 1138px`, đẩy liên kết `Hồ sơ` và nút `Thoát` tràn hẳn ra ngoài cạnh phải màn hình.
+Trên `P3` (`360px`), `document.documentElement.scrollWidth` bị kéo giãn lên tới `1118px` (`> clientWidth = 360px`); trên `P1`/`P2` ở khung nhìn `375px`, `scrollWidth` xấp xỉ `1137–1146px` (đo 11/11: `1146px`, đo lại 14/11: `1137px`), đẩy liên kết `Hồ sơ` và nút `Thoát` tràn hẳn ra ngoài cạnh phải màn hình.
 
 **Dữ kiện `Actual` nguyên văn theo từng mục và nền tảng:**
 - **`SV-06` trên `P1`:** Actual: Khi Họ Tên dài 100 ký tự không khoảng trắng, lời chào trên Header không có CSS cắt/xuống dòng làm tràn khung nhìn: 375px: scrollWidth=1146px > clientWidth=375px, nút thoát bị đẩy tới x=1146px ngoài màn hình.
@@ -1941,7 +1941,7 @@ Sau khi người dùng nhập Số điện thoại và Địa chỉ giao hàng t
 
 #### Environment
 - **SUT:** `eshop-sut @ 1a9304a` (Web `http://localhost:5173`, Backend API `http://localhost:3000`)
-- **Nền tảng phát hiện & tái hiện:** `P1` Google Chrome 157 trên Windows 11 (tái hiện tương tự 100% trên `P2` Firefox 137 và `P3` Chrome Android 156)
+- **Nền tảng phát hiện & tái hiện:** `P1` Google Chrome 157 trên Windows 11 (tái hiện tương tự 100% trên `P2` Firefox và `P3` Chrome Android 156)
 - **URL kiểm thử:** `http://localhost:5173/profile`
 - **Viewport:** Desktop `1440x900` / `1920x1080`
 

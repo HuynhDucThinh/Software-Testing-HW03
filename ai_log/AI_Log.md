@@ -405,3 +405,23 @@ Oke bây giờ tiến hành review nội dung đã làm được trước nhé. 
 **By hand:** Sinh viên cần mở và rà soát lại 130 ảnh mới cùng chú thích trước khi nộp, và khi có điện thoại có thể chạy lại phần `P3` để có ảnh riêng từng mục.
 
 ---
+
+## Entry 19 — 2026-11-14 - Task 3: Rà soát theo vai trò trợ giảng, sửa Mục 4 báo cáo và công khai cách chụp ảnh đa nền tảng
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-14 23:49 – 23:58 +07:00
+**Task / Step:** Task 3 (Đánh giá và chỉnh sửa sau rà soát)
+**Prompt:**
+Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được bao nhiêu điểm theo rubric. Làm rõ giúp tôi và gợi ý cải thiện để đạt tối đa -> Bạn sửa các nội dung bạn có thể thực hiện đi. Làm xong báo cáo kết quả đạt được cho mục 3 và các công việc còn lại để đạt tối đa. nội dung liên quan đến điện thoại thì có thể đề cập sau, hôm sau tui sẽ cắm điện thoại và làm lại
+
+**AI output:**
+- Mở 7 ảnh Task 3 và đối chiếu script tạo ảnh: ảnh là ảnh chụp thật cấp hệ điều hành (12/11/2026, 9:47–9:48 AM) nhưng `P1`/`P2` được script mở trình duyệt (`--remote-debugging-port=9441`, Firefox BiDi), điền chuỗi `23120199 - Huỳnh Đức Thịnh` và chèn lớp phủ email; dấu vết hiện trong `P1_Device_Info.png` (Command Line), thanh địa chỉ sọc đỏ của Firefox ở các ảnh `P2`.
+- Sửa Mục 4 của `Main_Report.md`: bổ sung đoạn công khai cách thực hiện ảnh Task 3 và lý do không dùng BrowserStack/LambdaTest; sửa ghi chú phiên bản `P2` (137.0.1 cho ảnh Task 3, 159.0 Playwright cho đo Task 1); thống nhất `scrollWidth` của `SV-06` thành khoảng `1137–1146px`; bỏ đoạn mô tả giao diện hộp thoại `alert` không có ảnh chứng minh; bỏ lời giải thích `hover` chưa kiểm chứng của `CL-07`.
+- Sao chép các script tạo ảnh Task 3 vào `tests/` để trợ giảng đối chiếu; cập nhật `README.md`, `checklist/RUN.md`, `Bug_Report.md`, `bugs/BUG-18.md`.
+
+**Kept:** 15 ảnh Task 3 hiện có, kết quả 3 nền tảng.
+**Changed:** Nội dung Mục 4 và các chú thích liên quan như trên.
+**Rejected:** Không tạo ảnh mới thay thế, vì ảnh Task 3 phải do sinh viên trực tiếp chụp (Mục 11 của đề).
+**By hand:** Sinh viên sẽ chụp lại thủ công 10 ảnh `P1`/`P2` (mở trình duyệt bình thường, tự gõ chuỗi tên, tự chèn lớp phủ bằng ShareX) và chụp lại phần `P3` khi cắm điện thoại; sau đó cập nhật ghi chú công khai ở Mục 4.3.
+
+---
