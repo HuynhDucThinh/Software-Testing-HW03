@@ -446,3 +446,23 @@ Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được 
 **By hand:** Sinh viên đối chiếu lại bảng phân loại probe với phiếu khảo sát gốc, bổ sung trường/ngành học của `P01` và `P06` (đều là sinh viên ngoài lớp HW03), gọi báo trước 7 người tham gia về khả năng trợ giảng liên hệ xác minh, và kiểm tra quyền xem link Google Drive bằng tab ẩn danh.
 
 ---
+
+## Entry 21 — 2026-11-15 - Phụ lục AI: Hoàn thiện mục Phê bình AI (Mục 10, 200–300 từ) và kết xuất báo cáo Kiểm toán AI
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-15 00:21 – 00:26 +07:00
+**Task / Step:** Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report)
+**Prompt:**
+AI Critique nhé
+
+**AI output:**
+- Tổng hợp các sai sót, thiên lệch và thiếu sót thực tế đã ghi nhận xuyên suốt quá trình làm bài (20 mục biên/accessibility bị AI bỏ sót ở Task 1 như `BUG-15`, `BUG-03`, `BUG-18`, `BUG-24`; lỗi mô tả sai màu nút `Thoát` ở `BUG-19`, sai mật khẩu seed và dùng trùng ảnh minh chứng trước khi rà soát; lỗi diễn giải vượt quá dữ liệu phỏng vấn mở ở Task 2; và lỗi mất dữ liệu SPA `BUG-28` chỉ lộ diện qua hành vi không nhấn `F5` của người tham gia thật `P05`) thành đoạn văn phê bình AI mạch lạc trả lời đủ 3 câu hỏi bắt buộc của Mục 10 tại `ai_log/critique.md` và Mục 10 của `Main_Report.md`.
+- Kiểm đếm tự động bằng `word_count.py --min 200 --max 300`: đạt `271` từ theo `word_count.py` (`265` từ theo tách khoảng trắng chuẩn), nằm an toàn trong ngưỡng `200–300` từ trên cả hai cách đếm.
+- Chạy `ai_audit_export.py` kết xuất toàn bộ 21 mục nhật ký (`Entry 01..Entry 21`) cùng đoạn `AI Critique` ra tài liệu bắt buộc `AI_Critique_and_Audit_Report.md`.
+
+**Kept:** Giữ nguyên đoạn văn `AI Critique` (đạt chuẩn `200–300` từ, phản ánh trung thực các lỗi thực tế đã phát hiện và khắc phục trong kho bài làm) và file kết xuất `AI_Critique_and_Audit_Report.md`.
+**Changed:** Đồng bộ Mục 9, Mục 10 và Mục 13 của `Main_Report.md` trỏ trực tiếp tới `AI_Critique_and_Audit_Report.md` (`Entry 01..Entry 21`).
+**Rejected:** Đầu tiên bản nháp thử nghiệm vượt ngưỡng ở mức `309` từ (`303` từ theo khoảng trắng); đã cô đọng lại còn `271` / `265` từ để đảm bảo đạt chuẩn `200–300` từ với mọi công cụ đếm từ của trợ giảng.
+**By hand:** Sinh viên đọc duyệt lại từng luận điểm phê bình AI dựa trên trải nghiệm điều phối thực tế cả 3 Task và kiểm tra kết quả chạy `word_count.py`.
+
+---
