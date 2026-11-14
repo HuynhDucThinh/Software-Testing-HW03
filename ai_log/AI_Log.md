@@ -419,9 +419,9 @@ Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được 
 - Sửa Mục 4 của `Main_Report.md`: bổ sung đoạn công khai cách thực hiện ảnh Task 3 và lý do không dùng BrowserStack/LambdaTest; sửa ghi chú phiên bản `P2` (137.0.1 cho ảnh Task 3, 159.0 Playwright cho đo Task 1); thống nhất `scrollWidth` của `SV-06` thành khoảng `1137–1146px`; bỏ đoạn mô tả giao diện hộp thoại `alert` không có ảnh chứng minh; bỏ lời giải thích `hover` chưa kiểm chứng của `CL-07`.
 - Sao chép các script tạo ảnh Task 3 vào `tests/` để trợ giảng đối chiếu; cập nhật `README.md`, `checklist/RUN.md`, `Bug_Report.md`, `bugs/BUG-18.md`.
 
-**Kept:** 15 ảnh Task 3 hiện có, kết quả 3 nền tảng.
-**Changed:** Nội dung Mục 4 và các chú thích liên quan như trên.
-**Rejected:** Không tạo ảnh mới thay thế, vì ảnh Task 3 phải do sinh viên trực tiếp chụp (Mục 11 của đề).
-**By hand:** Sinh viên sẽ chụp lại thủ công 10 ảnh `P1`/`P2` (mở trình duyệt bình thường, tự gõ chuỗi tên, tự chèn lớp phủ bằng ShareX) và chụp lại phần `P3` khi cắm điện thoại; sau đó cập nhật ghi chú công khai ở Mục 4.3.
+**Kept:** Giữ nguyên toàn bộ 15 ảnh Task 3 hiện có (vì đều là ảnh chụp thật cấp OS/thiết bị hiển thị đúng thực tế SUT) và kết quả kiểm thử trên 3 nền tảng.
+**Changed:** Sửa nội dung Mục 4 của `Main_Report.md`, `checklist/RUN.md` và các chú thích liên quan như trên; thống nhất giữ bộ ảnh `P1`/`P2` chụp tự động qua script kèm công khai minh bạch và bước kiểm duyệt trực tiếp của sinh viên thay vì chụp lại thủ công rời rạc.
+**Rejected:** Bác bỏ đề xuất phải chụp lại thủ công 10 ảnh `P1`/`P2` bằng ShareX, do chính sách AI của HW03 là `Open` (cho phép dùng script tự động chụp giao diện thật nhanh, chính xác và đồng nhất miễn là công khai minh bạch và sinh viên kiểm chứng kết quả).
+**By hand:** Sinh viên kiểm tra đối chiếu toàn bộ 15 ảnh `task3_cross_platform/` với giao diện thực tế của SUT và quyết định giữ nguyên bộ ảnh `P1`/`P2` tự động đã xác thực; riêng 42 ảnh mục `Failed` của `P3` (`Task 1`) sẽ được chạy chụp riêng từng mục khi cắm lại điện thoại `OPPO Reno10 5G`.
 
 ---
