@@ -425,3 +425,24 @@ Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được 
 **By hand:** Sinh viên kiểm tra đối chiếu toàn bộ 15 ảnh `task3_cross_platform/` với giao diện thực tế của SUT và quyết định giữ nguyên bộ ảnh `P1`/`P2` tự động đã xác thực; riêng 42 ảnh mục `Failed` của `P3` (`Task 1`) sẽ được chạy chụp riêng từng mục khi cắm lại điện thoại `OPPO Reno10 5G`.
 
 ---
+
+## Entry 20 — 2026-11-15 - Task 2: Rà soát theo vai trò trợ giảng, hiệu đính phân tích định tính và sửa mã Bug tham chiếu
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-15 00:11 – 00:20 +07:00
+**Task / Step:** Task 2 (Đánh giá và chỉnh sửa sau rà soát — Phase 3 Analyse & report)
+**Prompt:**
+Đánh giá mức điểm đạt được cho task 2 và gợi ý cải thiện để đạt điểm tối đa -> Oke thực hiện giúp tôi nhé
+
+**AI output:**
+- Đối chiếu `open_probes`, `events`, `assists` của `S01..S07.json` với `usability/findings.md` mục 4 và `Main_Report.md` mục 5.8: phát hiện bản tổng hợp trước đó (do AI viết ở Entry 16) **diễn giải vượt quá dữ liệu**: đếm `6/7` người nêu thiếu thống nhất ở `Clarity` (thực tế `4/7` nêu rõ, `P06` chỉ trả lời *"Có"*); diễn giải *"Có"* của `P01` ở `Speed` thành "mất thời gian hơn kỳ vọng"; tự thêm nguyên nhân "hộp thoại alert tắt mất" ở `Error recovery` và gán nguyên nhân cho câu *"Tạm"* của `P02` ở `Trust` dù người tham gia không nói.
+- Viết lại bảng probe theo nguyên tắc chỉ đếm câu trả lời nói rõ, tách nhóm mơ hồ, tách riêng cột suy luận của người nghiên cứu; thêm mục 4.1 *Say–Do Gap* (`P03`, `P04`, `P05`, `P07` nói chưa gặp lỗi nhưng mỗi người có `4–5` sự kiện `E`, `3/4` người cần cứu hộ).
+- Bổ sung 3 giới hạn nghiên cứu: câu trả lời probe ngắn và chưa hỏi đào sâu; không ghi âm (`audio_recording: false`); 5 sự kiện là quan sát sau mốc `m4_profile_saved` (`S01 02:42`, `S02 01:46/01:51`, `S05 01:48`, `S07 01:20`). File JSON gốc giữ nguyên.
+- Sửa mã Bug tham chiếu sai trong `usability/plan.md` và `usability/moderator_script.md`: khóa tài khoản `BUG-03` -> `BUG-06`; tiêu đề `'Đăng Ký'` `BUG-07` -> `BUG-13`; nhãn `'Username'` `BUG-11` -> `BUG-14`; mật khẩu hiện rõ `BUG-08` -> `BUG-04`.
+
+**Kept:** Toàn bộ dữ liệu thô `S00..S07.json`, video, điểm `SUS`/`SEQ`, 11 findings `UF-01..UF-11` và severity.
+**Changed:** Bảng tổng hợp probe (`findings.md` mục 4, `Main_Report.md` mục 5.8), thêm mục 4.1, thêm giới hạn nghiên cứu (`findings.md` mục 5, `Main_Report.md` mục 5.9), mã Bug tham chiếu trong `plan.md`, `moderator_script.md`.
+**Rejected:** Không sửa bản đóng băng trong `usability/frozen/` (có mã băm `SHA-256`, giữ nguyên lỗi mã Bug gốc làm bằng chứng đầu ra AI ban đầu); không sửa nội dung Entry 12 (ghi đúng đầu ra AI lúc đó có `BUG-03` sai); không bịa thêm câu trả lời probe dài hơn.
+**By hand:** Sinh viên đối chiếu lại bảng phân loại probe với phiếu khảo sát gốc, bổ sung trường/ngành học của `P01` và `P06` (đều là sinh viên ngoài lớp HW03), gọi báo trước 7 người tham gia về khả năng trợ giảng liên hệ xác minh, và kiểm tra quyền xem link Google Drive bằng tab ẩn danh.
+
+---

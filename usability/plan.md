@@ -87,7 +87,7 @@ Nghiên cứu được thiết kế nhằm trả lời 5 câu hỏi định lư�
   Qua khảo sát mã nguồn thực tế ở Task 1, luồng `F1` tồn tại **2 lỗi mã nguồn mức chặn luồng** và **1 rủi ro khóa tài khoản sớm** có khả năng làm người dùng thật bị kẹt vĩnh viễn nếu không có quy tắc xử lý thống nhất:
   1. **Điểm chặn A tại trang tạo tài khoản (`BUG-01` — `Register.jsx:15`):** Giao diện hướng dẫn mật khẩu cần chữ hoa, chữ thường, số và ký tự đặc biệt, nhưng biểu thức chính quy thực tế lại **bắt buộc có khoảng trắng (`\s`) và từ chối mọi ký tự đặc biệt (`@ $ ! % * ? &`)**.
   2. **Điểm chặn B tại trang thông tin cá nhân (`BUG-05` — `Profile.jsx:43`):** Ô số điện thoại hiển thị gợi ý `VD: 0912345678`, nhưng mã kiểm tra lại **từ chối mọi chuỗi bắt đầu bằng chữ số `0`**.
-  3. **Rủi ro phụ C tại trang đăng nhập (`BUG-03` — `server.js:54-57`):** Gõ sai mật khẩu chỉ `2 lần` sẽ làm bộ đếm tăng `+4 >= 3` và khóa tài khoản ngầm trong `3 phút` mà giao diện không báo rõ trạng thái khóa.
+  3. **Rủi ro phụ C tại trang đăng nhập (`BUG-06` — `server.js:54-57`):** Gõ sai mật khẩu chỉ `2 lần` sẽ làm bộ đếm tăng `+4 >= 3` và khóa tài khoản ngầm trong `3 phút` mà giao diện không báo rõ trạng thái khóa.
 
   **Quy tắc 3 bước bắt buộc khi kích hoạt cứu hộ:**
   - **Bước 1 — Chờ tự xoay xở để thu bằng chứng thật:** Điều phối viên bắt buộc giữ im lặng quan sát tối thiểu **`90 giây` liên tục tại điểm kẹt HOẶC tối thiểu `>= 3 lần` người tham gia tự sửa và gửi biểu mẫu hợp lệ nhưng vẫn bị từ chối** (ghi nhận đầy đủ số lần lỗi `E`, thời gian bối rối và câu nói bức xúc).
