@@ -76,20 +76,56 @@ def parse_entries_from_text(text: str, fallback_stem: str = "") -> list[tuple[st
     return entries
 
 
+def _parse_student_info(raw: str) -> tuple[str, str, str]:
+    """Tách chuỗi 'Họ tên - MSSV (email)' nếu có, ngược lại trả (raw, '', '')."""
+    m = re.match(r"^\s*(.+?)\s*[-–—]\s*(\d{6,12})\s*(?:\(([^)]+)\))?\s*$", raw or "")
+    if m:
+        return m.group(1).strip(), m.group(2).strip(), (m.group(3) or "").strip()
+    return (raw or "").strip(), "", ""
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("dir", help="Thư mục chứa AI_Log.md / *.md hoặc đường dẫn trực tiếp tới file AI_Log.md")
     ap.add_argument("-o", "--out", required=True)
     ap.add_argument("--student", default="")
+    ap.add_argument(
+        "--scope",
+        default="`M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1`",
+    )
+    ap.add_argument("--sut", default="EShop Web & API (`./eshop-sut`, commit gốc `1a9304a`)")
     ap.add_argument("--critique")
     ap.add_argument("--no-ai", action="store_true")
     a = ap.parse_args()
 
-    out = ["# AI Audit Report", ""]
+    out = [
+        "# Báo Cáo Phê Bình & Nhật Ký Kiểm Toán AI (AI Audit Report) — HW03-AI (Phạm Vi M1)",
+        "",
+    ]
     if a.student:
-        out += [f"- Sinh viên: {a.student}", ""]
+        name, sid, email = _parse_student_info(a.student)
+        if sid and email:
+            out.append(f"**Sinh viên thực hiện:** {name} · **MSSV:** `{sid}` · **Email:** `{email}`  ")
+        elif sid:
+            out.append(f"**Sinh viên thực hiện:** {name} · **MSSV:** `{sid}`  ")
+        else:
+            out.append(f"**Sinh viên thực hiện:** {a.student}  ")
+    out += [
+        "**Môn học:** Kiểm chứng Phần mềm (Software Testing) · **Bài tập:** `HW03-AI` (Individual Assignment)  ",
+        f"**Phạm vi phân công nhóm:** {a.scope}  ",
+        "**Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`",
+        "",
+        "---",
+        "",
+    ]
+
     if a.no_ai:
-        out += ["I do not use any AI help in this exercise.", ""]
+        out += [
+            "## 1. Tuyên Bố Bắt Buộc Về Sử Dụng AI (Mandatory Disclosure)",
+            "",
+            '*"I do not use any AI help in this exercise."*',
+            "",
+        ]
     else:
         target = Path(a.dir)
         if target.is_file():
@@ -97,7 +133,7 @@ def main():
         else:
             files = sorted(
                 p for p in target.glob("*.md")
-                if not p.name.startswith("_") and p.name.lower() != "readme.md"
+                if not p.name.startswith("_") and p.name.lower() != "readme.md" and p.name.lower() != "critique.md"
             )
         parsed = []
         for p in files:
@@ -107,29 +143,107 @@ def main():
         if not parsed:
             sys.exit(f"Không có entry nào trong {a.dir}. Dùng --no-ai nếu không dùng AI.")
 
-        out += ["I use AI tools for the following tasks:", ""]
         tools = sorted({f.get("Tool", "?") for _, _, _, f in parsed})
-        out += [f"Công cụ đã dùng: {', '.join(tools)}", f"Số tương tác: {len(parsed)}", ""]
-        out += ["| # | Tool | Ngày giờ | Việc |", "|---|---|---|---|"]
+        tools_str = ", ".join(f"`{t}`" for t in tools)
+        total_n = len(parsed)
+
+        out += [
+            "## 1. Thông Tin Tổng Quan & Tuyên Bố Bắt Buộc Về Sử Dụng AI (Mandatory Disclosure)",
+            "",
+            '*"I use AI tools for the following tasks:"*',
+            "",
+            "| Hạng mục | Nội dung chi tiết |",
+            "| :--- | :--- |",
+        ]
+        if a.student:
+            name, sid, email = _parse_student_info(a.student)
+            stu_cell = f"{name} (`{sid}` — `{email}`)" if (sid and email) else a.student
+            out.append(f"| **Sinh viên thực hiện** | {stu_cell} |")
+        out += [
+            f"| **Hệ thống kiểm thử (SUT)** | {a.sut} |",
+            f"| **Phạm vi kiểm thử** | {a.scope} |",
+            f"| **Công cụ AI đã sử dụng** | {tools_str} (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |",
+            "| **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |",
+            f"| **Tổng số lượt tương tác đã ghi nhận** | **`{total_n}` lượt tương tác (`Entry 01` .. `Entry {total_n:02d}`)** theo trình tự thời gian thực hiện |",
+            "| **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md) |",
+            "",
+            "---",
+            "",
+        ]
+
+        sec_idx = 2
+        if a.critique:
+            crit = Path(a.critique).read_text(encoding="utf-8").strip()
+            crit = re.sub(r"^#+\s*AI Critique[^\n]*\n+", "", crit, flags=re.I)
+            out += [
+                f"## {sec_idx}. AI Critique (200–300 từ)",
+                "",
+                crit.strip(),
+                "",
+                "---",
+                "",
+            ]
+            sec_idx += 1
+
+        out += [
+            f"## {sec_idx}. Bảng Danh Mục Tổng Hợp {total_n} Lượt Tương Tác AI (Interaction Summary)",
+            "",
+            "| STT | Công cụ AI | Ngày giờ thực hiện | Hạng mục / Bước công việc (`Task / Step`) |",
+            "| :---: | :---: | :--- | :--- |",
+        ]
         for i, p, title, f in parsed:
-            out.append(f"| {i} | {f.get('Tool', '')} | {f.get('Date and time', '')} | {f.get('Task / Step', '') or title} |")
-        out.append("")
+            step_txt = (f.get("Task / Step", "") or title).replace("|", "\\|")
+            out.append(f"| `Entry {i:02d}` | `{f.get('Tool', '')}` | `{f.get('Date and time', '')}` | {step_txt} |")
+        out += ["", "---", ""]
+        sec_idx += 1
+
+        out += [
+            f"## {sec_idx}. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry {total_n:02d}`)",
+            "",
+        ]
         for i, p, title, f in parsed:
-            out += [f"## {i}. {title or p.stem}", ""]
-            for lab in LABELS:
-                val = f.get(lab, "")
-                if lab in ("Prompt", "AI output"):
-                    out += [f"**{lab}:**", "", "~~~text", val or "(chưa ghi)", "~~~", ""]
+            out += [
+                f"### Entry {i:02d} — {title or p.stem}",
+                "",
+                f"- **Tool:** `{f.get('Tool', '') or '(chưa ghi)'}`",
+                f"- **Date and time:** `{f.get('Date and time', '') or '(chưa ghi)'}`",
+                f"- **Task / Step:** {f.get('Task / Step', '') or '(chưa ghi)'}",
+                "",
+                "**Prompt:**",
+                "",
+                "~~~text",
+                f.get("Prompt", "") or "(chưa ghi)",
+                "~~~",
+                "",
+                "**AI output:**",
+                "",
+                "~~~text",
+                f.get("AI output", "") or "(chưa ghi)",
+                "~~~",
+                "",
+            ]
+            for key, label_vi in [
+                ("Kept", "Kept (Giữ nguyên)"),
+                ("Changed", "Changed (Chỉnh sửa)"),
+                ("Rejected", "Rejected (Bác bỏ)"),
+                ("By hand", "By hand (Tự thực hiện thủ công)"),
+            ]:
+                val = (f.get(key, "") or "(chưa ghi)").strip()
+                if val.startswith("- ") or "\n- " in val:
+                    indented = "\n".join(f"  {ln}" if ln.strip() else "" for ln in val.splitlines())
+                    out += [f"- **{label_vi}:**", indented]
                 else:
-                    out.append(f"**{lab}:** {val or '(chưa ghi)'}")
-                    out.append("")
-            out.append("---")
-            out.append("")
-    if a.critique:
+                    out.append(f"- **{label_vi}:** {val}")
+            out += [
+                "",
+                "---",
+                "",
+            ]
+    if a.critique and a.no_ai:
         crit = Path(a.critique).read_text(encoding="utf-8").strip()
         crit = re.sub(r"^#+\s*AI Critique[^\n]*\n+", "", crit, flags=re.I)
-        out += ["# AI Critique", "", crit.strip(), ""]
-    Path(a.out).write_text("\n".join(out) + "\n", encoding="utf-8")
+        out += ["## 2. AI Critique (200–300 từ)", "", crit.strip(), ""]
+    Path(a.out).write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
     print(f"Đã ghi {a.out}")
 
 

@@ -1,5 +1,12 @@
 # Báo Cáo Lỗi Chi Tiết (Bug Report) — HW03-AI (Phạm Vi M1)
 
+**Sinh viên thực hiện:** Huỳnh Đức Thịnh · **MSSV:** `23120199` · **Email:** `23120199@student.hcmus.edu.vn`  
+**Môn học:** Kiểm chứng Phần mềm (Software Testing) · **Bài tập:** `HW03-AI` (Individual Assignment)  
+**Phạm vi phân công nhóm:** `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1`  
+**Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`
+
+---
+
 ## 1. Thông Tin Tổng Quan & Liên Kết GitHub Issues
 
 | Hạng mục | Nội dung chi tiết |

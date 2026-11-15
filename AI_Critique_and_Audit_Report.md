@@ -1,44 +1,70 @@
-# AI Audit Report
+# Báo Cáo Phê Bình & Nhật Ký Kiểm Toán AI (AI Audit Report) — HW03-AI (Phạm Vi M1)
 
-- Sinh viên: Huỳnh Đức Thịnh - 23120199 (23120199@student.hcmus.edu.vn)
+**Sinh viên thực hiện:** Huỳnh Đức Thịnh · **MSSV:** `23120199` · **Email:** `23120199@student.hcmus.edu.vn`  
+**Môn học:** Kiểm chứng Phần mềm (Software Testing) · **Bài tập:** `HW03-AI` (Individual Assignment)  
+**Phạm vi phân công nhóm:** `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1`  
+**Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`
 
-I use AI tools for the following tasks:
+---
 
-Công cụ đã dùng: Antigravity
-Số tương tác: 22
+## 1. Thông Tin Tổng Quan & Tuyên Bố Bắt Buộc Về Sử Dụng AI (Mandatory Disclosure)
 
-| # | Tool | Ngày giờ | Việc |
-|---|---|---|---|
-| 1 | Antigravity | 2026-11-11 13:50 +07:00 | Task 1, Bước 0 (Khảo sát phạm vi M1) |
-| 2 | Antigravity | 2026-11-11 14:16 +07:00 | Task 1, Bước 1, Lượt IA-01 (General UI Standards) |
-| 3 | Antigravity | 2026-11-11 14:39 +07:00 | Task 1, Bước 1, Lượt IA-02 (Forms and Validation) |
-| 4 | Antigravity | 2026-11-11 15:01 +07:00 | Task 1, Bước 1, Lượt IA-03 (Navigation) |
-| 5 | Antigravity | 2026-11-11 15:08 +07:00 | Task 1, Bước 1, Lượt IA-04 (Feedback and State) |
-| 6 | Antigravity | 2026-11-11 15:25 +07:00 | Task 1, Bước 2 (Gộp mục bổ sung `SV-01`..`SV-20` và kiểm chuẩn ma trận độ phủ) |
-| 7 | Antigravity | 2026-11-11 15:35 +07:00 | Task 1, Bước 3 (Chuẩn bị `RUN.md`, `dom_probe.js`, phân loại `che_do` và khung CSV lượt chạy) |
-| 8 | Antigravity | 2026-11-11 17:20 +07:00 | Task 1, Bước 5 (Xuất `checklist/M1_GUI_Checklist_And_Summary.xlsx`, cập nhật `M1_GUI_Checklist.md`, `README.md` và `Main_Report.md`) |
-| 9 | Antigravity | 2026-11-11 17:45 +07:00 | Task 1, Bước 6 (Trích xuất danh sách `Failed`, gom nhóm chống trùng lặp `bugs/bug_groups.md`, lập `bugs/BUG-01.md`..`BUG-27.md`, đăng GitHub Issues `#1`..`#27` và tổng hợp `Bug_Report.md`) |
-| 10 | Antigravity | 2026-11-11 19:29 +07:00 | Task 1 (Rà soát chéo toàn bộ hiện vật Task 1 theo đặc tả đề bài `docs/2026.HW03.GUI Usability_En.md` và hoàn thiện đồng bộ `v6`) |
-| 11 | Antigravity | 2026-11-12 11:21 +07:00 | Task 2, Bước 0 (Khảo sát luồng nghiệp vụ `F1` và khởi tạo Kế hoạch đánh giá khả năng sử dụng 9 phần `usability/plan.md` kèm đóng băng bản nháp AI tại `usability/frozen/`) |
-| 12 | Antigravity | 2026-11-12 11:38 +07:00 | Task 2, Bước 1 (Thiết kế `usability/participant_kit.md`, `usability/moderator_script.md`, khung trống `usability/participants.md`, công cụ khởi tạo phiên sạch `usability/start_session.ps1` và trạm bấm giờ — thu phiếu offline `usability/session_helper.html`, kèm đóng băng tại `usability/frozen/`) |
-| 13 | Antigravity | 2026-11-12 14:50 +07:00 | Task 2, Bước 2 (Kiểm tra đối chiếu video phiên Pilot `S00.mp4`, chuẩn hóa hồ sơ `usability/sessions/S00.json`, cập nhật `P00` trong `usability/participants.md` và xuất bảng đối chiếu tinh chỉnh công cụ `usability/pilot_refinements.md`) |
-| 14 | Antigravity | 2026-11-13 23:30 +07:00 | Task 2, Bước 3 (Rà soát đối chiếu từng giây video `S01.mp4`..`S07.mp4` với biên bản `usability/sessions/S01.json`..`S07.json`, tải 8 video lên Google Drive `usability/recordings/LINKS.md`, điền thông tin đã che 4 số giữa cho `P01..P07` tại `usability/participants.md` và chạy kiểm định toàn diện Bước 3) |
-| 15 | Antigravity | 2026-11-13 23:34 +07:00 | Task 2, Bước 4 (Chạy `analyze_usability.py` kết xuất báo cáo định lượng `usability/sus_and_metrics_summary.md` và khởi tạo khung phân tích `usability/findings.md`) |
-| 16 | Antigravity | 2026-11-13 23:55 +07:00 | Task 2, Bước 5 (Hoàn thiện `usability/findings.md`, trích xuất ảnh minh chứng thực nghiệm từ video `S05.mp4` & `S06.mp4`, đăng lỗi mới `bugs/BUG-28.md` -> GitHub Issue `#28`, cập nhật `Bug_Report.md`, `Main_Report.md` §5/§6/§8/§9/§11/§12/§13 và `README.md`) |
-| 17 | Antigravity | 2026-11-11 16:13 +07:00 (lượt chạy 16:20 – 17:18); ghi bổ sung vào nhật ký ngày 2026-11-14 23:40 +07:00 | Task 1, Bước 4 (Thực thi checklist trên `P1`, `P2`, `P3`) |
-| 18 | Antigravity | 2026-11-14 23:18 – 23:45 +07:00 | Task 1 (Bước 4 & Bước 6 — chỉnh sửa sau rà soát) |
-| 19 | Antigravity | 2026-11-14 23:49 – 23:58 +07:00 | Task 3 (Đánh giá và chỉnh sửa sau rà soát) |
-| 20 | Antigravity | 2026-11-15 00:11 – 00:20 +07:00 | Task 2 (Đánh giá và chỉnh sửa sau rà soát — Phase 3 Analyse & report) |
-| 21 | Antigravity | 2026-11-15 00:21 – 00:26 +07:00 | Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report) |
-| 22 | Antigravity | 2026-11-15 11:25 – 11:42 +07:00 | Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`) |
+*"I use AI tools for the following tasks:"*
 
-## 1. 2026-11-11 - Task 1 Bước 0: Khảo sát control và cơ sở đặc tả phạm vi M1
+| Hạng mục | Nội dung chi tiết |
+| :--- | :--- |
+| **Sinh viên thực hiện** | Huỳnh Đức Thịnh (`23120199` — `23120199@student.hcmus.edu.vn`) |
+| **Hệ thống kiểm thử (SUT)** | EShop Web & API (`./eshop-sut`, commit gốc `1a9304a`) |
+| **Phạm vi kiểm thử** | `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1` |
+| **Công cụ AI đã sử dụng** | `Antigravity` (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |
+| **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |
+| **Tổng số lượt tương tác đã ghi nhận** | **`22` lượt tương tác (`Entry 01` .. `Entry 22`)** theo trình tự thời gian thực hiện |
+| **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md) |
 
-**Tool:** Antigravity
+---
 
-**Date and time:** 2026-11-11 13:50 +07:00
+## 2. AI Critique (200–300 từ)
 
-**Task / Step:** Task 1, Bước 0 (Khảo sát phạm vi M1)
+Trong quá trình thực hiện bài tập cùng AI, tôi phát hiện nhiều sai sót, thiên lệch và thiếu sót thực tế từ mô hình. Ở Task 1, bản nháp 39 mục đầu tiên của AI thiên về luồng hợp lệ trên máy tính nên bỏ sót 20 kịch bản biên và khả năng tiếp cận mà tôi phải tự bổ sung, như nhảy thứ tự phím Tab (`BUG-15`), lỗ hổng XSS trên thanh tiêu đề (`BUG-03`), tràn ngang khi tên dài (`BUG-18`) và bật bàn phím chữ ở ô Số điện thoại Android (`BUG-24`); khi soạn báo cáo, AI còn ghi nhầm màu nút `Thoát` ở `BUG-19`, sai mật khẩu mẫu và dùng trùng ảnh minh chứng. Ở Task 2, khi tổng hợp phỏng vấn mở, AI tự suy diễn câu trả lời một chữ "Có" thành "mất thời gian hơn kỳ vọng" và gán thêm nguyên nhân người dùng không nói. AI không tự nhận ra các lỗi này vì mô hình ngôn ngữ chỉ dự đoán chuỗi từ theo xác suất trên mã tĩnh chứ không trực tiếp quan sát giao diện thật, không lường được hành vi điều hướng SPA không nhấn F5 của người thật làm lộ `BUG-28`, đồng thời hay hợp thức hóa dữ liệu ngắn thành nhận định chủ quan. Bài học cốt lõi tôi rút ra là chỉ dùng AI để tăng tốc khởi tạo và đo kiểm lặp lại, còn con người phải đóng băng đầu ra, đối chiếu thực nghiệm đa nền tảng và giữ quyền kết luận cuối cùng dựa trên bằng chứng gốc.
+
+---
+
+## 3. Bảng Danh Mục Tổng Hợp 22 Lượt Tương Tác AI (Interaction Summary)
+
+| STT | Công cụ AI | Ngày giờ thực hiện | Hạng mục / Bước công việc (`Task / Step`) |
+| :---: | :---: | :--- | :--- |
+| `Entry 01` | `Antigravity` | `2026-11-11 13:50 +07:00` | Task 1, Bước 0 (Khảo sát phạm vi M1) |
+| `Entry 02` | `Antigravity` | `2026-11-11 14:16 +07:00` | Task 1, Bước 1, Lượt IA-01 (General UI Standards) |
+| `Entry 03` | `Antigravity` | `2026-11-11 14:39 +07:00` | Task 1, Bước 1, Lượt IA-02 (Forms and Validation) |
+| `Entry 04` | `Antigravity` | `2026-11-11 15:01 +07:00` | Task 1, Bước 1, Lượt IA-03 (Navigation) |
+| `Entry 05` | `Antigravity` | `2026-11-11 15:08 +07:00` | Task 1, Bước 1, Lượt IA-04 (Feedback and State) |
+| `Entry 06` | `Antigravity` | `2026-11-11 15:25 +07:00` | Task 1, Bước 2 (Gộp mục bổ sung `SV-01`..`SV-20` và kiểm chuẩn ma trận độ phủ) |
+| `Entry 07` | `Antigravity` | `2026-11-11 15:35 +07:00` | Task 1, Bước 3 (Chuẩn bị `RUN.md`, `dom_probe.js`, phân loại `che_do` và khung CSV lượt chạy) |
+| `Entry 08` | `Antigravity` | `2026-11-11 17:20 +07:00` | Task 1, Bước 5 (Xuất `checklist/M1_GUI_Checklist_And_Summary.xlsx`, cập nhật `M1_GUI_Checklist.md`, `README.md` và `Main_Report.md`) |
+| `Entry 09` | `Antigravity` | `2026-11-11 17:45 +07:00` | Task 1, Bước 6 (Trích xuất danh sách `Failed`, gom nhóm chống trùng lặp `bugs/bug_groups.md`, lập `bugs/BUG-01.md`..`BUG-27.md`, đăng GitHub Issues `#1`..`#27` và tổng hợp `Bug_Report.md`) |
+| `Entry 10` | `Antigravity` | `2026-11-11 19:29 +07:00` | Task 1 (Rà soát chéo toàn bộ hiện vật Task 1 theo đặc tả đề bài `docs/2026.HW03.GUI Usability_En.md` và hoàn thiện đồng bộ `v6`) |
+| `Entry 11` | `Antigravity` | `2026-11-12 11:21 +07:00` | Task 2, Bước 0 (Khảo sát luồng nghiệp vụ `F1` và khởi tạo Kế hoạch đánh giá khả năng sử dụng 9 phần `usability/plan.md` kèm đóng băng bản nháp AI tại `usability/frozen/`) |
+| `Entry 12` | `Antigravity` | `2026-11-12 11:38 +07:00` | Task 2, Bước 1 (Thiết kế `usability/participant_kit.md`, `usability/moderator_script.md`, khung trống `usability/participants.md`, công cụ khởi tạo phiên sạch `usability/start_session.ps1` và trạm bấm giờ — thu phiếu offline `usability/session_helper.html`, kèm đóng băng tại `usability/frozen/`) |
+| `Entry 13` | `Antigravity` | `2026-11-12 14:50 +07:00` | Task 2, Bước 2 (Kiểm tra đối chiếu video phiên Pilot `S00.mp4`, chuẩn hóa hồ sơ `usability/sessions/S00.json`, cập nhật `P00` trong `usability/participants.md` và xuất bảng đối chiếu tinh chỉnh công cụ `usability/pilot_refinements.md`) |
+| `Entry 14` | `Antigravity` | `2026-11-13 23:30 +07:00` | Task 2, Bước 3 (Rà soát đối chiếu từng giây video `S01.mp4`..`S07.mp4` với biên bản `usability/sessions/S01.json`..`S07.json`, tải 8 video lên Google Drive `usability/recordings/LINKS.md`, điền thông tin đã che 4 số giữa cho `P01..P07` tại `usability/participants.md` và chạy kiểm định toàn diện Bước 3) |
+| `Entry 15` | `Antigravity` | `2026-11-13 23:34 +07:00` | Task 2, Bước 4 (Chạy `analyze_usability.py` kết xuất báo cáo định lượng `usability/sus_and_metrics_summary.md` và khởi tạo khung phân tích `usability/findings.md`) |
+| `Entry 16` | `Antigravity` | `2026-11-13 23:55 +07:00` | Task 2, Bước 5 (Hoàn thiện `usability/findings.md`, trích xuất ảnh minh chứng thực nghiệm từ video `S05.mp4` & `S06.mp4`, đăng lỗi mới `bugs/BUG-28.md` -> GitHub Issue `#28`, cập nhật `Bug_Report.md`, `Main_Report.md` §5/§6/§8/§9/§11/§12/§13 và `README.md`) |
+| `Entry 17` | `Antigravity` | `2026-11-11 16:13 +07:00 (lượt chạy 16:20 – 17:18); ghi bổ sung vào nhật ký ngày 2026-11-14 23:40 +07:00` | Task 1, Bước 4 (Thực thi checklist trên `P1`, `P2`, `P3`) |
+| `Entry 18` | `Antigravity` | `2026-11-14 23:18 – 23:45 +07:00` | Task 1 (Bước 4 & Bước 6 — chỉnh sửa sau rà soát) |
+| `Entry 19` | `Antigravity` | `2026-11-14 23:49 – 23:58 +07:00` | Task 3 (Đánh giá và chỉnh sửa sau rà soát) |
+| `Entry 20` | `Antigravity` | `2026-11-15 00:11 – 00:20 +07:00` | Task 2 (Đánh giá và chỉnh sửa sau rà soát — Phase 3 Analyse & report) |
+| `Entry 21` | `Antigravity` | `2026-11-15 00:21 – 00:26 +07:00` | Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report) |
+| `Entry 22` | `Antigravity` | `2026-11-15 11:25 – 11:42 +07:00` | Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`) |
+
+---
+
+## 4. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 22`)
+
+### Entry 01 — 2026-11-11 - Task 1 Bước 0: Khảo sát control và cơ sở đặc tả phạm vi M1
+
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 13:50 +07:00`
+- **Task / Step:** Task 1, Bước 0 (Khảo sát phạm vi M1)
 
 **Prompt:**
 
@@ -55,24 +81,20 @@ Thực hiện Bước 0 của skill gui-checklist-testing cho phạm vi M1 (Sinh
 - checklist/checklist.json (khởi tạo meta cho M1 của SV Huỳnh Đức Thịnh - 23120199, 3 nền tảng P1..P3, assumptions rỗng, items rỗng, step = 0).
 ~~~
 
-**Kept:** Giữ nguyên cấu trúc danh mục 5 vùng giao diện M1 trong `checklist/m1_inventory.md` và toàn bộ trích dẫn điều khoản SRS kèm số dòng trong `checklist/m1_test_basis.md` (tạm giữ ranh giới chuẩn M1/M3 trên trang `/profile`, sẽ nhắc kiểm tra lại nếu nhóm điều chỉnh).
-
-**Changed:** - Chốt nền tảng `P3` trong `checklist/checklist.json` thành `Safari (macOS/iOS hoặc qua BrowserStack / LambdaTest)` (bản gốc AI trước khi sửa đã đóng băng tại `checklist/ai-outputs/M1_checklist_step0_20261111-135503.json`).
-- Bổ sung xác nhận thực tế vào `checklist/m1_inventory.md` cho cả 5 màn hình, bao gồm ghi nhận hành vi trình duyệt tự động điền nhầm (autofill) email/mật khẩu đã lưu vào ô `Mã OTP (4 số)` và `Mật khẩu mới` ở Bước 2 trang `/forgot-password` do thiếu thuộc tính định danh `name`/`autoComplete`.
-
-**Rejected:** Không sử dụng hành vi hiện tại trong mã nguồn làm Expected (tuân thủ Quy tắc 2: chỉ lấy đặc tả và heuristic làm oracle).
-
-**By hand:** Sinh viên tự xử lý lỗi đường dẫn chứa ký tự `&` khi cài đặt `sqlite3`, khởi chạy Backend (`localhost:3000`) và Frontend Web (`localhost:5173`), trực tiếp mở kiểm chứng cả 5 màn hình (`/register`, `/login`, `/forgot-password` Bước 1 & Bước 2, `/profile`, `Header`) và chụp đối chiếu thực tế.
+- **Kept (Giữ nguyên):** Giữ nguyên cấu trúc danh mục 5 vùng giao diện M1 trong `checklist/m1_inventory.md` và toàn bộ trích dẫn điều khoản SRS kèm số dòng trong `checklist/m1_test_basis.md` (tạm giữ ranh giới chuẩn M1/M3 trên trang `/profile`, sẽ nhắc kiểm tra lại nếu nhóm điều chỉnh).
+- **Changed (Chỉnh sửa):**
+  - Chốt nền tảng `P3` trong `checklist/checklist.json` thành `Safari (macOS/iOS hoặc qua BrowserStack / LambdaTest)` (bản gốc AI trước khi sửa đã đóng băng tại `checklist/ai-outputs/M1_checklist_step0_20261111-135503.json`).
+  - Bổ sung xác nhận thực tế vào `checklist/m1_inventory.md` cho cả 5 màn hình, bao gồm ghi nhận hành vi trình duyệt tự động điền nhầm (autofill) email/mật khẩu đã lưu vào ô `Mã OTP (4 số)` và `Mật khẩu mới` ở Bước 2 trang `/forgot-password` do thiếu thuộc tính định danh `name`/`autoComplete`.
+- **Rejected (Bác bỏ):** Không sử dụng hành vi hiện tại trong mã nguồn làm Expected (tuân thủ Quy tắc 2: chỉ lấy đặc tả và heuristic làm oracle).
+- **By hand (Tự thực hiện thủ công):** Sinh viên tự xử lý lỗi đường dẫn chứa ký tự `&` khi cài đặt `sqlite3`, khởi chạy Backend (`localhost:3000`) và Frontend Web (`localhost:5173`), trực tiếp mở kiểm chứng cả 5 màn hình (`/register`, `/login`, `/forgot-password` Bước 1 & Bước 2, `/profile`, `Header`) và chụp đối chiếu thực tế.
 
 ---
 
-## 2. 2026-11-11 - Task 1 Bước 1 (Lượt 1/4): AI nháp checklist cho IA-01 (General UI Standards)
+### Entry 02 — 2026-11-11 - Task 1 Bước 1 (Lượt 1/4): AI nháp checklist cho IA-01 (General UI Standards)
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 14:16 +07:00
-
-**Task / Step:** Task 1, Bước 1, Lượt IA-01 (General UI Standards)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 14:16 +07:00`
+- **Task / Step:** Task 1, Bước 1, Lượt IA-01 (General UI Standards)
 
 **Prompt:**
 
@@ -89,26 +111,22 @@ Dùng skill gui-checklist-testing, bước 1 - lượt IA-01. Làm xong báo cá
 - Nguồn Heuristic (1 mục): `CL-11` (độ tương phản màu chữ/nền tối thiểu 4.5:1 theo WCAG 2.2 SC 1.4.3).
 ~~~
 
-**Kept:** Giữ nguyên 9/11 mục (`CL-01`..`CL-08`, `CL-11`) cùng 2 giả định `GA1` (thuật ngữ quốc tế được phép giữ nguyên) và `GA2` (dải màu xanh dương cho nút tích cực, đỏ cho nút nguy hiểm/đăng xuất).
-
-**Changed:** - Sinh viên xác nhận nền tảng `P3` là `Safari trên iPhone (iOS)` thay vì Safari chung chung; bổ sung giả định `NA1` cho thiết bị di động màn hình cố định.
-- Điều chỉnh `CL-09` (`nguon: "Both"`): bỏ giới hạn chỉ kiểm trên `1440px` để kiểm tra căn lề dọc khung form trên cả khung nhìn thực tế của `P3` (iPhone).
-- Điều chỉnh `CL-10` (`nguon: "Both"`): chỉ áp dụng kiểm thử chuyển đổi 3 mốc viewport `375px / 768px / 1440px` trên `P1, P2` và đánh dấu `P3` là `N/A` theo `NA1` (vì iPhone thật có khung nhìn cố định).
-- Sửa định dạng bọc thẻ HTML bằng backticks trong `CL-03`..`CL-06` và cập nhật `render_checklist.py` để không bị vỡ cỡ chữ khi xem bảng Markdown.
-
-**Rejected:** Không loại bỏ mục nào trong 11 mục `IA-01`.
-
-**By hand:** Sinh viên kiểm tra bảng `checklist/M1_GUI_Checklist.md`, phát hiện lỗi hiển thị thẻ HTML trần làm vỡ font trong bảng Markdown, duyệt từng câu hỏi xác nhận `GA1`, `GA2`, mức ưu tiên và chốt môi trường thực thi `P3` là Safari trên iPhone.
+- **Kept (Giữ nguyên):** Giữ nguyên 9/11 mục (`CL-01`..`CL-08`, `CL-11`) cùng 2 giả định `GA1` (thuật ngữ quốc tế được phép giữ nguyên) và `GA2` (dải màu xanh dương cho nút tích cực, đỏ cho nút nguy hiểm/đăng xuất).
+- **Changed (Chỉnh sửa):**
+  - Sinh viên xác nhận nền tảng `P3` là `Safari trên iPhone (iOS)` thay vì Safari chung chung; bổ sung giả định `NA1` cho thiết bị di động màn hình cố định.
+  - Điều chỉnh `CL-09` (`nguon: "Both"`): bỏ giới hạn chỉ kiểm trên `1440px` để kiểm tra căn lề dọc khung form trên cả khung nhìn thực tế của `P3` (iPhone).
+  - Điều chỉnh `CL-10` (`nguon: "Both"`): chỉ áp dụng kiểm thử chuyển đổi 3 mốc viewport `375px / 768px / 1440px` trên `P1, P2` và đánh dấu `P3` là `N/A` theo `NA1` (vì iPhone thật có khung nhìn cố định).
+  - Sửa định dạng bọc thẻ HTML bằng backticks trong `CL-03`..`CL-06` và cập nhật `render_checklist.py` để không bị vỡ cỡ chữ khi xem bảng Markdown.
+- **Rejected (Bác bỏ):** Không loại bỏ mục nào trong 11 mục `IA-01`.
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra bảng `checklist/M1_GUI_Checklist.md`, phát hiện lỗi hiển thị thẻ HTML trần làm vỡ font trong bảng Markdown, duyệt từng câu hỏi xác nhận `GA1`, `GA2`, mức ưu tiên và chốt môi trường thực thi `P3` là Safari trên iPhone.
 
 ---
 
-## 3. 2026-11-11 - Task 1 Bước 1 (Lượt 2/4): AI nháp checklist cho IA-02 (Forms and Validation)
+### Entry 03 — 2026-11-11 - Task 1 Bước 1 (Lượt 2/4): AI nháp checklist cho IA-02 (Forms and Validation)
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 14:39 +07:00
-
-**Task / Step:** Task 1, Bước 1, Lượt IA-02 (Forms and Validation)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 14:39 +07:00`
+- **Task / Step:** Task 1, Bước 1, Lượt IA-02 (Forms and Validation)
 
 **Prompt:**
 
@@ -125,23 +143,18 @@ Tôi đồng ý toàn bộ nội dung bạn nói, tui dùng safari trên iPhone.
 - Nguồn Heuristic (1 mục): `CL-23` (gắn kết `<label for>` với ô nhập và gợi ý hướng dẫn - WCAG 2.2 SC 1.3.1, SC 3.3.2 & Slide 10 #7).
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ 12 mục `CL-12`..`CL-23`, giả định `GA3` (chỉ báo bước cho form 2 bước) và bộ dữ liệu kiểm thử mẫu (`du_lieu`) cho `CL-13` (Email), `CL-19` (Mật khẩu mạnh), `CL-22` (Số điện thoại).
-
-**Changed:** Không chỉnh sửa câu chữ hay mức ưu tiên sau khi sinh viên đối chiếu với yêu cầu trong `eshop-sut/README.md`.
-
-**Rejected:** Không loại bỏ mục nào trong 12 mục `IA-02`.
-
-**By hand:** Sinh viên kiểm tra bảng `IA-02` trên `checklist/M1_GUI_Checklist.md`, xác nhận giả định `GA3`, cách tách mục màn hình chính/phụ và bộ giá trị kiểm thử mẫu trước khi yêu cầu chạy lượt `IA-03`.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 12 mục `CL-12`..`CL-23`, giả định `GA3` (chỉ báo bước cho form 2 bước) và bộ dữ liệu kiểm thử mẫu (`du_lieu`) cho `CL-13` (Email), `CL-19` (Mật khẩu mạnh), `CL-22` (Số điện thoại).
+- **Changed (Chỉnh sửa):** Không chỉnh sửa câu chữ hay mức ưu tiên sau khi sinh viên đối chiếu với yêu cầu trong `eshop-sut/README.md`.
+- **Rejected (Bác bỏ):** Không loại bỏ mục nào trong 12 mục `IA-02`.
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra bảng `IA-02` trên `checklist/M1_GUI_Checklist.md`, xác nhận giả định `GA3`, cách tách mục màn hình chính/phụ và bộ giá trị kiểm thử mẫu trước khi yêu cầu chạy lượt `IA-03`.
 
 ---
 
-## 4. 2026-11-11 - Task 1 Bước 1 (Lượt 3/4): AI nháp checklist cho IA-03 (Navigation)
+### Entry 04 — 2026-11-11 - Task 1 Bước 1 (Lượt 3/4): AI nháp checklist cho IA-03 (Navigation)
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 15:01 +07:00
-
-**Task / Step:** Task 1, Bước 1, Lượt IA-03 (Navigation)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 15:01 +07:00`
+- **Task / Step:** Task 1, Bước 1, Lượt IA-03 (Navigation)
 
 **Prompt:**
 
@@ -158,23 +171,18 @@ Oke tôi xác nhận yêu cầu, bạn cứ làm theo nội dung yêu cầu tron
 - Nguồn Heuristic (2 mục): `CL-29` (nút 'Quay lại' từ Bước 2 về Bước 1 trên ForgotPassword - Nielsen #3), `CL-30` (điều hướng khi khách chưa đăng nhập truy cập thẳng `/profile` - FR-04:64 & Nielsen #3).
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ 8 mục `CL-24`..`CL-31`, bao gồm cấu hình `P3 = N/A` theo `NA1` cho `CL-31` (hover chuột & phím Enter vật lý) và phân bổ mức ưu tiên `Mandatory`/`Optional`.
-
-**Changed:** Không chỉnh sửa câu chữ hay mức ưu tiên sau khi sinh viên kiểm tra bảng `IA-03`.
-
-**Rejected:** Không loại bỏ mục nào trong 8 mục `IA-03`.
-
-**By hand:** Sinh viên rà soát 8 mục `CL-24`..`CL-31` trên `checklist/M1_GUI_Checklist.md`, xác nhận xử lý `N/A` trên iPhone Safari và mức ưu tiên trước khi yêu cầu chạy lượt cuối `IA-04`.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 8 mục `CL-24`..`CL-31`, bao gồm cấu hình `P3 = N/A` theo `NA1` cho `CL-31` (hover chuột & phím Enter vật lý) và phân bổ mức ưu tiên `Mandatory`/`Optional`.
+- **Changed (Chỉnh sửa):** Không chỉnh sửa câu chữ hay mức ưu tiên sau khi sinh viên kiểm tra bảng `IA-03`.
+- **Rejected (Bác bỏ):** Không loại bỏ mục nào trong 8 mục `IA-03`.
+- **By hand (Tự thực hiện thủ công):** Sinh viên rà soát 8 mục `CL-24`..`CL-31` trên `checklist/M1_GUI_Checklist.md`, xác nhận xử lý `N/A` trên iPhone Safari và mức ưu tiên trước khi yêu cầu chạy lượt cuối `IA-04`.
 
 ---
 
-## 5. 2026-11-11 - Task 1 Bước 1 (Lượt 4/4): AI nháp checklist cho IA-04 (Feedback and State)
+### Entry 05 — 2026-11-11 - Task 1 Bước 1 (Lượt 4/4): AI nháp checklist cho IA-04 (Feedback and State)
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 15:08 +07:00
-
-**Task / Step:** Task 1, Bước 1, Lượt IA-04 (Feedback and State)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 15:08 +07:00`
+- **Task / Step:** Task 1, Bước 1, Lượt IA-04 (Feedback and State)
 
 **Prompt:**
 
@@ -191,23 +199,18 @@ Oke tôi xác nhận yêu cầu, bạn cứ làm theo nội dung yêu cầu tron
 - Nguồn Heuristic (1 mục): `CL-39` (giữ nguyên dữ liệu đã gõ khi gửi form báo lỗi và xóa lỗi cũ khi gửi lại thành công - Nielsen #5, #9).
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ 8 mục `CL-32`..`CL-39`, hai giả định `GA4` (không dùng `window.alert()` thay cho thông báo nội trang/toast nhất quán) và `GA5` (thời gian phản hồi 0,1-1 giây và đồng bộ ngay trạng thái tên trên Header), cùng cấu hình `P3 = N/A` theo `NA1` cho `CL-37`.
-
-**Changed:** Không chỉnh sửa câu chữ hay mức ưu tiên sau khi sinh viên kiểm tra bảng `IA-04`.
-
-**Rejected:** Không loại bỏ mục nào trong 8 mục `IA-04`.
-
-**By hand:** Sinh viên kiểm tra bảng `IA-04` trên `checklist/M1_GUI_Checklist.md`, xác nhận `GA4`, `GA5`, cấu hình `P3 = N/A` của `CL-37` và chốt toàn bộ 39 mục nháp Bước 1 để chuyển sang Bước 2.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 8 mục `CL-32`..`CL-39`, hai giả định `GA4` (không dùng `window.alert()` thay cho thông báo nội trang/toast nhất quán) và `GA5` (thời gian phản hồi 0,1-1 giây và đồng bộ ngay trạng thái tên trên Header), cùng cấu hình `P3 = N/A` theo `NA1` cho `CL-37`.
+- **Changed (Chỉnh sửa):** Không chỉnh sửa câu chữ hay mức ưu tiên sau khi sinh viên kiểm tra bảng `IA-04`.
+- **Rejected (Bác bỏ):** Không loại bỏ mục nào trong 8 mục `IA-04`.
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra bảng `IA-04` trên `checklist/M1_GUI_Checklist.md`, xác nhận `GA4`, `GA5`, cấu hình `P3 = N/A` của `CL-37` và chốt toàn bộ 39 mục nháp Bước 1 để chuyển sang Bước 2.
 
 ---
 
-## 6. 2026-11-11 - Task 1 Bước 2: Kiểm cấu trúc, gộp mục bổ sung của sinh viên và xuất ma trận độ phủ
+### Entry 06 — 2026-11-11 - Task 1 Bước 2: Kiểm cấu trúc, gộp mục bổ sung của sinh viên và xuất ma trận độ phủ
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 15:25 +07:00
-
-**Task / Step:** Task 1, Bước 2 (Gộp mục bổ sung `SV-01`..`SV-20` và kiểm chuẩn ma trận độ phủ)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 15:25 +07:00`
+- **Task / Step:** Task 1, Bước 2 (Gộp mục bổ sung `SV-01`..`SV-20` và kiểm chuẩn ma trận độ phủ)
 
 **Prompt:**
 
@@ -226,23 +229,18 @@ Oke tôi xác nhận yêu cầu, bạn cứ làm theo nội dung yêu cầu tron
 - Kết quả `check_checklist.py`: `0 lỗi, 0 cảnh báo`, toàn bộ 20 mục `SV` đều có đủ trường `ly_do_ai_bo_sot` và ngưỡng `Fail nếu`.
 ~~~
 
-**Kept:** Giữ nguyên kết quả gộp nguyên văn 20 mục `SV-01`..`SV-20`, các giả định `GA6`..`GA8`, `NA2`, file `checklist/M1_GUI_Checklist.md` (59 mục) và ma trận độ phủ để chuyển sang Bước 3 chuẩn bị thực thi.
-
-**Changed:** Không chỉnh sửa nội dung các mục `CL-01`..`CL-39` hay `SV-01`..`SV-20` trong quá trình gộp tự động.
-
-**Rejected:** Không loại bỏ mục nào.
-
-**By hand:** Sinh viên rà soát toàn bộ `checklist/sv_items.md` (bao gồm 20 mục bổ sung, ngưỡng `Fail nếu`, giả định `GA6`..`GA8`, `NA2` và phân tích `ly_do_ai_bo_sot` cho từng mục) trước khi yêu cầu gộp vào `checklist/checklist.json`.
+- **Kept (Giữ nguyên):** Giữ nguyên kết quả gộp nguyên văn 20 mục `SV-01`..`SV-20`, các giả định `GA6`..`GA8`, `NA2`, file `checklist/M1_GUI_Checklist.md` (59 mục) và ma trận độ phủ để chuyển sang Bước 3 chuẩn bị thực thi.
+- **Changed (Chỉnh sửa):** Không chỉnh sửa nội dung các mục `CL-01`..`CL-39` hay `SV-01`..`SV-20` trong quá trình gộp tự động.
+- **Rejected (Bác bỏ):** Không loại bỏ mục nào.
+- **By hand (Tự thực hiện thủ công):** Sinh viên rà soát toàn bộ `checklist/sv_items.md` (bao gồm 20 mục bổ sung, ngưỡng `Fail nếu`, giả định `GA6`..`GA8`, `NA2` và phân tích `ly_do_ai_bo_sot` cho từng mục) trước khi yêu cầu gộp vào `checklist/checklist.json`.
 
 ---
 
-## 7. 2026-11-11 - Task 1 Bước 3: Chuẩn bị hướng dẫn thực thi RUN.md, dom_probe.js và khung ghi kết quả
+### Entry 07 — 2026-11-11 - Task 1 Bước 3: Chuẩn bị hướng dẫn thực thi RUN.md, dom_probe.js và khung ghi kết quả
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 15:35 +07:00
-
-**Task / Step:** Task 1, Bước 3 (Chuẩn bị `RUN.md`, `dom_probe.js`, phân loại `che_do` và khung CSV lượt chạy)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 15:35 +07:00`
+- **Task / Step:** Task 1, Bước 3 (Chuẩn bị `RUN.md`, `dom_probe.js`, phân loại `che_do` và khung CSV lượt chạy)
 
 **Prompt:**
 
@@ -261,23 +259,18 @@ Thực hiện bước 3. Bạn quét thử xem cần thông tin gì từ tôi th
 - Đồng thời rà soát mã nguồn SUT và đề xuất 5 nhóm thông tin cần sinh viên xác nhận trước khi bước vào Bước 4 (phương thức chạy `P3` để giữ URL `localhost` và gọi được cổng `3000`, phiên bản cụ thể của `P1`/`P2`/`P3`, công cụ chèn watermark email, ranh giới nhóm ở `/profile` + repo đăng GitHub Issues, và cách phối hợp điền CSV).
 ~~~
 
-**Kept:** Giữ nguyên `checklist/RUN.md`, `checklist/dom_probe.js`, phân loại `che_do` trong `checklist/checklist.json` và 3 file khung CSV trong `checklist/runs/` để rà soát thông tin môi trường trước khi chạy Bước 4.
-
-**Changed:** Sau khi rà soát giới hạn kết nối `localhost:3000` trên iPhone vật lý và thời lượng phiên dùng thử Cloud ngắn, sinh viên quyết định chuyển `P3` sang thiết bị thật `Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)` (hợp lệ theo Mục 6 của đề bài), cài đặt bổ sung `Mozilla Firefox 137.0.1` cho `P2`, cập nhật đồng bộ thông số phiên bản thực tế của cả 3 nền tảng (`P1`, `P2`, `P3`) vào `checklist/checklist.json`, `checklist/sv_items.md`, `checklist/M1_GUI_Checklist.md`, `checklist/RUN.md` và đóng băng lại bản `--step 3b` trước khi bắt đầu Bước 4.
-
-**Rejected:** Loại bỏ phương án dùng Safari trên iPhone rời / Cloud Trial và không dùng Microsoft Edge thay cho Firefox (do trùng nhân Chromium với Chrome).
-
-**By hand:** Sinh viên kết nối cáp USB điện thoại `OPPO Reno10 5G`, bật chế độ nhà phát triển và cấp quyền khóa RSA cho `adb`, đồng ý cài đặt Firefox `137.0.1` và chốt cấu hình 3 nền tảng thực thi trước khi bước sang Bước 4.
+- **Kept (Giữ nguyên):** Giữ nguyên `checklist/RUN.md`, `checklist/dom_probe.js`, phân loại `che_do` trong `checklist/checklist.json` và 3 file khung CSV trong `checklist/runs/` để rà soát thông tin môi trường trước khi chạy Bước 4.
+- **Changed (Chỉnh sửa):** Sau khi rà soát giới hạn kết nối `localhost:3000` trên iPhone vật lý và thời lượng phiên dùng thử Cloud ngắn, sinh viên quyết định chuyển `P3` sang thiết bị thật `Chrome Android 156.0.8078.79 trên OPPO Reno10 5G (Android 15, adb reverse)` (hợp lệ theo Mục 6 của đề bài), cài đặt bổ sung `Mozilla Firefox 137.0.1` cho `P2`, cập nhật đồng bộ thông số phiên bản thực tế của cả 3 nền tảng (`P1`, `P2`, `P3`) vào `checklist/checklist.json`, `checklist/sv_items.md`, `checklist/M1_GUI_Checklist.md`, `checklist/RUN.md` và đóng băng lại bản `--step 3b` trước khi bắt đầu Bước 4.
+- **Rejected (Bác bỏ):** Loại bỏ phương án dùng Safari trên iPhone rời / Cloud Trial và không dùng Microsoft Edge thay cho Firefox (do trùng nhân Chromium với Chrome).
+- **By hand (Tự thực hiện thủ công):** Sinh viên kết nối cáp USB điện thoại `OPPO Reno10 5G`, bật chế độ nhà phát triển và cấp quyền khóa RSA cho `adb`, đồng ý cài đặt Firefox `137.0.1` và chốt cấu hình 3 nền tảng thực thi trước khi bước sang Bước 4.
 
 ---
 
-## 8. 2026-11-11 - Task 1 Bước 5: Xuất sổ làm việc Excel 3 sheet và tổng hợp Test Summary Report
+### Entry 08 — 2026-11-11 - Task 1 Bước 5: Xuất sổ làm việc Excel 3 sheet và tổng hợp Test Summary Report
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 17:20 +07:00
-
-**Task / Step:** Task 1, Bước 5 (Xuất `checklist/M1_GUI_Checklist_And_Summary.xlsx`, cập nhật `M1_GUI_Checklist.md`, `README.md` và `Main_Report.md`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 17:20 +07:00`
+- **Task / Step:** Task 1, Bước 5 (Xuất `checklist/M1_GUI_Checklist_And_Summary.xlsx`, cập nhật `M1_GUI_Checklist.md`, `README.md` và `Main_Report.md`)
 
 **Prompt:**
 
@@ -297,23 +290,18 @@ Tiếp tục thực hiện bước 5 giúp tôi nhé.
 - Tổng hợp đầy đủ các bảng số liệu Test Summary (`59` mục thiết kế; `168/177` lượt thực thi trên 3 nền tảng; `38 Passed / 130 Failed / 9 N/A / 0 Blocked`, trong đó `P1`: `14P/44F/1NA`, `P2`: `14P/44F/1NA`, `P3`: `10P/42F/7NA`; `45/59` mục độc lập phát hiện lỗi và `15/20` mục do SV bổ sung bắt được lỗi thật) sang `README.md` và khởi tạo báo cáo chính `Main_Report.md` (hoàn chỉnh phần Task 1 & Task 3).
 ~~~
 
-**Kept:** Giữ nguyên file `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `checklist/M1_GUI_Checklist.md`, các bảng thống kê trong `README.md` và nội dung phần Task 1, Task 3 trong `Main_Report.md`.
-
-**Changed:** Chưa cần chỉnh sửa; các mục chờ số liệu của Bước 6 (số lượng GitHub Issues) và Task 2 (7 phiên Usability & SUS) đã được đánh dấu rõ để điền tiếp ở các bước kế tiếp.
-
-**Rejected:** Không có.
-
-**By hand:** Sinh viên kiểm tra đối chiếu số liệu thống kê giữa file Excel, `README.md` và `Main_Report.md` trước khi chuyển sang Bước 6 (gom dữ kiện bug và tạo GitHub Issues).
+- **Kept (Giữ nguyên):** Giữ nguyên file `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `checklist/M1_GUI_Checklist.md`, các bảng thống kê trong `README.md` và nội dung phần Task 1, Task 3 trong `Main_Report.md`.
+- **Changed (Chỉnh sửa):** Chưa cần chỉnh sửa; các mục chờ số liệu của Bước 6 (số lượng GitHub Issues) và Task 2 (7 phiên Usability & SUS) đã được đánh dấu rõ để điền tiếp ở các bước kế tiếp.
+- **Rejected (Bác bỏ):** Không có.
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra đối chiếu số liệu thống kê giữa file Excel, `README.md` và `Main_Report.md` trước khi chuyển sang Bước 6 (gom dữ kiện bug và tạo GitHub Issues).
 
 ---
 
-## 9. 2026-11-11 - Task 1 Bước 6: Gom nhóm dữ kiện lỗi (45 mục Failed -> 27 Bugs) và đồng bộ GitHub Issues
+### Entry 09 — 2026-11-11 - Task 1 Bước 6: Gom nhóm dữ kiện lỗi (45 mục Failed -> 27 Bugs) và đồng bộ GitHub Issues
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 17:45 +07:00
-
-**Task / Step:** Task 1, Bước 6 (Trích xuất danh sách `Failed`, gom nhóm chống trùng lặp `bugs/bug_groups.md`, lập `bugs/BUG-01.md`..`BUG-27.md`, đăng GitHub Issues `#1`..`#27` và tổng hợp `Bug_Report.md`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 17:45 +07:00`
+- **Task / Step:** Task 1, Bước 6 (Trích xuất danh sách `Failed`, gom nhóm chống trùng lặp `bugs/bug_groups.md`, lập `bugs/BUG-01.md`..`BUG-27.md`, đăng GitHub Issues `#1`..`#27` và tổng hợp `Bug_Report.md`)
 
 **Prompt:**
 
@@ -331,23 +319,18 @@ Bước 6. Dùng github của tôi có sẵn để đăng issue luôn nhe
 - Lưu bộ ảnh chụp trang tổng quan và từng trang chi tiết GitHub Issue vào `screenshots/github_issues/` (`GitHub_Issues_Overview_Page1.png`, `GitHub_Issues_Overview_Page2.png`, `ISSUE-01_BUG-01.png` .. `ISSUE-27_BUG-27.png`), xuất `Bug_Report.md` ở thư mục gốc và kết xuất đầy đủ các bảng dữ liệu chi tiết sang tài liệu trung tâm `Main_Report.md` (Mục 1..4, Mục 6, Mục 8), `README.md` (Mục 3) và `checklist/checklist.json` (`step: 6`, `version: v6`).
 ~~~
 
-**Kept:** Giữ nguyên cấu trúc gom 27 nhóm lỗi (`G-01`..`G-27` -> `BUG-01`..`BUG-27`), toàn bộ 27 GitHub Issues `#1`..`#27`, file `Bug_Report.md` và bảng tổng hợp trong `Main_Report.md`, `README.md`.
-
-**Changed:** Tách riêng nhóm lỗi màu sắc ngữ nghĩa nút bấm (`BUG-19`: `CL-07, CL-08`) khỏi lỗi độ tương phản văn bản (`BUG-20`: `CL-11`), và tách lỗi thiếu dấu sao/liên kết `<label>` (`BUG-23`: `CL-12, CL-23`) khỏi lỗi thiếu `autocomplete`/`type="tel"` (`BUG-24`: `SV-12, SV-20`) để mỗi GitHub Issue có một nguyên nhân kỹ thuật rõ ràng, dễ khắc phục.
-
-**Rejected:** Loại bỏ phương án tạo rời rạc 45 GitHub Issues theo từng mục đơn lẻ vì sẽ gây trùng lặp báo cáo lỗi (ví dụ 3 mục `CL-19`, `SV-08`, `SV-09` đều bắt cùng một biểu thức chính quy mật khẩu sai trong `Register.jsx:15`).
-
-**By hand:** Sinh viên kiểm tra đối chiếu các GitHub Issues `#1`..`#27` trên tài khoản `HuynhDucThinh/Software-Testing-HW03` (mở chế độ Public trước thời điểm nộp bài chấm điểm để trợ giảng truy cập trực tiếp liên kết).
+- **Kept (Giữ nguyên):** Giữ nguyên cấu trúc gom 27 nhóm lỗi (`G-01`..`G-27` -> `BUG-01`..`BUG-27`), toàn bộ 27 GitHub Issues `#1`..`#27`, file `Bug_Report.md` và bảng tổng hợp trong `Main_Report.md`, `README.md`.
+- **Changed (Chỉnh sửa):** Tách riêng nhóm lỗi màu sắc ngữ nghĩa nút bấm (`BUG-19`: `CL-07, CL-08`) khỏi lỗi độ tương phản văn bản (`BUG-20`: `CL-11`), và tách lỗi thiếu dấu sao/liên kết `<label>` (`BUG-23`: `CL-12, CL-23`) khỏi lỗi thiếu `autocomplete`/`type="tel"` (`BUG-24`: `SV-12, SV-20`) để mỗi GitHub Issue có một nguyên nhân kỹ thuật rõ ràng, dễ khắc phục.
+- **Rejected (Bác bỏ):** Loại bỏ phương án tạo rời rạc 45 GitHub Issues theo từng mục đơn lẻ vì sẽ gây trùng lặp báo cáo lỗi (ví dụ 3 mục `CL-19`, `SV-08`, `SV-09` đều bắt cùng một biểu thức chính quy mật khẩu sai trong `Register.jsx:15`).
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra đối chiếu các GitHub Issues `#1`..`#27` trên tài khoản `HuynhDucThinh/Software-Testing-HW03` (mở chế độ Public trước thời điểm nộp bài chấm điểm để trợ giảng truy cập trực tiếp liên kết).
 
 ---
 
-## 10. 2026-11-11 - Rà soát chất lượng Task 1 theo đề bài và đồng bộ phiên bản v6
+### Entry 10 — 2026-11-11 - Rà soát chất lượng Task 1 theo đề bài và đồng bộ phiên bản v6
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 19:29 +07:00
-
-**Task / Step:** Task 1 (Rà soát chéo toàn bộ hiện vật Task 1 theo đặc tả đề bài `docs/2026.HW03.GUI Usability_En.md` và hoàn thiện đồng bộ `v6`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 19:29 +07:00`
+- **Task / Step:** Task 1 (Rà soát chéo toàn bộ hiện vật Task 1 theo đặc tả đề bài `docs/2026.HW03.GUI Usability_En.md` và hoàn thiện đồng bộ `v6`)
 
 **Prompt:**
 
@@ -365,23 +348,18 @@ Bước 6. Dùng github của tôi có sẵn để đăng issue luôn nhe
 - Cập nhật lại ảnh `screenshots/task1_failed/P3_SV-20.png` (bỏ hộp thoại cảnh báo không liên quan của `CL-22`, focus đúng ô `Số điện thoại` kèm khối kết quả DOM Probe `type="text" | inputmode=null`) và đồng bộ lại ảnh chụp trang `screenshots/github_issues/ISSUE-24_BUG-24.png`.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ 4 hiệu chỉnh đồng bộ trên `Main_Report.md`, `checklist/M1_GUI_Checklist.md`, `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `P3_SV-20.png` và `ISSUE-24_BUG-24.png`.
-
-**Changed:** Không có.
-
-**Rejected:** Không đưa các tiêu chí `RTL` hoặc `Dark mode` vào bộ checklist để tránh phát sinh lỗi giả không có căn cứ đặc tả.
-
-**By hand:** Sinh viên yêu cầu kiểm toán chất lượng theo đề bài, duyệt danh sách điểm cần hoàn thiện và ghi nhận nhắc nhở mở chế độ `Public` cho GitHub repository trước thời điểm nộp bài.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 4 hiệu chỉnh đồng bộ trên `Main_Report.md`, `checklist/M1_GUI_Checklist.md`, `checklist/M1_GUI_Checklist_And_Summary.xlsx`, `P3_SV-20.png` và `ISSUE-24_BUG-24.png`.
+- **Changed (Chỉnh sửa):** Không có.
+- **Rejected (Bác bỏ):** Không đưa các tiêu chí `RTL` hoặc `Dark mode` vào bộ checklist để tránh phát sinh lỗi giả không có căn cứ đặc tả.
+- **By hand (Tự thực hiện thủ công):** Sinh viên yêu cầu kiểm toán chất lượng theo đề bài, duyệt danh sách điểm cần hoàn thiện và ghi nhận nhắc nhở mở chế độ `Public` cho GitHub repository trước thời điểm nộp bài.
 
 ---
 
-## 11. 2026-11-12 - Task 2 Bước 0: Lập Kế hoạch đánh giá khả năng sử dụng 9 phần cho luồng F1
+### Entry 11 — 2026-11-12 - Task 2 Bước 0: Lập Kế hoạch đánh giá khả năng sử dụng 9 phần cho luồng F1
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-12 11:21 +07:00
-
-**Task / Step:** Task 2, Bước 0 (Khảo sát luồng nghiệp vụ `F1` và khởi tạo Kế hoạch đánh giá khả năng sử dụng 9 phần `usability/plan.md` kèm đóng băng bản nháp AI tại `usability/frozen/`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-12 11:21 +07:00`
+- **Task / Step:** Task 2, Bước 0 (Khảo sát luồng nghiệp vụ `F1` và khởi tạo Kế hoạch đánh giá khả năng sử dụng 9 phần `usability/plan.md` kèm đóng băng bản nháp AI tại `usability/frozen/`)
 
 **Prompt:**
 
@@ -398,23 +376,18 @@ Làm bước 0 giúp tôi. Làm thật đầy đủ chính xác và trình bày 
 - Chạy kiểm định tự động `validate_study.py --plan usability/plan.md` đạt kết quả `0 lỗi, 0 cảnh báo`, và đóng băng bất biến bản nháp AI tại `usability/frozen/T2_plan_step0_20261112-112128.md` (`sha256:ebef4e75345d`) kèm `usability/frozen/INDEX.md`.
 ~~~
 
-**Kept:** Giữ nguyên cấu trúc 9 phần của `usability/plan.md`, bộ 5 câu hỏi nghiên cứu `RQ1..RQ5`, kịch bản nhiệm vụ định hướng mục tiêu không lộ tên control/route, 4 mốc thời gian chặng (`m1_register_done`..`m4_profile_saved`), mốc Benchmark `05:00` (tối đa `10:00`) và Giao thức cứu hộ 3 bước (`System-Bug Rescue Protocol`) cho 2 lỗi chặn `BUG-01`, `BUG-05` cùng rủi ro khóa sớm `BUG-03`.
-
-**Changed:** Hiệu chỉnh cách viết ký hiệu ngưỡng trong Mục 3 và Mục 8 sang diễn đạt tiếng Việt tường minh để không bị bộ kiểm tra nhầm là thẻ giữ chỗ chưa điền.
-
-**Rejected:** Loại bỏ phương án cấp sẵn tài khoản mẫu `test@eshop.com` hoặc cho trước mật khẩu có khoảng trắng ngay từ đầu phiên vì sẽ làm mất khả năng quan sát phản ứng thực tế của người dùng trên màn hình Đăng ký (`FR-01`).
-
-**By hand:** Sinh viên rà soát và xác nhận 6 thông số thiết kế cốt lõi trong `usability/plan.md` (câu chữ kịch bản mục tiêu, mốc thời gian Benchmark `05:00` / tối đa `10:00`, ngưỡng chờ cứu hộ `90 giây` hoặc `>= 3 lần` thử lỗi, cơ cấu người tham gia `non-IT`, cấu hình trạm thử nghiệm Chrome ẩn danh + reset CSDL sạch và quy trình quay cửa sổ trình duyệt) trước khi chốt Git commit Bước 0 và chuyển sang Bước 1.
+- **Kept (Giữ nguyên):** Giữ nguyên cấu trúc 9 phần của `usability/plan.md`, bộ 5 câu hỏi nghiên cứu `RQ1..RQ5`, kịch bản nhiệm vụ định hướng mục tiêu không lộ tên control/route, 4 mốc thời gian chặng (`m1_register_done`..`m4_profile_saved`), mốc Benchmark `05:00` (tối đa `10:00`) và Giao thức cứu hộ 3 bước (`System-Bug Rescue Protocol`) cho 2 lỗi chặn `BUG-01`, `BUG-05` cùng rủi ro khóa sớm `BUG-03`.
+- **Changed (Chỉnh sửa):** Hiệu chỉnh cách viết ký hiệu ngưỡng trong Mục 3 và Mục 8 sang diễn đạt tiếng Việt tường minh để không bị bộ kiểm tra nhầm là thẻ giữ chỗ chưa điền.
+- **Rejected (Bác bỏ):** Loại bỏ phương án cấp sẵn tài khoản mẫu `test@eshop.com` hoặc cho trước mật khẩu có khoảng trắng ngay từ đầu phiên vì sẽ làm mất khả năng quan sát phản ứng thực tế của người dùng trên màn hình Đăng ký (`FR-01`).
+- **By hand (Tự thực hiện thủ công):** Sinh viên rà soát và xác nhận 6 thông số thiết kế cốt lõi trong `usability/plan.md` (câu chữ kịch bản mục tiêu, mốc thời gian Benchmark `05:00` / tối đa `10:00`, ngưỡng chờ cứu hộ `90 giây` hoặc `>= 3 lần` thử lỗi, cơ cấu người tham gia `non-IT`, cấu hình trạm thử nghiệm Chrome ẩn danh + reset CSDL sạch và quy trình quay cửa sổ trình duyệt) trước khi chốt Git commit Bước 0 và chuyển sang Bước 1.
 
 ---
 
-## 12. 2026-11-12 - Task 2 Bước 1: Thiết kế Bộ công cụ khảo sát, Kịch bản điều phối và Trạm bấm giờ thu phiếu SUS offline
+### Entry 12 — 2026-11-12 - Task 2 Bước 1: Thiết kế Bộ công cụ khảo sát, Kịch bản điều phối và Trạm bấm giờ thu phiếu SUS offline
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-12 11:38 +07:00
-
-**Task / Step:** Task 2, Bước 1 (Thiết kế `usability/participant_kit.md`, `usability/moderator_script.md`, khung trống `usability/participants.md`, công cụ khởi tạo phiên sạch `usability/start_session.ps1` và trạm bấm giờ — thu phiếu offline `usability/session_helper.html`, kèm đóng băng tại `usability/frozen/`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-12 11:38 +07:00`
+- **Task / Step:** Task 2, Bước 1 (Thiết kế `usability/participant_kit.md`, `usability/moderator_script.md`, khung trống `usability/participants.md`, công cụ khởi tạo phiên sạch `usability/start_session.ps1` và trạm bấm giờ — thu phiếu offline `usability/session_helper.html`, kèm đóng băng tại `usability/frozen/`)
 
 **Prompt:**
 
@@ -433,23 +406,18 @@ Sau khi sinh viên kiểm duyệt và xác nhận giữ nguyên Kế hoạch 9 p
 - Chạy kiểm định `validate_study.py --plan usability/plan.md --kit usability/participant_kit.md --participants usability/participants.md --allow-pending` đạt `0 lỗi, 0 cảnh báo`, và đóng băng bản nháp AI tại `usability/frozen/T2_participant_kit_step1_20261112-113805.md` (`sha256:b70af36e583b`) cùng `usability/frozen/T2_moderator_script_step1_20261112-113805.md` (`sha256:36bc981fb5db`).
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ `participant_kit.md`, `moderator_script.md`, khung trống `participants.md`, `recordings/LINKS.md`, `start_session.ps1` và `session_helper.html`.
-
-**Changed:** Không có.
-
-**Rejected:** Không sử dụng các công cụ điều khiển trình duyệt tự động trong phiên người dùng thật nhằm đảm bảo cửa sổ Chrome Ẩn danh hoàn toàn nguyên bản cho người tham gia trực tiếp thao tác.
-
-**By hand:** Sinh viên rà soát giao diện `usability/session_helper.html`, `participant_kit.md` và `moderator_script.md`, xác nhận tạo Git commit hoàn tất Giai đoạn 1 (Bước 1), sau đó chuyển sang Bước 2 để khởi tạo khung rỗng `S00.json` và trực tiếp điều phối phiên chạy thử Pilot (`S00`) với người tham gia đầu tiên (`P00`).
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ `participant_kit.md`, `moderator_script.md`, khung trống `participants.md`, `recordings/LINKS.md`, `start_session.ps1` và `session_helper.html`.
+- **Changed (Chỉnh sửa):** Không có.
+- **Rejected (Bác bỏ):** Không sử dụng các công cụ điều khiển trình duyệt tự động trong phiên người dùng thật nhằm đảm bảo cửa sổ Chrome Ẩn danh hoàn toàn nguyên bản cho người tham gia trực tiếp thao tác.
+- **By hand (Tự thực hiện thủ công):** Sinh viên rà soát giao diện `usability/session_helper.html`, `participant_kit.md` và `moderator_script.md`, xác nhận tạo Git commit hoàn tất Giai đoạn 1 (Bước 1), sau đó chuyển sang Bước 2 để khởi tạo khung rỗng `S00.json` và trực tiếp điều phối phiên chạy thử Pilot (`S00`) với người tham gia đầu tiên (`P00`).
 
 ---
 
-## 13. 2026-11-12 - Task 2 Bước 2: Hoàn tất phiên chạy thử Pilot S00 và tinh chỉnh bộ công cụ sau Pilot
+### Entry 13 — 2026-11-12 - Task 2 Bước 2: Hoàn tất phiên chạy thử Pilot S00 và tinh chỉnh bộ công cụ sau Pilot
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-12 14:50 +07:00
-
-**Task / Step:** Task 2, Bước 2 (Kiểm tra đối chiếu video phiên Pilot `S00.mp4`, chuẩn hóa hồ sơ `usability/sessions/S00.json`, cập nhật `P00` trong `usability/participants.md` và xuất bảng đối chiếu tinh chỉnh công cụ `usability/pilot_refinements.md`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-12 14:50 +07:00`
+- **Task / Step:** Task 2, Bước 2 (Kiểm tra đối chiếu video phiên Pilot `S00.mp4`, chuẩn hóa hồ sơ `usability/sessions/S00.json`, cập nhật `P00` trong `usability/participants.md` và xuất bảng đối chiếu tinh chỉnh công cụ `usability/pilot_refinements.md`)
 
 **Prompt:**
 
@@ -467,23 +435,18 @@ Sinh viên trực tiếp thực hiện phiên chạy thử Pilot `S00` với ng�
 - Cập nhật thông tin đã che 4 số giữa của `P00` (`038****701`) vào `usability/participants.md` và kiểm định bằng `analyze_usability.py usability/sessions --check` đạt `0 lỗi`.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ dữ liệu khảo sát gốc của `P00` trong `S00.json`, các tinh chỉnh chống lộ thông tin cá nhân trên `participant_kit.md`, `moderator_script.md`, `session_helper.html` và báo cáo `pilot_refinements.md`.
-
-**Changed:** Đồng bộ chính xác mã lỗi đối chiếu trong `S00.json` và `session_helper.html` khớp tuyệt đối với bảng đánh số của `Bug_Report.md` (`BUG-13` cho tiêu đề `'Đăng Ký'` đặt sai trên `/login`, `BUG-04` cho ô mật khẩu lộ chữ thường trên `/login`).
-
-**Rejected:** Không gộp điểm số của phiên Pilot `S00` vào tập thống kê chính thức.
-
-**By hand:** Sinh viên trực tiếp mời `P00`, điều phối phiên thử nghiệm tại chỗ, quay màn hình `S00.mp4`, thu phiếu đánh giá `SEQ`/`SUS`/`4 câu mở` và tạo commit riêng cho Bước 2 (`66da9d3`, `62d4d5d`).
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ dữ liệu khảo sát gốc của `P00` trong `S00.json`, các tinh chỉnh chống lộ thông tin cá nhân trên `participant_kit.md`, `moderator_script.md`, `session_helper.html` và báo cáo `pilot_refinements.md`.
+- **Changed (Chỉnh sửa):** Đồng bộ chính xác mã lỗi đối chiếu trong `S00.json` và `session_helper.html` khớp tuyệt đối với bảng đánh số của `Bug_Report.md` (`BUG-13` cho tiêu đề `'Đăng Ký'` đặt sai trên `/login`, `BUG-04` cho ô mật khẩu lộ chữ thường trên `/login`).
+- **Rejected (Bác bỏ):** Không gộp điểm số của phiên Pilot `S00` vào tập thống kê chính thức.
+- **By hand (Tự thực hiện thủ công):** Sinh viên trực tiếp mời `P00`, điều phối phiên thử nghiệm tại chỗ, quay màn hình `S00.mp4`, thu phiếu đánh giá `SEQ`/`SUS`/`4 câu mở` và tạo commit riêng cho Bước 2 (`66da9d3`, `62d4d5d`).
 
 ---
 
-## 14. 2026-11-13 - Task 2 Bước 3: Kiểm chứng video 7 phiên chính thức S01..S07, tải lưu trữ Google Drive và kiểm định danh sách người tham gia
+### Entry 14 — 2026-11-13 - Task 2 Bước 3: Kiểm chứng video 7 phiên chính thức S01..S07, tải lưu trữ Google Drive và kiểm định danh sách người tham gia
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-13 23:30 +07:00
-
-**Task / Step:** Task 2, Bước 3 (Rà soát đối chiếu từng giây video `S01.mp4`..`S07.mp4` với biên bản `usability/sessions/S01.json`..`S07.json`, tải 8 video lên Google Drive `usability/recordings/LINKS.md`, điền thông tin đã che 4 số giữa cho `P01..P07` tại `usability/participants.md` và chạy kiểm định toàn diện Bước 3)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-13 23:30 +07:00`
+- **Task / Step:** Task 2, Bước 3 (Rà soát đối chiếu từng giây video `S01.mp4`..`S07.mp4` với biên bản `usability/sessions/S01.json`..`S07.json`, tải 8 video lên Google Drive `usability/recordings/LINKS.md`, điền thông tin đã che 4 số giữa cho `P01..P07` tại `usability/participants.md` và chạy kiểm định toàn diện Bước 3)
 
 **Prompt:**
 
@@ -501,23 +464,18 @@ Sinh viên lần lượt điều phối trực tiếp 7 người tham gia thật
 - Cập nhật danh sách `P01..P07` vào `usability/participants.md` với số điện thoại được che đúng 4 chữ số giữa (`084****047`..`035****706`), chạy `validate_study.py --plan usability/plan.md --kit usability/participant_kit.md --participants usability/participants.md` đạt `0 lỗi, 0 cảnh báo` và `analyze_usability.py usability/sessions --check --expect 7` đạt `0 lỗi`.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ `S01.json`..`S07.json`, `usability/recordings/LINKS.md` và `usability/participants.md`.
-
-**Changed:** Chỉnh lại các mốc giây đồng hồ bấm giờ bị trễ trên `session_helper.html` để khớp chính xác với thời điểm thao tác thật trên từng tệp video `.mp4`.
-
-**Rejected:** Từ chối đề xuất bỏ qua ghi nhận nhật ký AI khi biên tập câu chữ nhận xét quan sát trong `S0x.json`, đảm bảo tuân thủ tuyệt đối tính minh bạch của Báo cáo kiểm toán AI (`AI Audit Report`).
-
-**By hand:** Sinh viên tự tuyển chọn, liên hệ và trực tiếp điều phối tại chỗ toàn bộ 7 phiên thử nghiệm với 7 người thật ngoài lớp học (`P01..P07`), tự quay màn hình 7 phiên, thu phiếu chấm `SEQ`/`SUS`/`4 câu mở` từ từng người tham gia và lưu giữ danh sách số điện thoại đầy đủ ở tệp riêng tư ngoài kho mã nguồn để phục vụ trợ giảng xác minh ngẫu nhiên.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ `S01.json`..`S07.json`, `usability/recordings/LINKS.md` và `usability/participants.md`.
+- **Changed (Chỉnh sửa):** Chỉnh lại các mốc giây đồng hồ bấm giờ bị trễ trên `session_helper.html` để khớp chính xác với thời điểm thao tác thật trên từng tệp video `.mp4`.
+- **Rejected (Bác bỏ):** Từ chối đề xuất bỏ qua ghi nhận nhật ký AI khi biên tập câu chữ nhận xét quan sát trong `S0x.json`, đảm bảo tuân thủ tuyệt đối tính minh bạch của Báo cáo kiểm toán AI (`AI Audit Report`).
+- **By hand (Tự thực hiện thủ công):** Sinh viên tự tuyển chọn, liên hệ và trực tiếp điều phối tại chỗ toàn bộ 7 phiên thử nghiệm với 7 người thật ngoài lớp học (`P01..P07`), tự quay màn hình 7 phiên, thu phiếu chấm `SEQ`/`SUS`/`4 câu mở` từ từng người tham gia và lưu giữ danh sách số điện thoại đầy đủ ở tệp riêng tư ngoài kho mã nguồn để phục vụ trợ giảng xác minh ngẫu nhiên.
 
 ---
 
-## 15. 2026-11-13 - Task 2 Bước 4: Tính toán ma trận điểm SUS, thống kê hiệu năng 7 phiên và khởi tạo khung Findings
+### Entry 15 — 2026-11-13 - Task 2 Bước 4: Tính toán ma trận điểm SUS, thống kê hiệu năng 7 phiên và khởi tạo khung Findings
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-13 23:34 +07:00
-
-**Task / Step:** Task 2, Bước 4 (Chạy `analyze_usability.py` kết xuất báo cáo định lượng `usability/sus_and_metrics_summary.md` và khởi tạo khung phân tích `usability/findings.md`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-13 23:34 +07:00`
+- **Task / Step:** Task 2, Bước 4 (Chạy `analyze_usability.py` kết xuất báo cáo định lượng `usability/sus_and_metrics_summary.md` và khởi tạo khung phân tích `usability/findings.md`)
 
 **Prompt:**
 
@@ -535,23 +493,18 @@ Thực hiện Bước 4
 - Khởi tạo khung tài liệu phân tích `usability/findings.md` cho luồng `F1` để chuẩn bị sang Bước 5.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ báo cáo định lượng `usability/sus_and_metrics_summary.md` và khung `usability/findings.md`.
-
-**Changed:** Ánh xạ sự kiện `00:52` của phiên `S06` (hệ thống chấp nhận số điện thoại 9 chữ số `'912345678'` không có số `0` đầu) về đúng mã lỗi gốc `BUG-05`, giúp tách bạch rõ `BUG-28` ở phiên `S05` (`01:48`) là lỗi phần mềm đơn lẻ mới duy nhất cần đăng thêm GitHub Issue `#28` ở Bước 5.
-
-**Rejected:** Không có.
-
-**By hand:** Sinh viên rà soát ma trận điểm `SUS` từng câu `Q1..Q10` và bảng thống kê hiệu năng trong `usability/sus_and_metrics_summary.md` trước khi kích hoạt Bước 5.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ báo cáo định lượng `usability/sus_and_metrics_summary.md` và khung `usability/findings.md`.
+- **Changed (Chỉnh sửa):** Ánh xạ sự kiện `00:52` của phiên `S06` (hệ thống chấp nhận số điện thoại 9 chữ số `'912345678'` không có số `0` đầu) về đúng mã lỗi gốc `BUG-05`, giúp tách bạch rõ `BUG-28` ở phiên `S05` (`01:48`) là lỗi phần mềm đơn lẻ mới duy nhất cần đăng thêm GitHub Issue `#28` ở Bước 5.
+- **Rejected (Bác bỏ):** Không có.
+- **By hand (Tự thực hiện thủ công):** Sinh viên rà soát ma trận điểm `SUS` từng câu `Q1..Q10` và bảng thống kê hiệu năng trong `usability/sus_and_metrics_summary.md` trước khi kích hoạt Bước 5.
 
 ---
 
-## 16. 2026-11-13 - Task 2 Bước 5: Phân tích tổng hợp Usability Findings, lập hồ sơ lỗi mới BUG-28 (GitHub Issue #28) và đồng bộ hoàn thiện Main_Report.md + README.md
+### Entry 16 — 2026-11-13 - Task 2 Bước 5: Phân tích tổng hợp Usability Findings, lập hồ sơ lỗi mới BUG-28 (GitHub Issue #28) và đồng bộ hoàn thiện Main_Report.md + README.md
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-13 23:55 +07:00
-
-**Task / Step:** Task 2, Bước 5 (Hoàn thiện `usability/findings.md`, trích xuất ảnh minh chứng thực nghiệm từ video `S05.mp4` & `S06.mp4`, đăng lỗi mới `bugs/BUG-28.md` -> GitHub Issue `#28`, cập nhật `Bug_Report.md`, `Main_Report.md` §5/§6/§8/§9/§11/§12/§13 và `README.md`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-13 23:55 +07:00`
+- **Task / Step:** Task 2, Bước 5 (Hoàn thiện `usability/findings.md`, trích xuất ảnh minh chứng thực nghiệm từ video `S05.mp4` & `S06.mp4`, đăng lỗi mới `bugs/BUG-28.md` -> GitHub Issue `#28`, cập nhật `Bug_Report.md`, `Main_Report.md` §5/§6/§8/§9/§11/§12/§13 và `README.md`)
 
 **Prompt:**
 
@@ -569,23 +522,18 @@ Thực hiện Bước 5 và tổng hợp hoàn thiện task 2 giúp tôi. Làm x
 - Đồng bộ đầy đủ toàn bộ nội dung Task 2 vào Mục `5.1..5.9`, Mục `6` (`BUG-01..BUG-28`), Mục `8` (`Test Summary Report`), Mục `9`, Mục `11`, Mục `12` và Mục `13` của `Main_Report.md` cũng như `README.md`, sau đó chạy bộ kiểm định tự động (`verify_main_report.py`, `validate_study.py`, `analyze_usability.py`) đạt `0 lỗi`.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ `usability/findings.md`, `bugs/BUG-28.md`, GitHub Issue `#28`, các ảnh minh chứng trong `screenshots/usability/` & `screenshots/github_issues/`, `Bug_Report.md`, `Main_Report.md` và `README.md`.
-
-**Changed:** Hiệu đính Mục 4 của `usability/findings.md` để mọi trích dẫn câu trả lời 4 chiều phỏng vấn mở khớp nguyên văn từng chữ với trường `open_probes` trong `S01.json..S07.json` (loại bỏ hoàn toàn câu diễn giải lại).
-
-**Rejected:** Không lập thêm GitHub Issue trùng lặp cho các lỗi đã được bao phủ trong `BUG-01..BUG-27` (như `BUG-01`, `BUG-04`, `BUG-05`, `BUG-09`, `BUG-11`, `BUG-13`, `BUG-16`, `BUG-18`), chỉ đăng mới duy nhất `BUG-28` thực sự chưa có trong kho lỗi Task 1.
-
-**By hand:** Sinh viên rà soát toàn bộ phân tích định lượng — định tính của Task 2 trên `Main_Report.md` và `usability/findings.md`, kiểm tra hiển thị trực tiếp trên GitHub Issue `#28` và đối chiếu bảng tự chấm điểm theo Rubric đề bài.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ `usability/findings.md`, `bugs/BUG-28.md`, GitHub Issue `#28`, các ảnh minh chứng trong `screenshots/usability/` & `screenshots/github_issues/`, `Bug_Report.md`, `Main_Report.md` và `README.md`.
+- **Changed (Chỉnh sửa):** Hiệu đính Mục 4 của `usability/findings.md` để mọi trích dẫn câu trả lời 4 chiều phỏng vấn mở khớp nguyên văn từng chữ với trường `open_probes` trong `S01.json..S07.json` (loại bỏ hoàn toàn câu diễn giải lại).
+- **Rejected (Bác bỏ):** Không lập thêm GitHub Issue trùng lặp cho các lỗi đã được bao phủ trong `BUG-01..BUG-27` (như `BUG-01`, `BUG-04`, `BUG-05`, `BUG-09`, `BUG-11`, `BUG-13`, `BUG-16`, `BUG-18`), chỉ đăng mới duy nhất `BUG-28` thực sự chưa có trong kho lỗi Task 1.
+- **By hand (Tự thực hiện thủ công):** Sinh viên rà soát toàn bộ phân tích định lượng — định tính của Task 2 trên `Main_Report.md` và `usability/findings.md`, kiểm tra hiển thị trực tiếp trên GitHub Issue `#28` và đối chiếu bảng tự chấm điểm theo Rubric đề bài.
 
 ---
 
-## 17. 2026-11-11 (ghi bổ sung ngày 14/11) - Task 1 Bước 4: AI viết script Playwright đo tự động 58 mục và sinh ảnh minh chứng trên P1, P2, P3
+### Entry 17 — 2026-11-11 (ghi bổ sung ngày 14/11) - Task 1 Bước 4: AI viết script Playwright đo tự động 58 mục và sinh ảnh minh chứng trên P1, P2, P3
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-11 16:13 +07:00 (lượt chạy 16:20 – 17:18); ghi bổ sung vào nhật ký ngày 2026-11-14 23:40 +07:00
-
-**Task / Step:** Task 1, Bước 4 (Thực thi checklist trên `P1`, `P2`, `P3`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-11 16:13 +07:00 (lượt chạy 16:20 – 17:18); ghi bổ sung vào nhật ký ngày 2026-11-14 23:40 +07:00`
+- **Task / Step:** Task 1, Bước 4 (Thực thi checklist trên `P1`, `P2`, `P3`)
 
 **Prompt:**
 
@@ -600,24 +548,19 @@ Bắt đầu Bước 4. Làm thật chính xác và đầy đủ
 - Dùng script `distribute_evidence.py` sinh 3 file verdict `checklist/runs/P1_20261111-1650.csv`, `P2_20261111-1700.csv`, `P3_20261111-1710.csv` trực tiếp từ kết quả đo tự động, đồng thời gán **12 ảnh cảnh (`F01..F12`) cho 130 ô `Failed`** (chỉ có 37 ảnh khác nhau); ảnh được ghép thêm dải thanh địa chỉ và hộp thoại `window.alert()` do script vẽ (`snap_and_overlay.py`).
 ~~~
 
-**Kept:** Toàn bộ số đo và verdict (`38 Passed / 130 Failed / 9 N/A`).
-
-**Changed:** Không có ở thời điểm 11/11.
-
-**Rejected:** Không có.
-
-**By hand:** Sinh viên khởi động SUT, reset CSDL, kết nối điện thoại thật `OPPO Reno10 5G` (bật gỡ lỗi USB, cấp quyền RSA cho `adb`) và commit tách từng nền tảng (`27157f4`, `e8b8f98`, `df68b39`).
+- **Kept (Giữ nguyên):** Toàn bộ số đo và verdict (`38 Passed / 130 Failed / 9 N/A`).
+- **Changed (Chỉnh sửa):** Không có ở thời điểm 11/11.
+- **Rejected (Bác bỏ):** Không có.
+- **By hand (Tự thực hiện thủ công):** Sinh viên khởi động SUT, reset CSDL, kết nối điện thoại thật `OPPO Reno10 5G` (bật gỡ lỗi USB, cấp quyền RSA cho `adb`) và commit tách từng nền tảng (`27157f4`, `e8b8f98`, `df68b39`).
 **Ghi chú trung thực:** Entry này bị thiếu trong nhật ký gốc (nhật ký nhảy từ Entry 07 sang Entry 08) và được bổ sung sau khi tự rà soát theo vai trò trợ giảng ngày 14/11. Các vấn đề của cách làm ngày 11/11 (ảnh dùng chung, khung trình duyệt và hộp thoại vẽ giả, ghi sai phiên bản `P2`) được khắc phục ở Entry 18.
 
 ---
 
-## 18. 2026-11-14 - Task 1: Rà soát theo vai trò trợ giảng, chụp lại 130 ảnh minh chứng riêng từng mục và sửa nội dung Bug sai lệch
+### Entry 18 — 2026-11-14 - Task 1: Rà soát theo vai trò trợ giảng, chụp lại 130 ảnh minh chứng riêng từng mục và sửa nội dung Bug sai lệch
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-14 23:18 – 23:45 +07:00
-
-**Task / Step:** Task 1 (Bước 4 & Bước 6 — chỉnh sửa sau rà soát)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-14 23:18 – 23:45 +07:00`
+- **Task / Step:** Task 1 (Bước 4 & Bước 6 — chỉnh sửa sau rà soát)
 
 **Prompt:**
 
@@ -635,23 +578,18 @@ Oke bây giờ tiến hành review nội dung đã làm được trước nhé. 
 - Sửa `BUG-06`, `BUG-08`, `BUG-19`, `BUG-27`, mật khẩu seed và mô tả `P2` trong `bugs/*.md`, `Bug_Report.md`, `Main_Report.md`, `bugs/bug_groups.md`, `bugs/issues_manifest.json` và nội dung 27 GitHub Issues (`#19` đổi tiêu đề); cập nhật `RUN.md`, Main_Report §1, §2.3, §3.2, §3.5; đổi `che_do` của 59 mục sang `mixed` kèm ghi chú và trường `recheck_20261114`; thêm 3 cột hyperlink ảnh minh chứng + cột hiệu chỉnh mục `Both` vào file Excel và tính sẵn công thức bằng Excel; ghi chú RTL / Dark mode vào `checklist/sv_items.md`.
 ~~~
 
-**Kept:** Toàn bộ 59 mục, verdict `38 Passed / 130 Failed / 9 N/A`, 27 Bug và mức Severity.
-
-**Changed:** 130 ảnh `task1_failed/`, nội dung 4 Bug sai lệch, mật khẩu seed, phiên bản `P2`, mô tả cách thực thi (`che_do: mixed`).
-
-**Rejected:** Không vẽ lại thanh địa chỉ hay hộp thoại giả trong ảnh mới; không tự ý đổi verdict hay Severity.
-
-**By hand:** Sinh viên cần mở và rà soát lại 130 ảnh mới cùng chú thích trước khi nộp, và khi có điện thoại có thể chạy lại phần `P3` để có ảnh riêng từng mục.
+- **Kept (Giữ nguyên):** Toàn bộ 59 mục, verdict `38 Passed / 130 Failed / 9 N/A`, 27 Bug và mức Severity.
+- **Changed (Chỉnh sửa):** 130 ảnh `task1_failed/`, nội dung 4 Bug sai lệch, mật khẩu seed, phiên bản `P2`, mô tả cách thực thi (`che_do: mixed`).
+- **Rejected (Bác bỏ):** Không vẽ lại thanh địa chỉ hay hộp thoại giả trong ảnh mới; không tự ý đổi verdict hay Severity.
+- **By hand (Tự thực hiện thủ công):** Sinh viên cần mở và rà soát lại 130 ảnh mới cùng chú thích trước khi nộp, và khi có điện thoại có thể chạy lại phần `P3` để có ảnh riêng từng mục.
 
 ---
 
-## 19. 2026-11-14 - Task 3: Rà soát theo vai trò trợ giảng, sửa Mục 4 báo cáo và công khai cách chụp ảnh đa nền tảng
+### Entry 19 — 2026-11-14 - Task 3: Rà soát theo vai trò trợ giảng, sửa Mục 4 báo cáo và công khai cách chụp ảnh đa nền tảng
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-14 23:49 – 23:58 +07:00
-
-**Task / Step:** Task 3 (Đánh giá và chỉnh sửa sau rà soát)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-14 23:49 – 23:58 +07:00`
+- **Task / Step:** Task 3 (Đánh giá và chỉnh sửa sau rà soát)
 
 **Prompt:**
 
@@ -667,23 +605,18 @@ Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được 
 - Sao chép các script tạo ảnh Task 3 vào `tests/` để trợ giảng đối chiếu; cập nhật `README.md`, `checklist/RUN.md`, `Bug_Report.md`, `bugs/BUG-18.md`.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ 15 ảnh Task 3 hiện có (vì đều là ảnh chụp thật cấp OS/thiết bị hiển thị đúng thực tế SUT) và kết quả kiểm thử trên 3 nền tảng.
-
-**Changed:** Sửa nội dung Mục 4 của `Main_Report.md`, `checklist/RUN.md` và các chú thích liên quan như trên; thống nhất giữ bộ ảnh `P1`/`P2` chụp tự động qua script kèm công khai minh bạch và bước kiểm duyệt trực tiếp của sinh viên thay vì chụp lại thủ công rời rạc.
-
-**Rejected:** Bác bỏ đề xuất phải chụp lại thủ công 10 ảnh `P1`/`P2` bằng ShareX, do chính sách AI của HW03 là `Open` (cho phép dùng script tự động chụp giao diện thật nhanh, chính xác và đồng nhất miễn là công khai minh bạch và sinh viên kiểm chứng kết quả).
-
-**By hand:** Sinh viên kiểm tra đối chiếu toàn bộ 15 ảnh `task3_cross_platform/` với giao diện thực tế của SUT và quyết định giữ nguyên bộ ảnh `P1`/`P2` tự động đã xác thực; riêng 42 ảnh mục `Failed` của `P3` (`Task 1`) sẽ được chạy chụp riêng từng mục khi cắm lại điện thoại `OPPO Reno10 5G`.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 15 ảnh Task 3 hiện có (vì đều là ảnh chụp thật cấp OS/thiết bị hiển thị đúng thực tế SUT) và kết quả kiểm thử trên 3 nền tảng.
+- **Changed (Chỉnh sửa):** Sửa nội dung Mục 4 của `Main_Report.md`, `checklist/RUN.md` và các chú thích liên quan như trên; thống nhất giữ bộ ảnh `P1`/`P2` chụp tự động qua script kèm công khai minh bạch và bước kiểm duyệt trực tiếp của sinh viên thay vì chụp lại thủ công rời rạc.
+- **Rejected (Bác bỏ):** Bác bỏ đề xuất phải chụp lại thủ công 10 ảnh `P1`/`P2` bằng ShareX, do chính sách AI của HW03 là `Open` (cho phép dùng script tự động chụp giao diện thật nhanh, chính xác và đồng nhất miễn là công khai minh bạch và sinh viên kiểm chứng kết quả).
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra đối chiếu toàn bộ 15 ảnh `task3_cross_platform/` với giao diện thực tế của SUT và quyết định giữ nguyên bộ ảnh `P1`/`P2` tự động đã xác thực; riêng 42 ảnh mục `Failed` của `P3` (`Task 1`) sẽ được chạy chụp riêng từng mục khi cắm lại điện thoại `OPPO Reno10 5G`.
 
 ---
 
-## 20. 2026-11-15 - Task 2: Rà soát theo vai trò trợ giảng, hiệu đính phân tích định tính và sửa mã Bug tham chiếu
+### Entry 20 — 2026-11-15 - Task 2: Rà soát theo vai trò trợ giảng, hiệu đính phân tích định tính và sửa mã Bug tham chiếu
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-15 00:11 – 00:20 +07:00
-
-**Task / Step:** Task 2 (Đánh giá và chỉnh sửa sau rà soát — Phase 3 Analyse & report)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-15 00:11 – 00:20 +07:00`
+- **Task / Step:** Task 2 (Đánh giá và chỉnh sửa sau rà soát — Phase 3 Analyse & report)
 
 **Prompt:**
 
@@ -700,23 +633,18 @@ Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được 
 - Sửa mã Bug tham chiếu sai trong `usability/plan.md` và `usability/moderator_script.md`: khóa tài khoản `BUG-03` -> `BUG-06`; tiêu đề `'Đăng Ký'` `BUG-07` -> `BUG-13`; nhãn `'Username'` `BUG-11` -> `BUG-14`; mật khẩu hiện rõ `BUG-08` -> `BUG-04`.
 ~~~
 
-**Kept:** Toàn bộ dữ liệu thô `S00..S07.json`, video, điểm `SUS`/`SEQ`, 11 findings `UF-01..UF-11` và severity.
-
-**Changed:** Bảng tổng hợp probe (`findings.md` mục 4, `Main_Report.md` mục 5.8), thêm mục 4.1, thêm giới hạn nghiên cứu (`findings.md` mục 5, `Main_Report.md` mục 5.9), mã Bug tham chiếu trong `plan.md`, `moderator_script.md`.
-
-**Rejected:** Không sửa bản đóng băng trong `usability/frozen/` (có mã băm `SHA-256`, giữ nguyên lỗi mã Bug gốc làm bằng chứng đầu ra AI ban đầu); không sửa nội dung Entry 12 (ghi đúng đầu ra AI lúc đó có `BUG-03` sai); không bịa thêm câu trả lời probe dài hơn.
-
-**By hand:** Sinh viên đối chiếu lại bảng phân loại probe với phiếu khảo sát gốc, bổ sung trường/ngành học của `P01` và `P06` (đều là sinh viên ngoài lớp HW03), gọi báo trước 7 người tham gia về khả năng trợ giảng liên hệ xác minh, và kiểm tra quyền xem link Google Drive bằng tab ẩn danh.
+- **Kept (Giữ nguyên):** Toàn bộ dữ liệu thô `S00..S07.json`, video, điểm `SUS`/`SEQ`, 11 findings `UF-01..UF-11` và severity.
+- **Changed (Chỉnh sửa):** Bảng tổng hợp probe (`findings.md` mục 4, `Main_Report.md` mục 5.8), thêm mục 4.1, thêm giới hạn nghiên cứu (`findings.md` mục 5, `Main_Report.md` mục 5.9), mã Bug tham chiếu trong `plan.md`, `moderator_script.md`.
+- **Rejected (Bác bỏ):** Không sửa bản đóng băng trong `usability/frozen/` (có mã băm `SHA-256`, giữ nguyên lỗi mã Bug gốc làm bằng chứng đầu ra AI ban đầu); không sửa nội dung Entry 12 (ghi đúng đầu ra AI lúc đó có `BUG-03` sai); không bịa thêm câu trả lời probe dài hơn.
+- **By hand (Tự thực hiện thủ công):** Sinh viên đối chiếu lại bảng phân loại probe với phiếu khảo sát gốc, bổ sung trường/ngành học của `P01` và `P06` (đều là sinh viên ngoài lớp HW03), gọi báo trước 7 người tham gia về khả năng trợ giảng liên hệ xác minh, và kiểm tra quyền xem link Google Drive bằng tab ẩn danh.
 
 ---
 
-## 21. 2026-11-15 - Phụ lục AI: Hoàn thiện mục Phê bình AI (Mục 10, 200–300 từ) và kết xuất báo cáo Kiểm toán AI
+### Entry 21 — 2026-11-15 - Phụ lục AI: Hoàn thiện mục Phê bình AI (Mục 10, 200–300 từ) và kết xuất báo cáo Kiểm toán AI
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-15 00:21 – 00:26 +07:00
-
-**Task / Step:** Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-15 00:21 – 00:26 +07:00`
+- **Task / Step:** Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report)
 
 **Prompt:**
 
@@ -732,23 +660,18 @@ AI Critique nhé
 - Chạy `ai_audit_export.py` kết xuất toàn bộ 21 mục nhật ký (`Entry 01..Entry 21`) cùng đoạn `AI Critique` ra tài liệu bắt buộc `AI_Critique_and_Audit_Report.md`.
 ~~~
 
-**Kept:** Giữ nguyên đoạn văn `AI Critique` (đạt chuẩn `200–300` từ, phản ánh trung thực các lỗi thực tế đã phát hiện và khắc phục trong kho bài làm) và file kết xuất `AI_Critique_and_Audit_Report.md`.
-
-**Changed:** Đồng bộ Mục 9, Mục 10 và Mục 13 của `Main_Report.md` trỏ trực tiếp tới `AI_Critique_and_Audit_Report.md` (`Entry 01..Entry 21`).
-
-**Rejected:** Đầu tiên bản nháp thử nghiệm vượt ngưỡng ở mức `309` từ (`303` từ theo khoảng trắng); đã cô đọng lại còn `271` / `265` từ để đảm bảo đạt chuẩn `200–300` từ với mọi công cụ đếm từ của trợ giảng.
-
-**By hand:** Sinh viên đọc duyệt lại từng luận điểm phê bình AI dựa trên trải nghiệm điều phối thực tế cả 3 Task và kiểm tra kết quả chạy `word_count.py`.
+- **Kept (Giữ nguyên):** Giữ nguyên đoạn văn `AI Critique` (đạt chuẩn `200–300` từ, phản ánh trung thực các lỗi thực tế đã phát hiện và khắc phục trong kho bài làm) và file kết xuất `AI_Critique_and_Audit_Report.md`.
+- **Changed (Chỉnh sửa):** Đồng bộ Mục 9, Mục 10 và Mục 13 của `Main_Report.md` trỏ trực tiếp tới `AI_Critique_and_Audit_Report.md` (`Entry 01..Entry 21`).
+- **Rejected (Bác bỏ):** Đầu tiên bản nháp thử nghiệm vượt ngưỡng ở mức `309` từ (`303` từ theo khoảng trắng); đã cô đọng lại còn `271` / `265` từ để đảm bảo đạt chuẩn `200–300` từ với mọi công cụ đếm từ của trợ giảng.
+- **By hand (Tự thực hiện thủ công):** Sinh viên đọc duyệt lại từng luận điểm phê bình AI dựa trên trải nghiệm điều phối thực tế cả 3 Task và kiểm tra kết quả chạy `word_count.py`.
 
 ---
 
-## 22. 2026-11-15 - Task 1 & Task 3: Cắm điện thoại thật OPPO Reno10 5G chụp mới riêng từng mục toàn bộ 42 ảnh Failed của P3
+### Entry 22 — 2026-11-15 - Task 1 & Task 3: Cắm điện thoại thật OPPO Reno10 5G chụp mới riêng từng mục toàn bộ 42 ảnh Failed của P3
 
-**Tool:** Antigravity
-
-**Date and time:** 2026-11-15 11:25 – 11:42 +07:00
-
-**Task / Step:** Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`)
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-15 11:25 – 11:42 +07:00`
+- **Task / Step:** Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`)
 
 **Prompt:**
 
@@ -765,17 +688,9 @@ Bây giờ, bạn sẽ thực hiện việc cắm điện thoại OPPO Reno10 5G
 - Ghép dải chú thích chuẩn bằng `tests/compose_t1_evidence.py P3`, kiểm định toàn bộ `130 / 130` tệp `.png` trong `screenshots/task1_failed/` đạt đúng `130` mã băm `MD5` duy nhất; xóa script tạm `tests/compose_t1_p3_from_raw.py` và đồng bộ `Main_Report.md`, `checklist/RUN.md`, `checklist/checklist.json`, `README.md`.
 ~~~
 
-**Kept:** Giữ nguyên toàn bộ 42 ảnh `P3_*.png` mới chụp trực tiếp từ điện thoại thật `OPPO Reno10 5G` (mỗi mục một ảnh riêng, bao gồm ảnh nguyên màn hình hiện rõ bàn phím chữ `QWERTY` ở `P3_SV-20.png` và thanh Header tràn ngang ở `P3_SV-06.png`) cùng kết quả đo xác nhận `42/42` mục vẫn `Failed`.
-
-**Changed:** Thay ảnh `SV-06` bị lỗi chia ô của `page.screenshot()` bằng ảnh chụp nguyên màn hình `adb screencap`; công khai minh bạch việc Chrome Android trên điện thoại đã tự cập nhật Play Store từ `156.0.8078.79` (ngày 11/11) lên `157.0.8103.51` (ngày 15/11) tại `Main_Report.md`, `checklist/RUN.md`, `checklist/checklist.json`.
-
-**Rejected:** Xóa bỏ hoàn toàn bộ 42 ảnh `P3` dựng tạm từ ảnh gốc ngày 14/11 và xóa script `tests/compose_t1_p3_from_raw.py` vì nay đã có đủ 42 ảnh chụp trực tiếp từng mục trên thiết bị thật.
-
-**By hand:** Sinh viên cắm cáp điện thoại `OPPO Reno10 5G`, bật gỡ lỗi USB, mở sẵn ứng dụng Chrome trên màn hình mở khóa suốt quá trình chạy để chụp được bàn phím ảo thật ở `SV-20`, và trực tiếp kiểm tra lại các ảnh đầu ra.
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 42 ảnh `P3_*.png` mới chụp trực tiếp từ điện thoại thật `OPPO Reno10 5G` (mỗi mục một ảnh riêng, bao gồm ảnh nguyên màn hình hiện rõ bàn phím chữ `QWERTY` ở `P3_SV-20.png` và thanh Header tràn ngang ở `P3_SV-06.png`) cùng kết quả đo xác nhận `42/42` mục vẫn `Failed`.
+- **Changed (Chỉnh sửa):** Thay ảnh `SV-06` bị lỗi chia ô của `page.screenshot()` bằng ảnh chụp nguyên màn hình `adb screencap`; công khai minh bạch việc Chrome Android trên điện thoại đã tự cập nhật Play Store từ `156.0.8078.79` (ngày 11/11) lên `157.0.8103.51` (ngày 15/11) tại `Main_Report.md`, `checklist/RUN.md`, `checklist/checklist.json`.
+- **Rejected (Bác bỏ):** Xóa bỏ hoàn toàn bộ 42 ảnh `P3` dựng tạm từ ảnh gốc ngày 14/11 và xóa script `tests/compose_t1_p3_from_raw.py` vì nay đã có đủ 42 ảnh chụp trực tiếp từng mục trên thiết bị thật.
+- **By hand (Tự thực hiện thủ công):** Sinh viên cắm cáp điện thoại `OPPO Reno10 5G`, bật gỡ lỗi USB, mở sẵn ứng dụng Chrome trên màn hình mở khóa suốt quá trình chạy để chụp được bàn phím ảo thật ở `SV-20`, và trực tiếp kiểm tra lại các ảnh đầu ra.
 
 ---
-
-# AI Critique
-
-Trong quá trình thực hiện bài tập cùng AI, tôi phát hiện nhiều sai sót, thiên lệch và thiếu sót thực tế từ mô hình. Ở Task 1, bản nháp 39 mục đầu tiên của AI thiên về luồng hợp lệ trên máy tính nên bỏ sót 20 kịch bản biên và khả năng tiếp cận mà tôi phải tự bổ sung, như nhảy thứ tự phím Tab (`BUG-15`), lỗ hổng XSS trên thanh tiêu đề (`BUG-03`), tràn ngang khi tên dài (`BUG-18`) và bật bàn phím chữ ở ô Số điện thoại Android (`BUG-24`); khi soạn báo cáo, AI còn ghi nhầm màu nút `Thoát` ở `BUG-19`, sai mật khẩu mẫu và dùng trùng ảnh minh chứng. Ở Task 2, khi tổng hợp phỏng vấn mở, AI tự suy diễn câu trả lời một chữ "Có" thành "mất thời gian hơn kỳ vọng" và gán thêm nguyên nhân người dùng không nói. AI không tự nhận ra các lỗi này vì mô hình ngôn ngữ chỉ dự đoán chuỗi từ theo xác suất trên mã tĩnh chứ không trực tiếp quan sát giao diện thật, không lường được hành vi điều hướng SPA không nhấn F5 của người thật làm lộ `BUG-28`, đồng thời hay hợp thức hóa dữ liệu ngắn thành nhận định chủ quan. Bài học cốt lõi tôi rút ra là chỉ dùng AI để tăng tốc khởi tạo và đo kiểm lặp lại, còn con người phải đóng băng đầu ra, đối chiếu thực nghiệm đa nền tảng và giữ quyền kết luận cuối cùng dựa trên bằng chứng gốc.
-
