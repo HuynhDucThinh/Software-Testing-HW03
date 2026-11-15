@@ -1,9 +1,13 @@
 # Báo Cáo Chính HW03-AI — Kiểm Thử Giao Diện (GUI Checklist), Đa Nền Tảng & Khả Năng Sử Dụng Trên Hệ Thống EShop
 
-**Sinh viên thực hiện:** Huỳnh Đức Thịnh · **MSSV:** `23120199` · **Email:** `23120199@student.hcmus.edu.vn`  
-**Môn học:** Kiểm chứng Phần mềm (Software Testing) · **Bài tập:** `HW03-AI` (Individual Assignment)  
-**Phạm vi phân công nhóm:** `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1`  
-**Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`
+- **Sinh viên thực hiện:** Huỳnh Đức Thịnh
+- **Mã số sinh viên (MSSV):** `23120199`
+- **Email sinh viên:** `23120199@student.hcmus.edu.vn`
+- **Môn học:** Kiểm chứng Phần mềm (Software Testing)
+- **Bài tập:** `HW03-AI` — GUI & Usability Testing (Individual Assignment)
+- **Phạm vi phân công nhóm (Task 1 & Task 3):** `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`)
+- **Luồng đánh giá Usability (Task 2):** `F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`)
+- **Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`
 
 ---
 

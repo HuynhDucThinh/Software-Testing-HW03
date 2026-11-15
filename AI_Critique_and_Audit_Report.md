@@ -1,9 +1,13 @@
 # Báo Cáo Phê Bình & Nhật Ký Kiểm Toán AI (AI Audit Report) — HW03-AI (Phạm Vi M1)
 
-**Sinh viên thực hiện:** Huỳnh Đức Thịnh · **MSSV:** `23120199` · **Email:** `23120199@student.hcmus.edu.vn`  
-**Môn học:** Kiểm chứng Phần mềm (Software Testing) · **Bài tập:** `HW03-AI` (Individual Assignment)  
-**Phạm vi phân công nhóm:** `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1`  
-**Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`
+- **Sinh viên thực hiện:** Huỳnh Đức Thịnh
+- **Mã số sinh viên (MSSV):** `23120199`
+- **Email sinh viên:** `23120199@student.hcmus.edu.vn`
+- **Môn học:** Kiểm chứng Phần mềm (Software Testing)
+- **Bài tập:** `HW03-AI` — GUI & Usability Testing (Individual Assignment)
+- **Phạm vi phân công nhóm (Task 1 & Task 3):** `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`)
+- **Luồng đánh giá Usability (Task 2):** `F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`)
+- **Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`
 
 ---
 
@@ -15,7 +19,8 @@
 | :--- | :--- |
 | **Sinh viên thực hiện** | Huỳnh Đức Thịnh (`23120199` — `23120199@student.hcmus.edu.vn`) |
 | **Hệ thống kiểm thử (SUT)** | EShop Web & API (`./eshop-sut`, commit gốc `1a9304a`) |
-| **Phạm vi kiểm thử** | `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1` |
+| **Phạm vi kiểm thử (Task 1 & Task 3)** | `M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) |
+| **Luồng đánh giá Usability (Task 2)** | `F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`) |
 | **Công cụ AI đã sử dụng** | `Antigravity` (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |
 | **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |
 | **Tổng số lượt tương tác đã ghi nhận** | **`22` lượt tương tác (`Entry 01` .. `Entry 22`)** theo trình tự thời gian thực hiện |

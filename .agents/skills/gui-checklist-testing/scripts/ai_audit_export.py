@@ -91,7 +91,11 @@ def main():
     ap.add_argument("--student", default="")
     ap.add_argument(
         "--scope",
-        default="`M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`) · **Luồng Usability:** `F1`",
+        default="`M1` — Xác thực & Hồ sơ cá nhân (`Register`, `Login`, `ForgotPassword` 2 bước, `Profile`, `Header/Navbar`)",
+    )
+    ap.add_argument(
+        "--flow",
+        default="`F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`)",
     )
     ap.add_argument("--sut", default="EShop Web & API (`./eshop-sut`, commit gốc `1a9304a`)")
     ap.add_argument("--critique")
@@ -105,15 +109,24 @@ def main():
     if a.student:
         name, sid, email = _parse_student_info(a.student)
         if sid and email:
-            out.append(f"**Sinh viên thực hiện:** {name} · **MSSV:** `{sid}` · **Email:** `{email}`  ")
+            out += [
+                f"- **Sinh viên thực hiện:** {name}",
+                f"- **Mã số sinh viên (MSSV):** `{sid}`",
+                f"- **Email sinh viên:** `{email}`",
+            ]
         elif sid:
-            out.append(f"**Sinh viên thực hiện:** {name} · **MSSV:** `{sid}`  ")
+            out += [
+                f"- **Sinh viên thực hiện:** {name}",
+                f"- **Mã số sinh viên (MSSV):** `{sid}`",
+            ]
         else:
-            out.append(f"**Sinh viên thực hiện:** {a.student}  ")
+            out.append(f"- **Sinh viên thực hiện:** {a.student}")
     out += [
-        "**Môn học:** Kiểm chứng Phần mềm (Software Testing) · **Bài tập:** `HW03-AI` (Individual Assignment)  ",
-        f"**Phạm vi phân công nhóm:** {a.scope}  ",
-        "**Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`",
+        "- **Môn học:** Kiểm chứng Phần mềm (Software Testing)",
+        "- **Bài tập:** `HW03-AI` — GUI & Usability Testing (Individual Assignment)",
+        f"- **Phạm vi phân công nhóm (Task 1 & Task 3):** {a.scope}",
+        f"- **Luồng đánh giá Usability (Task 2):** {a.flow}",
+        "- **Mức độ năng lực Bloom-AI:** `G9.3 (Analyse)` & `G9.4 (Collaborate with AI for exploratory testing)`",
         "",
         "---",
         "",
@@ -161,7 +174,8 @@ def main():
             out.append(f"| **Sinh viên thực hiện** | {stu_cell} |")
         out += [
             f"| **Hệ thống kiểm thử (SUT)** | {a.sut} |",
-            f"| **Phạm vi kiểm thử** | {a.scope} |",
+            f"| **Phạm vi kiểm thử (Task 1 & Task 3)** | {a.scope} |",
+            f"| **Luồng đánh giá Usability (Task 2)** | {a.flow} |",
             f"| **Công cụ AI đã sử dụng** | {tools_str} (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |",
             "| **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |",
             f"| **Tổng số lượt tương tác đã ghi nhận** | **`{total_n}` lượt tương tác (`Entry 01` .. `Entry {total_n:02d}`)** theo trình tự thời gian thực hiện |",
