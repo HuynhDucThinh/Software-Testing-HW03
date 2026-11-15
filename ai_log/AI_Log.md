@@ -540,3 +540,33 @@ Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task
 **By hand:** Sinh viên chất vấn nguyên nhân mâu thuẫn và phê duyệt chuẩn hóa lại tài liệu đặc tả của Agent Skill trước khi quay Video Demo Task 4.
 
 ---
+
+## Entry 25 — 2026-11-15 - Xuất bộ báo cáo PDF chuẩn in A4, soạn kịch bản Video Demo Task 4 và đối chiếu hoàn thiện 5 hạng mục báo cáo
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-15 15:15 – 21:05 +07:00
+**Task / Step:** Mục 1..6, Mục 9 & Đóng gói PDF (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`; soạn hướng dẫn quay Demo Task 4; đối chiếu Rubric nâng cấp 5 hạng mục chiều sâu phân tích)
+**Prompt:**
+- `Oke nhớ xuất file pdf luôn nhé`
+- `làm cho tôi kịch bản đi` -> `md hướng dẫn trình bày demo skill đâu` -> `xuất pdf file đó giúp tôi`
+- `@[d:\KCPM\GUI & Usability Testing\docs\temp\HW03] Đây là bài làm khác mà tui đã đề cập, bạn xem bài làm này và so sánh với bài tập của tôi rồi cho điểm hai bài. Sau đó, gợi ý các nội dung chỉnh sửa bài làm của tôi để đạt điểm tối đa (không tính nội dung task 4)`
+- `1, 2, 3, 4, 5 => thực hiện chỉnh sửa giúp tôi. Cây thư mục sẽ được thực hiện sau khi hoàn thành task 4. Làm xong báo cáo kết quả`
+
+**AI output:**
+- Xây dựng [`tests/md_to_html.py`](../tests/md_to_html.py) và [`tests/export_pdfs.mjs`](../tests/export_pdfs.mjs) kết xuất bộ 3 tài liệu PDF nộp bài (`Main_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`, `Bug_Report.pdf`) có đánh số trang chân trang và bảo toàn toàn bộ bảng biểu, ảnh chụp nội dòng; đồng thời tạo tài liệu hướng dẫn quay Video Demo Task 4 lưu riêng ngoài cây nộp bài (`.local/Task4_Huong_Dan_Quay_Demo_Skills.pdf`).
+- Đối chiếu độc lập từng mục Rubric giữa kho bài làm hiện tại và bài tham chiếu trong `docs/temp/HW03`, từ đó đề xuất và thực thi 5 hạng mục nâng cấp dựa trên 100% dữ liệu thực nghiệm gốc của phạm vi `M1`/`F1`:
+  1. Làm mới toàn bộ 30 tệp ảnh `screenshots/github_issues/*.png` (nhúng ảnh `P3` chụp trực tiếp từ `OPPO Reno10 5G` ngày `15/11/2026` cho `ISSUE-01, 04, 18, 24, 27`) và đồng bộ chú thích phương pháp dựng ảnh tại `Main_Report.md` §6.3 cùng `Bug_Report.md` §4.
+  2. Bổ sung Mục `4.3` tại `Main_Report.md` đối chiếu ranh giới kỹ thuật giữa đo kiểm tự động (`Playwright` / `dom_probe.js`) và kiểm chứng trực tiếp trên trình duyệt cài đặt / thiết bị vật lý thật qua 5 tình huống thực nghiệm (`SV-20`, `SV-06`, `CL-22/CL-35`, `CL-07`, `SV-12`).
+  3. Bổ sung phân tích đối chiếu bản nháp AI đóng băng Bước 1 (`Nhóm A: 7/20 mục` AI chạm khái niệm gần kề nhưng thiếu chiều sâu biên/tọa độ vs `Nhóm B: 13/20 mục` AI bỏ trống hoàn toàn do đọc mã tĩnh) theo năng lực Bloom-AI `G9.3` tại `Main_Report.md` §3.4.2.
+  4. Bổ sung định nghĩa tường minh thang đo 4 mức `Usability Severity Scale` (`Critical = 4`, `Major = 3`, `Minor = 2`, `Cosmetic = 1`) tại `Main_Report.md` §5.8 và `usability/findings.md` §1.
+  5. Mở rộng `ai_audit_export.py` hỗ trợ cờ `--summary`, lập [`ai_log/audit_summary.md`](audit_summary.md) phân loại kiểm toán toàn bộ 25 lượt tương tác AI (`7 VALID = 28.0%`, `18 INCOMPLETE = 72.0%`, `0 INVALID = 0.0%`), kết xuất lại `AI_Critique_and_Audit_Report.md` và cập nhật lại cả 3 tệp PDF.
+
+**Kept:** Giữ nguyên bộ công cụ kết xuất PDF chuẩn A4, 30 ảnh `screenshots/github_issues/*.png` đã đồng bộ ngày `15/11/2026` và toàn bộ 5 hạng mục nâng cấp phân tích trên dữ liệu gốc `M1`/`F1`.
+**Changed:**
+- Ở lượt xuất PDF đầu tiên, phát hiện bảng rộng 13 cột trong `Main_Report.pdf` bị tràn lề phải `353px` do gán `nowrap` cho chuỗi `<= 13` ký tự và đường dẫn dài trong `<code>` không ngắt dòng tại dấu `/` và `_` -> cập nhật `tests/md_to_html.py` chèn `<wbr>` và phân tầng `wide-table` / `ultra-wide-table` đạt `docOverflow = 0px` trên cả 3 báo cáo PDF.
+- Khi cập nhật Mục `3.4.2` của `Main_Report.md`, phát hiện bảng tóm tắt cũ xếp lệch nhóm 5 mã `SV-14`, `SV-15`, `SV-17`, `SV-19`, `SV-20` so với `checklist/checklist.json`, `checklist/sv_items.md` và Mục `3.4.3` -> đã chuẩn hóa khớp tuyệt đối `100%` giữa mọi tệp.
+- Theo chỉ đạo của sinh viên, tạm hoãn Mục 6 (cập nhật cây thư mục đóng gói tại §13, mở `Public` GitHub repo, xuất `git_commit_log.txt` và nén `.zip`) sang sau khi hoàn thành Video Demo Task 4.
+**Rejected:** Tuyệt đối không sao chép bất kỳ câu chữ, nhận định, cấu trúc prompt hay số liệu nào từ bài tham chiếu trong `docs/temp/HW03` (tuân thủ nghiêm Mục 17 Academic Integrity).
+**By hand:** Sinh viên kiểm tra trực tiếp bố cục hiển thị của các tệp PDF, chọn lọc danh sách hạng mục cần nâng cấp (`1..5`), quyết định thứ tự hoàn thành Task 4 trước khi đóng gói cây thư mục cuối cùng và kiểm duyệt toàn bộ kết quả.
+
+---

@@ -38,8 +38,17 @@ async function run() {
         execFileSync('python', ['-B', path.join(ROOT, 'tests', 'md_to_html.py'), mdPath, tmpHtmlPath], {
           stdio: 'inherit',
         });
-        const page = await browser.newPage();
+        const page = await browser.newPage({ viewport: { width: 703, height: 994 } });
+        await page.emulateMedia({ media: 'print' });
         await page.goto(pathToFileURL(tmpHtmlPath).href, { waitUntil: 'networkidle' });
+        const diag = await page.evaluate(() => {
+          const de = document.documentElement;
+          const docOverflow = Math.max(0, de.scrollWidth - de.clientWidth);
+          const brokenImgs = [...document.querySelectorAll('img')].filter(
+            (img) => !img.complete || img.naturalWidth === 0
+          ).length;
+          return { docOverflow, brokenImgs, tables: document.querySelectorAll('table').length };
+        });
         await page.pdf({
           path: pdfPath,
           format: 'A4',
@@ -64,7 +73,9 @@ async function run() {
         });
         await page.close();
         const sizeMB = (fs.statSync(pdfPath).size / (1024 * 1024)).toFixed(2);
-        console.log(`[OK] ${t.pdf} (${sizeMB} MB)`);
+        console.log(
+          `[OK] ${t.pdf} (${sizeMB} MB | tables=${diag.tables} | docOverflow=${diag.docOverflow}px | brokenImgs=${diag.brokenImgs})`
+        );
       } finally {
         if (fs.existsSync(tmpHtmlPath)) {
           fs.unlinkSync(tmpHtmlPath);

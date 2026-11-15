@@ -250,7 +250,7 @@ def main() -> None:
     body = _wrap_inline_code(body)
 
     compact_id_re = re.compile(
-        r"^(Entry\s+\d+|CL-\d+|SV-\d+|IA-\d+|BUG-\d+|UF-\d+|P0?\d|S0\d|Passed|Failed|N/A|ĐẠT|#[0-9]+)$"
+        r"^(Entry\s+\d+|CL-\d+|SV-\d+|IA-\d+|BUG-\d+|UF-\d+|P0?\d|S0\d|Passed|Failed|N/A|ĐẠT|VALID|INCOMPLETE|INVALID|#[0-9]+)$"
     )
 
     def _process_table(t_match: re.Match) -> str:

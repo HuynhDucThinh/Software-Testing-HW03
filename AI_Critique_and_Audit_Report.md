@@ -23,8 +23,8 @@
 | **Luồng đánh giá Usability (Task 2)** | `F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`) |
 | **Công cụ AI đã sử dụng** | `Antigravity` (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |
 | **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |
-| **Tổng số lượt tương tác đã ghi nhận** | **`24` lượt tương tác (`Entry 01` .. `Entry 24`)** theo trình tự thời gian thực hiện |
-| **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md) |
+| **Tổng số lượt tương tác đã ghi nhận** | **`25` lượt tương tác (`Entry 01` .. `Entry 25`)** theo trình tự thời gian thực hiện |
+| **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md), [`ai_log/critique.md`](ai_log/critique.md) & [`ai_log/audit_summary.md`](ai_log/audit_summary.md) |
 
 ---
 
@@ -34,7 +34,52 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 
 ---
 
-## 3. Bảng Danh Mục Tổng Hợp 24 Lượt Tương Tác AI (Interaction Summary)
+## 3. Tổng Hợp Kết Quả Kiểm Toán Đầu Ra AI (Audit Verdict Summary)
+
+Để lượng hóa mức độ tin cậy thực tế của mô hình ngôn ngữ qua toàn bộ **25 lượt tương tác (`Entry 01` .. `Entry 25`)**, mỗi lượt đầu ra AI được sinh viên đối chiếu với cơ sở đặc tả (`Test Basis` — `eshop-sut/README.md`), lý thuyết kiểm thử giao diện & khả năng sử dụng (ISTQB, Slide bài giảng, Nielsen, WCAG 2.2, Rubin & Chisnell) và kết quả thực nghiệm trên 3 nền tảng thật (`P1`, `P2`, `P3`), phân loại theo **3 mức phán quyết kiểm toán (`Audit Verdict`)**:
+
+| Mức phán quyết (`Verdict`) | Tiêu chí phân loại kiểm toán | Số lượt | Tỷ lệ | Danh sách các lượt tương tác (`Entry`) |
+| :---: | :--- | :---: | :---: | :--- |
+| **`VALID`** | Đầu ra AI chính xác, bám sát đặc tả và số liệu thực tế; sinh viên kiểm chứng độc lập và **giữ nguyên (`Kept 100%`)** mà không cần sửa đổi nội dung kỹ thuật. | **7** | **`28.0%`** | `Entry 03`, `Entry 04`, `Entry 05`, `Entry 06`, `Entry 08`, `Entry 10`, `Entry 12`* |
+| **`INCOMPLETE`** | Đầu ra AI tạo khung khởi đầu tốt nhưng **thiếu chiều sâu biên/tương tác vật lý, sai chi tiết thực nghiệm hoặc vướng lỗi trình bày**, buộc sinh viên phải hiệu chỉnh (`Changed`) hoặc bổ sung thủ công (`By hand`). | **18** | **`72.0%`** | `Entry 01`, `Entry 02`, `Entry 07`, `Entry 09`, `Entry 11`, `Entry 13`, `Entry 14`, `Entry 15`, `Entry 16`, `Entry 17`, `Entry 18`, `Entry 19`, `Entry 20`, `Entry 21`, `Entry 22`, `Entry 23`, `Entry 24`, `Entry 25` |
+| **`INVALID`** | Toàn bộ lượt đầu ra AI sai căn bản hoặc bịa đặt dữ liệu phải hủy bỏ hoàn toàn từ đầu. *(Ghi chú: ở cấp đề xuất con bên trong các lượt `INCOMPLETE`, sinh viên đã **bác bỏ dứt khoát `14` phương án/chi tiết sai** tại trường `Rejected`).* | **0** | **`0.0%`** | Không có lượt nào bị hủy trắng toàn mục; `14` đề xuất con sai lệch bị bác bỏ được liệt kê cụ thể trong bảng chi tiết bên dưới. |
+| **Tổng cộng** | **Toàn bộ quá trình thực hiện `HW03-AI` (Task 1, Task 2, Task 3, Task 4 & Báo cáo)** | **25** | **`100.0%`** | **`Entry 01` .. `Entry 25`** (khớp tuyệt đối với [`ai_log/AI_Log.md`](ai_log/AI_Log.md)) |
+
+> *\*Ghi chú minh bạch tại `Entry 12`:* Bộ công cụ khảo sát Bước 1 (`participant_kit.md`, `session_helper.html`) đạt chuẩn ngay tại thời điểm nghiệm thu (`Changed: Không có`); riêng 4 mã số tham chiếu Bug phụ trong `plan.md` và `moderator_script.md` (`BUG-03/07/08/11`) được phát hiện và hiệu đính hậu kiểm tại `Entry 20`. Ngược lại, `Entry 17` dù ghi `Changed: Không có ở thời điểm 11/11` nhưng được xếp vào **`INCOMPLETE`** vì đợt kiểm toán `Entry 18` phát hiện cách gộp chung 37 ảnh có vẽ giả thanh địa chỉ/hộp thoại và sai số hiệu phiên bản `P2`, phải chụp mới toàn bộ 130 ảnh.
+
+### Bảng Đối Chiếu Phán Quyết Kiểm Toán Từng Lượt (`Entry 01` .. `Entry 25`)
+
+| Lượt | Hạng mục công việc chính | Verdict | Căn cứ đánh giá & Can thiệp thực tế của Sinh viên (`Changed` / `Rejected` / `By hand`) |
+| :---: | :--- | :---: | :--- |
+| `Entry 01` | Task 1 Bước 0 — Khảo sát `m1_inventory.md` & `m1_test_basis.md` | **INCOMPLETE** | AI trích đúng điều khoản SRS nhưng đọc mã tĩnh không thấy hành vi trình duyệt tự điền nhầm Email vào ô OTP Bước 2 `/forgot-password`; SV trực tiếp mở 5 màn hình bổ sung hiện tượng thực tế và bác bỏ việc lấy code hiện tại làm `Expected`. |
+| `Entry 02` | Task 1 Bước 1 (`IA-01`) — Nháp `CL-01..CL-11` | **INCOMPLETE** | 9/11 mục đạt chuẩn; SV sửa `CL-09`, `CL-10` sang `nguon: "Both"` (bổ sung giả định `NA1` cho thiết bị di động màn hình cố định `P3`) và sửa lỗi thẻ `<h1>` trần làm vỡ bảng Markdown. |
+| `Entry 03` | Task 1 Bước 1 (`IA-02`) — Nháp `CL-12..CL-23` | **VALID** | Toàn bộ 12 mục biểu mẫu bám sát `FR-01..04`, `FR-22`, `SEC-07` kèm ngưỡng `Fail nếu` đo được và dữ liệu mẫu hợp lý; SV đối chiếu đặc tả và giữ nguyên `100%`. |
+| `Entry 04` | Task 1 Bước 1 (`IA-03`) — Nháp `CL-24..CL-31` | **VALID** | Toàn bộ 8 mục điều hướng và cấu hình `P3 = N/A` (`NA1`) cho hiệu ứng `:hover` chuột ở `CL-31` hợp lý, đúng chuẩn Slide 10 & Nielsen #3; SV kiểm duyệt giữ nguyên. |
+| `Entry 05` | Task 1 Bước 1 (`IA-04`) — Nháp `CL-32..CL-39` | **VALID** | Toàn bộ 8 mục phản hồi/trạng thái cùng 2 giả định `GA4` (không dùng `window.alert()`), `GA5` (đồng bộ Header & loading) chặt chẽ, `check_checklist.py` đạt `0` lỗi; SV giữ nguyên. |
+| `Entry 06` | Task 1 Bước 2 — Gộp 20 mục `SV-01..SV-20` & ma trận độ phủ | **VALID** | Script gộp chính xác nguyên văn 20 mục do SV tự thiết kế cùng `GA6..GA8, NA2` lên tổng 59 mục (`0` lỗi schema, phủ đủ 4 IA); SV giữ nguyên kết quả gộp. |
+| `Entry 07` | Task 1 Bước 3 — Soạn `RUN.md`, `dom_probe.js` & chốt nền tảng | **INCOMPLETE** | Khung `RUN.md` (7 cụm `G1..G7`) và `dom_probe.js` tốt, nhưng phương án iPhone/Cloud Trial vướng giới hạn `localhost:3000`; SV chuyển `P3` sang điện thoại thật `OPPO Reno10 5G` (`adb reverse`), cài Firefox `137.0.1` và bác bỏ dùng Edge (trùng nhân Chromium). |
+| `Entry 08` | Task 1 Bước 5 — Xuất sổ Excel 3 sheet & `Test Summary` | **VALID** | File `M1_GUI_Checklist_And_Summary.xlsx` đủ 3 sheet có công thức động `COUNTIF`/`COUNTA` khớp tuyệt đối `38P / 130F / 9NA` với dữ liệu chạy; SV đối chiếu số liệu và giữ nguyên. |
+| `Entry 09` | Task 1 Bước 6 — Gom `45` mục `Failed` -> `27` Bugs & Issues | **INCOMPLETE** | Bác bỏ phương án tạo rời 45 Issues trùng lặp; SV yêu cầu tách riêng `BUG-19`/`BUG-20` (màu nút vs tương phản chữ) và `BUG-23`/`BUG-24` (`label` vs `autocomplete`/`type="tel"`) để mỗi Issue ứng đúng 1 nguyên nhân kỹ thuật. |
+| `Entry 10` | Task 1 — Rà soát đồng bộ chất lượng phiên bản `v6` | **VALID** | Đồng bộ nhất quán diễn giải `CL-09, CL-10`, bổ sung cột liên kết GitHub Issues vào Excel và cập nhật ảnh `P3_SV-20.png` (bác bỏ thêm `RTL`/`Dark mode` ngoài đặc tả); SV nghiệm thu giữ nguyên. |
+| `Entry 11` | Task 2 Bước 0 — Lập kế hoạch Usability 9 phần (`plan.md`) | **INCOMPLETE** | Đủ 9 phần chuẩn Rubin & Chisnell và Giao thức cứu hộ 3 bước; SV sửa ký hiệu ngưỡng tránh nhầm placeholder và bác bỏ cấp sẵn tài khoản mẫu làm mất quan sát thực tế ở `/register`. |
+| `Entry 12` | Task 2 Bước 1 — Bộ phiếu khảo sát, kịch bản & `session_helper.html` | **VALID** | Bộ 5 mục `participant_kit.md`, `start_session.ps1` và trạm thu phiếu offline `session_helper.html` hoạt động chuẩn (`0` lỗi `validate_study.py`); 4 mã tham chiếu Bug phụ trong tài liệu điều phối được hiệu đính hậu kiểm ở `Entry 20`. |
+| `Entry 13` | Task 2 Bước 2 — Phiên chạy thử Pilot `S00` & tinh chỉnh công cụ | **INCOMPLETE** | Phát hiện lỗi mã hóa PowerShell 5.1 trong `start_session.ps1`, sửa mã lỗi đối chiếu trong `S00.json` (`BUG-13`, `BUG-04`), bổ sung hộp `Persona mẫu` chống lộ SĐT thật sau Pilot và tách riêng điểm `S00` khỏi thống kê chính thức. |
+| `Entry 14` | Task 2 Bước 3 — Kiểm chứng 7 video `S01..S07` & tải Drive | **INCOMPLETE** | Đồng hồ bấm giờ tay trên `session_helper.html` lệch nhẹ vài giây so với hình ảnh thật; SV yêu cầu đối chiếu từng giây trên 7 video `.mp4` (phát hiện lỗi mới `BUG-28` ở `S05 @ 01:48`) và bác bỏ việc bỏ ghi nhật ký AI khi biên tập mô tả sự kiện. |
+| `Entry 15` | Task 2 Bước 4 — Tính ma trận `SUS` (`48.6 ± 11.3`) & hiệu năng | **INCOMPLETE** | Phép tính `SUS` và `SEQ` bằng `analyze_usability.py` chính xác 100%, nhưng SV hiệu chỉnh ánh xạ sự kiện `S06 @ 00:52` (SĐT 9 số thiếu `0` đầu) về đúng `BUG-05` để cô lập `BUG-28` là lỗi mới duy nhất. |
+| `Entry 16` | Task 2 Bước 5 — Tổng hợp `findings.md` & đăng `BUG-28` (`#28`) | **INCOMPLETE** | Phân tách tốt `7 Isolated Bugs` vs `4 Systemic Design Issues` và đăng Issue `#28`, nhưng bản nháp đầu diễn giải lại lời phỏng vấn mở; SV bắt buộc trích nguyên văn từ `S01..S07.json` và bác bỏ tạo Issue trùng với Task 1. |
+| `Entry 17` | Task 1 Bước 4 — Chạy Playwright đo 58 mục ngày `11/11` *(bổ sung)* | **INCOMPLETE** | Số đo DOM và verdict (`38P / 130F / 9NA`) đúng, nhưng script `distribute_evidence.py` dùng chung 37 ảnh cho 130 ô `Failed`, vẽ giả thanh địa chỉ/hộp thoại `alert` và ghi nhầm bản Firefox `P2` (được phát hiện và thay mới hoàn toàn ở `Entry 18`). |
+| `Entry 18` | Task 1 — Kiểm toán vai trò TA, chụp mới 130 ảnh & sửa 4 Bug | **INCOMPLETE** | Phát hiện và khắc phục triệt để sai sót của `Entry 17`: chụp riêng từng mục 130 ảnh không vẽ giả UI, sửa mô tả sai ở `BUG-06, 08, 19, 27`, sửa mật khẩu seed `Test1234!` và công khai `Firefox 159.0` (Playwright) vs `137.0.1` (cài đặt). |
+| `Entry 19` | Task 3 — Rà soát Mục 4 báo cáo & minh bạch cách chụp ảnh | **INCOMPLETE** | Công khai minh bạch dấu vết tự động hóa trên bộ 15 ảnh cấp OS của Task 3, thống nhất dải đo `SV-06`, bỏ mô tả hình dạng hộp thoại `alert` không có ảnh chụp, và bác bỏ đề xuất chụp lại thủ công rời rạc dưới `AI Policy: Open`. |
+| `Entry 20` | Task 2 — Hiệu đính suy diễn phỏng vấn mở & thêm *Say–Do Gap* | **INCOMPLETE** | Phát hiện AI ở `Entry 16` đếm gộp và suy diễn quá lời câu trả lời 1 từ (*"Có"*, *"Tạm"*); viết lại bảng probe tách riêng nhóm câu trả lời mơ hồ, bổ sung mục *Say–Do Gap*, 3 giới hạn nghiên cứu và sửa 4 mã tham chiếu Bug trong `plan.md`/`moderator_script.md`. |
+| `Entry 21` | Phụ lục AI — Soạn nháp mục Phê bình AI (200–300 từ) | **INCOMPLETE** | Bản nháp đầu tiên của AI vượt trần ở mức `309` từ -> bị bác bỏ và rút gọn về `271` từ; sau đó được SV trực tiếp biên tập lại theo giọng văn cá nhân ở `Entry 23`. |
+| `Entry 22` | Task 1 & 3 — Cắm `OPPO Reno10 5G` chụp mới trực tiếp 42 ảnh `P3` | **INCOMPLETE** | Chạy qua CDP trên Chrome Android thật phát sinh 2 lỗi công cụ (trôi khung nhìn khi focus ở `CL-13` và ảnh `page.screenshot()` bị chia ô 3x3 ở `SV-06`); đã khắc phục bằng `blur()` và chụp `adb screencap` nguyên màn hình `1080x2412` cho `SV-06, SV-20`, xóa bỏ bộ ảnh dựng tạm ngày 14/11. |
+| `Entry 23` | Chuẩn hóa tiêu đề 3 báo cáo, khôi phục Prompt gốc & duyệt Critique | **INCOMPLETE** | Phát hiện `Entry 13, 14, 18` ghi tóm tắt ngôi thứ ba hoặc cắt lược `...` ở trường `Prompt` và `Entry 21` giữ nguyên văn AI; SV tự biên tập lại `critique.md` (`271` từ) và khôi phục nguyên văn `Prompt` thực tế (bác bỏ việc xóa bớt `Entry` khỏi log). |
+| `Entry 24` | Task 4 — Đồng bộ quy tắc `gui-checklist-testing/SKILL.md` | **INCOMPLETE** | Bản `SKILL.md` nháp sáng 11/11 tự đặt 3 câu cấm cứng ngoài đề bài và đóng khung riêng `M1`; SV yêu cầu tham số hóa đa màn hình `<Scope>` và chuẩn hóa Quy tắc `9, 11, 12` khớp quy trình `mixed` thực tế. |
+| `Entry 25` | Xuất bộ 3 PDF chuẩn A4, kịch bản Demo & nâng cấp 5 mục báo cáo | **INCOMPLETE** | Khắc phục lỗi tràn ngang `353px` trên bảng 13 cột khi in PDF A4 (`docOverflow = 0px`), sửa lệch nhóm 5 mã `SV` ở bảng tóm tắt Mục `3.4.2` khớp `100%` với `checklist.json`, hoàn thành 5 nâng cấp chiều sâu phân tích và bác bỏ mọi sao chép từ bài tham chiếu. |
+
+---
+
+## 4. Bảng Danh Mục Tổng Hợp 25 Lượt Tương Tác AI (Interaction Summary)
 
 | STT | Công cụ AI | Ngày giờ thực hiện | Hạng mục / Bước công việc (`Task / Step`) |
 | :---: | :---: | :--- | :--- |
@@ -62,10 +107,11 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 | `Entry 22` | `Antigravity` | `2026-11-15 11:25 – 11:42 +07:00` | Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`) |
 | `Entry 23` | `Antigravity` | `2026-11-15 11:51 – 12:08 +07:00` | Mục 9 & Mục 10 đề bài (Chuẩn hóa tiêu đề 3 báo cáo chính, rà soát quy định nhật ký AI và đồng bộ bản `critique.md` do sinh viên biên tập) |
 | `Entry 24` | `Antigravity` | `2026-11-15 12:10 – 12:14 +07:00` | Task 4 — Agent Skills (Đồng bộ quy tắc của `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md` và `assets/`) |
+| `Entry 25` | `Antigravity` | `2026-11-15 15:15 – 21:05 +07:00` | Mục 1..6, Mục 9 & Đóng gói PDF (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`; soạn hướng dẫn quay Demo Task 4; đối chiếu Rubric nâng cấp 5 hạng mục chiều sâu phân tích) |
 
 ---
 
-## 4. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 24`)
+## 5. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 25`)
 
 ### Entry 01 — 2026-11-11 - Task 1 Bước 0: Khảo sát control và cơ sở đặc tả phạm vi M1
 
@@ -766,5 +812,42 @@ Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task
 - **Changed (Chỉnh sửa):** Chuẩn hóa phần mô tả tái sử dụng đa màn hình, Quy tắc 9, 11, 12, Bước 3..7 trong `.agents/skills/gui-checklist-testing/SKILL.md`, mục cuối của `references/hw03-rules.md` cùng 2 mẫu `assets/RUN_template.md`, `assets/bug_template.md` đồng bộ tuyệt đối với đề bài và `AI_Log.md`.
 - **Rejected (Bác bỏ):** Loại bỏ 3 câu cấm tự đặt không có trong đề bài ở bản `SKILL.md` nháp ban đầu để không gây mâu thuẫn nội bộ với quy trình `mixed` đã thực thi.
 - **By hand (Tự thực hiện thủ công):** Sinh viên chất vấn nguyên nhân mâu thuẫn và phê duyệt chuẩn hóa lại tài liệu đặc tả của Agent Skill trước khi quay Video Demo Task 4.
+
+---
+
+### Entry 25 — 2026-11-15 - Xuất bộ báo cáo PDF chuẩn in A4, soạn kịch bản Video Demo Task 4 và đối chiếu hoàn thiện 5 hạng mục báo cáo
+
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-15 15:15 – 21:05 +07:00`
+- **Task / Step:** Mục 1..6, Mục 9 & Đóng gói PDF (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`; soạn hướng dẫn quay Demo Task 4; đối chiếu Rubric nâng cấp 5 hạng mục chiều sâu phân tích)
+
+**Prompt:**
+
+~~~text
+- `Oke nhớ xuất file pdf luôn nhé`
+- `làm cho tôi kịch bản đi` -> `md hướng dẫn trình bày demo skill đâu` -> `xuất pdf file đó giúp tôi`
+- `@[d:\KCPM\GUI & Usability Testing\docs\temp\HW03] Đây là bài làm khác mà tui đã đề cập, bạn xem bài làm này và so sánh với bài tập của tôi rồi cho điểm hai bài. Sau đó, gợi ý các nội dung chỉnh sửa bài làm của tôi để đạt điểm tối đa (không tính nội dung task 4)`
+- `1, 2, 3, 4, 5 => thực hiện chỉnh sửa giúp tôi. Cây thư mục sẽ được thực hiện sau khi hoàn thành task 4. Làm xong báo cáo kết quả`
+~~~
+
+**AI output:**
+
+~~~text
+- Xây dựng [`tests/md_to_html.py`](../tests/md_to_html.py) và [`tests/export_pdfs.mjs`](../tests/export_pdfs.mjs) kết xuất bộ 3 tài liệu PDF nộp bài (`Main_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`, `Bug_Report.pdf`) có đánh số trang chân trang và bảo toàn toàn bộ bảng biểu, ảnh chụp nội dòng; đồng thời tạo tài liệu hướng dẫn quay Video Demo Task 4 lưu riêng ngoài cây nộp bài (`.local/Task4_Huong_Dan_Quay_Demo_Skills.pdf`).
+- Đối chiếu độc lập từng mục Rubric giữa kho bài làm hiện tại và bài tham chiếu trong `docs/temp/HW03`, từ đó đề xuất và thực thi 5 hạng mục nâng cấp dựa trên 100% dữ liệu thực nghiệm gốc của phạm vi `M1`/`F1`:
+  1. Làm mới toàn bộ 30 tệp ảnh `screenshots/github_issues/*.png` (nhúng ảnh `P3` chụp trực tiếp từ `OPPO Reno10 5G` ngày `15/11/2026` cho `ISSUE-01, 04, 18, 24, 27`) và đồng bộ chú thích phương pháp dựng ảnh tại `Main_Report.md` §6.3 cùng `Bug_Report.md` §4.
+  2. Bổ sung Mục `4.3` tại `Main_Report.md` đối chiếu ranh giới kỹ thuật giữa đo kiểm tự động (`Playwright` / `dom_probe.js`) và kiểm chứng trực tiếp trên trình duyệt cài đặt / thiết bị vật lý thật qua 5 tình huống thực nghiệm (`SV-20`, `SV-06`, `CL-22/CL-35`, `CL-07`, `SV-12`).
+  3. Bổ sung phân tích đối chiếu bản nháp AI đóng băng Bước 1 (`Nhóm A: 7/20 mục` AI chạm khái niệm gần kề nhưng thiếu chiều sâu biên/tọa độ vs `Nhóm B: 13/20 mục` AI bỏ trống hoàn toàn do đọc mã tĩnh) theo năng lực Bloom-AI `G9.3` tại `Main_Report.md` §3.4.2.
+  4. Bổ sung định nghĩa tường minh thang đo 4 mức `Usability Severity Scale` (`Critical = 4`, `Major = 3`, `Minor = 2`, `Cosmetic = 1`) tại `Main_Report.md` §5.8 và `usability/findings.md` §1.
+  5. Mở rộng `ai_audit_export.py` hỗ trợ cờ `--summary`, lập [`ai_log/audit_summary.md`](audit_summary.md) phân loại kiểm toán toàn bộ 25 lượt tương tác AI (`7 VALID = 28.0%`, `18 INCOMPLETE = 72.0%`, `0 INVALID = 0.0%`), kết xuất lại `AI_Critique_and_Audit_Report.md` và cập nhật lại cả 3 tệp PDF.
+~~~
+
+- **Kept (Giữ nguyên):** Giữ nguyên bộ công cụ kết xuất PDF chuẩn A4, 30 ảnh `screenshots/github_issues/*.png` đã đồng bộ ngày `15/11/2026` và toàn bộ 5 hạng mục nâng cấp phân tích trên dữ liệu gốc `M1`/`F1`.
+- **Changed (Chỉnh sửa):**
+  - Ở lượt xuất PDF đầu tiên, phát hiện bảng rộng 13 cột trong `Main_Report.pdf` bị tràn lề phải `353px` do gán `nowrap` cho chuỗi `<= 13` ký tự và đường dẫn dài trong `<code>` không ngắt dòng tại dấu `/` và `_` -> cập nhật `tests/md_to_html.py` chèn `<wbr>` và phân tầng `wide-table` / `ultra-wide-table` đạt `docOverflow = 0px` trên cả 3 báo cáo PDF.
+  - Khi cập nhật Mục `3.4.2` của `Main_Report.md`, phát hiện bảng tóm tắt cũ xếp lệch nhóm 5 mã `SV-14`, `SV-15`, `SV-17`, `SV-19`, `SV-20` so với `checklist/checklist.json`, `checklist/sv_items.md` và Mục `3.4.3` -> đã chuẩn hóa khớp tuyệt đối `100%` giữa mọi tệp.
+  - Theo chỉ đạo của sinh viên, tạm hoãn Mục 6 (cập nhật cây thư mục đóng gói tại §13, mở `Public` GitHub repo, xuất `git_commit_log.txt` và nén `.zip`) sang sau khi hoàn thành Video Demo Task 4.
+- **Rejected (Bác bỏ):** Tuyệt đối không sao chép bất kỳ câu chữ, nhận định, cấu trúc prompt hay số liệu nào từ bài tham chiếu trong `docs/temp/HW03` (tuân thủ nghiêm Mục 17 Academic Integrity).
+- **By hand (Tự thực hiện thủ công):** Sinh viên kiểm tra trực tiếp bố cục hiển thị của các tệp PDF, chọn lọc danh sách hạng mục cần nâng cấp (`1..5`), quyết định thứ tự hoàn thành Task 4 trước khi đóng gói cây thư mục cuối cùng và kiểm duyệt toàn bộ kết quả.
 
 ---

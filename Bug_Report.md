@@ -89,6 +89,9 @@
 
 ## 4. Ảnh Chụp Tổng Quan Danh Sách GitHub Issues
 
+- **Đường dẫn trang danh sách GitHub Issues (`28 Open Issues` `#1`..`#28`):** [https://github.com/HuynhDucThinh/Software-Testing-HW03/issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues)
+- *Ghi chú cách tạo ảnh trang Issue:* Trong thời gian làm bài repository để chế độ `Private`, nên 30 tệp ảnh trong `screenshots/github_issues/*.png` (`2` trang danh sách tổng quan + `28` trang chi tiết `ISSUE-01..28`) là bản dựng trực tiếp từ dữ liệu GitHub REST API (`gh api ... Accept: application/vnd.github.full+json`, giữ nguyên `body_html` do GitHub render, nhãn phân loại và thời điểm tạo thật; cập nhật đồng bộ lần cuối ngày `15/11/2026` sau khi làm mới bộ ảnh `P3` chụp trực tiếp từ điện thoại thật `OPPO Reno10 5G`). Khi nộp bài, repository được mở sang `Public` để trợ giảng truy cập đối chiếu trực tiếp.
+
 ![GitHub Issues Overview — Trang 1](screenshots/github_issues/GitHub_Issues_Overview_Page1.png)
 
 ![GitHub Issues Overview — Trang 2](screenshots/github_issues/GitHub_Issues_Overview_Page2.png)

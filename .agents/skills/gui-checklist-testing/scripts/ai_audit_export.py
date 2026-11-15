@@ -2,7 +2,7 @@
 """Gom các entry AI log (từ một file gộp nối tiếp như ai_log/AI_Log.md hoặc nhiều file *.md) thành AI Audit Report (Markdown).
 
 Usage: python ai_audit_export.py <ai_log_dir_or_file> -o AI_Critique_and_Audit_Report.md [--student "Họ tên - MSSV"]
-           [--critique critique.md] [--no-ai]
+           [--critique critique.md] [--summary audit_summary.md] [--no-ai]
 
 Hỗ trợ cả 2 chế độ lưu nhật ký:
 1. Một file gộp nối tiếp duy nhất (ví dụ `ai_log/AI_Log.md`), trong đó mỗi lượt tương tác mới được append vào cuối file dưới tiêu đề `## Entry NN — ...` (hoặc `# ...`).
@@ -99,6 +99,7 @@ def main():
     )
     ap.add_argument("--sut", default="EShop Web & API (`./eshop-sut`, commit gốc `1a9304a`)")
     ap.add_argument("--critique")
+    ap.add_argument("--summary")
     ap.add_argument("--no-ai", action="store_true")
     a = ap.parse_args()
 
@@ -141,12 +142,17 @@ def main():
         ]
     else:
         target = Path(a.dir)
+        skip_names = {"readme.md", "critique.md", "audit_summary.md"}
+        if a.critique:
+            skip_names.add(Path(a.critique).name.lower())
+        if a.summary:
+            skip_names.add(Path(a.summary).name.lower())
         if target.is_file():
             files = [target]
         else:
             files = sorted(
                 p for p in target.glob("*.md")
-                if not p.name.startswith("_") and p.name.lower() != "readme.md" and p.name.lower() != "critique.md"
+                if not p.name.startswith("_") and p.name.lower() not in skip_names
             )
         parsed = []
         for p in files:
@@ -172,6 +178,9 @@ def main():
             name, sid, email = _parse_student_info(a.student)
             stu_cell = f"{name} (`{sid}` — `{email}`)" if (sid and email) else a.student
             out.append(f"| **Sinh viên thực hiện** | {stu_cell} |")
+        src_refs = "[`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md)"
+        if a.summary:
+            src_refs = "[`ai_log/AI_Log.md`](ai_log/AI_Log.md), [`ai_log/critique.md`](ai_log/critique.md) & [`ai_log/audit_summary.md`](ai_log/audit_summary.md)"
         out += [
             f"| **Hệ thống kiểm thử (SUT)** | {a.sut} |",
             f"| **Phạm vi kiểm thử (Task 1 & Task 3)** | {a.scope} |",
@@ -179,7 +188,7 @@ def main():
             f"| **Công cụ AI đã sử dụng** | {tools_str} (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |",
             "| **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |",
             f"| **Tổng số lượt tương tác đã ghi nhận** | **`{total_n}` lượt tương tác (`Entry 01` .. `Entry {total_n:02d}`)** theo trình tự thời gian thực hiện |",
-            "| **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md) |",
+            f"| **Nguồn nhật ký gốc đối chiếu** | {src_refs} |",
             "",
             "---",
             "",
@@ -193,6 +202,19 @@ def main():
                 f"## {sec_idx}. AI Critique (200–300 từ)",
                 "",
                 crit.strip(),
+                "",
+                "---",
+                "",
+            ]
+            sec_idx += 1
+
+        if a.summary:
+            summ = Path(a.summary).read_text(encoding="utf-8").strip()
+            summ = re.sub(r"^#+\s+[^\n]*\n+", "", summ)
+            out += [
+                f"## {sec_idx}. Tổng Hợp Kết Quả Kiểm Toán Đầu Ra AI (Audit Verdict Summary)",
+                "",
+                summ.strip(),
                 "",
                 "---",
                 "",

@@ -55,7 +55,9 @@ Software-Testing-HW03/
 │   └── github_issues/                     # 28 ảnh trang GitHub Issues (#1..#28) + 2 ảnh danh sách tổng quan
 ├── tests/                                 # Script kiểm tra dò tự động hỗ trợ đối chiếu trên 3 nền tảng
 ├── ai_log/
-│   └── AI_Log.md                          # Nhật ký tương tác AI gộp chung nối tiếp (Entry 01..NN)
+│   ├── AI_Log.md                          # Nhật ký tương tác AI gộp chung nối tiếp (Entry 01..25)
+│   ├── critique.md                        # Bài phản biện AI cá nhân (200-300 từ)
+│   └── audit_summary.md                   # Tổng hợp phân loại kiểm toán đầu ra AI (VALID / INCOMPLETE / INVALID)
 ├── bugs/                                  # Khung dữ kiện và chi tiết từng Bug
 └── .agents/skills/                        # Agent Skills tái sử dụng cho GUI Checklist & Usability Evaluation
 ```
@@ -80,7 +82,7 @@ Software-Testing-HW03/
 
 ### 3.2. Kết quả thực thi Checklist theo từng nền tảng (Task 1 & Task 3)
 
-| Chỉ số | `P1` — Chrome 157 (Windows 11) | `P2` — Firefox 137/159 (Windows 11) | `P3` — Chrome Android 156 (OPPO Reno10 5G) | Tổng lượt (3 nền tảng) |
+| Chỉ số | `P1` — Chrome 157 (Windows 11) | `P2` — Firefox 137/159 (Windows 11) | `P3` — Chrome Android 156/157 (OPPO Reno10 5G) | Tổng lượt (3 nền tảng) |
 | :--- | :---: | :---: | :---: | :---: |
 | **Item thiết kế** | 59 | 59 | 59 | **177** |
 | **Đã chạy (Executed)** | 58 | 58 | 52 | **168** |
