@@ -1,17 +1,21 @@
 /**
  * tests/capture_t1_evidence.mjs
  * Chụp lại ảnh minh chứng RIÊNG cho từng mục Failed của Task 1 (mỗi mục 1 ảnh, không dùng chung ảnh cảnh).
- *  - Chạy trên trình duyệt thật qua Playwright: P1 = Google Chrome (channel "chrome"), P2 = Firefox (Gecko, Playwright build).
+ *  - Chạy trên trình duyệt thật qua Playwright:
+ *      + P1 = Google Chrome (channel "chrome", Windows 11)
+ *      + P2 = Firefox (Gecko, Playwright build, Windows 11)
+ *      + P3 = Chrome Android trên điện thoại thật OPPO Reno10 5G (CPH2531, Android 15) qua CDP + adb reverse
  *  - Mỗi ảnh: đưa SUT về đúng trạng thái của mục, đo lại số liệu trực tiếp trên DOM/Network ngay lúc chụp,
- *    tô viền đỏ phần tử liên quan (chỉ thêm outline CSS, không đổi nội dung), rồi page.screenshot().
+ *    tô viền đỏ phần tử liên quan (chỉ thêm outline CSS, không đổi nội dung), rồi page.screenshot() (riêng SV-20 trên P3 dùng adb screencap để chụp cả bàn phím ảo Android thật).
  *  - Hộp thoại window.alert() thật KHÔNG thể chụp bằng page.screenshot; nội dung được bắt qua sự kiện "dialog"
  *    và ghi vào chú thích (không vẽ giả hộp thoại).
  *  - Kết quả: evidence_raw/v2/<P>/<ID>.png + evidence_raw/v2/<P>/meta.json (ghép khung chú thích bằng compose_t1_evidence.py).
- * Cách chạy: node tests/capture_t1_evidence.mjs P1   |   node tests/capture_t1_evidence.mjs P2
+ * Cách chạy: node tests/capture_t1_evidence.mjs P1 | P2 | P3
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { chromium, firefox } from 'playwright';
@@ -19,6 +23,8 @@ import { chromium, firefox } from 'playwright';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DB_PATH = path.join(ROOT, 'eshop-sut', 'backend', 'database.sqlite');
+const ADB_CANDIDATE = path.join(ROOT, '.local', 'platform-tools', 'adb.exe');
+const ADB = fs.existsSync(ADB_CANDIDATE) ? ADB_CANDIDATE : 'adb';
 const sqlite3 = createRequire(path.join(ROOT, 'eshop-sut', 'backend', 'package.json'))('sqlite3');
 const WEB = 'http://localhost:5173';
 const API = 'http://localhost:3000';
@@ -27,7 +33,7 @@ const SV_NAME = '23120199 - Huỳnh Đức Thịnh';
 const PASSABLE_PW = 'Abcd 1234'; // chỉ dùng để dựng tiền điều kiện vượt regex lỗi BUG-01
 
 const P = process.argv[2];
-if (!['P1', 'P2'].includes(P)) throw new Error('Usage: node capture_t1_evidence.mjs P1|P2');
+if (!['P1', 'P2', 'P3'].includes(P)) throw new Error('Usage: node capture_t1_evidence.mjs P1|P2|P3');
 const OUT = path.join(ROOT, 'evidence_raw', 'v2', P);
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -42,12 +48,32 @@ async function resetDb() {
     login_attempts=0, locked_until=NULL, reset_token=NULL, shipping_address=NULL, phone=NULL WHERE id=2`);
 }
 
-const browserType = P === 'P1' ? chromium : firefox;
-const browser = await browserType.launch(P === 'P1' ? { channel: 'chrome' } : {});
-const BROWSER_LABEL = P === 'P1' ? `Google Chrome ${browser.version()}` : `Mozilla Firefox ${browser.version()} (Gecko, Playwright build)`;
-const OS_LABEL = `Windows ${os.release()}`;
-const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: 'vi-VN' });
-let page = await context.newPage();
+let browser, context, page, BROWSER_LABEL, OS_LABEL;
+if (P === 'P3') {
+  execFileSync(ADB, ['reverse', 'tcp:5173', 'tcp:5173']);
+  execFileSync(ADB, ['reverse', 'tcp:3000', 'tcp:3000']);
+  execFileSync(ADB, ['forward', 'tcp:9333', 'localabstract:chrome_devtools_remote']);
+  try { execFileSync(ADB, ['shell', 'input', 'keyevent', 'KEYCODE_WAKEUP']); } catch {}
+  const model = execFileSync(ADB, ['shell', 'getprop', 'ro.product.model']).toString().trim() || 'CPH2531';
+  const market = execFileSync(ADB, ['shell', 'getprop', 'ro.vendor.oplus.market.name']).toString().trim() || 'OPPO Reno10 5G';
+  const rel = execFileSync(ADB, ['shell', 'getprop', 'ro.build.version.release']).toString().trim() || '15';
+  const cdpVer = await (await fetch('http://127.0.0.1:9333/json/version')).json();
+  const chVer = String(cdpVer.Browser || '').replace(/^Chrome\//, '');
+  browser = await chromium.connectOverCDP('http://127.0.0.1:9333');
+  BROWSER_LABEL = `Chrome Android ${chVer}`;
+  OS_LABEL = `Android ${rel} (${market} ${model})`;
+  context = browser.contexts()[0] || (await browser.newContext());
+  page = await context.newPage();
+  page.setDefaultTimeout(12000);
+  await page.bringToFront().catch(() => {});
+} else {
+  const browserType = P === 'P1' ? chromium : firefox;
+  browser = await browserType.launch(P === 'P1' ? { channel: 'chrome' } : {});
+  BROWSER_LABEL = P === 'P1' ? `Google Chrome ${browser.version()}` : `Mozilla Firefox ${browser.version()} (Gecko, Playwright build)`;
+  OS_LABEL = `Windows ${os.release()}`;
+  context = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: 'vi-VN' });
+  page = await context.newPage();
+}
 
 const meta = [];
 const facts = {};
@@ -59,6 +85,15 @@ async function go(route) {
   await page.goto(`${WEB}${route}`, { waitUntil: 'networkidle' });
 }
 async function guest() {
+  if (P === 'P3') {
+    try {
+      const cdp = await context.newCDPSession(page);
+      for (const origin of [WEB, API]) {
+        await cdp.send('Storage.clearDataForOrigin', { origin, storageTypes: 'all' });
+      }
+      await cdp.detach();
+    } catch {}
+  }
   await context.clearCookies();
   await go('/login');
   await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
@@ -82,17 +117,37 @@ async function hl(...locs) {
 }
 async function shot(id, expected, actualLines, opts = {}) {
   const file = path.join(OUT, `${id}.png`);
-  await page.screenshot({ path: file, fullPage: !!opts.fullPage });
-  meta.push({
+  if (opts.nativeScreencap && P === 'P3') {
+    const buf = execFileSync(ADB, ['exec-out', 'screencap', '-p'], { maxBuffer: 25 * 1024 * 1024 });
+    fs.writeFileSync(file, buf);
+  } else {
+    if (P === 'P3') await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
+    await page.screenshot({ path: file, fullPage: !!opts.fullPage });
+  }
+  const vp = page.viewportSize() || (await page.evaluate(() => ({ width: window.innerWidth, height: window.innerHeight, dpr: window.devicePixelRatio })));
+  const entry = {
     id, platform: P, browser: BROWSER_LABEL, os: OS_LABEL,
-    viewport: page.viewportSize(), url: page.url(), title: await page.title(),
+    viewport: { width: vp.width, height: vp.height },
+    url: page.url(), title: await page.title(),
     captured_at: new Date().toISOString(), expected, actual: actualLines, file: path.relative(ROOT, file).replace(/\\/g, '/'),
-  });
+  };
+  if (P === 'P3') entry.viewport_text = `viewport CSS ${vp.width}x${vp.height} (dpr=${vp.dpr || 3})`;
+  if (opts.sourceNote) entry.source_note = opts.sourceNote;
+  meta.push(entry);
   console.log(`[${P}] ${id} -> ${page.url()}`);
 }
 const M = (sel) => page.locator(sel);
 const inputs = () => M('main form input');
 const submit = () => M('main form button[type="submit"]');
+const clickSubmit = async () => {
+  await submit().first().waitFor({ state: 'visible', timeout: 5000 });
+  if (P === 'P3') {
+    await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
+    await submit().first().evaluate((el) => el.click());
+  } else {
+    await submit().first().click();
+  }
+};
 const labelsOf = () => page.$$eval('main form label', (ls) => ls.map((l) => l.innerText.trim()));
 const rect = (loc) => loc.first().evaluate((e) => { const r = e.getBoundingClientRect(); return { top: Math.round(r.top), bottom: Math.round(r.bottom), w: Math.round(r.width), h: Math.round(r.height) }; });
 const color = (loc, prop = 'backgroundColor') => loc.first().evaluate((e, p) => getComputedStyle(e)[p], prop);
@@ -106,7 +161,7 @@ async function countRequests(match, fn) {
 async function forgotToStep2() {
   await go('/forgot-password');
   await inputs().first().fill(SEED.email);
-  await submit().click();
+  await clickSubmit();
   await page.waitForSelector('text=Mã OTP của bạn là', { timeout: 5000 });
 }
 
@@ -172,8 +227,8 @@ await go('/login');
     'Cả hai form đều thiếu name và autocomplete -> trình duyệt không phân biệt được ô OTP với ô email.',
   ]);
 }
-await go('/login');
-{
+if (P !== 'P3') {
+  await go('/login');
   const seq = [];
   const desc = () => page.evaluate(() => { const e = document.activeElement; const r = e.getBoundingClientRect(); const t = (e.tagName === 'INPUT' ? `input[${e.type}]` : (e.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 16)); return `${e.tagName.toLowerCase()}:${t}(y=${Math.round(r.top)})`; });
   const reset = () => page.evaluate(() => { document.activeElement && document.activeElement.blur && document.activeElement.blur(); window.getSelection().removeAllRanges(); });
@@ -193,7 +248,7 @@ await go('/login');
 {
   await inputs().nth(0).fill(SEED.email);
   await inputs().nth(1).fill('SaiMatKhau1');
-  await submit().click();
+  await clickSubmit();
   const err = M('main').locator('text=Đăng nhập thất bại');
   await err.first().waitFor({ timeout: 5000 });
   const e = await rect(err), b = await rect(submit());
@@ -221,14 +276,14 @@ await go('/login');
   const navType = await page.evaluate(() => performance.getEntriesByType('navigation')[0]?.type);
   meta[meta.length - 1].actual[1] = `Sau khi bấm: biến JS đặt trước khi bấm = ${marker === null ? 'đã mất (trang bị nạp lại toàn bộ)' : marker}; PerformanceNavigationTiming.type="${navType}"; href="${href}".`;
 }
-await go('/login');
-{
+if (P !== 'P3') {
+  await go('/login');
   await page.route('**/api/login', async (route) => { await new Promise((r) => setTimeout(r, 2500)); await route.continue(); });
   await inputs().nth(0).fill(SEED.email);
   await inputs().nth(1).fill('SaiMatKhau1');
   let n = 0; const on = (r) => { if (r.url().includes('/api/login') && r.method() === 'POST') n++; };
   page.on('request', on);
-  await submit().click();
+  await clickSubmit();
   await page.waitForTimeout(300);
   const st = await submit().evaluate((b) => ({ disabled: b.disabled, text: b.innerText.trim() }));
   await submit().click({ force: true });
@@ -258,7 +313,7 @@ await go('/login');
     'Chiều cao các liên kết < 24px.',
   ]);
 }
-{
+if (P !== 'P3') {
   const style = (l) => l.first().evaluate((e) => { const c = getComputedStyle(e); return `${c.backgroundColor}|${c.color}|${c.textDecorationLine}`; });
   const probe = async (where, l) => {
     await page.mouse.move(1, 1); await page.waitForTimeout(150);
@@ -381,7 +436,7 @@ await go('/register');
   await shot('CL-13', 'Ô Email dùng type="email" và chặn chuỗi sai định dạng trước khi gửi.', [
     `Ô Email có type="${t}"; đang nhập "nguoimoieshop.com" (không có @).`, '(kết quả bấm gửi ghi bên dưới)',
   ]);
-  const n = await countRequests('/api/register', () => submit().click());
+  const n = await countRequests('/api/register', () => clickSubmit());
   meta[meta.length - 1].actual[1] = `Bấm "Đăng Ký": trình duyệt không chặn, phát sinh ${n} request POST /api/register và chuyển sang ${page.url()}.`;
   await resetDb();
 }
@@ -390,12 +445,12 @@ await go('/login');
   await inputs().nth(0).fill('khongcoacong.com');
   await inputs().nth(1).fill('Test1234!');
   const t = await inputs().nth(0).getAttribute('type');
-  const n = await countRequests('/api/login', () => submit().click());
+  const n = await countRequests('/api/login', () => clickSubmit());
   await go('/forgot-password');
   const t2 = await inputs().first().getAttribute('type');
   await inputs().first().fill('khongcoacong.com');
   const before = dialogs.length;
-  const n2 = await countRequests('/api/forgot-password', () => submit().click());
+  const n2 = await countRequests('/api/forgot-password', () => clickSubmit());
   const dlg = dialogs.length > before ? lastDialog() : null;
   await go('/login');
   await inputs().nth(0).fill('khongcoacong.com');
@@ -410,14 +465,14 @@ for (const [id, pw, exp] of [['CL-19', 'Abcd123!', 'Mật khẩu >= 8 ký tự c
   let short = null;
   if (id === 'SV-08') {
     await inputs().nth(0).fill(SV_NAME); await inputs().nth(1).fill('sv08_23120199@eshop.com'); await inputs().nth(2).fill('Abc12!x');
-    await submit().click(); await page.waitForTimeout(400);
+    await clickSubmit(); await page.waitForTimeout(400);
     short = (await M('main').innerText()).includes('quá yếu') && page.url().endsWith('/register');
     await go('/register');
   }
   await inputs().nth(0).fill(SV_NAME);
   await inputs().nth(1).fill(`${id.toLowerCase().replace('-', '')}_23120199@eshop.com`);
   await inputs().nth(2).fill(pw);
-  await submit().click();
+  await clickSubmit();
   const err = M('main').locator('text=quá yếu');
   await err.first().waitFor({ timeout: 4000 });
   let fp = '';
@@ -425,11 +480,11 @@ for (const [id, pw, exp] of [['CL-19', 'Abcd123!', 'Mật khẩu >= 8 ký tự c
     await forgotToStep2();
     const otp = (await M('main').innerText()).match(/là:\s*(\d+)/)[1];
     await inputs().nth(0).fill(otp); await inputs().nth(1).fill('Abcd123!');
-    const before = dialogs.length; await submit().click(); await page.waitForTimeout(600);
+    const before = dialogs.length; await clickSubmit(); await page.waitForTimeout(600);
     fp = dialogs.length > before ? lastDialog() : '(không có hộp thoại)';
     await go('/register');
     await inputs().nth(0).fill(SV_NAME); await inputs().nth(1).fill('cl19_23120199@eshop.com'); await inputs().nth(2).fill(pw);
-    await submit().click(); await err.first().waitFor({ timeout: 4000 });
+    await clickSubmit(); await err.first().waitFor({ timeout: 4000 });
   }
   await hl(err, inputs().nth(2));
   await shot(id, exp, id === 'CL-19'
@@ -443,7 +498,7 @@ await go('/register');
   for (const c of ['@', '$', '!', '%', '*', '?', '&']) {
     await go('/register');
     await inputs().nth(0).fill(SV_NAME); await inputs().nth(1).fill(`sv09_${out.length}_23120199@eshop.com`); await inputs().nth(2).fill(`Abcd123${c}`);
-    await submit().click(); await page.waitForTimeout(350);
+    await clickSubmit(); await page.waitForTimeout(350);
     out.push(`Abcd123${c}: ${page.url().endsWith('/register') && (await M('main').innerText()).includes('quá yếu') ? 'bị từ chối' : 'được chấp nhận'}`);
   }
   await hl(M('main').locator('text=quá yếu'), inputs().nth(2));
@@ -455,7 +510,7 @@ await go('/register');
 await go('/register');
 {
   await inputs().nth(0).fill(SV_NAME); await inputs().nth(1).fill('sv04_23120199@eshop.com'); await inputs().nth(2).fill('abc');
-  await submit().click();
+  await clickSubmit();
   const err = M('main').locator('text=quá yếu'); await err.first().waitFor();
   const e = await rect(err), b = await rect(submit()), h = await rect(M('main h2'));
   const inForm = await err.first().evaluate((x) => !!x.closest('form'));
@@ -467,7 +522,7 @@ await go('/register');
 await go('/register');
 {
   await inputs().nth(0).fill('   '); await inputs().nth(1).fill('sv11_23120199@eshop.com'); await inputs().nth(2).fill(PASSABLE_PW);
-  await submit().click(); await page.waitForURL('**/login');
+  await clickSubmit(); await page.waitForURL('**/login');
   const r = await fetch(`${API}/api/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'sv11_23120199@eshop.com', password: PASSABLE_PW }) });
   const j = await r.json();
   await page.evaluate((t) => localStorage.setItem('token', t), j.token);
@@ -489,7 +544,7 @@ await go('/register');
   await shot('CL-32', 'Đăng ký bằng email đã tồn tại bị từ chối kèm thông báo tiếng Việt.', [
     `Đang đăng ký lại bằng email đã có "${SEED.email}" (khung đỏ).`, '(kết quả ghi bên dưới)',
   ]);
-  await submit().click(); await page.waitForTimeout(800);
+  await clickSubmit(); await page.waitForTimeout(800);
   const row = await db('get', 'SELECT COUNT(*) AS c FROM users WHERE email = ?', [SEED.email]);
   meta[meta.length - 1].actual[1] = `Sau khi bấm: không có thông báo lỗi, chuyển sang ${page.url()}; bảng users có ${row.c} bản ghi cùng email ${SEED.email}.`;
   await resetDb();
@@ -508,7 +563,7 @@ await go('/forgot-password');
 await go('/forgot-password');
 {
   await inputs().first().fill('khongtontai@eshop.com');
-  const before = dialogs.length; await submit().click(); await page.waitForTimeout(700);
+  const before = dialogs.length; await clickSubmit(); await page.waitForTimeout(700);
   const d1 = dialogs.length > before ? lastDialog() : null;
   await hl(inputs().first(), submit());
   await shot('CL-35', 'Phản hồi lỗi/thành công hiển thị nội trang bằng tiếng Việt, không dùng window.alert().', [
@@ -582,10 +637,10 @@ await loginSeed();
   const phone = M('main form input').nth(2);
   await M('main form input').nth(1).fill(SV_NAME);
   await phone.fill('0912345678');
-  const before = dialogs.length; await submit().click(); await page.waitForTimeout(600);
+  const before = dialogs.length; await clickSubmit(); await page.waitForTimeout(600);
   const d = dialogs.length > before ? lastDialog() : null;
   const ph = await phone.getAttribute('placeholder');
-  await phone.fill('09123abcde'); const b2 = dialogs.length; await submit().click(); await page.waitForTimeout(600);
+  await phone.fill('09123abcde'); const b2 = dialogs.length; await clickSubmit(); await page.waitForTimeout(600);
   const d2 = dialogs.length > b2 ? lastDialog() : null;
   await phone.fill('0912345678');
   await hl(phone);
@@ -598,12 +653,41 @@ await loginSeed();
 {
   const out = [];
   for (const v of ['091234567', '091234567890', '9123456789']) {
-    await M('main form input').nth(2).fill(v); const b = dialogs.length; await submit().click(); await page.waitForTimeout(600);
+    await M('main form input').nth(2).fill(v); const b = dialogs.length; await clickSubmit(); await page.waitForTimeout(600);
     out.push(`"${v}" -> "${dialogs.length > b ? lastDialog() : '(không có thông báo)'}"`);
   }
   await hl(M('main form input').nth(2));
   await shot('SV-10', 'Từ chối 9 số, 12 số và số không bắt đầu bằng 0.', [`${out.join('; ')}.`, '"9123456789" (không có số 0 đầu) lại được lưu thành công.']);
   await resetDb();
+}
+if (P === 'P3') {
+  await loginSeed();
+  const phone = M('main form input').nth(2);
+  await M('main form input').nth(1).fill(SV_NAME);
+  const telAttr = await phone.evaluate((e) => ({ type: e.getAttribute('type'), inputmode: e.getAttribute('inputmode'), placeholder: e.getAttribute('placeholder') }));
+  await phone.evaluate((e) => e.scrollIntoView({ block: 'start' }));
+  await page.evaluate(() => window.scrollBy(0, -80));
+  await hl(phone);
+  await page.bringToFront().catch(() => {});
+  await page.waitForTimeout(300);
+  const geom = await phone.evaluate((e) => {
+    const r = e.getBoundingClientRect();
+    return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, dpr: window.devicePixelRatio || 3 };
+  });
+  // Chạm vật lý qua adb input tap vào ô Số điện thoại để bật bàn phím ảo thật của Android
+  const tapX = Math.round(geom.cx * geom.dpr);
+  const tapY = Math.round(265 + geom.cy * geom.dpr);
+  try { execFileSync(ADB, ['shell', 'input', 'tap', String(tapX), String(tapY)]); } catch {}
+  await page.waitForTimeout(1000);
+  await shot('SV-20', 'Ô Số điện thoại khai báo type="tel" hoặc inputmode="numeric" để bật bàn phím số trên di động.', [
+    `Thuộc tính DOM của ô Số điện thoại: type="${telAttr.type}", inputmode=${JSON.stringify(telAttr.inputmode)}, placeholder="${telAttr.placeholder}".`,
+    'Chạm vào ô trên điện thoại thật OPPO Reno10 5G: hệ điều hành bật bàn phím chữ cái QWERTY thông thường thay vì bàn phím số.',
+  ], {
+    nativeScreencap: true,
+    sourceNote: 'Ảnh chụp toàn màn hình Android thật (adb screencap) hiển thị trực tiếp bàn phím ảo QWERTY + khung đỏ ô Số điện thoại',
+  });
+  try { execFileSync(ADB, ['shell', 'input', 'keyevent', 'KEYCODE_BACK']); } catch {}
+  await page.waitForTimeout(400);
 }
 await loginSeed();
 {
@@ -615,7 +699,7 @@ await loginSeed();
 {
   await M('main form input').nth(1).fill(SV_NAME);
   await M('main form input').nth(2).fill('912345678');
-  const b = dialogs.length; await submit().click(); await page.waitForTimeout(700);
+  const b = dialogs.length; await clickSubmit(); await page.waitForTimeout(700);
   const d = dialogs.length > b ? lastDialog() : null;
   const greet = M('header, nav').locator('text=Chào').first();
   const g = (await greet.innerText()).trim();
@@ -630,7 +714,7 @@ await loginSeed();
 {
   await M('main form input').nth(1).fill('<b>Test</b><i>User</i>');
   await M('main form input').nth(2).fill('912345678');
-  await submit().click(); await page.waitForTimeout(700);
+  await clickSubmit(); await page.waitForTimeout(700);
   await page.reload({ waitUntil: 'networkidle' });
   const greet = M('header, nav').locator('text=Chào').first();
   const html = await greet.evaluate((e) => e.innerHTML);
@@ -645,18 +729,22 @@ await loginSeed();
 {
   await M('main form input').nth(1).fill('NguyenVanA'.repeat(10));
   await M('main form input').nth(2).fill('912345678');
-  await submit().click(); await page.waitForTimeout(700);
-  await page.setViewportSize({ width: 375, height: 812 });
+  await clickSubmit(); await page.waitForTimeout(700);
+  if (P !== 'P3') await page.setViewportSize({ width: 375, height: 812 });
   await page.reload({ waitUntil: 'networkidle' });
   const m = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
   const btn = M('header button, nav button').filter({ hasText: 'Thoát' });
   const bx = await btn.evaluate((e) => Math.round(e.getBoundingClientRect().left));
   await hl(M('header, nav').locator('text=Chào').first());
+  if (P === 'P3') await page.bringToFront().catch(() => {});
   await shot('SV-06', 'Lời chào dài vẫn nằm gọn trong khung nhìn, không tạo thanh cuộn ngang.', [
-    `Họ Tên 100 ký tự liền nhau, khung nhìn 375px: scrollWidth=${m.sw}px > clientWidth=${m.cw}px.`,
+    `Họ Tên 100 ký tự liền nhau, khung nhìn ${P === 'P3' ? `di động mặc định ${m.cw}px` : '375px'}: scrollWidth=${m.sw}px > clientWidth=${m.cw}px.`,
     `Nút "Thoát" bị đẩy tới x=${bx}px, nằm ngoài màn hình.`,
-  ]);
-  await page.setViewportSize({ width: 1440, height: 900 });
+  ], P === 'P3' ? {
+    nativeScreencap: true,
+    sourceNote: 'Ảnh chụp toàn màn hình Android thật (adb screencap) hiển thị trực tiếp thanh Header bị tràn ngang đẩy khuất nút "Thoát"',
+  } : {});
+  if (P !== 'P3') await page.setViewportSize({ width: 1440, height: 900 });
   await resetDb();
 }
 await guest();
@@ -678,7 +766,7 @@ await go('/login');
   for (const pw of ['SaiMatKhau1', 'SaiMatKhau2', SEED.password]) {
     await inputs().nth(0).fill(SEED.email); await inputs().nth(1).fill(pw);
     const resP = page.waitForResponse((r) => r.url().includes('/api/login'));
-    await submit().click();
+    await clickSubmit();
     const r = await resP;
     let body = ''; try { body = JSON.stringify(await r.json()); } catch {}
     const row = await db('get', 'SELECT login_attempts, locked_until FROM users WHERE email=?', [SEED.email]);
@@ -697,4 +785,5 @@ await resetDb();
 
 fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ platform: P, browser: BROWSER_LABEL, os: OS_LABEL, items: meta }, null, 2), 'utf-8');
 console.log(`DONE ${P}: ${meta.length} items`);
+if (P === 'P3') await page.close().catch(() => {});
 await browser.close();

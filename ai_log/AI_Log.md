@@ -466,3 +466,24 @@ AI Critique nhé
 **By hand:** Sinh viên đọc duyệt lại từng luận điểm phê bình AI dựa trên trải nghiệm điều phối thực tế cả 3 Task và kiểm tra kết quả chạy `word_count.py`.
 
 ---
+
+## Entry 22 — 2026-11-15 - Task 1 & Task 3: Cắm điện thoại thật OPPO Reno10 5G chụp mới riêng từng mục toàn bộ 42 ảnh Failed của P3
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-15 11:25 – 11:42 +07:00
+**Task / Step:** Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`)
+**Prompt:**
+Bây giờ, bạn sẽ thực hiện việc cắm điện thoại OPPO Reno10 5G để bạn chạy chụp luôn 42 ảnh P3 nhé. Tui đã cắm thiết bị vào rồi
+
+**AI output:**
+- Kiểm tra kết nối thiết bị thật qua `.local\platform-tools\adb.exe devices -l` (nhận diện `OPPO Reno10 5G` mã `CPH2531`, Android 15; trình duyệt Chrome Android đã tự cập nhật Play Store từ `156.0.8078.79` lên `157.0.8103.51`), thiết lập nối cổng `adb reverse tcp:5173 tcp:5173`, `adb reverse tcp:3000 tcp:3000` và `adb forward tcp:9333 localabstract:chrome_devtools_remote`.
+- Mở rộng `tests/capture_t1_evidence.mjs` hỗ trợ tham số `P3` kết nối trực tiếp qua `chromium.connectOverCDP('http://127.0.0.1:9333')`, tự động đưa SUT về trạng thái sạch và đo trực tiếp DOM/CSS/Network cho toàn bộ 42 mục `Failed` áp dụng trên `P3`.
+- Phát hiện 2 vướng mắc đặc thù trên Chrome Android thật và khắc phục ngay trong script: (1) khi ô input đang focus, khung nhìn di động dịch chuyển làm click tọa độ của Playwright vướng phần tử phía trên ở `CL-13` -> thêm hàm `clickSubmit()` thực hiện `blur()` trước khi bấm và trước khi chụp; (2) ở `SV-06` (tràn ngang `scrollWidth=1135px > clientWidth=360px`), ảnh `page.screenshot()` qua CDP bị chia ô 3x3 do tỷ lệ thu phóng khung nhìn -> chuyển `SV-06` (cùng với `SV-20` bàn phím ảo `QWERTY`) sang chụp nguyên màn hình vật lý Android `1080x2412` bằng `adb exec-out screencap -p`.
+- Ghép dải chú thích chuẩn bằng `tests/compose_t1_evidence.py P3`, kiểm định toàn bộ `130 / 130` tệp `.png` trong `screenshots/task1_failed/` đạt đúng `130` mã băm `MD5` duy nhất; xóa script tạm `tests/compose_t1_p3_from_raw.py` và đồng bộ `Main_Report.md`, `checklist/RUN.md`, `checklist/checklist.json`, `README.md`.
+
+**Kept:** Giữ nguyên toàn bộ 42 ảnh `P3_*.png` mới chụp trực tiếp từ điện thoại thật `OPPO Reno10 5G` (mỗi mục một ảnh riêng, bao gồm ảnh nguyên màn hình hiện rõ bàn phím chữ `QWERTY` ở `P3_SV-20.png` và thanh Header tràn ngang ở `P3_SV-06.png`) cùng kết quả đo xác nhận `42/42` mục vẫn `Failed`.
+**Changed:** Thay ảnh `SV-06` bị lỗi chia ô của `page.screenshot()` bằng ảnh chụp nguyên màn hình `adb screencap`; công khai minh bạch việc Chrome Android trên điện thoại đã tự cập nhật Play Store từ `156.0.8078.79` (ngày 11/11) lên `157.0.8103.51` (ngày 15/11) tại `Main_Report.md`, `checklist/RUN.md`, `checklist/checklist.json`.
+**Rejected:** Xóa bỏ hoàn toàn bộ 42 ảnh `P3` dựng tạm từ ảnh gốc ngày 14/11 và xóa script `tests/compose_t1_p3_from_raw.py` vì nay đã có đủ 42 ảnh chụp trực tiếp từng mục trên thiết bị thật.
+**By hand:** Sinh viên cắm cáp điện thoại `OPPO Reno10 5G`, bật gỡ lỗi USB, mở sẵn ứng dụng Chrome trên màn hình mở khóa suốt quá trình chạy để chụp được bàn phím ảo thật ở `SV-20`, và trực tiếp kiểm tra lại các ảnh đầu ra.
+
+---
