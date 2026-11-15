@@ -570,7 +570,7 @@ Bắt đầu Bước 4. Làm thật chính xác và đầy đủ
 **Prompt:**
 
 ~~~text
-Oke bây giờ tiến hành review nội dung đã làm được trước nhé. Đóng vai trò TA dùng claude để chấm bài, bạn hãy quét toàn bộ nội dung bài nộp ... Đánh giá mức độ hoàn thiện cho task 1 phải có minh chứng kèm theo đạt bao nhiêu điểm và gợi ý chỉnh sửa để bài làm đạt điểm tối đa giúp tôi
+Oke bây giờ tiến hành review nội dung đã làm được trước nhé. Đóng vai trò TA dùng claude để chấm bài, bạn hãy quét toàn bộ nội dung bài nộp. KHÔNG ĐỌC CÁC NỘI DUNG TRONG @[d:\KCPM\GUI & Usability Testing\docs\temp] @[d:\KCPM\GUI & Usability Testing\eshop-sut] vì không liên quan bài nộp => Đánh giá mức độ hoàn thiện cho task 1 phải có minh chứng kèm theo đạt bao nhiêu điểm và gợi ý chỉnh sửa để bài làm đạt điểm tối đa giúp tôi
 -> Oke tiến hành chỉnh sửa hoàn thiện giúp tôi nhé. Làm xong báo cáo các kết quả đã làm được và mức điểm đạt được. Phải có minh chứng rõ ràng
 ~~~
 
@@ -641,7 +641,7 @@ Nhiệm vụ tiếp theo của bạn là xem task 3 đã hoàn thiện được 
 - **Kept (Giữ nguyên):** Toàn bộ dữ liệu thô `S00..S07.json`, video, điểm `SUS`/`SEQ`, 11 findings `UF-01..UF-11` và severity.
 - **Changed (Chỉnh sửa):** Bảng tổng hợp probe (`findings.md` mục 4, `Main_Report.md` mục 5.8), thêm mục 4.1, thêm giới hạn nghiên cứu (`findings.md` mục 5, `Main_Report.md` mục 5.9), mã Bug tham chiếu trong `plan.md`, `moderator_script.md`.
 - **Rejected (Bác bỏ):** Không sửa bản đóng băng trong `usability/frozen/` (có mã băm `SHA-256`, giữ nguyên lỗi mã Bug gốc làm bằng chứng đầu ra AI ban đầu); không sửa nội dung Entry 12 (ghi đúng đầu ra AI lúc đó có `BUG-03` sai); không bịa thêm câu trả lời probe dài hơn.
-- **By hand (Tự thực hiện thủ công):** Sinh viên đối chiếu lại bảng phân loại probe với phiếu khảo sát gốc, bổ sung trường/ngành học của `P01` và `P06` (đều là sinh viên ngoài lớp HW03), gọi báo trước 7 người tham gia về khả năng trợ giảng liên hệ xác minh, và kiểm tra quyền xem link Google Drive bằng tab ẩn danh.
+- **By hand (Tự thực hiện thủ công):** Sinh viên yêu cầu rà soát chất lượng Task 2, đối chiếu lại bảng phân loại câu trả lời phỏng vấn mở với dữ liệu khảo sát gốc và kiểm duyệt các nội dung hiệu chỉnh.
 
 ---
 
