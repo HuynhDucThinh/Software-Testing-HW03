@@ -23,18 +23,18 @@
 | **Luồng đánh giá Usability (Task 2)** | `F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`) |
 | **Công cụ AI đã sử dụng** | `Antigravity` (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |
 | **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |
-| **Tổng số lượt tương tác đã ghi nhận** | **`22` lượt tương tác (`Entry 01` .. `Entry 22`)** theo trình tự thời gian thực hiện |
+| **Tổng số lượt tương tác đã ghi nhận** | **`23` lượt tương tác (`Entry 01` .. `Entry 23`)** theo trình tự thời gian thực hiện |
 | **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md) |
 
 ---
 
 ## 2. AI Critique (200–300 từ)
 
-Trong quá trình thực hiện bài tập cùng AI, tôi phát hiện nhiều sai sót, thiên lệch và thiếu sót thực tế từ mô hình. Ở Task 1, bản nháp 39 mục đầu tiên của AI thiên về luồng hợp lệ trên máy tính nên bỏ sót 20 kịch bản biên và khả năng tiếp cận mà tôi phải tự bổ sung, như nhảy thứ tự phím Tab (`BUG-15`), lỗ hổng XSS trên thanh tiêu đề (`BUG-03`), tràn ngang khi tên dài (`BUG-18`) và bật bàn phím chữ ở ô Số điện thoại Android (`BUG-24`); khi soạn báo cáo, AI còn ghi nhầm màu nút `Thoát` ở `BUG-19`, sai mật khẩu mẫu và dùng trùng ảnh minh chứng. Ở Task 2, khi tổng hợp phỏng vấn mở, AI tự suy diễn câu trả lời một chữ "Có" thành "mất thời gian hơn kỳ vọng" và gán thêm nguyên nhân người dùng không nói. AI không tự nhận ra các lỗi này vì mô hình ngôn ngữ chỉ dự đoán chuỗi từ theo xác suất trên mã tĩnh chứ không trực tiếp quan sát giao diện thật, không lường được hành vi điều hướng SPA không nhấn F5 của người thật làm lộ `BUG-28`, đồng thời hay hợp thức hóa dữ liệu ngắn thành nhận định chủ quan. Bài học cốt lõi tôi rút ra là chỉ dùng AI để tăng tốc khởi tạo và đo kiểm lặp lại, còn con người phải đóng băng đầu ra, đối chiếu thực nghiệm đa nền tảng và giữ quyền kết luận cuối cùng dựa trên bằng chứng gốc.
+Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai sót, thiên lệch và thiếu sót thực tế từ mô hình. Ở Task 1, bản nháp 39 mục đầu tiên của AI thiên về luồng hợp lệ trên máy tính nên bỏ sót 20 kịch bản biên và khả năng tiếp cận mà em phải tự bổ sung, như nhảy thứ tự phím Tab (`BUG-15`), lỗ hổng XSS trên thanh tiêu đề (`BUG-03`), tràn ngang khi tên dài (`BUG-18`) và bật bàn phím chữ ở ô Số điện thoại Android (`BUG-24`); khi soạn báo cáo, AI còn ghi nhầm màu nút `Thoát` ở `BUG-19`, sai mật khẩu mẫu và dùng trùng ảnh minh chứng. Ở Task 2, khi tổng hợp phỏng vấn mở, AI tự suy diễn câu trả lời một chữ "Có" thành "mất thời gian hơn kỳ vọng" và gán thêm nguyên nhân người dùng không nói. AI không tự nhận ra các lỗi này vì mô hình ngôn ngữ chỉ dự đoán chuỗi từ theo xác suất trên mã tĩnh chứ không trực tiếp quan sát giao diện thật, không lường được hành vi điều hướng SPA không nhấn F5 của người thật làm lộ `BUG-28`, đồng thời hay hợp thức hóa dữ liệu ngắn thành nhận định chủ quan. Bài học cốt lõi em rút ra là chỉ dùng AI để tăng tốc khởi tạo và đo kiểm lặp lại, còn con người phải đóng băng đầu ra, đối chiếu thực nghiệm đa nền tảng và giữ quyền kết luận cuối cùng dựa trên bằng chứng gốc.
 
 ---
 
-## 3. Bảng Danh Mục Tổng Hợp 22 Lượt Tương Tác AI (Interaction Summary)
+## 3. Bảng Danh Mục Tổng Hợp 23 Lượt Tương Tác AI (Interaction Summary)
 
 | STT | Công cụ AI | Ngày giờ thực hiện | Hạng mục / Bước công việc (`Task / Step`) |
 | :---: | :---: | :--- | :--- |
@@ -60,10 +60,11 @@ Trong quá trình thực hiện bài tập cùng AI, tôi phát hiện nhiều s
 | `Entry 20` | `Antigravity` | `2026-11-15 00:11 – 00:20 +07:00` | Task 2 (Đánh giá và chỉnh sửa sau rà soát — Phase 3 Analyse & report) |
 | `Entry 21` | `Antigravity` | `2026-11-15 00:21 – 00:26 +07:00` | Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report) |
 | `Entry 22` | `Antigravity` | `2026-11-15 11:25 – 11:42 +07:00` | Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`) |
+| `Entry 23` | `Antigravity` | `2026-11-15 11:51 – 12:08 +07:00` | Mục 9 & Mục 10 đề bài (Chuẩn hóa tiêu đề 3 báo cáo chính, rà soát quy định nhật ký AI và đồng bộ bản `critique.md` do sinh viên biên tập) |
 
 ---
 
-## 4. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 22`)
+## 4. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 23`)
 
 ### Entry 01 — 2026-11-11 - Task 1 Bước 0: Khảo sát control và cơ sở đặc tả phạm vi M1
 
@@ -427,7 +428,10 @@ Sau khi sinh viên kiểm duyệt và xác nhận giữ nguyên Kế hoạch 9 p
 **Prompt:**
 
 ~~~text
-Sinh viên trực tiếp thực hiện phiên chạy thử Pilot `S00` với người tham gia `P00` ngoài nhóm 7 người chính thức, gửi tệp `S00.json`, `S00.mp4` cùng thông tin `P00` để rà soát và tinh chỉnh công cụ trước khi bước vào 7 phiên chính thức.
+- `OK, sang Bước 2`
+- `@[d:\KCPM\GUI & Usability Testing\docs\Screen Recording 2026-11-12 141640.mp4] xem thử video này hợp lý chưa? rồi cần làm gì nữa mới xong`
+- `@[d:\KCPM\GUI & Usability Testing\usability\sessions\S00.json] Đây nhé. Bạn có thể bổ sung thêm để nội dung đầy đủ hơn video nhé.`
+- `@[d:\KCPM\GUI & Usability Testing\usability\participants.md] Update rồi nhé.`
 ~~~
 
 **AI output:**
@@ -456,7 +460,15 @@ Sinh viên trực tiếp thực hiện phiên chạy thử Pilot `S00` với ng�
 **Prompt:**
 
 ~~~text
-Sinh viên lần lượt điều phối trực tiếp 7 người tham gia thật ngoài lớp học (`P01..P07`), gửi từng cặp video quay màn hình `S01.mp4`..`S07.mp4` và tệp biên bản thô `S01.json`..`S07.json` để rà soát mốc thời gian/mã lỗi khớp thực tế trên video, yêu cầu dùng skill `gdrive` tải 8 video lên Google Drive (bật quyền xem qua đường dẫn) và điền danh sách 7 người tham gia đã che SĐT vào `usability/participants.md`.
+- `@[d:\KCPM\GUI & Usability Testing\usability\sessions\S01.json] @[d:\KCPM\GUI & Usability Testing\usability\recordings\Recording 2026-11-12 230512.mp4] Trong lúc xem video và chỉnh sửa, bổ sung nội dung S01 cho đúng hơn. Người dùng còn ngại ngùng và khó khăn trong cách thực hiện trang web này`
+- `@[d:\KCPM\GUI & Usability Testing\usability\sessions\S02.json] @[d:\KCPM\GUI & Usability Testing\usability\recordings\S02.mp4] tiếp tục nhận xét, chỉnh sửa câu chữ phần này tốt hơn đi nhé. Người xem đã hoàn thiện rồi nhưng có vài thông tin chưa khớp video`
+- `@[d:\KCPM\GUI & Usability Testing\usability\recordings\S03.mp4] đọc video rồi cập nhật S03 chi tiết, đầy đủ hơn nhé.`
+- `@[d:\KCPM\GUI & Usability Testing\usability\recordings\S04.mp4] Chỉnh lại, bổ sung lời nói cho chi tiết đầy đủ nhé`
+- `@[d:\KCPM\GUI & Usability Testing\usability\recordings\S05.mp4]`
+- `@[d:\KCPM\GUI & Usability Testing\usability\recordings\S06.mp4] Tiếp tục chỉnh sửa, bổ sung S06 cho hoàn thiện và dễ đọc hiểu nhé`
+- `@[d:\KCPM\GUI & Usability Testing\usability\recordings\S07.mp4] Tiếp tục hoàn thành cho file này, sau đó, đánh giá nhận xét rồi hướng dẫn các công việc kế tiếp`
+- `dùng skills google drive upload lên google drive giúp tôi trước đi nhé` -> `Có` (xác nhận bật `Anyone with the link — Viewer`)
+- Cung cấp thông tin 7 người tham gia `P01..P07` (đã che 4 chữ số giữa `084****047` .. `035****706`): `Oke thêm giúp tôi nhé`
 ~~~
 
 **AI output:**
@@ -697,5 +709,35 @@ Bây giờ, bạn sẽ thực hiện việc cắm điện thoại OPPO Reno10 5G
 - **Changed (Chỉnh sửa):** Thay ảnh `SV-06` bị lỗi chia ô của `page.screenshot()` bằng ảnh chụp nguyên màn hình `adb screencap`; công khai minh bạch việc Chrome Android trên điện thoại đã tự cập nhật Play Store từ `156.0.8078.79` (ngày 11/11) lên `157.0.8103.51` (ngày 15/11) tại `Main_Report.md`, `checklist/RUN.md`, `checklist/checklist.json`.
 - **Rejected (Bác bỏ):** Xóa bỏ hoàn toàn bộ 42 ảnh `P3` dựng tạm từ ảnh gốc ngày 14/11 và xóa script `tests/compose_t1_p3_from_raw.py` vì nay đã có đủ 42 ảnh chụp trực tiếp từng mục trên thiết bị thật.
 - **By hand (Tự thực hiện thủ công):** Sinh viên cắm cáp điện thoại `OPPO Reno10 5G`, bật gỡ lỗi USB, mở sẵn ứng dụng Chrome trên màn hình mở khóa suốt quá trình chạy để chụp được bàn phím ảo thật ở `SV-20`, và trực tiếp kiểm tra lại các ảnh đầu ra.
+
+---
+
+### Entry 23 — 2026-11-15 - Chuẩn hóa trình bày báo cáo, rà soát quy định Mục 9–10 và cập nhật bản Phê bình AI sau khi sinh viên biên tập
+
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-15 11:51 – 12:08 +07:00`
+- **Task / Step:** Mục 9 & Mục 10 đề bài (Chuẩn hóa tiêu đề 3 báo cáo chính, rà soát quy định nhật ký AI và đồng bộ bản `critique.md` do sinh viên biên tập)
+
+**Prompt:**
+
+~~~text
+- `@[d:\KCPM\GUI & Usability Testing\AI_Critique_and_Audit_Report.md] Chỉnh lại file tiêu đề này đẹp hơn đi,@[d:\KCPM\GUI & Usability Testing\Main_Report.md] @[d:\KCPM\GUI & Usability Testing\Bug_Report.md]`
+- `@[d:\KCPM\GUI & Usability Testing\AI_Critique_and_Audit_Report.md:L1-L7] Chỉnh lại mỗi trường là 1 dòng nhé.`
+- `@[d:\KCPM\GUI & Usability Testing\AI_Critique_and_Audit_Report.md] @[d:\KCPM\GUI & Usability Testing\ai_log\AI_Log.md] @[d:\KCPM\GUI & Usability Testing\ai_log\critique.md] Đọc các nội dung này và check xem có nội dung nào vi phạm đề bài @[d:\KCPM\GUI & Usability Testing\docs\2026.HW03.GUI Usability_En.md] không? Trình bày rõ các nội dung vi phạm đề bài nhé`
+- `Tui đã chỉnh sửa @[d:\KCPM\GUI & Usability Testing\ai_log\critique.md] rồi hãy update thêm prompt cho đúng quy định nhé.`
+~~~
+
+**AI output:**
+
+~~~text
+- Nâng cấp script `.agents/skills/gui-checklist-testing/scripts/ai_audit_export.py` và chuẩn hóa phần đầu trang của cả 3 báo cáo (`Main_Report.md`, `Bug_Report.md`, `AI_Critique_and_Audit_Report.md`) theo bố cục thống nhất, tách mỗi trường định danh thành 1 dòng riêng.
+- Rà soát toàn bộ `AI_Log.md` và `critique.md` theo Mục 2, Mục 9, Mục 10, Mục 11 của đề bài: khôi phục đầy đủ câu lệnh `Prompt` nguyên văn từ lịch sử chat cho `Entry 13`, `Entry 14` và `Entry 18` (thay cho câu tóm tắt ngôi thứ ba và dấu lược bỏ `...`, đồng thời che 4 chữ số giữa của SĐT người tham gia); xóa cụm ghi nhầm chưa thực hiện ở `Entry 20` để khớp 100% với `usability/participants.md`.
+- Đồng bộ phiên bản `ai_log/critique.md` đã được sinh viên trực tiếp biên tập sang Mục 10 của `Main_Report.md` và kết xuất lại `AI_Critique_and_Audit_Report.md` (`word_count.py --section "AI Critique"` đạt `271` từ -> `ĐẠT`).
+~~~
+
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ lịch sử tương tác AI thực tế từ `Entry 01` đến `Entry 22` theo đúng quy tắc minh bạch của Mục 2 & Mục 9 đề bài.
+- **Changed (Chỉnh sửa):** Thay thế đoạn tóm tắt ngôi thứ ba ở trường `Prompt` của `Entry 13`, `Entry 14`, bỏ cắt lược `...` ở `Entry 18`, sửa dòng `By hand` của `Entry 20` và cập nhật nội dung `critique.md` do sinh viên biên tập vào `Main_Report.md` cùng `AI_Critique_and_Audit_Report.md`.
+- **Rejected (Bác bỏ):** Từ chối xóa bớt các `Entry` tương tác AI thật khỏi `AI_Log.md`, đảm bảo tính trung thực tuyệt đối của Báo cáo kiểm toán AI (`AI Policy: Open`).
+- **By hand (Tự thực hiện thủ công):** Sinh viên trực tiếp mở `ai_log/critique.md` rà soát, chỉnh sửa lại câu chữ phản biện cá nhân và duyệt đối chiếu toàn bộ nhật ký `AI_Log.md`.
 
 ---
