@@ -1,6 +1,6 @@
-# RUN - chạy checklist M1
+# RUN - chạy checklist <Scope>
 
-Bước 3 của skill `gui-checklist-testing`. AI điền khung, SV sửa cho khớp cách chạy thật **trước** khi chạy. Sửa sau đó thì freeze lại, Expected không đổi.
+Bước 3 của skill `gui-checklist-testing`. AI điền khung theo chế độ thực thi (`manual` hoặc `mixed`), SV rà soát và chốt cho khớp cách chạy thật **trước** khi chạy. Sửa sau đó thì freeze lại, Expected không đổi.
 
 ## 1. Chuẩn bị (mỗi nền tảng)
 
@@ -14,7 +14,7 @@ Bước 3 của skill `gui-checklist-testing`. AI điền khung, SV sửa cho kh
 
 ## 2. Thông tin nhận diện (mục 6 và 11 của đề)
 
-- Overlay trên mọi ảnh: **email sinh viên** của bạn. Bạn tự làm overlay; AI không tạo hay ghép.
+- Overlay trên mọi ảnh: **email sinh viên** của bạn (đóng dấu thủ công hoặc bằng script chèn lớp phủ đồng bộ trên ảnh chụp thật; tuyệt đối không vẽ giả giao diện, thanh địa chỉ hay hộp thoại `window.alert()`).
 - Ảnh cross-platform: nhập **MSSV và họ tên** vào form `Register` hoặc `Profile` trước khi chụp (không bấm gửi nếu không cần).
 - Ảnh phải thấy: tên trình duyệt/thiết bị, hệ điều hành, URL `localhost`.
 
@@ -36,9 +36,10 @@ Bước 3 của skill `gui-checklist-testing`. AI điền khung, SV sửa cho kh
 | G4 | Đã đăng nhập, `/profile` | CL-xx, ... | |
 | G5 | Đã đăng nhập, Header | CL-xx, ... | |
 
-## 5. Dữ kiện từ `dom_probe.js`
+## 5. Dữ kiện từ `dom_probe.js` hoặc chế độ `mixed`
 
-Dán `dom_probe.js` vào DevTools Console từng trang, chép JSON vào ghi chú lượt chạy. Script chỉ cung cấp dữ kiện (số `h1`, `type`, nhãn có `*`, thứ tự Tab, vị trí lỗi so với nút gửi). SV tự kết luận Passed/Failed.
+- Chế độ `manual`: dán `dom_probe.js` vào DevTools Console từng trang, chép JSON vào ghi chú lượt chạy. Script chỉ cung cấp dữ kiện (số `h1`, `type`, nhãn có `*`, thứ tự Tab, vị trí lỗi so với nút gửi).
+- Chế độ `mixed`: kết hợp Playwright/CDP trên trình duyệt/thiết bị vật lý thật để đo khách quan DOM/CSS/Network vào `auto_status`, sau đó SV trực tiếp quan sát các mục phụ thuộc phần cứng/thị giác và kiểm duyệt đối chiếu toàn bộ số đo cùng ảnh minh chứng trước khi chốt `ket_qua` chính thức.
 
 ## 6. Ghi kết quả
 

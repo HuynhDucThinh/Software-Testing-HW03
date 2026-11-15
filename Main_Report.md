@@ -1042,7 +1042,7 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 
 | Tên Agent Skill | Thư mục lưu trữ | Thành phần kỹ thuật | Phạm vi áp dụng trong HW03 | Video Demo (YouTube) |
 | :--- | :--- | :--- | :--- | :--- |
-| **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 4 tài liệu `references/`, 4 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | *Cập nhật ở Bước 7* |
+| **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 5 tài liệu `references/`, 5 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | *Cập nhật ở Bước 7* |
 | **`usability-evaluation`** | [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/) | `SKILL.md`, 3 tài liệu `references/`, 6 mẫu `assets/`, **5 script Python** kiểm định chống gian lận & tính toán `SUS` tự động | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | *Cập nhật ở Bước 7* |
 
 **Cơ chế vận hành kỷ luật của Agent Skill `gui-checklist-testing`:**
@@ -1075,7 +1075,7 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 
 ## 9. Tóm Tắt AI Audit Report
 
-Toàn bộ nhật ký tương tác với công cụ AI (`Antigravity` kết hợp các mô hình `Gemini` và `Claude`) theo từng bước — gồm tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ (`Kept`) / sửa (`Changed`) / bác bỏ (`Rejected`) / tự làm thủ công (`By hand`) của sinh viên — được lưu nối tiếp theo trình tự thời gian trong [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01` .. `Entry 23`) và đã được kết xuất thành tài liệu bắt buộc [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (kèm bản `.pdf` khi đóng gói nộp bài) bằng script `ai_audit_export.py`.
+Toàn bộ nhật ký tương tác với công cụ AI (`Antigravity` kết hợp các mô hình `Gemini` và `Claude`) theo từng bước — gồm tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ (`Kept`) / sửa (`Changed`) / bác bỏ (`Rejected`) / tự làm thủ công (`By hand`) của sinh viên — được lưu nối tiếp theo trình tự thời gian trong [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01` .. `Entry 24`) và đã được kết xuất thành tài liệu bắt buộc [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (kèm bản `.pdf` khi đóng gói nộp bài) bằng script `ai_audit_export.py`.
 
 ---
 
@@ -1111,7 +1111,7 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 
 ## 13. Phụ Lục và Cấu Trúc Hồ Sơ Nộp Bài
 
-- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 23`) và [`ai_log/critique.md`](ai_log/critique.md).
+- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 24`) và [`ai_log/critique.md`](ai_log/critique.md).
 - **Phụ lục B — Các bản đóng băng đầu ra AI theo từng bước:** [`checklist/ai-outputs/`](checklist/ai-outputs/) (`INDEX.md` + snapshot JSON Task 1) và [`usability/frozen/`](usability/frozen/) (`INDEX.md` + snapshot `SHA-256` Bước 0 & Bước 1 của Task 2).
 - **Phụ lục C — Sổ làm việc Excel & Dữ liệu thực thi gốc Task 1 & Task 3:** [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`checklist/checklist.json`](checklist/checklist.json), [`checklist/runs/`](checklist/runs/).
 - **Phụ lục D — Hồ sơ chi tiết 28 Bugs & Bằng chứng GitHub Issues:** [`Bug_Report.md`](Bug_Report.md), [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-28.md`](bugs/BUG-28.md), [`screenshots/github_issues/`](screenshots/github_issues/), [`screenshots/usability/`](screenshots/usability/).

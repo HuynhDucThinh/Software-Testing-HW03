@@ -1,6 +1,6 @@
 # Mẫu bug report (Markdown và GitHub Issue)
 
-SV tự viết nội dung. AI chỉ điền phần dữ kiện (item, nền tảng, môi trường, Expected, Actual, ảnh) từ `scripts/bug_skeleton.py`. Dùng **cùng nội dung** cho `Bug_Report.md` và GitHub Issue. Đăng issue bằng `gh issue create --body-file BUG-<n>.md` hoặc dán trên web; **đính ảnh vào issue**.
+Dưới chính sách `AI Policy: Open`, `scripts/bug_skeleton.py` gom nhóm và trích xuất khung dữ kiện (`item`, `nền tảng`, `môi trường`, `Expected`, `Actual`, `ảnh`); AI có thể hỗ trợ soạn nháp mô tả từ dữ kiện thực tế nhưng **SV bắt buộc kiểm duyệt, hiệu đính toàn bộ nội dung kỹ thuật và mức `Severity`** trước khi chốt (`Human review`). Dùng **cùng nội dung** cho `Bug_Report.md` và GitHub Issue. Đăng issue bằng `gh issue create --body-file BUG-<n>.md` hoặc dán trên web; **đính ảnh vào issue**.
 
 ```markdown
 # [IA-0x] <Tiêu đề ngắn mô tả hiện tượng>

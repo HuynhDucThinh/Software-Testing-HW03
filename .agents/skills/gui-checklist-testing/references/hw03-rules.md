@@ -35,7 +35,7 @@ Nguồn: `docs/2026.HW03.GUI Usability_En.md`. Dùng để AI tự đối chiế
 
 - 200 đến 300 từ. Trả lời: AI sai, thiên lệch hoặc thiếu ở đâu; vì sao không phát hiện; nguyên tắc cộng tác rút ra. Kiểm bằng `scripts/word_count.py`.
 
-## Không được AI làm hoặc bịa (mục 11)
+## Không được dùng AI bịa đặt hoặc làm giả (mục 11)
 
-- Danh sách 7 người tham gia usability; ảnh cross-platform có MSSV, họ tên, email. AI không tạo, ghép hay chỉnh các thông tin này.
+- Danh sách 7 người tham gia thật ngoài lớp học (che 4 chữ số giữa của SĐT/Zalo) và bộ ảnh chụp đa nền tảng thực tế có điền MSSV + họ tên trên biểu mẫu kèm lớp phủ email sinh viên: tuyệt đối không được dùng AI bịa đặt dữ liệu giả hoặc dựng ảnh giả lập giao diện.
 

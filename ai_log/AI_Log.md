@@ -521,3 +521,22 @@ Bây giờ, bạn sẽ thực hiện việc cắm điện thoại OPPO Reno10 5G
 **By hand:** Sinh viên trực tiếp mở `ai_log/critique.md` rà soát, chỉnh sửa lại câu chữ phản biện cá nhân và duyệt đối chiếu toàn bộ nhật ký `AI_Log.md`.
 
 ---
+
+## Entry 24 — 2026-11-15 - Task 4: Chuẩn hóa SKILL.md của gui-checklist-testing khớp quy trình thực thi mixed và khả năng tái sử dụng đa màn hình
+
+**Tool:** Antigravity
+**Date and time:** 2026-11-15 12:10 – 12:14 +07:00
+**Task / Step:** Task 4 — Agent Skills (Đồng bộ quy tắc của `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md` và `assets/`)
+**Prompt:**
+Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task 4, mình cập nhật lại Quy tắc 9, 11, 12 trong SKILL.md theo đúng quy trình mixed thực tế (AI hỗ trợ đo DOM, chụp minh chứng, dựng khung; sinh viên trực tiếp kiểm chứng và phê duyệt) để Skill không tự mâu thuẫn với AI_Log.md. => Lỗi này là do đâu? Nếu lỗi của skills thì chỉnh skills lại cho chuẩn
+
+**AI output:**
+- Xác định nguyên nhân: bản nháp đầu tiên của `.agents/skills/gui-checklist-testing/SKILL.md` (cùng 2 mẫu `assets/RUN_template.md`, `assets/bug_template.md`) viết từ sáng 11/11 (trước Bước 0) đã tự đặt thêm 3 ràng buộc giả định quá cứng (chỉ chạy thủ công 100%, cấm script chèn lớp phủ email, cấm AI hỗ trợ soạn nháp mô tả Bug) mà bản thân đề bài `2026.HW03.GUI Usability_En.md` không cấm dưới `AI Policy: Open`, đồng thời mô tả phạm vi bị đóng cứng vào riêng `M1` thay vì tham số hóa tái sử dụng cho mọi màn hình theo Mục 7 đề bài.
+- Cập nhật `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md`, `assets/RUN_template.md` và `assets/bug_template.md`: tham số hóa cho mọi nhóm màn hình (`<Scope>`, giữ `M1` làm mẫu tham chiếu thực tế), chuẩn hóa Quy tắc 9, 11, 12 và Bước 3..7 khớp chính xác quy trình cộng tác `mixed` thực tế (kết hợp đo khách quan trên trình duyệt/thiết bị thật với kiểm duyệt bắt buộc `Human review` của sinh viên, ảnh chụp thật có mã băm `MD5` duy nhất không vẽ giả UI); cập nhật số lượng tệp thành phần (`5 references/, 5 assets/, 9 scripts/`) tại Mục 7 `Main_Report.md`.
+
+**Kept:** Giữ nguyên toàn bộ 9 script Python, các mẫu còn lại và các cổng kiểm định cứng của skill (`check_checklist.py`, `freeze.py`, Quy tắc 1..8, 10, 13, 14).
+**Changed:** Chuẩn hóa phần mô tả tái sử dụng đa màn hình, Quy tắc 9, 11, 12, Bước 3..7 trong `.agents/skills/gui-checklist-testing/SKILL.md`, mục cuối của `references/hw03-rules.md` cùng 2 mẫu `assets/RUN_template.md`, `assets/bug_template.md` đồng bộ tuyệt đối với đề bài và `AI_Log.md`.
+**Rejected:** Loại bỏ 3 câu cấm tự đặt không có trong đề bài ở bản `SKILL.md` nháp ban đầu để không gây mâu thuẫn nội bộ với quy trình `mixed` đã thực thi.
+**By hand:** Sinh viên chất vấn nguyên nhân mâu thuẫn và phê duyệt chuẩn hóa lại tài liệu đặc tả của Agent Skill trước khi quay Video Demo Task 4.
+
+---

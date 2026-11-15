@@ -23,7 +23,7 @@
 | **Luồng đánh giá Usability (Task 2)** | `F1` — Đăng ký -> Đăng nhập -> Cập nhật hồ sơ (`FR-01` -> `FR-02` -> `FR-04`) |
 | **Công cụ AI đã sử dụng** | `Antigravity` (kết hợp các mô hình ngôn ngữ `Gemini` & `Claude`) |
 | **Chính sách AI & Cấp độ Bloom-AI** | `Open` (bắt buộc khai báo & đính kèm AI Audit Report) · `G9.3` & `G9.4` |
-| **Tổng số lượt tương tác đã ghi nhận** | **`23` lượt tương tác (`Entry 01` .. `Entry 23`)** theo trình tự thời gian thực hiện |
+| **Tổng số lượt tương tác đã ghi nhận** | **`24` lượt tương tác (`Entry 01` .. `Entry 24`)** theo trình tự thời gian thực hiện |
 | **Nguồn nhật ký gốc đối chiếu** | [`ai_log/AI_Log.md`](ai_log/AI_Log.md) & [`ai_log/critique.md`](ai_log/critique.md) |
 
 ---
@@ -34,7 +34,7 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 
 ---
 
-## 3. Bảng Danh Mục Tổng Hợp 23 Lượt Tương Tác AI (Interaction Summary)
+## 3. Bảng Danh Mục Tổng Hợp 24 Lượt Tương Tác AI (Interaction Summary)
 
 | STT | Công cụ AI | Ngày giờ thực hiện | Hạng mục / Bước công việc (`Task / Step`) |
 | :---: | :---: | :--- | :--- |
@@ -61,10 +61,11 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 | `Entry 21` | `Antigravity` | `2026-11-15 00:21 – 00:26 +07:00` | Mục 9 & Mục 10 đề bài (Task 1 Bước 7 — AI Critique & AI Audit Report) |
 | `Entry 22` | `Antigravity` | `2026-11-15 11:25 – 11:42 +07:00` | Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`) |
 | `Entry 23` | `Antigravity` | `2026-11-15 11:51 – 12:08 +07:00` | Mục 9 & Mục 10 đề bài (Chuẩn hóa tiêu đề 3 báo cáo chính, rà soát quy định nhật ký AI và đồng bộ bản `critique.md` do sinh viên biên tập) |
+| `Entry 24` | `Antigravity` | `2026-11-15 12:10 – 12:14 +07:00` | Task 4 — Agent Skills (Đồng bộ quy tắc của `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md` và `assets/`) |
 
 ---
 
-## 4. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 23`)
+## 4. Nhật Ký Kiểm Toán Chi Tiết Từng Lượt Tương Tác (`Entry 01` .. `Entry 24`)
 
 ### Entry 01 — 2026-11-11 - Task 1 Bước 0: Khảo sát control và cơ sở đặc tả phạm vi M1
 
@@ -739,5 +740,31 @@ Bây giờ, bạn sẽ thực hiện việc cắm điện thoại OPPO Reno10 5G
 - **Changed (Chỉnh sửa):** Thay thế đoạn tóm tắt ngôi thứ ba ở trường `Prompt` của `Entry 13`, `Entry 14`, bỏ cắt lược `...` ở `Entry 18`, sửa dòng `By hand` của `Entry 20` và cập nhật nội dung `critique.md` do sinh viên biên tập vào `Main_Report.md` cùng `AI_Critique_and_Audit_Report.md`.
 - **Rejected (Bác bỏ):** Từ chối xóa bớt các `Entry` tương tác AI thật khỏi `AI_Log.md`, đảm bảo tính trung thực tuyệt đối của Báo cáo kiểm toán AI (`AI Policy: Open`).
 - **By hand (Tự thực hiện thủ công):** Sinh viên trực tiếp mở `ai_log/critique.md` rà soát, chỉnh sửa lại câu chữ phản biện cá nhân và duyệt đối chiếu toàn bộ nhật ký `AI_Log.md`.
+
+---
+
+### Entry 24 — 2026-11-15 - Task 4: Chuẩn hóa SKILL.md của gui-checklist-testing khớp quy trình thực thi mixed và khả năng tái sử dụng đa màn hình
+
+- **Tool:** `Antigravity`
+- **Date and time:** `2026-11-15 12:10 – 12:14 +07:00`
+- **Task / Step:** Task 4 — Agent Skills (Đồng bộ quy tắc của `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md` và `assets/`)
+
+**Prompt:**
+
+~~~text
+Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task 4, mình cập nhật lại Quy tắc 9, 11, 12 trong SKILL.md theo đúng quy trình mixed thực tế (AI hỗ trợ đo DOM, chụp minh chứng, dựng khung; sinh viên trực tiếp kiểm chứng và phê duyệt) để Skill không tự mâu thuẫn với AI_Log.md. => Lỗi này là do đâu? Nếu lỗi của skills thì chỉnh skills lại cho chuẩn
+~~~
+
+**AI output:**
+
+~~~text
+- Xác định nguyên nhân: bản nháp đầu tiên của `.agents/skills/gui-checklist-testing/SKILL.md` (cùng 2 mẫu `assets/RUN_template.md`, `assets/bug_template.md`) viết từ sáng 11/11 (trước Bước 0) đã tự đặt thêm 3 ràng buộc giả định quá cứng (chỉ chạy thủ công 100%, cấm script chèn lớp phủ email, cấm AI hỗ trợ soạn nháp mô tả Bug) mà bản thân đề bài `2026.HW03.GUI Usability_En.md` không cấm dưới `AI Policy: Open`, đồng thời mô tả phạm vi bị đóng cứng vào riêng `M1` thay vì tham số hóa tái sử dụng cho mọi màn hình theo Mục 7 đề bài.
+- Cập nhật `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md`, `assets/RUN_template.md` và `assets/bug_template.md`: tham số hóa cho mọi nhóm màn hình (`<Scope>`, giữ `M1` làm mẫu tham chiếu thực tế), chuẩn hóa Quy tắc 9, 11, 12 và Bước 3..7 khớp chính xác quy trình cộng tác `mixed` thực tế (kết hợp đo khách quan trên trình duyệt/thiết bị thật với kiểm duyệt bắt buộc `Human review` của sinh viên, ảnh chụp thật có mã băm `MD5` duy nhất không vẽ giả UI); cập nhật số lượng tệp thành phần (`5 references/, 5 assets/, 9 scripts/`) tại Mục 7 `Main_Report.md`.
+~~~
+
+- **Kept (Giữ nguyên):** Giữ nguyên toàn bộ 9 script Python, các mẫu còn lại và các cổng kiểm định cứng của skill (`check_checklist.py`, `freeze.py`, Quy tắc 1..8, 10, 13, 14).
+- **Changed (Chỉnh sửa):** Chuẩn hóa phần mô tả tái sử dụng đa màn hình, Quy tắc 9, 11, 12, Bước 3..7 trong `.agents/skills/gui-checklist-testing/SKILL.md`, mục cuối của `references/hw03-rules.md` cùng 2 mẫu `assets/RUN_template.md`, `assets/bug_template.md` đồng bộ tuyệt đối với đề bài và `AI_Log.md`.
+- **Rejected (Bác bỏ):** Loại bỏ 3 câu cấm tự đặt không có trong đề bài ở bản `SKILL.md` nháp ban đầu để không gây mâu thuẫn nội bộ với quy trình `mixed` đã thực thi.
+- **By hand (Tự thực hiện thủ công):** Sinh viên chất vấn nguyên nhân mâu thuẫn và phê duyệt chuẩn hóa lại tài liệu đặc tả của Agent Skill trước khi quay Video Demo Task 4.
 
 ---
