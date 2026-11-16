@@ -1,4 +1,200 @@
-﻿commit b58d37efc6e48bb09c957e1415105bbc3f5be36b
+﻿commit d7c0cbcd89a303d20e4532de3d3c076c0960ef98
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-16T11:13:38+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-16T11:13:38+07:00
+
+    docs(submission): add FIT@HCMUS AI-02/03/05 forms & PDFs, clean temp files, add submission tree, and package <20MB zip
+
+ AI_Critique_and_Audit_Report.md                    |   43 +-
+ AI_Critique_and_Audit_Report.pdf                   |  Bin 992449 -> 952958 bytes
+ Bug_Report.pdf                                     |  Bin 5946582 -> 3003433 bytes
+ Main_Report.md                                     |   74 +-
+ Main_Report.pdf                                    |  Bin 6177143 -> 4164833 bytes
+ README.md                                          |   18 +-
+ ai-forms/AI-02_Audit_Report_23120199.md            |  122 ++
+ ai-forms/AI-02_Audit_Report_23120199.pdf           |  Bin 0 -> 517574 bytes
+ ai-forms/AI-03_Disclosure_Form_23120199.md         |  126 ++
+ ai-forms/AI-03_Disclosure_Form_23120199.pdf        |  Bin 0 -> 266976 bytes
+ ai-forms/AI-05_Privacy_Checklist_23120199.md       |   91 ++
+ ai-forms/AI-05_Privacy_Checklist_23120199.pdf      | 1156 +++++++++++++++++
+ ai_log/AI_Log.md                                   |   41 +-
+ ai_log/audit_summary.md                            |    2 +-
+ bugs/.gitkeep                                      |    0
+ checklist/.gitkeep                                 |    0
+ git_commit_log.txt                                 | 1307 ++++++++++++++++++++
+ screenshots/github_issues/.gitkeep                 |    0
+ .../github_issues/GitHub_Issues_Overview_Page1.png |  Bin 297247 -> 119977 bytes
+ .../github_issues/GitHub_Issues_Overview_Page2.png |  Bin 322223 -> 127562 bytes
+ screenshots/github_issues/ISSUE-01_BUG-01.png      |  Bin 530035 -> 210686 bytes
+ screenshots/github_issues/ISSUE-02_BUG-02.png      |  Bin 306011 -> 126917 bytes
+ screenshots/github_issues/ISSUE-03_BUG-03.png      |  Bin 303444 -> 125496 bytes
+ screenshots/github_issues/ISSUE-04_BUG-04.png      |  Bin 301496 -> 124715 bytes
+ screenshots/github_issues/ISSUE-05_BUG-05.png      |  Bin 443987 -> 173796 bytes
+ screenshots/github_issues/ISSUE-06_BUG-06.png      |  Bin 328328 -> 136510 bytes
+ screenshots/github_issues/ISSUE-07_BUG-07.png      |  Bin 377197 -> 149382 bytes
+ screenshots/github_issues/ISSUE-08_BUG-08.png      |  Bin 275089 -> 113530 bytes
+ screenshots/github_issues/ISSUE-09_BUG-09.png      |  Bin 411994 -> 164866 bytes
+ screenshots/github_issues/ISSUE-10_BUG-10.png      |  Bin 277778 -> 117435 bytes
+ screenshots/github_issues/ISSUE-11_BUG-11.png      |  Bin 297146 -> 122995 bytes
+ screenshots/github_issues/ISSUE-12_BUG-12.png      |  Bin 277598 -> 116213 bytes
+ screenshots/github_issues/ISSUE-13_BUG-13.png      |  Bin 467126 -> 183931 bytes
+ screenshots/github_issues/ISSUE-14_BUG-14.png      |  Bin 380894 -> 152651 bytes
+ screenshots/github_issues/ISSUE-15_BUG-15.png      |  Bin 328130 -> 134789 bytes
+ screenshots/github_issues/ISSUE-16_BUG-16.png      |  Bin 311590 -> 129848 bytes
+ screenshots/github_issues/ISSUE-17_BUG-17.png      |  Bin 403657 -> 158483 bytes
+ screenshots/github_issues/ISSUE-18_BUG-18.png      |  Bin 327337 -> 133114 bytes
+ screenshots/github_issues/ISSUE-19_BUG-19.png      |  Bin 433388 -> 173932 bytes
+ screenshots/github_issues/ISSUE-20_BUG-20.png      |  Bin 341756 -> 139693 bytes
+ screenshots/github_issues/ISSUE-21_BUG-21.png      |  Bin 371838 -> 148478 bytes
+ screenshots/github_issues/ISSUE-22_BUG-22.png      |  Bin 389560 -> 154735 bytes
+ screenshots/github_issues/ISSUE-23_BUG-23.png      |  Bin 419810 -> 167972 bytes
+ screenshots/github_issues/ISSUE-24_BUG-24.png      |  Bin 425847 -> 166781 bytes
+ screenshots/github_issues/ISSUE-25_BUG-25.png      |  Bin 532073 -> 211710 bytes
+ screenshots/github_issues/ISSUE-26_BUG-26.png      |  Bin 280701 -> 118909 bytes
+ screenshots/github_issues/ISSUE-27_BUG-27.png      |  Bin 479533 -> 192508 bytes
+ screenshots/github_issues/ISSUE-28_BUG-28.png      |  Bin 319467 -> 126400 bytes
+ screenshots/task1_failed/.gitkeep                  |    0
+ screenshots/task1_failed/P1_CL-01.png              |  Bin 60377 -> 24920 bytes
+ screenshots/task1_failed/P1_CL-03.png              |  Bin 59223 -> 25248 bytes
+ screenshots/task1_failed/P1_CL-04.png              |  Bin 58055 -> 24210 bytes
+ screenshots/task1_failed/P1_CL-05.png              |  Bin 56535 -> 23925 bytes
+ screenshots/task1_failed/P1_CL-06.png              |  Bin 62201 -> 26694 bytes
+ screenshots/task1_failed/P1_CL-07.png              |  Bin 62655 -> 26733 bytes
+ screenshots/task1_failed/P1_CL-08.png              |  Bin 64707 -> 26781 bytes
+ screenshots/task1_failed/P1_CL-11.png              |  Bin 65631 -> 26588 bytes
+ screenshots/task1_failed/P1_CL-12.png              |  Bin 66500 -> 27835 bytes
+ screenshots/task1_failed/P1_CL-13.png              |  Bin 69066 -> 28239 bytes
+ screenshots/task1_failed/P1_CL-14.png              |  Bin 63174 -> 25944 bytes
+ screenshots/task1_failed/P1_CL-15.png              |  Bin 61896 -> 25134 bytes
+ screenshots/task1_failed/P1_CL-16.png              |  Bin 59680 -> 25471 bytes
+ screenshots/task1_failed/P1_CL-17.png              |  Bin 58371 -> 25043 bytes
+ screenshots/task1_failed/P1_CL-18.png              |  Bin 56495 -> 23997 bytes
+ screenshots/task1_failed/P1_CL-19.png              |  Bin 82809 -> 32701 bytes
+ screenshots/task1_failed/P1_CL-20.png              |  Bin 61616 -> 25119 bytes
+ screenshots/task1_failed/P1_CL-22.png              |  Bin 75621 -> 29734 bytes
+ screenshots/task1_failed/P1_CL-23.png              |  Bin 64157 -> 26990 bytes
+ screenshots/task1_failed/P1_CL-24.png              |  Bin 74488 -> 27076 bytes
+ screenshots/task1_failed/P1_CL-25.png              |  Bin 64861 -> 27756 bytes
+ screenshots/task1_failed/P1_CL-26.png              |  Bin 53761 -> 22356 bytes
+ screenshots/task1_failed/P1_CL-28.png              |  Bin 62034 -> 25557 bytes
+ screenshots/task1_failed/P1_CL-30.png              |  Bin 48253 -> 21348 bytes
+ screenshots/task1_failed/P1_CL-31.png              |  Bin 81768 -> 33863 bytes
+ screenshots/task1_failed/P1_CL-32.png              |  Bin 68541 -> 27795 bytes
+ screenshots/task1_failed/P1_CL-33.png              |  Bin 81562 -> 30487 bytes
+ screenshots/task1_failed/P1_CL-35.png              |  Bin 63932 -> 26442 bytes
+ screenshots/task1_failed/P1_CL-36.png              |  Bin 71478 -> 30170 bytes
+ screenshots/task1_failed/P1_CL-37.png              |  Bin 67069 -> 27591 bytes
+ screenshots/task1_failed/P1_SV-01.png              |  Bin 63507 -> 26659 bytes
+ screenshots/task1_failed/P1_SV-03.png              |  Bin 62204 -> 26253 bytes
+ screenshots/task1_failed/P1_SV-04.png              |  Bin 71289 -> 29752 bytes
+ screenshots/task1_failed/P1_SV-05.png              |  Bin 70806 -> 30065 bytes
+ screenshots/task1_failed/P1_SV-06.png              |  Bin 50312 -> 20349 bytes
+ screenshots/task1_failed/P1_SV-08.png              |  Bin 76040 -> 31456 bytes
+ screenshots/task1_failed/P1_SV-09.png              |  Bin 76236 -> 30941 bytes
+ screenshots/task1_failed/P1_SV-10.png              |  Bin 71938 -> 29700 bytes
+ screenshots/task1_failed/P1_SV-11.png              |  Bin 67657 -> 28576 bytes
+ screenshots/task1_failed/P1_SV-12.png              |  Bin 65793 -> 26420 bytes
+ screenshots/task1_failed/P1_SV-13.png              |  Bin 58236 -> 24718 bytes
+ screenshots/task1_failed/P1_SV-14.png              |  Bin 63600 -> 26202 bytes
+ screenshots/task1_failed/P1_SV-16.png              |  Bin 58514 -> 24421 bytes
+ screenshots/task1_failed/P1_SV-19.png              |  Bin 63099 -> 25407 bytes
+ screenshots/task1_failed/P2_CL-01.png              |  Bin 60738 -> 24091 bytes
+ screenshots/task1_failed/P2_CL-03.png              |  Bin 59014 -> 24236 bytes
+ screenshots/task1_failed/P2_CL-04.png              |  Bin 58281 -> 23345 bytes
+ screenshots/task1_failed/P2_CL-05.png              |  Bin 56871 -> 23008 bytes
+ screenshots/task1_failed/P2_CL-06.png              |  Bin 62370 -> 25735 bytes
+ screenshots/task1_failed/P2_CL-07.png              |  Bin 62592 -> 25786 bytes
+ screenshots/task1_failed/P2_CL-08.png              |  Bin 65550 -> 26065 bytes
+ screenshots/task1_failed/P2_CL-11.png              |  Bin 65712 -> 25640 bytes
+ screenshots/task1_failed/P2_CL-12.png              |  Bin 66151 -> 26805 bytes
+ screenshots/task1_failed/P2_CL-13.png              |  Bin 68284 -> 27501 bytes
+ screenshots/task1_failed/P2_CL-14.png              |  Bin 63381 -> 25193 bytes
+ screenshots/task1_failed/P2_CL-15.png              |  Bin 61325 -> 24374 bytes
+ screenshots/task1_failed/P2_CL-16.png              |  Bin 59648 -> 24506 bytes
+ screenshots/task1_failed/P2_CL-17.png              |  Bin 58725 -> 24141 bytes
+ screenshots/task1_failed/P2_CL-18.png              |  Bin 56811 -> 23083 bytes
+ screenshots/task1_failed/P2_CL-19.png              |  Bin 82275 -> 31636 bytes
+ screenshots/task1_failed/P2_CL-20.png              |  Bin 62218 -> 24297 bytes
+ screenshots/task1_failed/P2_CL-22.png              |  Bin 73835 -> 28933 bytes
+ screenshots/task1_failed/P2_CL-23.png              |  Bin 63940 -> 26011 bytes
+ screenshots/task1_failed/P2_CL-24.png              |  Bin 74805 -> 26243 bytes
+ screenshots/task1_failed/P2_CL-25.png              |  Bin 65225 -> 26930 bytes
+ screenshots/task1_failed/P2_CL-26.png              |  Bin 53927 -> 21409 bytes
+ screenshots/task1_failed/P2_CL-28.png              |  Bin 62074 -> 24696 bytes
+ screenshots/task1_failed/P2_CL-30.png              |  Bin 49052 -> 21749 bytes
+ screenshots/task1_failed/P2_CL-31.png              |  Bin 81991 -> 32936 bytes
+ screenshots/task1_failed/P2_CL-32.png              |  Bin 67644 -> 27015 bytes
+ screenshots/task1_failed/P2_CL-33.png              |  Bin 82655 -> 29828 bytes
+ screenshots/task1_failed/P2_CL-35.png              |  Bin 64728 -> 25590 bytes
+ screenshots/task1_failed/P2_CL-36.png              |  Bin 71606 -> 29256 bytes
+ screenshots/task1_failed/P2_CL-37.png              |  Bin 67569 -> 26777 bytes
+ screenshots/task1_failed/P2_SV-01.png              |  Bin 63840 -> 25840 bytes
+ screenshots/task1_failed/P2_SV-03.png              |  Bin 62615 -> 25434 bytes
+ screenshots/task1_failed/P2_SV-04.png              |  Bin 70725 -> 28662 bytes
+ screenshots/task1_failed/P2_SV-05.png              |  Bin 70737 -> 29137 bytes
+ screenshots/task1_failed/P2_SV-06.png              |  Bin 51247 -> 20122 bytes
+ screenshots/task1_failed/P2_SV-08.png              |  Bin 75844 -> 30435 bytes
+ screenshots/task1_failed/P2_SV-09.png              |  Bin 75757 -> 29862 bytes
+ screenshots/task1_failed/P2_SV-10.png              |  Bin 72142 -> 28782 bytes
+ screenshots/task1_failed/P2_SV-11.png              |  Bin 67788 -> 27600 bytes
+ screenshots/task1_failed/P2_SV-12.png              |  Bin 66247 -> 25680 bytes
+ screenshots/task1_failed/P2_SV-13.png              |  Bin 58581 -> 23854 bytes
+ screenshots/task1_failed/P2_SV-14.png              |  Bin 63401 -> 25175 bytes
+ screenshots/task1_failed/P2_SV-16.png              |  Bin 58822 -> 23569 bytes
+ screenshots/task1_failed/P2_SV-19.png              |  Bin 63454 -> 24591 bytes
+ screenshots/task1_failed/P3_CL-01.png              |  Bin 109702 -> 39516 bytes
+ screenshots/task1_failed/P3_CL-03.png              |  Bin 119062 -> 42919 bytes
+ screenshots/task1_failed/P3_CL-04.png              |  Bin 105983 -> 38438 bytes
+ screenshots/task1_failed/P3_CL-05.png              |  Bin 111013 -> 40845 bytes
+ screenshots/task1_failed/P3_CL-06.png              |  Bin 128397 -> 45409 bytes
+ screenshots/task1_failed/P3_CL-07.png              |  Bin 125832 -> 44873 bytes
+ screenshots/task1_failed/P3_CL-08.png              |  Bin 121698 -> 44432 bytes
+ screenshots/task1_failed/P3_CL-11.png              |  Bin 126231 -> 44611 bytes
+ screenshots/task1_failed/P3_CL-12.png              |  Bin 127647 -> 45599 bytes
+ screenshots/task1_failed/P3_CL-13.png              |  Bin 142631 -> 50288 bytes
+ screenshots/task1_failed/P3_CL-14.png              |  Bin 119034 -> 42386 bytes
+ screenshots/task1_failed/P3_CL-15.png              |  Bin 113838 -> 40634 bytes
+ screenshots/task1_failed/P3_CL-16.png              |  Bin 119608 -> 43556 bytes
+ screenshots/task1_failed/P3_CL-17.png              |  Bin 115572 -> 42290 bytes
+ screenshots/task1_failed/P3_CL-18.png              |  Bin 110300 -> 41180 bytes
+ screenshots/task1_failed/P3_CL-19.png              |  Bin 180575 -> 63248 bytes
+ screenshots/task1_failed/P3_CL-20.png              |  Bin 116253 -> 42275 bytes
+ screenshots/task1_failed/P3_CL-22.png              |  Bin 144745 -> 51141 bytes
+ screenshots/task1_failed/P3_CL-23.png              |  Bin 123754 -> 44750 bytes
+ screenshots/task1_failed/P3_CL-24.png              |  Bin 122205 -> 41276 bytes
+ screenshots/task1_failed/P3_CL-25.png              |  Bin 131951 -> 46991 bytes
+ screenshots/task1_failed/P3_CL-26.png              |  Bin 87033 -> 32621 bytes
+ screenshots/task1_failed/P3_CL-28.png              |  Bin 109708 -> 39703 bytes
+ screenshots/task1_failed/P3_CL-30.png              |  Bin 71497 -> 26284 bytes
+ screenshots/task1_failed/P3_CL-32.png              |  Bin 141541 -> 49633 bytes
+ screenshots/task1_failed/P3_CL-33.png              |  Bin 149358 -> 51116 bytes
+ screenshots/task1_failed/P3_CL-35.png              |  Bin 109173 -> 39705 bytes
+ screenshots/task1_failed/P3_CL-36.png              |  Bin 140524 -> 50162 bytes
+ screenshots/task1_failed/P3_SV-03.png              |  Bin 132914 -> 47431 bytes
+ screenshots/task1_failed/P3_SV-04.png              |  Bin 166208 -> 57956 bytes
+ screenshots/task1_failed/P3_SV-05.png              |  Bin 138674 -> 49738 bytes
+ screenshots/task1_failed/P3_SV-06.png              |  Bin 174207 -> 60235 bytes
+ screenshots/task1_failed/P3_SV-08.png              |  Bin 172377 -> 60003 bytes
+ screenshots/task1_failed/P3_SV-09.png              |  Bin 176580 -> 60228 bytes
+ screenshots/task1_failed/P3_SV-10.png              |  Bin 141247 -> 48015 bytes
+ screenshots/task1_failed/P3_SV-11.png              |  Bin 130279 -> 46416 bytes
+ screenshots/task1_failed/P3_SV-12.png              |  Bin 117258 -> 41416 bytes
+ screenshots/task1_failed/P3_SV-13.png              |  Bin 114423 -> 42082 bytes
+ screenshots/task1_failed/P3_SV-14.png              |  Bin 123380 -> 43873 bytes
+ screenshots/task1_failed/P3_SV-16.png              |  Bin 108192 -> 38946 bytes
+ screenshots/task1_failed/P3_SV-19.png              |  Bin 110319 -> 39618 bytes
+ screenshots/task1_failed/P3_SV-20.png              |  Bin 218675 -> 75051 bytes
+ screenshots/task3_cross_platform/.gitkeep          |    0
+ .../usability/BUG-28_S05_SPA_State_Loss.png        |  Bin 342219 -> 82017 bytes
+ .../usability/S06_BUG-18_Header_Overflow.png       |  Bin 309941 -> 72085 bytes
+ scripts/.gitkeep                                   |    0
+ tests/build_submission_zip.py                      |  181 +++
+ tests/export_pdfs.mjs                              |   38 +-
+ tests/md_to_html.py                                |   41 +-
+ 186 files changed, 3171 insertions(+), 69 deletions(-)
+
+commit b58d37efc6e48bb09c957e1415105bbc3f5be36b
 Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
 AuthorDate: 2026-11-15T21:07:34+07:00
 Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
