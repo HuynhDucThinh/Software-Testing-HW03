@@ -1,4 +1,38 @@
-﻿commit d7c0cbcd89a303d20e4532de3d3c076c0960ef98
+﻿commit 8f3be00fe0c2ae8627c80c9ef2cf04898207dc97
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-16T12:29:21+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-16T12:29:21+07:00
+
+    docs(task4): embed YouTube demo video link, finalize 100/100 self-assessment, and refresh all 6 PDFs
+
+ AI_Critique_and_Audit_Report.md               |    9 +-
+ AI_Critique_and_Audit_Report.pdf              |  Bin 952958 -> 947735 bytes
+ Bug_Report.pdf                                |    4 +-
+ Main_Report.md                                |   10 +-
+ Main_Report.pdf                               | 3408 +++++++++++++------------
+ README.md                                     |    6 +-
+ ai-forms/AI-02_Audit_Report_23120199.md       |    4 +-
+ ai-forms/AI-02_Audit_Report_23120199.pdf      |  Bin 517574 -> 517573 bytes
+ ai-forms/AI-03_Disclosure_Form_23120199.md    |    4 +-
+ ai-forms/AI-03_Disclosure_Form_23120199.pdf   |  Bin 266976 -> 266977 bytes
+ ai-forms/AI-05_Privacy_Checklist_23120199.md  |    2 +-
+ ai-forms/AI-05_Privacy_Checklist_23120199.pdf |   44 +-
+ ai_log/AI_Log.md                              |    7 +-
+ 13 files changed, 1761 insertions(+), 1737 deletions(-)
+
+commit 462712b2a4b218bebf4d452adc046e3fac31404f
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-16T11:13:39+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-16T11:13:39+07:00
+
+    docs: update git_commit_log.txt for submission package
+
+ git_commit_log.txt | 198 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 197 insertions(+), 1 deletion(-)
+
+commit d7c0cbcd89a303d20e4532de3d3c076c0960ef98
 Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
 AuthorDate: 2026-11-16T11:13:38+07:00
 Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
