@@ -1,0 +1,1307 @@
+﻿commit b58d37efc6e48bb09c957e1415105bbc3f5be36b
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T21:07:34+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T21:07:34+07:00
+
+    docs(reports): enrich G9.3 omission analysis, mixed-mode comparison, severity scale, audit verdict summary, and refresh PDFs
+
+ .../scripts/ai_audit_export.py                     |  28 ++++++-
+ AI_Critique_and_Audit_Report.md                    |  91 ++++++++++++++++++++-
+ AI_Critique_and_Audit_Report.pdf                   | Bin 752999 -> 992449 bytes
+ Bug_Report.md                                      |   3 +
+ Bug_Report.pdf                                     | Bin 5935561 -> 5946582 bytes
+ Main_Report.md                                     |  48 ++++++++---
+ Main_Report.pdf                                    | Bin 6040082 -> 6177143 bytes
+ README.md                                          |   6 +-
+ ai_log/AI_Log.md                                   |  30 +++++++
+ ai_log/audit_summary.md                            |  42 ++++++++++
+ .../github_issues/GitHub_Issues_Overview_Page1.png | Bin 297249 -> 297247 bytes
+ .../github_issues/GitHub_Issues_Overview_Page2.png | Bin 322227 -> 322223 bytes
+ screenshots/github_issues/ISSUE-01_BUG-01.png      | Bin 529531 -> 530035 bytes
+ screenshots/github_issues/ISSUE-02_BUG-02.png      | Bin 306016 -> 306011 bytes
+ screenshots/github_issues/ISSUE-03_BUG-03.png      | Bin 303448 -> 303444 bytes
+ screenshots/github_issues/ISSUE-04_BUG-04.png      | Bin 310203 -> 301496 bytes
+ screenshots/github_issues/ISSUE-05_BUG-05.png      | Bin 443992 -> 443987 bytes
+ screenshots/github_issues/ISSUE-06_BUG-06.png      | Bin 328335 -> 328328 bytes
+ screenshots/github_issues/ISSUE-07_BUG-07.png      | Bin 377199 -> 377197 bytes
+ screenshots/github_issues/ISSUE-08_BUG-08.png      | Bin 275100 -> 275089 bytes
+ screenshots/github_issues/ISSUE-09_BUG-09.png      | Bin 411996 -> 411994 bytes
+ screenshots/github_issues/ISSUE-10_BUG-10.png      | Bin 277786 -> 277778 bytes
+ screenshots/github_issues/ISSUE-11_BUG-11.png      | Bin 297152 -> 297146 bytes
+ screenshots/github_issues/ISSUE-12_BUG-12.png      | Bin 277607 -> 277598 bytes
+ screenshots/github_issues/ISSUE-13_BUG-13.png      | Bin 467135 -> 467126 bytes
+ screenshots/github_issues/ISSUE-14_BUG-14.png      | Bin 380862 -> 380894 bytes
+ screenshots/github_issues/ISSUE-15_BUG-15.png      | Bin 328165 -> 328130 bytes
+ screenshots/github_issues/ISSUE-16_BUG-16.png      | Bin 311600 -> 311590 bytes
+ screenshots/github_issues/ISSUE-17_BUG-17.png      | Bin 403663 -> 403657 bytes
+ screenshots/github_issues/ISSUE-18_BUG-18.png      | Bin 340124 -> 327337 bytes
+ screenshots/github_issues/ISSUE-19_BUG-19.png      | Bin 433393 -> 433388 bytes
+ screenshots/github_issues/ISSUE-20_BUG-20.png      | Bin 341761 -> 341756 bytes
+ screenshots/github_issues/ISSUE-21_BUG-21.png      | Bin 371844 -> 371838 bytes
+ screenshots/github_issues/ISSUE-22_BUG-22.png      | Bin 389572 -> 389560 bytes
+ screenshots/github_issues/ISSUE-23_BUG-23.png      | Bin 419821 -> 419810 bytes
+ screenshots/github_issues/ISSUE-24_BUG-24.png      | Bin 426812 -> 425847 bytes
+ screenshots/github_issues/ISSUE-25_BUG-25.png      | Bin 532093 -> 532073 bytes
+ screenshots/github_issues/ISSUE-26_BUG-26.png      | Bin 280713 -> 280701 bytes
+ screenshots/github_issues/ISSUE-27_BUG-27.png      | Bin 500859 -> 479533 bytes
+ screenshots/github_issues/ISSUE-28_BUG-28.png      | Bin 319474 -> 319467 bytes
+ tests/export_pdfs.mjs                              |  15 +++-
+ tests/md_to_html.py                                |   2 +-
+ usability/findings.md                              |   6 ++
+ 43 files changed, 248 insertions(+), 23 deletions(-)
+
+commit 78331e71964d1c455de32a6c0de6a4768bea3510
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T15:30:53+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T15:30:53+07:00
+
+    docs(pdf): export Main_Report, AI_Critique_and_Audit_Report, and Bug_Report PDFs with A4 table layout
+
+ AI_Critique_and_Audit_Report.pdf | Bin 0 -> 752999 bytes
+ Bug_Report.pdf                   | Bin 0 -> 5935561 bytes
+ Main_Report.pdf                  | Bin 0 -> 6040082 bytes
+ tests/export_pdfs.mjs            |  82 +++++++++++
+ tests/md_to_html.py              | 294 +++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 376 insertions(+)
+
+commit b63abd78ddb4947d225004cf7774d9c10e12787a
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T12:16:41+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T12:16:41+07:00
+
+    docs(task4): align gui-checklist-testing skill rules and templates with mixed workflow and multi-screen reuse
+
+ .agents/skills/gui-checklist-testing/SKILL.md      | 43 +++++++++++-----------
+ .../gui-checklist-testing/assets/RUN_template.md   | 11 +++---
+ .../gui-checklist-testing/assets/bug_template.md   |  2 +-
+ .../gui-checklist-testing/references/hw03-rules.md |  4 +-
+ AI_Critique_and_Audit_Report.md                    | 33 +++++++++++++++--
+ Main_Report.md                                     |  6 +--
+ ai_log/AI_Log.md                                   | 19 ++++++++++
+ 7 files changed, 83 insertions(+), 35 deletions(-)
+
+commit bee8f9de888af04b4cf55b8b38b5e127bf345644
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T12:08:57+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T12:08:57+07:00
+
+    Docs(ai_log): Sync student-edited AI Critique, restore verbatim prompts in Entry 13/14 & add Entry 23
+
+ AI_Critique_and_Audit_Report.md | 54 ++++++++++++++++++++++++++++++++++++-----
+ Main_Report.md                  |  6 ++---
+ ai_log/AI_Log.md                | 38 +++++++++++++++++++++++++++--
+ ai_log/critique.md              |  2 +-
+ 4 files changed, 88 insertions(+), 12 deletions(-)
+
+commit d7485b247f25d52c63f416e579d884d24a7f5346
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T12:05:33+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T12:05:33+07:00
+
+    Docs(ai_log): Restore full verbatim prompt in Entry 18 and fix inaccurate By-hand note in Entry 20
+
+ AI_Critique_and_Audit_Report.md | 4 ++--
+ ai_log/AI_Log.md                | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit df68d53134dfb1150980b7599ac54f085cc539eb
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T11:56:57+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T11:56:57+07:00
+
+    Docs: Format header metadata fields one per line across Main, Bug, and AI Audit reports
+
+ .../scripts/ai_audit_export.py                     | 30 ++++++++++++++++------
+ AI_Critique_and_Audit_Report.md                    | 15 +++++++----
+ Bug_Report.md                                      | 12 ++++++---
+ Main_Report.md                                     | 12 ++++++---
+ 4 files changed, 48 insertions(+), 21 deletions(-)
+
+commit 2663328f39518b61414e473095b3c9a44d9832e6
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T11:54:14+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T11:54:14+07:00
+
+    Docs: Polish AI_Critique_and_Audit_Report.md & Bug_Report.md header layout to match Main_Report.md
+
+ .../scripts/ai_audit_export.py                     | 156 +++++-
+ AI_Critique_and_Audit_Report.md                    | 575 +++++++++------------
+ Bug_Report.md                                      |   7 +
+ 3 files changed, 387 insertions(+), 351 deletions(-)
+
+commit 49c0972388aa4c84f8520489fb2ea0a036ef069e
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T11:44:11+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T11:44:11+07:00
+
+    Task 1 & 3: Recapture all 42 P3 Failed screenshots live on OPPO Reno10 5G (130/130 unique MD5s) & log Entry 22
+
+ AI_Critique_and_Audit_Report.md       |  36 +++-
+ Main_Report.md                        |  23 ++-
+ README.md                             |   2 +-
+ ai_log/AI_Log.md                      |  21 +++
+ checklist/RUN.md                      |   6 +-
+ checklist/checklist.json              | 336 +++++++++++++++++++++++++++-------
+ screenshots/task1_failed/P3_CL-01.png | Bin 95068 -> 109702 bytes
+ screenshots/task1_failed/P3_CL-03.png | Bin 116117 -> 119062 bytes
+ screenshots/task1_failed/P3_CL-04.png | Bin 91610 -> 105983 bytes
+ screenshots/task1_failed/P3_CL-05.png | Bin 75376 -> 111013 bytes
+ screenshots/task1_failed/P3_CL-06.png | Bin 101078 -> 128397 bytes
+ screenshots/task1_failed/P3_CL-07.png | Bin 122971 -> 125832 bytes
+ screenshots/task1_failed/P3_CL-08.png | Bin 97825 -> 121698 bytes
+ screenshots/task1_failed/P3_CL-11.png | Bin 133146 -> 126231 bytes
+ screenshots/task1_failed/P3_CL-12.png | Bin 123218 -> 127647 bytes
+ screenshots/task1_failed/P3_CL-13.png | Bin 119565 -> 142631 bytes
+ screenshots/task1_failed/P3_CL-14.png | Bin 97324 -> 119034 bytes
+ screenshots/task1_failed/P3_CL-15.png | Bin 96317 -> 113838 bytes
+ screenshots/task1_failed/P3_CL-16.png | Bin 117880 -> 119608 bytes
+ screenshots/task1_failed/P3_CL-17.png | Bin 91465 -> 115572 bytes
+ screenshots/task1_failed/P3_CL-18.png | Bin 91393 -> 110300 bytes
+ screenshots/task1_failed/P3_CL-19.png | Bin 130413 -> 180575 bytes
+ screenshots/task1_failed/P3_CL-20.png | Bin 87872 -> 116253 bytes
+ screenshots/task1_failed/P3_CL-22.png | Bin 109320 -> 144745 bytes
+ screenshots/task1_failed/P3_CL-23.png | Bin 121449 -> 123754 bytes
+ screenshots/task1_failed/P3_CL-24.png | Bin 123960 -> 122205 bytes
+ screenshots/task1_failed/P3_CL-25.png | Bin 104935 -> 131951 bytes
+ screenshots/task1_failed/P3_CL-26.png | Bin 77095 -> 87033 bytes
+ screenshots/task1_failed/P3_CL-28.png | Bin 98760 -> 109708 bytes
+ screenshots/task1_failed/P3_CL-30.png | Bin 58805 -> 71497 bytes
+ screenshots/task1_failed/P3_CL-32.png | Bin 84034 -> 141541 bytes
+ screenshots/task1_failed/P3_CL-33.png | Bin 96346 -> 149358 bytes
+ screenshots/task1_failed/P3_CL-35.png | Bin 80277 -> 109173 bytes
+ screenshots/task1_failed/P3_CL-36.png | Bin 110829 -> 140524 bytes
+ screenshots/task1_failed/P3_SV-03.png | Bin 95140 -> 132914 bytes
+ screenshots/task1_failed/P3_SV-04.png | Bin 121035 -> 166208 bytes
+ screenshots/task1_failed/P3_SV-05.png | Bin 105527 -> 138674 bytes
+ screenshots/task1_failed/P3_SV-06.png | Bin 114807 -> 174207 bytes
+ screenshots/task1_failed/P3_SV-08.png | Bin 122083 -> 172377 bytes
+ screenshots/task1_failed/P3_SV-09.png | Bin 120590 -> 176580 bytes
+ screenshots/task1_failed/P3_SV-10.png | Bin 114908 -> 141247 bytes
+ screenshots/task1_failed/P3_SV-11.png | Bin 96510 -> 130279 bytes
+ screenshots/task1_failed/P3_SV-12.png | Bin 95326 -> 117258 bytes
+ screenshots/task1_failed/P3_SV-13.png | Bin 90329 -> 114423 bytes
+ screenshots/task1_failed/P3_SV-14.png | Bin 119030 -> 123380 bytes
+ screenshots/task1_failed/P3_SV-16.png | Bin 117705 -> 108192 bytes
+ screenshots/task1_failed/P3_SV-19.png | Bin 122000 -> 110319 bytes
+ screenshots/task1_failed/P3_SV-20.png | Bin 140048 -> 218675 bytes
+ tests/capture_t1_evidence.mjs         | 179 +++++++++++++-----
+ tests/compose_t1_p3_from_raw.py       |  81 --------
+ 50 files changed, 479 insertions(+), 205 deletions(-)
+
+commit fb28cea94fcbc61e775f8693aa33ec110ce01f0f
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T00:26:42+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T00:26:42+07:00
+
+    docs(ai-audit): complete mandatory 200-300w AI Critique and export AI_Critique_and_Audit_Report.md
+
+ AI_Critique_and_Audit_Report.md | 747 ++++++++++++++++++++++++++++++++++++++++
+ Main_Report.md                  |   8 +-
+ ai_log/AI_Log.md                |  20 ++
+ ai_log/critique.md              |   3 +
+ 4 files changed, 774 insertions(+), 4 deletions(-)
+
+commit a95c8dc3bda4e296f31caf831ee5cfd1b83c6603
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T00:18:33+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T00:18:33+07:00
+
+    docs(task2): rewrite probe synthesis to match raw answers, add say-do gap and limitations, fix bug ID references
+
+ Main_Report.md                | 12 +++++++-----
+ ai_log/AI_Log.md              | 21 +++++++++++++++++++++
+ usability/findings.md         | 33 +++++++++++++++++++++++++++------
+ usability/moderator_script.md |  4 ++--
+ usability/plan.md             |  2 +-
+ 5 files changed, 58 insertions(+), 14 deletions(-)
+
+commit 557afee914879739c97c47d7893f23d681c0f9b3
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-15T00:05:55+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-15T00:05:55+07:00
+
+    docs(task3): keep verified automated native OS screenshots for P1/P2 with transparent disclosure
+
+ Main_Report.md   | 2 +-
+ ai_log/AI_Log.md | 8 ++++----
+ checklist/RUN.md | 2 +-
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 28edd720a5b971123cff1943083b5d1f2cbb138b
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-14T23:56:25+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-14T23:56:25+07:00
+
+    docs(task3): disclose native screenshot method, fix P2 version, SV-06 numbers and unsupported alert claims
+
+ Bug_Report.md                     |   4 +-
+ Main_Report.md                    |  18 ++-
+ README.md                         |   4 +-
+ ai_log/AI_Log.md                  |  20 +++
+ bugs/BUG-18.md                    |   2 +-
+ checklist/RUN.md                  |   2 +-
+ tests/capture_t3_native_p1_p2.mjs | 305 ++++++++++++++++++++++++++++++++++++++
+ tests/watermark_native.py         |  61 ++++++++
+ tests/win_snap_helper.py          | 121 +++++++++++++++
+ 9 files changed, 524 insertions(+), 13 deletions(-)
+
+commit 6de864f76ff25f16d4a85a26fe20a9c199c93ed5
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-14T23:41:46+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-14T23:41:46+07:00
+
+    docs(task1): refresh GitHub issue renders after content fixes and disclose render method
+
+ Main_Report.md                                     |   1 +
+ .../github_issues/GitHub_Issues_Overview_Page1.png | Bin 296546 -> 297249 bytes
+ .../github_issues/GitHub_Issues_Overview_Page2.png | Bin 323305 -> 322227 bytes
+ screenshots/github_issues/ISSUE-01_BUG-01.png      | Bin 499706 -> 529531 bytes
+ screenshots/github_issues/ISSUE-02_BUG-02.png      | Bin 282009 -> 306016 bytes
+ screenshots/github_issues/ISSUE-03_BUG-03.png      | Bin 286031 -> 303448 bytes
+ screenshots/github_issues/ISSUE-04_BUG-04.png      | Bin 293662 -> 310203 bytes
+ screenshots/github_issues/ISSUE-05_BUG-05.png      | Bin 423794 -> 443992 bytes
+ screenshots/github_issues/ISSUE-06_BUG-06.png      | Bin 298836 -> 328335 bytes
+ screenshots/github_issues/ISSUE-07_BUG-07.png      | Bin 366538 -> 377199 bytes
+ screenshots/github_issues/ISSUE-08_BUG-08.png      | Bin 259918 -> 275100 bytes
+ screenshots/github_issues/ISSUE-09_BUG-09.png      | Bin 393118 -> 411996 bytes
+ screenshots/github_issues/ISSUE-10_BUG-10.png      | Bin 259603 -> 277786 bytes
+ screenshots/github_issues/ISSUE-11_BUG-11.png      | Bin 281602 -> 297152 bytes
+ screenshots/github_issues/ISSUE-12_BUG-12.png      | Bin 263364 -> 277607 bytes
+ screenshots/github_issues/ISSUE-13_BUG-13.png      | Bin 458751 -> 467135 bytes
+ screenshots/github_issues/ISSUE-14_BUG-14.png      | Bin 371473 -> 380862 bytes
+ screenshots/github_issues/ISSUE-15_BUG-15.png      | Bin 298849 -> 328165 bytes
+ screenshots/github_issues/ISSUE-16_BUG-16.png      | Bin 294132 -> 311600 bytes
+ screenshots/github_issues/ISSUE-17_BUG-17.png      | Bin 380855 -> 403663 bytes
+ screenshots/github_issues/ISSUE-18_BUG-18.png      | Bin 318777 -> 340124 bytes
+ screenshots/github_issues/ISSUE-19_BUG-19.png      | Bin 417760 -> 433393 bytes
+ screenshots/github_issues/ISSUE-20_BUG-20.png      | Bin 334836 -> 341761 bytes
+ screenshots/github_issues/ISSUE-21_BUG-21.png      | Bin 355654 -> 371844 bytes
+ screenshots/github_issues/ISSUE-22_BUG-22.png      | Bin 375530 -> 389572 bytes
+ screenshots/github_issues/ISSUE-23_BUG-23.png      | Bin 409008 -> 419821 bytes
+ screenshots/github_issues/ISSUE-24_BUG-24.png      | Bin 397293 -> 426812 bytes
+ screenshots/github_issues/ISSUE-25_BUG-25.png      | Bin 515176 -> 532093 bytes
+ screenshots/github_issues/ISSUE-26_BUG-26.png      | Bin 264872 -> 280713 bytes
+ screenshots/github_issues/ISSUE-27_BUG-27.png      | Bin 458553 -> 500859 bytes
+ screenshots/github_issues/ISSUE-28_BUG-28.png      | Bin 318637 -> 319474 bytes
+ 31 files changed, 1 insertion(+)
+
+commit 5b14a8c0cb6c94626841a174272b2df19a9395eb
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-14T23:39:12+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-14T23:39:12+07:00
+
+    fix(task1): recapture per-item evidence, correct BUG-06/08/19/27 facts, disclose automation and P2 engine
+
+ Bug_Report.md                               |  92 +--
+ Main_Report.md                              |  63 +-
+ ai_log/AI_Log.md                            |  42 ++
+ bugs/BUG-01.md                              |   2 +-
+ bugs/BUG-02.md                              |   2 +-
+ bugs/BUG-03.md                              |   2 +-
+ bugs/BUG-04.md                              |   6 +-
+ bugs/BUG-05.md                              |   4 +-
+ bugs/BUG-06.md                              |   6 +-
+ bugs/BUG-07.md                              |   2 +-
+ bugs/BUG-08.md                              |   8 +-
+ bugs/BUG-09.md                              |   2 +-
+ bugs/BUG-10.md                              |   2 +-
+ bugs/BUG-11.md                              |   4 +-
+ bugs/BUG-12.md                              |   2 +-
+ bugs/BUG-13.md                              |   2 +-
+ bugs/BUG-14.md                              |   4 +-
+ bugs/BUG-15.md                              |   2 +-
+ bugs/BUG-16.md                              |   2 +-
+ bugs/BUG-17.md                              |   2 +-
+ bugs/BUG-18.md                              |   2 +-
+ bugs/BUG-19.md                              |  12 +-
+ bugs/BUG-20.md                              |   2 +-
+ bugs/BUG-21.md                              |   2 +-
+ bugs/BUG-22.md                              |   2 +-
+ bugs/BUG-23.md                              |   2 +-
+ bugs/BUG-24.md                              |   2 +-
+ bugs/BUG-25.md                              |   2 +-
+ bugs/BUG-26.md                              |   2 +-
+ bugs/BUG-27.md                              |   8 +-
+ bugs/BUG-28.md                              |   1 +
+ bugs/bug_groups.md                          |   4 +-
+ bugs/issues_manifest.json                   |   4 +-
+ checklist/M1_GUI_Checklist_And_Summary.xlsx | Bin 47951 -> 54201 bytes
+ checklist/RUN.md                            |  11 +-
+ checklist/checklist.json                    | 857 ++++++++++++++++++++++------
+ checklist/sv_items.md                       |  12 +
+ screenshots/task1_failed/P1_CL-01.png       | Bin 44815 -> 60377 bytes
+ screenshots/task1_failed/P1_CL-03.png       | Bin 52106 -> 59223 bytes
+ screenshots/task1_failed/P1_CL-04.png       | Bin 44815 -> 58055 bytes
+ screenshots/task1_failed/P1_CL-05.png       | Bin 45706 -> 56535 bytes
+ screenshots/task1_failed/P1_CL-06.png       | Bin 62000 -> 62201 bytes
+ screenshots/task1_failed/P1_CL-07.png       | Bin 52106 -> 62655 bytes
+ screenshots/task1_failed/P1_CL-08.png       | Bin 43775 -> 64707 bytes
+ screenshots/task1_failed/P1_CL-11.png       | Bin 52106 -> 65631 bytes
+ screenshots/task1_failed/P1_CL-12.png       | Bin 52106 -> 66500 bytes
+ screenshots/task1_failed/P1_CL-13.png       | Bin 52106 -> 69066 bytes
+ screenshots/task1_failed/P1_CL-14.png       | Bin 44815 -> 63174 bytes
+ screenshots/task1_failed/P1_CL-15.png       | Bin 44815 -> 61896 bytes
+ screenshots/task1_failed/P1_CL-16.png       | Bin 52106 -> 59680 bytes
+ screenshots/task1_failed/P1_CL-17.png       | Bin 43775 -> 58371 bytes
+ screenshots/task1_failed/P1_CL-18.png       | Bin 43775 -> 56495 bytes
+ screenshots/task1_failed/P1_CL-19.png       | Bin 52106 -> 82809 bytes
+ screenshots/task1_failed/P1_CL-20.png       | Bin 43775 -> 61616 bytes
+ screenshots/task1_failed/P1_CL-22.png       | Bin 62000 -> 75621 bytes
+ screenshots/task1_failed/P1_CL-23.png       | Bin 52106 -> 64157 bytes
+ screenshots/task1_failed/P1_CL-24.png       | Bin 52106 -> 74488 bytes
+ screenshots/task1_failed/P1_CL-25.png       | Bin 62000 -> 64861 bytes
+ screenshots/task1_failed/P1_CL-26.png       | Bin 45706 -> 53761 bytes
+ screenshots/task1_failed/P1_CL-28.png       | Bin 44815 -> 62034 bytes
+ screenshots/task1_failed/P1_CL-30.png       | Bin 32565 -> 48253 bytes
+ screenshots/task1_failed/P1_CL-31.png       | Bin 52106 -> 81768 bytes
+ screenshots/task1_failed/P1_CL-32.png       | Bin 41415 -> 68541 bytes
+ screenshots/task1_failed/P1_CL-33.png       | Bin 43887 -> 81562 bytes
+ screenshots/task1_failed/P1_CL-35.png       | Bin 45706 -> 63932 bytes
+ screenshots/task1_failed/P1_CL-36.png       | Bin 50177 -> 71478 bytes
+ screenshots/task1_failed/P1_CL-37.png       | Bin 44815 -> 67069 bytes
+ screenshots/task1_failed/P1_SV-01.png       | Bin 44815 -> 63507 bytes
+ screenshots/task1_failed/P1_SV-03.png       | Bin 44815 -> 62204 bytes
+ screenshots/task1_failed/P1_SV-04.png       | Bin 52106 -> 71289 bytes
+ screenshots/task1_failed/P1_SV-05.png       | Bin 49817 -> 70806 bytes
+ screenshots/task1_failed/P1_SV-06.png       | Bin 33113 -> 50312 bytes
+ screenshots/task1_failed/P1_SV-08.png       | Bin 52106 -> 76040 bytes
+ screenshots/task1_failed/P1_SV-09.png       | Bin 52106 -> 76236 bytes
+ screenshots/task1_failed/P1_SV-10.png       | Bin 50177 -> 71938 bytes
+ screenshots/task1_failed/P1_SV-11.png       | Bin 47794 -> 67657 bytes
+ screenshots/task1_failed/P1_SV-12.png       | Bin 43775 -> 65793 bytes
+ screenshots/task1_failed/P1_SV-13.png       | Bin 43775 -> 58236 bytes
+ screenshots/task1_failed/P1_SV-14.png       | Bin 52106 -> 63600 bytes
+ screenshots/task1_failed/P1_SV-16.png       | Bin 52106 -> 58514 bytes
+ screenshots/task1_failed/P1_SV-19.png       | Bin 52106 -> 63099 bytes
+ screenshots/task1_failed/P2_CL-01.png       | Bin 43236 -> 60738 bytes
+ screenshots/task1_failed/P2_CL-03.png       | Bin 49622 -> 59014 bytes
+ screenshots/task1_failed/P2_CL-04.png       | Bin 43236 -> 58281 bytes
+ screenshots/task1_failed/P2_CL-05.png       | Bin 44174 -> 56871 bytes
+ screenshots/task1_failed/P2_CL-06.png       | Bin 58417 -> 62370 bytes
+ screenshots/task1_failed/P2_CL-07.png       | Bin 49622 -> 62592 bytes
+ screenshots/task1_failed/P2_CL-08.png       | Bin 42269 -> 65550 bytes
+ screenshots/task1_failed/P2_CL-11.png       | Bin 49622 -> 65712 bytes
+ screenshots/task1_failed/P2_CL-12.png       | Bin 49622 -> 66151 bytes
+ screenshots/task1_failed/P2_CL-13.png       | Bin 49622 -> 68284 bytes
+ screenshots/task1_failed/P2_CL-14.png       | Bin 43236 -> 63381 bytes
+ screenshots/task1_failed/P2_CL-15.png       | Bin 43236 -> 61325 bytes
+ screenshots/task1_failed/P2_CL-16.png       | Bin 49622 -> 59648 bytes
+ screenshots/task1_failed/P2_CL-17.png       | Bin 42269 -> 58725 bytes
+ screenshots/task1_failed/P2_CL-18.png       | Bin 42269 -> 56811 bytes
+ screenshots/task1_failed/P2_CL-19.png       | Bin 49622 -> 82275 bytes
+ screenshots/task1_failed/P2_CL-20.png       | Bin 42269 -> 62218 bytes
+ screenshots/task1_failed/P2_CL-22.png       | Bin 58417 -> 73835 bytes
+ screenshots/task1_failed/P2_CL-23.png       | Bin 49622 -> 63940 bytes
+ screenshots/task1_failed/P2_CL-24.png       | Bin 49622 -> 74805 bytes
+ screenshots/task1_failed/P2_CL-25.png       | Bin 58417 -> 65225 bytes
+ screenshots/task1_failed/P2_CL-26.png       | Bin 44174 -> 53927 bytes
+ screenshots/task1_failed/P2_CL-28.png       | Bin 43236 -> 62074 bytes
+ screenshots/task1_failed/P2_CL-30.png       | Bin 31369 -> 49052 bytes
+ screenshots/task1_failed/P2_CL-31.png       | Bin 49622 -> 81991 bytes
+ screenshots/task1_failed/P2_CL-32.png       | Bin 39713 -> 67644 bytes
+ screenshots/task1_failed/P2_CL-33.png       | Bin 42322 -> 82655 bytes
+ screenshots/task1_failed/P2_CL-35.png       | Bin 44174 -> 64728 bytes
+ screenshots/task1_failed/P2_CL-36.png       | Bin 48362 -> 71606 bytes
+ screenshots/task1_failed/P2_CL-37.png       | Bin 43236 -> 67569 bytes
+ screenshots/task1_failed/P2_SV-01.png       | Bin 43236 -> 63840 bytes
+ screenshots/task1_failed/P2_SV-03.png       | Bin 43236 -> 62615 bytes
+ screenshots/task1_failed/P2_SV-04.png       | Bin 49622 -> 70725 bytes
+ screenshots/task1_failed/P2_SV-05.png       | Bin 48067 -> 70737 bytes
+ screenshots/task1_failed/P2_SV-06.png       | Bin 31833 -> 51247 bytes
+ screenshots/task1_failed/P2_SV-08.png       | Bin 49622 -> 75844 bytes
+ screenshots/task1_failed/P2_SV-09.png       | Bin 49622 -> 75757 bytes
+ screenshots/task1_failed/P2_SV-10.png       | Bin 48362 -> 72142 bytes
+ screenshots/task1_failed/P2_SV-11.png       | Bin 46247 -> 67788 bytes
+ screenshots/task1_failed/P2_SV-12.png       | Bin 42269 -> 66247 bytes
+ screenshots/task1_failed/P2_SV-13.png       | Bin 42269 -> 58581 bytes
+ screenshots/task1_failed/P2_SV-14.png       | Bin 49622 -> 63401 bytes
+ screenshots/task1_failed/P2_SV-16.png       | Bin 49622 -> 58822 bytes
+ screenshots/task1_failed/P2_SV-19.png       | Bin 49622 -> 63454 bytes
+ screenshots/task1_failed/P3_CL-01.png       | Bin 83638 -> 95068 bytes
+ screenshots/task1_failed/P3_CL-03.png       | Bin 104244 -> 116117 bytes
+ screenshots/task1_failed/P3_CL-04.png       | Bin 83638 -> 91610 bytes
+ screenshots/task1_failed/P3_CL-05.png       | Bin 71589 -> 75376 bytes
+ screenshots/task1_failed/P3_CL-06.png       | Bin 98575 -> 101078 bytes
+ screenshots/task1_failed/P3_CL-07.png       | Bin 104244 -> 122971 bytes
+ screenshots/task1_failed/P3_CL-08.png       | Bin 79756 -> 97825 bytes
+ screenshots/task1_failed/P3_CL-11.png       | Bin 104244 -> 133146 bytes
+ screenshots/task1_failed/P3_CL-12.png       | Bin 104244 -> 123218 bytes
+ screenshots/task1_failed/P3_CL-13.png       | Bin 104244 -> 119565 bytes
+ screenshots/task1_failed/P3_CL-14.png       | Bin 83638 -> 97324 bytes
+ screenshots/task1_failed/P3_CL-15.png       | Bin 83638 -> 96317 bytes
+ screenshots/task1_failed/P3_CL-16.png       | Bin 104244 -> 117880 bytes
+ screenshots/task1_failed/P3_CL-17.png       | Bin 79756 -> 91465 bytes
+ screenshots/task1_failed/P3_CL-18.png       | Bin 79756 -> 91393 bytes
+ screenshots/task1_failed/P3_CL-19.png       | Bin 104244 -> 130413 bytes
+ screenshots/task1_failed/P3_CL-20.png       | Bin 79756 -> 87872 bytes
+ screenshots/task1_failed/P3_CL-22.png       | Bin 98575 -> 109320 bytes
+ screenshots/task1_failed/P3_CL-23.png       | Bin 104244 -> 121449 bytes
+ screenshots/task1_failed/P3_CL-24.png       | Bin 104244 -> 123960 bytes
+ screenshots/task1_failed/P3_CL-25.png       | Bin 98575 -> 104935 bytes
+ screenshots/task1_failed/P3_CL-26.png       | Bin 71589 -> 77095 bytes
+ screenshots/task1_failed/P3_CL-28.png       | Bin 83638 -> 98760 bytes
+ screenshots/task1_failed/P3_CL-30.png       | Bin 48539 -> 58805 bytes
+ screenshots/task1_failed/P3_CL-32.png       | Bin 74128 -> 84034 bytes
+ screenshots/task1_failed/P3_CL-33.png       | Bin 80976 -> 96346 bytes
+ screenshots/task1_failed/P3_CL-35.png       | Bin 71589 -> 80277 bytes
+ screenshots/task1_failed/P3_CL-36.png       | Bin 87674 -> 110829 bytes
+ screenshots/task1_failed/P3_SV-03.png       | Bin 83638 -> 95140 bytes
+ screenshots/task1_failed/P3_SV-04.png       | Bin 104244 -> 121035 bytes
+ screenshots/task1_failed/P3_SV-05.png       | Bin 85707 -> 105527 bytes
+ screenshots/task1_failed/P3_SV-06.png       | Bin 93536 -> 114807 bytes
+ screenshots/task1_failed/P3_SV-08.png       | Bin 104244 -> 122083 bytes
+ screenshots/task1_failed/P3_SV-09.png       | Bin 104244 -> 120590 bytes
+ screenshots/task1_failed/P3_SV-10.png       | Bin 87674 -> 114908 bytes
+ screenshots/task1_failed/P3_SV-11.png       | Bin 79665 -> 96510 bytes
+ screenshots/task1_failed/P3_SV-12.png       | Bin 79756 -> 95326 bytes
+ screenshots/task1_failed/P3_SV-13.png       | Bin 79756 -> 90329 bytes
+ screenshots/task1_failed/P3_SV-14.png       | Bin 104244 -> 119030 bytes
+ screenshots/task1_failed/P3_SV-16.png       | Bin 104244 -> 117705 bytes
+ screenshots/task1_failed/P3_SV-19.png       | Bin 104244 -> 122000 bytes
+ screenshots/task1_failed/P3_SV-20.png       | Bin 113520 -> 140048 bytes
+ tests/capture_t1_evidence.mjs               | 700 +++++++++++++++++++++++
+ tests/compose_t1_evidence.py                |  95 +++
+ tests/compose_t1_p3_from_raw.py             |  81 +++
+ 170 files changed, 1763 insertions(+), 289 deletions(-)
+
+commit 29a5bd7d820f5a969d4abe3d71f5a72dd0a2733e
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T23:59:33+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T23:59:33+07:00
+
+    docs(task2): complete usability findings, file BUG-28 (#28), and sync Main_Report (step 5)
+
+ Bug_Report.md                                      |  74 ++++++-
+ Main_Report.md                                     | 244 +++++++++++++++++----
+ README.md                                          |  39 +++-
+ ai_log/AI_Log.md                                   |  23 ++
+ bugs/BUG-28.md                                     |  52 +++++
+ .../github_issues/GitHub_Issues_Overview_Page1.png | Bin 296397 -> 296546 bytes
+ .../github_issues/GitHub_Issues_Overview_Page2.png | Bin 301526 -> 323305 bytes
+ screenshots/github_issues/ISSUE-28_BUG-28.png      | Bin 0 -> 318637 bytes
+ .../usability/BUG-28_S05_SPA_State_Loss.png        | Bin 0 -> 342219 bytes
+ .../usability/S06_BUG-18_Header_Overflow.png       | Bin 0 -> 309941 bytes
+ usability/findings.md                              |  70 ++++--
+ 11 files changed, 424 insertions(+), 78 deletions(-)
+
+commit 80a7dea8c51ab0fb53922fb4942b2c5864e37f76
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T23:35:16+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T23:35:16+07:00
+
+    docs(task2): generate SUS matrix and performance metrics summary (step 4)
+
+ ai_log/AI_Log.md                     |  22 ++++++++
+ usability/findings.md                |  46 ++++++++++++++++
+ usability/sessions/S06.json          |   4 +-
+ usability/sus_and_metrics_summary.md | 104 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 174 insertions(+), 2 deletions(-)
+
+commit 0a994a92ad1e500af3c52c1cc1867bb8aacb2daf
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T23:31:47+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T23:31:47+07:00
+
+    docs(task2): complete participant roster P01..P07 and validate step 3
+
+ ai_log/AI_Log.md          | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ usability/participants.md | 19 +++++++++----------
+ 2 files changed, 53 insertions(+), 10 deletions(-)
+
+commit 2cb9bbfa656a3e13eba4e7f577dd357340bd1a17
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T00:47:28+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T00:47:28+07:00
+
+    docs(task2): add Google Drive video links for S00..S07
+
+ usability/recordings/LINKS.md | 27 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
+
+commit 73afc0e02630e74d197e78f79ef11a0a25788914
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T00:18:45+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T00:18:45+07:00
+
+    docs(task2): record official usability session S07 (P07)
+
+ usability/sessions/S07.json | 105 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 105 insertions(+)
+
+commit 77d53e760fe7b3c675cd6c60420d1d5dfad3ae3e
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T00:14:47+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T00:14:47+07:00
+
+    docs(task2): record official usability session S06 (P06)
+
+ usability/sessions/S06.json | 113 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 113 insertions(+)
+
+commit dc77000ca88a9b87d1002d095b59aca121d1c3fa
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T00:08:12+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T00:08:12+07:00
+
+    docs(task2): record official usability session S05 (P05)
+
+ usability/sessions/S05.json | 134 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 134 insertions(+)
+
+commit 381d46545cf6b7f4455f803e7a8b75385e4d384d
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-13T00:00:38+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-13T00:00:38+07:00
+
+    docs(task2): record official usability session S04 (P04)
+
+ usability/sessions/S04.json | 112 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 112 insertions(+)
+
+commit 59adcb84b78e45b4e9f2f8bef533b9d18f40ff08
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T23:38:28+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T23:38:28+07:00
+
+    docs(task2): record official usability session S03 (P03)
+
+ usability/sessions/S03.json | 112 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 112 insertions(+)
+
+commit 17e9d23fec6ab6388ccac3b30e2f99a80bffbbaf
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T23:27:45+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T23:27:45+07:00
+
+    docs(task2): record official usability session S02 (P02)
+
+ usability/sessions/S02.json | 97 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 97 insertions(+)
+
+commit f4daab18b0752d05448956d5bef943c71af23f1c
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T23:14:06+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T23:14:06+07:00
+
+    docs(task2): record official usability session S01 (P01)
+
+ usability/session_helper.html |   4 +-
+ usability/sessions/S00.json   |   4 +-
+ usability/sessions/S01.json   | 158 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 162 insertions(+), 4 deletions(-)
+
+commit 62d4d5ded92e81bc3dbcd843e09bb00aabef9675
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T14:54:34+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T14:54:34+07:00
+
+    docs(task2): fill P00 demographic details in participants roster
+
+ usability/participants.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 66da9d31591568467c499adb82f1ef4abbc6a5be
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T14:50:54+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T14:50:54+07:00
+
+    docs(task2): complete pilot session S00 and post-pilot refinements (step 2)
+
+ .gitignore                     |   5 +-
+ ai_log/AI_Log.md               |   1 +
+ usability/moderator_script.md  |   3 +-
+ usability/participant_kit.md   |   2 +-
+ usability/participants.md      |   2 +-
+ usability/pilot_refinements.md |  18 +++++++
+ usability/session_helper.html  |  10 ++--
+ usability/sessions/S00.json    | 118 +++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 152 insertions(+), 7 deletions(-)
+
+commit 536cdf57deb2264e87ff63032a415d6b85ba97be
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T14:03:54+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T14:03:54+07:00
+
+    fix(task2): make start_session.ps1 pure ASCII for Windows PowerShell 5.1
+
+ usability/start_session.ps1 | 44 +++++++++++++++++++++++---------------------
+ 1 file changed, 23 insertions(+), 21 deletions(-)
+
+commit 3cf63764431cff4c8fdd8f2ee7795a7f793bcdca
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T13:49:52+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T13:49:52+07:00
+
+    docs(task2): add participant kit, moderator script, and local session helper (step 1)
+
+ ai_log/AI_Log.md                                   |  23 +
+ usability/frozen/INDEX.md                          |   2 +
+ .../T2_moderator_script_step1_20261112-113805.md   |  89 +++
+ .../T2_participant_kit_step1_20261112-113805.md    |  61 ++
+ usability/moderator_script.md                      |  90 +++
+ usability/participant_kit.md                       |  62 ++
+ usability/participants.md                          |  26 +
+ usability/recordings/.gitkeep                      |   0
+ usability/recordings/LINKS.md                      |  19 +
+ usability/session_helper.html                      | 676 +++++++++++++++++++++
+ usability/start_session.ps1                        |  83 +++
+ 11 files changed, 1131 insertions(+)
+
+commit af91496f607bd36f2dc9f0c4dd6307a489bc7c7b
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T11:33:54+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T11:33:54+07:00
+
+    docs(task2): add 9-part usability evaluation plan for flow F1 (step 0)
+
+ ai_log/AI_Log.md                                  |  21 ++++
+ usability/frozen/INDEX.md                         |   3 +
+ usability/frozen/T2_plan_step0_20261112-112128.md | 117 ++++++++++++++++++++++
+ usability/plan.md                                 | 117 ++++++++++++++++++++++
+ 4 files changed, 258 insertions(+)
+
+commit c837782d0f66ce849af817a0bed7f635fc3607ce
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T10:27:19+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T10:27:19+07:00
+
+    feat(skills): add usability-evaluation agent skill
+
+ .agents/skills/usability-evaluation/.gitkeep       |   0
+ .agents/skills/usability-evaluation/SKILL.md       | 148 +++++++
+ .../assets/findings_template.md                    |  46 +++
+ .../assets/moderator_script_template.md            |  50 +++
+ .../assets/participant_kit_template.md             |  61 +++
+ .../assets/participants_template.md                |  25 ++
+ .../usability-evaluation/assets/plan_template.md   |  66 +++
+ .../assets/session_template.json                   |  32 ++
+ .../references/evaluation-methodology.md           |  73 ++++
+ .../references/session-schema.md                   | 111 +++++
+ .../references/sus-and-severity-rubric.md          |  72 ++++
+ .../scripts/analyze_usability.py                   | 460 +++++++++++++++++++++
+ .../scripts/freeze_artifact.py                     |  57 +++
+ .../usability-evaluation/scripts/init_session.py   |  65 +++
+ .../usability-evaluation/scripts/pilot_diff.py     |  86 ++++
+ .../usability-evaluation/scripts/validate_study.py | 308 ++++++++++++++
+ Main_Report.md                                     |   7 +-
+ 17 files changed, 1666 insertions(+), 1 deletion(-)
+
+commit 166205bd619d8dc735ff3e6cb28fdc9f312ba025
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-12T09:52:17+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-12T09:52:17+07:00
+
+    test(task3): update native OS and Android cross-platform screenshots and report embeds
+
+ Main_Report.md                                     |  41 ++++++++++++++++-----
+ README.md                                          |   2 +-
+ .../task3_cross_platform/P1_Device_Info.png        | Bin 0 -> 204792 bytes
+ .../task3_cross_platform/P1_ForgotPassword_1.png   | Bin 39422 -> 129734 bytes
+ screenshots/task3_cross_platform/P1_Login_1.png    | Bin 41415 -> 131337 bytes
+ screenshots/task3_cross_platform/P1_Profile_1.png  | Bin 52612 -> 147383 bytes
+ screenshots/task3_cross_platform/P1_Register_1.png | Bin 45266 -> 134975 bytes
+ .../task3_cross_platform/P2_Device_Info.png        | Bin 0 -> 175885 bytes
+ .../task3_cross_platform/P2_ForgotPassword_1.png   | Bin 37803 -> 127983 bytes
+ screenshots/task3_cross_platform/P2_Login_1.png    | Bin 39713 -> 129331 bytes
+ screenshots/task3_cross_platform/P2_Profile_1.png  | Bin 48589 -> 146018 bytes
+ screenshots/task3_cross_platform/P2_Register_1.png | Bin 43031 -> 134052 bytes
+ .../task3_cross_platform/P3_Device_Info.png        | Bin 0 -> 303596 bytes
+ .../task3_cross_platform/P3_ForgotPassword_1.png   | Bin 63434 -> 98642 bytes
+ screenshots/task3_cross_platform/P3_Login_1.png    | Bin 74128 -> 115530 bytes
+ screenshots/task3_cross_platform/P3_Profile_1.png  | Bin 93366 -> 138628 bytes
+ screenshots/task3_cross_platform/P3_Register_1.png | Bin 84769 -> 129935 bytes
+ 17 files changed, 33 insertions(+), 10 deletions(-)
+
+commit a11ec87d4c6ed2fa52119dc1a482a3b30b0864e9
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T19:42:04+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T19:42:04+07:00
+
+    docs(task1): refine Task 1 v6 consistency across Main_Report, Excel, and SV-20 evidence
+
+ .../gui-checklist-testing/scripts/build_excel.py   |  33 ++++++--
+ .../scripts/render_checklist.py                    |   7 ++
+ Main_Report.md                                     |  16 ++--
+ ai_log/AI_Log.md                                   |  22 +++++
+ checklist/M1_GUI_Checklist.md                      |  94 ++++++++++-----------
+ checklist/M1_GUI_Checklist_And_Summary.xlsx        | Bin 46293 -> 47951 bytes
+ checklist/checklist.json                           |   4 +-
+ screenshots/github_issues/ISSUE-24_BUG-24.png      | Bin 392329 -> 397293 bytes
+ screenshots/task1_failed/P3_SV-20.png              | Bin 98575 -> 113520 bytes
+ 9 files changed, 115 insertions(+), 61 deletions(-)
+
+commit c6bbb04030c37ca8167a777014dc9da1df09c256
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T19:08:43+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T19:08:43+07:00
+
+    chore(ai_log): consolidate AI interaction logs into single append-only AI_Log.md
+
+ .../assets/ai_log_template.md                      |  11 +-
+ .../scripts/ai_audit_export.py                     |  88 ++++++---
+ Main_Report.md                                     |  14 +-
+ README.md                                          |   3 +-
+ ai_log/.gitkeep                                    |   0
+ ai_log/01_step0_inventory_and_test_basis.md        |  21 ---
+ ai_log/02_step1_ia01_general_ui.md                 |  23 ---
+ ai_log/03_step1_ia02_forms.md                      |  19 --
+ ai_log/04_step1_ia03_navigation.md                 |  19 --
+ ai_log/05_step1_ia04_feedback_state.md             |  19 --
+ ai_log/06_step2_merge_and_validate_sv_items.md     |  21 ---
+ ai_log/07_step3_run_guide_and_dom_probe.md         |  21 ---
+ ai_log/08_step5_excel_and_test_summary.md          |  21 ---
+ ai_log/09_step6_bug_grouping_and_github_issues.md  |  20 --
+ ai_log/AI_Log.md                                   | 209 +++++++++++++++++++++
+ 15 files changed, 289 insertions(+), 220 deletions(-)
+
+commit 46eb4bc7a2f9a792575638ac11bc174bd1b7439a
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T19:01:13+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T19:01:13+07:00
+
+    docs(report): expand Main_Report.md with complete Task 1, Task 3 and Bug Report tables
+
+ Main_Report.md                                    | 1027 +++++++++++++++++----
+ ai_log/09_step6_bug_grouping_and_github_issues.md |    3 +-
+ 2 files changed, 873 insertions(+), 157 deletions(-)
+
+commit fdc287c33024829569e381a8606185b97768afbc
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T17:49:28+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T17:49:28+07:00
+
+    docs(task1): bug reports and GitHub issues
+
+ Bug_Report.md                                      | 1925 ++++++++++++++++++++
+ Main_Report.md                                     |   40 +-
+ README.md                                          |    2 +-
+ ai_log/09_step6_bug_grouping_and_github_issues.md  |   19 +
+ bugs/BUG-01.md                                     |   77 +
+ bugs/BUG-02.md                                     |   60 +
+ bugs/BUG-03.md                                     |   60 +
+ bugs/BUG-04.md                                     |   62 +
+ bugs/BUG-05.md                                     |   69 +
+ bugs/BUG-06.md                                     |   60 +
+ bugs/BUG-07.md                                     |   68 +
+ bugs/BUG-08.md                                     |   60 +
+ bugs/BUG-09.md                                     |   69 +
+ bugs/BUG-10.md                                     |   60 +
+ bugs/BUG-11.md                                     |   60 +
+ bugs/BUG-12.md                                     |   59 +
+ bugs/BUG-13.md                                     |   82 +
+ bugs/BUG-14.md                                     |   68 +
+ bugs/BUG-15.md                                     |   58 +
+ bugs/BUG-16.md                                     |   60 +
+ bugs/BUG-17.md                                     |   68 +
+ bugs/BUG-18.md                                     |   61 +
+ bugs/BUG-19.md                                     |   69 +
+ bugs/BUG-20.md                                     |   59 +
+ bugs/BUG-21.md                                     |   68 +
+ bugs/BUG-22.md                                     |   68 +
+ bugs/BUG-23.md                                     |   68 +
+ bugs/BUG-24.md                                     |   64 +
+ bugs/BUG-25.md                                     |   78 +
+ bugs/BUG-26.md                                     |   57 +
+ bugs/BUG-27.md                                     |   66 +
+ bugs/bug_groups.md                                 |  313 ++++
+ bugs/issues_manifest.json                          |  846 +++++++++
+ checklist/checklist.json                           |  184 +-
+ .../github_issues/GitHub_Issues_Overview_Page1.png |  Bin 0 -> 296397 bytes
+ .../github_issues/GitHub_Issues_Overview_Page2.png |  Bin 0 -> 301526 bytes
+ screenshots/github_issues/ISSUE-01_BUG-01.png      |  Bin 0 -> 499706 bytes
+ screenshots/github_issues/ISSUE-02_BUG-02.png      |  Bin 0 -> 282009 bytes
+ screenshots/github_issues/ISSUE-03_BUG-03.png      |  Bin 0 -> 286031 bytes
+ screenshots/github_issues/ISSUE-04_BUG-04.png      |  Bin 0 -> 293662 bytes
+ screenshots/github_issues/ISSUE-05_BUG-05.png      |  Bin 0 -> 423794 bytes
+ screenshots/github_issues/ISSUE-06_BUG-06.png      |  Bin 0 -> 298836 bytes
+ screenshots/github_issues/ISSUE-07_BUG-07.png      |  Bin 0 -> 366538 bytes
+ screenshots/github_issues/ISSUE-08_BUG-08.png      |  Bin 0 -> 259918 bytes
+ screenshots/github_issues/ISSUE-09_BUG-09.png      |  Bin 0 -> 393118 bytes
+ screenshots/github_issues/ISSUE-10_BUG-10.png      |  Bin 0 -> 259603 bytes
+ screenshots/github_issues/ISSUE-11_BUG-11.png      |  Bin 0 -> 281602 bytes
+ screenshots/github_issues/ISSUE-12_BUG-12.png      |  Bin 0 -> 263364 bytes
+ screenshots/github_issues/ISSUE-13_BUG-13.png      |  Bin 0 -> 458751 bytes
+ screenshots/github_issues/ISSUE-14_BUG-14.png      |  Bin 0 -> 371473 bytes
+ screenshots/github_issues/ISSUE-15_BUG-15.png      |  Bin 0 -> 298849 bytes
+ screenshots/github_issues/ISSUE-16_BUG-16.png      |  Bin 0 -> 294132 bytes
+ screenshots/github_issues/ISSUE-17_BUG-17.png      |  Bin 0 -> 380855 bytes
+ screenshots/github_issues/ISSUE-18_BUG-18.png      |  Bin 0 -> 318777 bytes
+ screenshots/github_issues/ISSUE-19_BUG-19.png      |  Bin 0 -> 417760 bytes
+ screenshots/github_issues/ISSUE-20_BUG-20.png      |  Bin 0 -> 334836 bytes
+ screenshots/github_issues/ISSUE-21_BUG-21.png      |  Bin 0 -> 355654 bytes
+ screenshots/github_issues/ISSUE-22_BUG-22.png      |  Bin 0 -> 375530 bytes
+ screenshots/github_issues/ISSUE-23_BUG-23.png      |  Bin 0 -> 409008 bytes
+ screenshots/github_issues/ISSUE-24_BUG-24.png      |  Bin 0 -> 392329 bytes
+ screenshots/github_issues/ISSUE-25_BUG-25.png      |  Bin 0 -> 515176 bytes
+ screenshots/github_issues/ISSUE-26_BUG-26.png      |  Bin 0 -> 264872 bytes
+ screenshots/github_issues/ISSUE-27_BUG-27.png      |  Bin 0 -> 458553 bytes
+ 63 files changed, 5036 insertions(+), 51 deletions(-)
+
+commit e3d783cc6089f422c5e51cf056f410b1270e8a03
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T17:23:50+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T17:23:50+07:00
+
+    test(task1): Excel checklist and test summary
+
+ Main_Report.md                              | 159 ++++++++++++++++++++++++++++
+ README.md                                   |  75 ++++++++++---
+ ai_log/08_step5_excel_and_test_summary.md   |  21 ++++
+ checklist/M1_GUI_Checklist.md               |   2 +-
+ checklist/M1_GUI_Checklist_And_Summary.xlsx | Bin 0 -> 46293 bytes
+ checklist/checklist.json                    |   4 +-
+ 6 files changed, 244 insertions(+), 17 deletions(-)
+
+commit df68b3934a1b96dd6203231d6b440345245a4dc3
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T17:18:50+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T17:18:50+07:00
+
+    test(task1): execute checklist on P3 (Chrome Android)
+
+ checklist/M1_GUI_Checklist.md                      |  106 +-
+ checklist/RUN.md                                   |    2 +-
+ checklist/checklist.json                           | 1264 ++++++++++++++------
+ checklist/runs/P3_20261111-1710.csv                |   60 +
+ checklist/runs/P3_auto_20261111-1638.json          |  272 +++++
+ screenshots/task1_failed/P3_CL-01.png              |  Bin 0 -> 83638 bytes
+ screenshots/task1_failed/P3_CL-03.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-04.png              |  Bin 0 -> 83638 bytes
+ screenshots/task1_failed/P3_CL-05.png              |  Bin 0 -> 71589 bytes
+ screenshots/task1_failed/P3_CL-06.png              |  Bin 0 -> 98575 bytes
+ screenshots/task1_failed/P3_CL-07.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-08.png              |  Bin 0 -> 79756 bytes
+ screenshots/task1_failed/P3_CL-11.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-12.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-13.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-14.png              |  Bin 0 -> 83638 bytes
+ screenshots/task1_failed/P3_CL-15.png              |  Bin 0 -> 83638 bytes
+ screenshots/task1_failed/P3_CL-16.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-17.png              |  Bin 0 -> 79756 bytes
+ screenshots/task1_failed/P3_CL-18.png              |  Bin 0 -> 79756 bytes
+ screenshots/task1_failed/P3_CL-19.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-20.png              |  Bin 0 -> 79756 bytes
+ screenshots/task1_failed/P3_CL-22.png              |  Bin 0 -> 98575 bytes
+ screenshots/task1_failed/P3_CL-23.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-24.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_CL-25.png              |  Bin 0 -> 98575 bytes
+ screenshots/task1_failed/P3_CL-26.png              |  Bin 0 -> 71589 bytes
+ screenshots/task1_failed/P3_CL-28.png              |  Bin 0 -> 83638 bytes
+ screenshots/task1_failed/P3_CL-30.png              |  Bin 0 -> 48539 bytes
+ screenshots/task1_failed/P3_CL-32.png              |  Bin 0 -> 74128 bytes
+ screenshots/task1_failed/P3_CL-33.png              |  Bin 0 -> 80976 bytes
+ screenshots/task1_failed/P3_CL-35.png              |  Bin 0 -> 71589 bytes
+ screenshots/task1_failed/P3_CL-36.png              |  Bin 0 -> 87674 bytes
+ screenshots/task1_failed/P3_SV-03.png              |  Bin 0 -> 83638 bytes
+ screenshots/task1_failed/P3_SV-04.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_SV-05.png              |  Bin 0 -> 85707 bytes
+ screenshots/task1_failed/P3_SV-06.png              |  Bin 0 -> 93536 bytes
+ screenshots/task1_failed/P3_SV-08.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_SV-09.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_SV-10.png              |  Bin 0 -> 87674 bytes
+ screenshots/task1_failed/P3_SV-11.png              |  Bin 0 -> 79665 bytes
+ screenshots/task1_failed/P3_SV-12.png              |  Bin 0 -> 79756 bytes
+ screenshots/task1_failed/P3_SV-13.png              |  Bin 0 -> 79756 bytes
+ screenshots/task1_failed/P3_SV-14.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_SV-16.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_SV-19.png              |  Bin 0 -> 104244 bytes
+ screenshots/task1_failed/P3_SV-20.png              |  Bin 0 -> 98575 bytes
+ .../task3_cross_platform/P3_ForgotPassword_1.png   |  Bin 0 -> 63434 bytes
+ screenshots/task3_cross_platform/P3_Login_1.png    |  Bin 0 -> 74128 bytes
+ screenshots/task3_cross_platform/P3_Profile_1.png  |  Bin 0 -> 93366 bytes
+ screenshots/task3_cross_platform/P3_Register_1.png |  Bin 0 -> 84769 bytes
+ 51 files changed, 1276 insertions(+), 428 deletions(-)
+
+commit e8b8f9829664e11bf8cf76d988ca67be544f0824
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T17:18:14+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T17:18:14+07:00
+
+    test(task1): execute checklist on P2 (Firefox Windows)
+
+ checklist/M1_GUI_Checklist.md                      |  118 +-
+ checklist/RUN.md                                   |    2 +-
+ checklist/checklist.json                           | 1358 ++++++++++++++------
+ checklist/runs/P2_20261111-1700.csv                |   60 +
+ checklist/runs/P2_auto_20261111-1644.json          |  303 +++++
+ screenshots/task1_failed/P2_CL-01.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_CL-03.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-04.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_CL-05.png              |  Bin 0 -> 44174 bytes
+ screenshots/task1_failed/P2_CL-06.png              |  Bin 0 -> 58417 bytes
+ screenshots/task1_failed/P2_CL-07.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-08.png              |  Bin 0 -> 42269 bytes
+ screenshots/task1_failed/P2_CL-11.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-12.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-13.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-14.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_CL-15.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_CL-16.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-17.png              |  Bin 0 -> 42269 bytes
+ screenshots/task1_failed/P2_CL-18.png              |  Bin 0 -> 42269 bytes
+ screenshots/task1_failed/P2_CL-19.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-20.png              |  Bin 0 -> 42269 bytes
+ screenshots/task1_failed/P2_CL-22.png              |  Bin 0 -> 58417 bytes
+ screenshots/task1_failed/P2_CL-23.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-24.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-25.png              |  Bin 0 -> 58417 bytes
+ screenshots/task1_failed/P2_CL-26.png              |  Bin 0 -> 44174 bytes
+ screenshots/task1_failed/P2_CL-28.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_CL-30.png              |  Bin 0 -> 31369 bytes
+ screenshots/task1_failed/P2_CL-31.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_CL-32.png              |  Bin 0 -> 39713 bytes
+ screenshots/task1_failed/P2_CL-33.png              |  Bin 0 -> 42322 bytes
+ screenshots/task1_failed/P2_CL-35.png              |  Bin 0 -> 44174 bytes
+ screenshots/task1_failed/P2_CL-36.png              |  Bin 0 -> 48362 bytes
+ screenshots/task1_failed/P2_CL-37.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_SV-01.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_SV-03.png              |  Bin 0 -> 43236 bytes
+ screenshots/task1_failed/P2_SV-04.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_SV-05.png              |  Bin 0 -> 48067 bytes
+ screenshots/task1_failed/P2_SV-06.png              |  Bin 0 -> 31833 bytes
+ screenshots/task1_failed/P2_SV-08.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_SV-09.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_SV-10.png              |  Bin 0 -> 48362 bytes
+ screenshots/task1_failed/P2_SV-11.png              |  Bin 0 -> 46247 bytes
+ screenshots/task1_failed/P2_SV-12.png              |  Bin 0 -> 42269 bytes
+ screenshots/task1_failed/P2_SV-13.png              |  Bin 0 -> 42269 bytes
+ screenshots/task1_failed/P2_SV-14.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_SV-16.png              |  Bin 0 -> 49622 bytes
+ screenshots/task1_failed/P2_SV-19.png              |  Bin 0 -> 49622 bytes
+ .../task3_cross_platform/P2_ForgotPassword_1.png   |  Bin 0 -> 37803 bytes
+ screenshots/task3_cross_platform/P2_Login_1.png    |  Bin 0 -> 39713 bytes
+ screenshots/task3_cross_platform/P2_Profile_1.png  |  Bin 0 -> 48589 bytes
+ screenshots/task3_cross_platform/P2_Register_1.png |  Bin 0 -> 43031 bytes
+ 53 files changed, 1372 insertions(+), 469 deletions(-)
+
+commit 27157f4fcc62b7e56ef54e18a15c1dd6ec7ef1b7
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T17:17:44+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T17:17:44+07:00
+
+    test(task1): execute checklist on P1 (Chrome Windows)
+
+ checklist/M1_GUI_Checklist.md                      |  118 +-
+ checklist/RUN.md                                   |    2 +-
+ checklist/checklist.json                           | 1566 ++++++++++++++++-
+ checklist/runs/P1_20261111-1650.csv                |   60 +
+ checklist/runs/P1_auto_20261111-1620.json          |  303 ++++
+ screenshots/task1_failed/P1_CL-01.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_CL-03.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-04.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_CL-05.png              |  Bin 0 -> 45706 bytes
+ screenshots/task1_failed/P1_CL-06.png              |  Bin 0 -> 62000 bytes
+ screenshots/task1_failed/P1_CL-07.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-08.png              |  Bin 0 -> 43775 bytes
+ screenshots/task1_failed/P1_CL-11.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-12.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-13.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-14.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_CL-15.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_CL-16.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-17.png              |  Bin 0 -> 43775 bytes
+ screenshots/task1_failed/P1_CL-18.png              |  Bin 0 -> 43775 bytes
+ screenshots/task1_failed/P1_CL-19.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-20.png              |  Bin 0 -> 43775 bytes
+ screenshots/task1_failed/P1_CL-22.png              |  Bin 0 -> 62000 bytes
+ screenshots/task1_failed/P1_CL-23.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-24.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-25.png              |  Bin 0 -> 62000 bytes
+ screenshots/task1_failed/P1_CL-26.png              |  Bin 0 -> 45706 bytes
+ screenshots/task1_failed/P1_CL-28.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_CL-30.png              |  Bin 0 -> 32565 bytes
+ screenshots/task1_failed/P1_CL-31.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_CL-32.png              |  Bin 0 -> 41415 bytes
+ screenshots/task1_failed/P1_CL-33.png              |  Bin 0 -> 43887 bytes
+ screenshots/task1_failed/P1_CL-35.png              |  Bin 0 -> 45706 bytes
+ screenshots/task1_failed/P1_CL-36.png              |  Bin 0 -> 50177 bytes
+ screenshots/task1_failed/P1_CL-37.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_SV-01.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_SV-03.png              |  Bin 0 -> 44815 bytes
+ screenshots/task1_failed/P1_SV-04.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_SV-05.png              |  Bin 0 -> 49817 bytes
+ screenshots/task1_failed/P1_SV-06.png              |  Bin 0 -> 33113 bytes
+ screenshots/task1_failed/P1_SV-08.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_SV-09.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_SV-10.png              |  Bin 0 -> 50177 bytes
+ screenshots/task1_failed/P1_SV-11.png              |  Bin 0 -> 47794 bytes
+ screenshots/task1_failed/P1_SV-12.png              |  Bin 0 -> 43775 bytes
+ screenshots/task1_failed/P1_SV-13.png              |  Bin 0 -> 43775 bytes
+ screenshots/task1_failed/P1_SV-14.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_SV-16.png              |  Bin 0 -> 52106 bytes
+ screenshots/task1_failed/P1_SV-19.png              |  Bin 0 -> 52106 bytes
+ .../task3_cross_platform/P1_ForgotPassword_1.png   |  Bin 0 -> 39422 bytes
+ screenshots/task3_cross_platform/P1_Login_1.png    |  Bin 0 -> 41415 bytes
+ screenshots/task3_cross_platform/P1_Profile_1.png  |  Bin 0 -> 52612 bytes
+ screenshots/task3_cross_platform/P1_Register_1.png |  Bin 0 -> 45266 bytes
+ tests/package-lock.json                            |   43 +
+ tests/package.json                                 |   16 +
+ tests/run_m1_auto.mjs                              | 1831 ++++++++++++++++++++
+ 56 files changed, 3818 insertions(+), 121 deletions(-)
+
+commit 6dbdafdc835bf2716aac51fd8136a3614112dd93
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T16:10:29+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T16:10:29+07:00
+
+    chore(task1): finalize P1/P2/P3 environment specs with Chrome Android
+
+ ai_log/07_step3_run_guide_and_dom_probe.md         |    7 +-
+ checklist/M1_GUI_Checklist.md                      |   26 +-
+ checklist/RUN.md                                   |   39 +-
+ checklist/ai-outputs/INDEX.md                      |    1 +
+ .../M1_checklist_step3b_20261111-161029.json       | 1355 ++++++++++++++++++++
+ checklist/checklist.json                           |   42 +-
+ checklist/sv_items.md                              |   10 +-
+ 7 files changed, 1419 insertions(+), 61 deletions(-)
+
+commit a761d5b6d7d5032e909aa08f500e2f1dc7d03dfc
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T15:37:36+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T15:37:36+07:00
+
+    docs(task1): run guide and DOM probe
+
+ ai_log/06_step2_merge_and_validate_sv_items.md     |    1 +
+ ai_log/07_step3_run_guide_and_dom_probe.md         |   20 +
+ checklist/M1_GUI_Checklist.md                      |    2 +-
+ checklist/RUN.md                                   |  154 +++
+ checklist/ai-outputs/INDEX.md                      |    1 +
+ .../M1_checklist_step3_20261111-153656.json        | 1355 ++++++++++++++++++++
+ checklist/checklist.json                           |  240 +++-
+ checklist/dom_probe.js                             |   57 +
+ checklist/runs/P1_template.csv                     |   60 +
+ checklist/runs/P2_template.csv                     |   60 +
+ checklist/runs/P3_template.csv                     |   60 +
+ 11 files changed, 1948 insertions(+), 62 deletions(-)
+
+commit ccfa56271697fc966a7ca7e8b735f33df44bcb8f
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T15:27:17+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T15:27:17+07:00
+
+    feat(task1): SV items and AI gap reasons
+
+ ai_log/06_step2_merge_and_validate_sv_items.md     |   20 +
+ checklist/M1_GUI_Checklist.md                      |   38 +-
+ checklist/ai-outputs/INDEX.md                      |    1 +
+ .../M1_checklist_step2_20261111-152653.json        | 1237 ++++++++++++++++++++
+ checklist/checklist.json                           |  463 +++++++-
+ checklist/sv_items.md                              |  312 +++++
+ 6 files changed, 2061 insertions(+), 10 deletions(-)
+
+commit 2ec7e8a785406f156ea7c3c4785d18770ae649be
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T15:13:58+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T15:13:58+07:00
+
+    feat(task1): AI draft GUI checklist
+
+ .../assets/sv_items_template.md                    |   2 +-
+ .../scripts/render_checklist.py                    |  59 +-
+ ai_log/02_step1_ia01_general_ui.md                 |  23 +
+ ai_log/03_step1_ia02_forms.md                      |  19 +
+ ai_log/04_step1_ia03_navigation.md                 |  19 +
+ ai_log/05_step1_ia04_feedback_state.md             |  19 +
+ checklist/M1_GUI_Checklist.md                      |  90 +++
+ checklist/ai-outputs/INDEX.md                      |   4 +
+ .../M1_checklist_step1_20261111-151044.json        | 780 +++++++++++++++++++++
+ .../M1_checklist_step1_IA01_20261111-141811.json   | 233 ++++++
+ .../M1_checklist_step1_IA02_20261111-144212.json   | 489 +++++++++++++
+ .../M1_checklist_step1_IA03_20261111-150333.json   | 631 +++++++++++++++++
+ checklist/checklist.json                           | 767 +++++++++++++++++++-
+ 13 files changed, 3107 insertions(+), 28 deletions(-)
+
+commit 6b6a7a992c52a6dede5f15c52b21611aeb7008b0
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T14:12:23+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T14:12:23+07:00
+
+    docs(task1): M1 inventory and test basis
+
+ ai_log/01_step0_inventory_and_test_basis.md        |  21 ++++
+ checklist/ai-outputs/INDEX.md                      |   1 +
+ .../M1_checklist_step0_20261111-135503.json        |  26 +++++
+ checklist/checklist.json                           |  27 +++++
+ checklist/m1_inventory.md                          | 128 +++++++++++++++++++++
+ checklist/m1_test_basis.md                         | 108 +++++++++++++++++
+ 6 files changed, 311 insertions(+)
+
+commit 368cd0499ab1adc5ea872d84d47e596591428e1e
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T13:52:24+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T13:52:24+07:00
+
+    chore: update student info, gitignore and add slide reference
+
+ .gitignore                        |   6 +
+ README.md                         |   8 +-
+ ai_log/.gitkeep                   |   0
+ bugs/.gitkeep                     |   0
+ docs/Nhom05_GUI_Testing_Slides.md | 723 ++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 736 insertions(+), 1 deletion(-)
+
+commit e2f53f62004b1f612674cfb317d1a2f53ebe8422
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-11T13:45:45+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-11T13:45:45+07:00
+
+    feat(skills): add gui-checklist-testing agent skill
+
+ .agents/skills/gui-checklist-testing/.gitkeep      |   0
+ .agents/skills/gui-checklist-testing/SKILL.md      | 116 +++++++++++++++
+ .../gui-checklist-testing/assets/RUN_template.md   |  57 ++++++++
+ .../assets/ai_log_template.md                      |  29 ++++
+ .../gui-checklist-testing/assets/bug_template.md   |  53 +++++++
+ .../gui-checklist-testing/assets/dom_probe.js      |  57 ++++++++
+ .../assets/sv_items_template.md                    |  42 ++++++
+ .../gui-checklist-testing/references/hw03-rules.md |  41 ++++++
+ .../references/m1-inventory.md                     |  80 ++++++++++
+ .../references/m1-test-basis.md                    |  40 +++++
+ .../references/schema-checklist.md                 |  82 +++++++++++
+ .../references/slide-checklist.md                  |  82 +++++++++++
+ .../scripts/ai_audit_export.py                     |  95 ++++++++++++
+ .../gui-checklist-testing/scripts/bug_skeleton.py  | 123 ++++++++++++++++
+ .../gui-checklist-testing/scripts/build_excel.py   | 150 +++++++++++++++++++
+ .../scripts/check_checklist.py                     | 161 +++++++++++++++++++++
+ .../scripts/coverage_matrix.py                     |  78 ++++++++++
+ .../skills/gui-checklist-testing/scripts/freeze.py |  51 +++++++
+ .../scripts/merge_platform.py                      | 108 ++++++++++++++
+ .../scripts/render_checklist.py                    | 109 ++++++++++++++
+ .../gui-checklist-testing/scripts/word_count.py    |  65 +++++++++
+ 21 files changed, 1619 insertions(+)
+
+commit 1a9304a4be97e3adf08b093c35075a19bb318b75
+Author:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+AuthorDate: 2026-11-10T22:57:02+07:00
+Commit:     HuynhDucThinh <huynhducthinhmath@gmail.com>
+CommitDate: 2026-11-10T22:57:02+07:00
+
+    first commit: initialize HW03 M1 repository structure and eshop-sut
+
+ .agents/skills/gui-checklist-testing/.gitkeep      |    0
+ .agents/skills/usability-evaluation/.gitkeep       |    0
+ .gitignore                                         |   17 +
+ README.md                                          |   59 +
+ checklist/.gitkeep                                 |    0
+ docs/2026.HW03.GUI Usability_En.md                 |  268 +
+ docs/Huong_Dan_Thuc_Hien_HW03.md                   |  228 +
+ eshop-sut/README.md                                |  288 +
+ eshop-sut/api_specification.md                     |  214 +
+ eshop-sut/backend/database.js                      |  119 +
+ eshop-sut/backend/database.sqlite                  |  Bin 0 -> 36864 bytes
+ eshop-sut/backend/package-lock.json                | 1663 ++++
+ eshop-sut/backend/package.json                     |   20 +
+ eshop-sut/backend/server.js                        |  572 ++
+ eshop-sut/backend/test_profile.js                  |    8 +
+ eshop-sut/frontend-admin/.gitignore                |   24 +
+ eshop-sut/frontend-admin/README.md                 |   16 +
+ eshop-sut/frontend-admin/eslint.config.js          |   21 +
+ eshop-sut/frontend-admin/index.html                |   13 +
+ eshop-sut/frontend-admin/package-lock.json         | 3681 ++++++++
+ eshop-sut/frontend-admin/package.json              |   32 +
+ eshop-sut/frontend-admin/postcss.config.js         |    6 +
+ eshop-sut/frontend-admin/public/favicon.svg        |    1 +
+ eshop-sut/frontend-admin/public/icons.svg          |   24 +
+ eshop-sut/frontend-admin/src/App.css               |  184 +
+ eshop-sut/frontend-admin/src/App.jsx               |  922 ++
+ eshop-sut/frontend-admin/src/assets/hero.png       |  Bin 0 -> 13057 bytes
+ eshop-sut/frontend-admin/src/assets/react.svg      |    1 +
+ eshop-sut/frontend-admin/src/assets/vite.svg       |    1 +
+ eshop-sut/frontend-admin/src/index.css             |    8 +
+ eshop-sut/frontend-admin/src/main.jsx              |   10 +
+ eshop-sut/frontend-admin/tailwind.config.js        |   11 +
+ eshop-sut/frontend-admin/vite.config.js            |   11 +
+ eshop-sut/frontend-mobile/.gitignore               |   41 +
+ eshop-sut/frontend-mobile/App.js                   | 1300 +++
+ eshop-sut/frontend-mobile/app.json                 |   29 +
+ eshop-sut/frontend-mobile/assets/adaptive-icon.png |  Bin 0 -> 17547 bytes
+ eshop-sut/frontend-mobile/assets/favicon.png       |  Bin 0 -> 1466 bytes
+ eshop-sut/frontend-mobile/assets/icon.png          |  Bin 0 -> 22380 bytes
+ eshop-sut/frontend-mobile/assets/splash-icon.png   |  Bin 0 -> 17547 bytes
+ eshop-sut/frontend-mobile/index.js                 |    8 +
+ eshop-sut/frontend-mobile/package-lock.json        | 8773 ++++++++++++++++++++
+ eshop-sut/frontend-mobile/package.json             |   18 +
+ eshop-sut/frontend-web/.gitignore                  |   24 +
+ eshop-sut/frontend-web/README.md                   |   16 +
+ eshop-sut/frontend-web/eslint.config.js            |   21 +
+ eshop-sut/frontend-web/index.html                  |   13 +
+ eshop-sut/frontend-web/package-lock.json           | 3681 ++++++++
+ eshop-sut/frontend-web/package.json                |   32 +
+ eshop-sut/frontend-web/postcss.config.js           |    6 +
+ eshop-sut/frontend-web/public/favicon.svg          |    1 +
+ eshop-sut/frontend-web/public/icons.svg            |   24 +
+ eshop-sut/frontend-web/src/App.css                 |  184 +
+ eshop-sut/frontend-web/src/App.jsx                 |   71 +
+ eshop-sut/frontend-web/src/assets/hero.png         |  Bin 0 -> 13057 bytes
+ eshop-sut/frontend-web/src/assets/react.svg        |    1 +
+ eshop-sut/frontend-web/src/assets/vite.svg         |    1 +
+ eshop-sut/frontend-web/src/context/AuthContext.jsx |   50 +
+ eshop-sut/frontend-web/src/context/CartContext.jsx |   36 +
+ eshop-sut/frontend-web/src/index.css               |   14 +
+ eshop-sut/frontend-web/src/main.jsx                |   10 +
+ eshop-sut/frontend-web/src/pages/Cart.jsx          |   79 +
+ eshop-sut/frontend-web/src/pages/Checkout.jsx      |  151 +
+ .../frontend-web/src/pages/ForgotPassword.jsx      |  100 +
+ eshop-sut/frontend-web/src/pages/Home.jsx          |  116 +
+ eshop-sut/frontend-web/src/pages/Login.jsx         |   69 +
+ eshop-sut/frontend-web/src/pages/ProductDetail.jsx |   73 +
+ eshop-sut/frontend-web/src/pages/Profile.jsx       |  217 +
+ eshop-sut/frontend-web/src/pages/Register.jsx      |   83 +
+ eshop-sut/frontend-web/tailwind.config.js          |   11 +
+ eshop-sut/frontend-web/vite.config.js              |    7 +
+ eshop-sut/run_servers.sh                           |    5 +
+ eshop-sut/setup_guide.md                           |  117 +
+ screenshots/github_issues/.gitkeep                 |    0
+ screenshots/task1_failed/.gitkeep                  |    0
+ screenshots/task3_cross_platform/.gitkeep          |    0
+ scripts/.gitkeep                                   |    0
+ usability/recordings/.gitkeep                      |    0
+ 78 files changed, 23804 insertions(+)

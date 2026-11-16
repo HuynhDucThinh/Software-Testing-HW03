@@ -1068,8 +1068,8 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 
 | Tên Agent Skill | Thư mục lưu trữ | Thành phần kỹ thuật | Phạm vi áp dụng trong HW03 | Video Demo (YouTube) |
 | :--- | :--- | :--- | :--- | :--- |
-| **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 5 tài liệu `references/`, 5 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | *Cập nhật ở Bước 7* |
-| **`usability-evaluation`** | [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/) | `SKILL.md`, 3 tài liệu `references/`, 6 mẫu `assets/`, **5 script Python** kiểm định chống gian lận & tính toán `SUS` tự động | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | *Cập nhật ở Bước 7* |
+| **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 5 tài liệu `references/`, 5 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | `[TODO_YOUTUBE_DEMO_URL]` *(cập nhật sau khi quay xong)* |
+| **`usability-evaluation`** | [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/) | `SKILL.md`, 3 tài liệu `references/`, 6 mẫu `assets/`, **5 script Python** kiểm định chống gian lận & tính toán `SUS` tự động | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | `[TODO_YOUTUBE_DEMO_URL]` *(cập nhật sau khi quay xong)* |
 
 **Cơ chế vận hành kỷ luật của Agent Skill `gui-checklist-testing`:**
 1. **Điều khiển từng bước có điểm dừng bắt buộc (`Step 0` -> `Step 7`):** Mỗi lần kích hoạt chỉ thực hiện đúng một bước rồi dừng để sinh viên kiểm duyệt và tạo Git commit riêng; ngăn chặn việc dùng một câu prompt chung chung sinh toàn bộ bài làm.
@@ -1101,7 +1101,7 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 
 ## 9. Tóm Tắt AI Audit Report
 
-Toàn bộ nhật ký tương tác với công cụ AI (`Antigravity` kết hợp các mô hình `Gemini` và `Claude`) theo từng bước — gồm tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ (`Kept`) / sửa (`Changed`) / bác bỏ (`Rejected`) / tự làm thủ công (`By hand`) của sinh viên — được lưu nối tiếp theo trình tự thời gian trong [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (**`25` lượt tương tác: `Entry 01` .. `Entry 25`**), kèm bảng tổng hợp phân loại mức độ đạt chuẩn đầu ra AI theo 3 mức kiểm toán tại [`ai_log/audit_summary.md`](ai_log/audit_summary.md) (**`7 / 25` lượt `VALID` = `28.0%`** giữ nguyên sau kiểm chứng; **`18 / 25` lượt `INCOMPLETE` = `72.0%`** cần con người hiệu chỉnh/bổ sung chiều sâu biên hoặc sửa lỗi thực nghiệm; **`0 / 25` lượt `INVALID` = `0.0%`** bác bỏ toàn mục, kèm `14` đề xuất con sai lệch bị loại bỏ tại trường `Rejected`), và đã được kết xuất thành tài liệu bắt buộc [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (kèm bản `AI_Critique_and_Audit_Report.pdf`) bằng script `ai_audit_export.py`.
+Toàn bộ nhật ký tương tác với công cụ AI (`Antigravity` kết hợp các mô hình `Gemini` và `Claude`) theo từng bước — gồm tên công cụ, ngày giờ, câu lệnh prompt nguyên văn, tóm tắt đầu ra và quyết định giữ (`Kept`) / sửa (`Changed`) / bác bỏ (`Rejected`) / tự làm thủ công (`By hand`) của sinh viên — được lưu nối tiếp theo trình tự thời gian trong [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (**`25` lượt tương tác: `Entry 01` .. `Entry 25`**), kèm bảng tổng hợp phân loại mức độ đạt chuẩn đầu ra AI theo 3 mức kiểm toán tại [`ai_log/audit_summary.md`](ai_log/audit_summary.md) (**`7 / 25` lượt `VALID` = `28.0%`** giữ nguyên sau kiểm chứng; **`18 / 25` lượt `INCOMPLETE` = `72.0%`** cần con người hiệu chỉnh/bổ sung chiều sâu biên hoặc sửa lỗi thực nghiệm; **`0 / 25` lượt `INVALID` = `0.0%`** bác bỏ toàn mục, kèm `14` đề xuất con sai lệch bị loại bỏ tại trường `Rejected`). Hồ sơ kiểm toán đầy đủ được kết xuất thành tài liệu bắt buộc [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (+ `AI_Critique_and_Audit_Report.pdf`) cùng bộ 3 biểu mẫu chính sách AI chuẩn `FIT@HCMUS 2026 v1.0` trong [`ai-forms/`](ai-forms/) gồm: [`AI-02_Audit_Report_23120199.md`](ai-forms/AI-02_Audit_Report_23120199.md) (+ `.pdf`), [`AI-03_Disclosure_Form_23120199.md`](ai-forms/AI-03_Disclosure_Form_23120199.md) (+ `.pdf`) và [`AI-05_Privacy_Checklist_23120199.md`](ai-forms/AI-05_Privacy_Checklist_23120199.md) (+ `.pdf`).
 
 ---
 
@@ -1130,16 +1130,72 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 | **1** | **Task 1 — GUI Checklist** (design + execution + bug report) | **30** | **`30`** | `Main_Report.md` (§3, §6), `checklist/M1_GUI_Checklist_And_Summary.xlsx` (`59` mục, `168` lượt chạy), `checklist/sv_items.md` (`20` mục SV), `Bug_Report.md` & `28` GitHub Issues (`#1`..`#28`) |
 | **2** | **Task 2 — Usability Evaluation** (task scenario + 7 sessions + analysis) | **40** | **`40`** | `Main_Report.md` (§5), `usability/plan.md`, `usability/participant_kit.md`, `usability/participants.md` (`1` Pilot + `7` người thật ngoài lớp che 4 số giữa), `usability/sessions/S00..S07.json` (`7` commit riêng), `usability/recordings/LINKS.md` (`8` video Google Drive), `usability/sus_and_metrics_summary.md`, `usability/findings.md` & `BUG-28` (`#28`) |
 | **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | **`20`** | `Main_Report.md` (§4), `checklist/runs/P1..P3_*.csv`, `screenshots/task3_cross_platform/` (`15` ảnh thực tế có lớp phủ email), `screenshots/task1_failed/` (`130` ảnh) |
-| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | *Chốt sau khi gắn link YouTube Demo* | `.agents/skills/gui-checklist-testing/`, `.agents/skills/usability-evaluation/`, link YouTube Demo |
-| | **Total** | **100** | *Chốt ở bước đóng gói cuối* | |
+| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | **`10`** *(chờ gắn `[TODO_YOUTUBE_DEMO_URL]`)* | `.agents/skills/gui-checklist-testing/` (`20` file), `.agents/skills/usability-evaluation/` (`15` file), link YouTube Demo |
+| | **Total** | **100** | **`100`** *(chốt khi gắn link YouTube)* | Đủ 100% hiện vật bắt buộc theo Mục 14 đề bài (`23120199_HW03_AI_GUIUsability_100.zip`) |
 
 ---
 
 ## 13. Phụ Lục và Cấu Trúc Hồ Sơ Nộp Bài
 
-- **Phụ lục A — Báo cáo Phê bình & Nhật ký Kiểm toán AI:** [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (+ `AI_Critique_and_Audit_Report.pdf`) kết xuất từ [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 25`), [`ai_log/critique.md`](ai_log/critique.md) và [`ai_log/audit_summary.md`](ai_log/audit_summary.md).
+- **Phụ lục A — Báo cáo Phê bình, Nhật ký Kiểm toán AI & Bộ biểu mẫu Chính sách AI (`FIT@HCMUS 2026 v1.0`):** [`AI_Critique_and_Audit_Report.md`](AI_Critique_and_Audit_Report.md) (+ `AI_Critique_and_Audit_Report.pdf`), [`ai_log/AI_Log.md`](ai_log/AI_Log.md) (`Entry 01`..`Entry 25`), [`ai_log/critique.md`](ai_log/critique.md), [`ai_log/audit_summary.md`](ai_log/audit_summary.md) và thư mục [`ai-forms/`](ai-forms/) (`AI-02_Audit_Report_23120199.md/.pdf`, `AI-03_Disclosure_Form_23120199.md/.pdf`, `AI-05_Privacy_Checklist_23120199.md/.pdf`).
 - **Phụ lục B — Các bản đóng băng đầu ra AI theo từng bước:** [`checklist/ai-outputs/`](checklist/ai-outputs/) (`INDEX.md` + snapshot JSON Task 1) và [`usability/frozen/`](usability/frozen/) (`INDEX.md` + snapshot `SHA-256` Bước 0 & Bước 1 của Task 2).
-- **Phụ lục C — Sổ làm việc Excel & Dữ liệu thực thi gốc Task 1 & Task 3:** [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`checklist/checklist.json`](checklist/checklist.json), [`checklist/runs/`](checklist/runs/).
-- **Phụ lục D — Hồ sơ chi tiết 28 Bugs & Bằng chứng GitHub Issues:** [`Bug_Report.md`](Bug_Report.md), [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-28.md`](bugs/BUG-28.md), [`screenshots/github_issues/`](screenshots/github_issues/), [`screenshots/usability/`](screenshots/usability/).
+- **Phụ lục C — Sổ làm việc Excel & Dữ liệu thực thi gốc Task 1 & Task 3:** [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`checklist/M1_GUI_Checklist.md`](checklist/M1_GUI_Checklist.md), [`checklist/checklist.json`](checklist/checklist.json), [`checklist/runs/`](checklist/runs/).
+- **Phụ lục D — Hồ sơ chi tiết 28 Bugs & Bằng chứng GitHub Issues:** [`Bug_Report.md`](Bug_Report.md) (+ `Bug_Report.pdf`), [`bugs/BUG-01.md`](bugs/BUG-01.md)..[`bugs/BUG-28.md`](bugs/BUG-28.md), [`screenshots/github_issues/`](screenshots/github_issues/) (`30` ảnh), [`screenshots/usability/`](screenshots/usability/) (`2` ảnh).
 - **Phụ lục E — Bộ hồ sơ thực nghiệm Đánh giá Khả năng Sử dụng (Task 2):** [`usability/plan.md`](usability/plan.md), [`usability/participant_kit.md`](usability/participant_kit.md), [`usability/moderator_script.md`](usability/moderator_script.md), [`usability/participants.md`](usability/participants.md), [`usability/pilot_refinements.md`](usability/pilot_refinements.md), [`usability/sessions/`](usability/sessions/) (`S00.json`..`S07.json`), [`usability/recordings/LINKS.md`](usability/recordings/LINKS.md), [`usability/sus_and_metrics_summary.md`](usability/sus_and_metrics_summary.md), [`usability/findings.md`](usability/findings.md).
-- **Phụ lục F — Lịch sử Git Commit theo từng bước:** `git_commit_log.txt`.
+- **Phụ lục F — Lịch sử Git Commit theo từng bước:** [`git_commit_log.txt`](git_commit_log.txt).
+
+### Cây Thư Mục Gói Nộp Bài Hoàn Chỉnh (`23120199_HW03_AI_GUIUsability_100.zip`)
+
+```text
+23120199_HW03_AI_GUIUsability_100/
+├── README.md                                  # Tổng quan, Test Summary Report, Bảng tự đánh giá & Link Video Demo
+├── Main_Report.md                             # Báo cáo chính tích hợp Task 1, Task 2, Task 3, Task 4 (Markdown)
+├── Main_Report.pdf                            # Báo cáo chính định dạng in A4 (PDF)
+├── Bug_Report.md                              # Danh mục & hồ sơ kỹ thuật chi tiết 28 Bugs (#1..#28) (Markdown)
+├── Bug_Report.pdf                             # Báo cáo lỗi kèm ảnh chụp trang GitHub Issues định dạng A4 (PDF)
+├── AI_Critique_and_Audit_Report.md            # Bài Phê bình AI (271 từ) & Nhật ký Kiểm toán 25 lượt AI (Markdown)
+├── AI_Critique_and_Audit_Report.pdf           # Báo cáo Phê bình & Kiểm toán AI định dạng A4 (PDF)
+├── git_commit_log.txt                         # Lịch sử Git commit chi tiết theo từng bước thực hiện (Text)
+├── ai-forms/                                  # Bộ 3 biểu mẫu Chính sách AI chuẩn FIT@HCMUS 2026 v1.0 (MD + PDF)
+│   ├── AI-02_Audit_Report_23120199.md         # (& .pdf) Biểu mẫu kiểm toán 5 phần theo hiện vật
+│   ├── AI-03_Disclosure_Form_23120199.md      # (& .pdf) Biểu mẫu khai báo sử dụng AI & trích dẫn IEEE
+│   └── AI-05_Privacy_Checklist_23120199.md    # (& .pdf) Bảng kiểm quyền riêng tư & sử dụng AI có trách nhiệm
+├── ai_log/                                    # Nguồn dữ liệu nhật ký AI gốc
+│   ├── AI_Log.md                              # Nhật ký tương tác AI nối tiếp (Entry 01..Entry 25)
+│   ├── critique.md                            # Đoạn văn AI Critique (200-300 từ) do sinh viên biên tập
+│   └── audit_summary.md                       # Tổng hợp phán quyết kiểm toán (7 VALID / 18 INCOMPLETE / 0 INVALID)
+├── checklist/                                 # Thiết kế & Kết quả thực thi GUI Checklist (59 items > 40)
+│   ├── M1_GUI_Checklist_And_Summary.xlsx      # Sổ làm việc Excel 3 sheet (Test Cases, Checklist, Test Summary Report)
+│   ├── M1_GUI_Checklist.md                    # Bảng Checklist chi tiết theo IA-01..04 trên P1, P2, P3
+│   ├── checklist.json                         # Nguồn dữ liệu chuẩn duy nhất (Single Source of Truth)
+│   ├── m1_inventory.md                        # Bảng kiểm kê thành phần giao diện thực tế phạm vi M1
+│   ├── m1_test_basis.md                       # Trích lục điều khoản đặc tả UI kèm số dòng trong README.md
+│   ├── sv_items.md                            # 20 mục do sinh viên tự bổ sung kèm giải thích vì sao AI bỏ sót
+│   ├── RUN.md                                 # Quy trình thực thi G1..G7, quy tắc ảnh & nhật ký chạy
+│   ├── dom_probe.js                           # Script đọc thông số DOM khách quan trên trình duyệt
+│   ├── ai-outputs/                            # Bản đóng băng đầu ra AI từng bước của Task 1 (INDEX.md + JSON/MD)
+│   └── runs/                                  # Dữ liệu kết quả từng lượt chạy P1, P2, P3 (CSV & JSON)
+├── usability/                                 # Hồ sơ thực nghiệm Đánh giá Khả năng Sử dụng (Task 2 — Luồng F1)
+│   ├── plan.md                                # Kế hoạch đánh giá 9 phần (Rubin & Chisnell)
+│   ├── participant_kit.md                     # Phiếu Consent, Kịch bản mục tiêu, SEQ, 10 câu SUS & 4 câu mở
+│   ├── moderator_script.md                    # Kịch bản điều phối trung lập & System-Bug Rescue Protocol
+│   ├── participants.md                        # Danh sách 1 Pilot (P00) + 7 người thật ngoài lớp (P01..P07, che 4 số giữa)
+│   ├── pilot_refinements.md                   # Báo cáo đối chiếu tinh chỉnh công cụ sau phiên Pilot S00
+│   ├── sus_and_metrics_summary.md             # Ma trận điểm SUS từng câu Q1..Q10 (48.6 ± 11.3, hạng F) & hiệu năng
+│   ├── findings.md                            # Phân tách 7 Isolated Bugs vs 4 Systemic Design Issues & xếp hạng Severity
+│   ├── start_session.ps1                      # Script khởi tạo trạng thái CSDL sạch & Chrome Ẩn danh trước mỗi phiên
+│   ├── session_helper.html                    # Trạm bấm giờ chặng & thu phiếu SEQ/SUS offline
+│   ├── frozen/                                # Bản đóng băng SHA-256 Bước 0 & Bước 1 của Task 2
+│   ├── sessions/                              # Dữ liệu gốc 8 phiên (S00.json Pilot + S01..S07.json chính thức)
+│   └── recordings/LINKS.md                    # Liên kết xem trực tiếp 8 video quay màn hình (.mp4) trên Google Drive
+├── bugs/                                      # Hồ sơ riêng từng lỗi (BUG-01.md..BUG-28.md, bug_groups.md, manifest)
+├── screenshots/                               # Toàn bộ 177 ảnh chụp minh chứng thực tế
+│   ├── task1_failed/                          # 130 ảnh riêng từng mục Failed trên P1 (44), P2 (44), P3 (42)
+│   ├── task3_cross_platform/                  # 15 ảnh đa nền tảng cấp OS/Thiết bị thật (có MSSV + Họ tên & lớp phủ email)
+│   ├── usability/                             # 2 ảnh minh chứng thực nghiệm trích từ video phiên S05 (BUG-28) & S06 (BUG-18)
+│   └── github_issues/                         # 2 ảnh tổng quan danh sách + 28 ảnh chi tiết trang GitHub Issues (#1..#28)
+├── .agents/skills/                            # Hai bộ Agent Skills tái sử dụng đa màn hình / đa luồng (Task 4)
+│   ├── gui-checklist-testing/                 # Skill kiểm thử GUI Checklist & Đa nền tảng (20 tệp: SKILL, refs, assets, scripts)
+│   └── usability-evaluation/                  # Skill đánh giá Khả năng sử dụng có điều phối (15 tệp: SKILL, refs, assets, scripts)
+└── tests/                                     # Script hỗ trợ chụp minh chứng, xuất PDF chuẩn A4 & đóng gói gói nộp
+```

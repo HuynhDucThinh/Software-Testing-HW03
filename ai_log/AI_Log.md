@@ -471,8 +471,8 @@ AI Critique nhé
 - Kiểm đếm tự động bằng `word_count.py --min 200 --max 300`: đạt `271` từ theo `word_count.py` (`265` từ theo tách khoảng trắng chuẩn), nằm an toàn trong ngưỡng `200–300` từ trên cả hai cách đếm.
 - Chạy `ai_audit_export.py` kết xuất toàn bộ 21 mục nhật ký (`Entry 01..Entry 21`) cùng đoạn `AI Critique` ra tài liệu bắt buộc `AI_Critique_and_Audit_Report.md`.
 
-**Kept:** Giữ nguyên đoạn văn `AI Critique` (đạt chuẩn `200–300` từ, phản ánh trung thực các lỗi thực tế đã phát hiện và khắc phục trong kho bài làm) và file kết xuất `AI_Critique_and_Audit_Report.md`.
-**Changed:** Đồng bộ Mục 9, Mục 10 và Mục 13 của `Main_Report.md` trỏ trực tiếp tới `AI_Critique_and_Audit_Report.md` (`Entry 01..Entry 21`).
+**Kept:** Chỉ dùng làm nháp tham khảo cấu trúc 3 câu hỏi bắt buộc của Mục 10 và giữ file kết xuất bước đầu `AI_Critique_and_Audit_Report.md`; sau đó sinh viên trực tiếp biên tập lại toàn bộ câu chữ theo giọng văn cá nhân tại `Entry 23`.
+**Changed:** Đồng bộ Mục 9, Mục 10 và Mục 13 của `Main_Report.md` trỏ trực tiếp tới `AI_Critique_and_Audit_Report.md` (`Entry 01..Entry 21`); toàn bộ văn phong phản biện được sinh viên tự chỉnh sửa lại tại `Entry 23`.
 **Rejected:** Đầu tiên bản nháp thử nghiệm vượt ngưỡng ở mức `309` từ (`303` từ theo khoảng trắng); đã cô đọng lại còn `271` / `265` từ để đảm bảo đạt chuẩn `200–300` từ với mọi công cụ đếm từ của trợ giảng.
 **By hand:** Sinh viên đọc duyệt lại từng luận điểm phê bình AI dựa trên trải nghiệm điều phối thực tế cả 3 Task và kiểm tra kết quả chạy `word_count.py`.
 
@@ -541,32 +541,29 @@ Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task
 
 ---
 
-## Entry 25 — 2026-11-15 - Xuất bộ báo cáo PDF chuẩn in A4, soạn kịch bản Video Demo Task 4 và đối chiếu hoàn thiện 5 hạng mục báo cáo
+## Entry 25 — 2026-11-15..16 - Xuất bộ báo cáo PDF chuẩn A4, hoàn thiện 3 biểu mẫu AI-02/03/05 và chuẩn hóa gói nộp dưới 20MB
 
 **Tool:** Antigravity
-**Date and time:** 2026-11-15 15:15 – 21:05 +07:00
-**Task / Step:** Mục 1..6, Mục 9 & Đóng gói PDF (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`; soạn hướng dẫn quay Demo Task 4; đối chiếu Rubric nâng cấp 5 hạng mục chiều sâu phân tích)
+**Date and time:** 2026-11-15 15:15 – 2026-11-16 11:10 +07:00
+**Task / Step:** Mục 1..6, Mục 9, Mục 12, Mục 14 & Đóng gói PDF/ZIP (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf` + 3 biểu mẫu `ai-forms/*.md` & `.pdf`; nâng cấp 5 hạng mục chiều sâu phân tích; dọn file tạm, xuất `git_commit_log.txt` và đóng gói `.zip < 20MB`)
 **Prompt:**
 - `Oke nhớ xuất file pdf luôn nhé`
-- `làm cho tôi kịch bản đi` -> `md hướng dẫn trình bày demo skill đâu` -> `xuất pdf file đó giúp tôi`
-- `@[d:\KCPM\GUI & Usability Testing\docs\temp\HW03] Đây là bài làm khác mà tui đã đề cập, bạn xem bài làm này và so sánh với bài tập của tôi rồi cho điểm hai bài. Sau đó, gợi ý các nội dung chỉnh sửa bài làm của tôi để đạt điểm tối đa (không tính nội dung task 4)`
-- `1, 2, 3, 4, 5 => thực hiện chỉnh sửa giúp tôi. Cây thư mục sẽ được thực hiện sau khi hoàn thành task 4. Làm xong báo cáo kết quả`
+- `làm cho tôi kịch bản đi` -> `md hướng dẫn trình bày demo skill đâu` -> `xuất pdf file đó giúp tôi` -> `@[d:\KCPM\GUI & Usability Testing\.local\Task4_Huong_Dan_Quay_Demo_Skills.md] chỉnh lại tập trung giải thích ý nghĩa của các file trong skills thôi, còn nội dung demo thì chỉnh bài từng step chứ không làm lại nữa`
+- `@[d:\KCPM\GUI & Usability Testing\docs\temp\HW03] Đây là bài làm khác mà tui đã đề cập, bạn xem bài làm này và so sánh với bài tập của tôi rồi cho điểm hai bài. Sau đó, gợi ý các nội dung chỉnh sửa bài làm của tôi để đạt điểm tối đa (không tính nội dung task 4)` -> `1, 2, 3, 4, 5 => thực hiện chỉnh sửa giúp tôi. Cây thư mục sẽ được thực hiện sau khi hoàn thành task 4. Làm xong báo cáo kết quả`
+- `@[d:\KCPM\GUI & Usability Testing\docs\[AI-02] - FIT@HCMUS - AI Audit Report_En.docx.md] @[d:\KCPM\GUI & Usability Testing\docs\[AI-03] - FIT@HCMUS - AI Disclosure Form_En.docx.md] @[d:\KCPM\GUI & Usability Testing\docs\[AI-05] - FIT@HCMUS - AI Privacy Checklist_En.docx.md] đã thêm 3 file này tạo bản sao, viết lại nội dung cho phù hợp, lưu đúng folder, đúng tên => chờ tui check => tui báo xong rồi mới chuyển sang pdf`
+- `Trạng thái hiện tại trong code đã up to date với remote chưa? Sau đó, gợi ý chỉnh sửa, xóa các file tạm... để chuẩn bị nộp bài (chỉ được gợi ý chưa thực hiện)` -> `Cách 1A (Khuyên dùng — an toàn nhất)... Tui chọn cách này, bạn tiến hành hoàn thiện toàn bộ các nội dung đã nói bên trên để chuẩn bị nộp bài @[d:\KCPM\GUI & Usability Testing\docs\2026.HW03.GUI Usability_En.md] đọc kỹ quy định nộp để nộp cho đủ nhé. Chỉ cần chừa lại link video thôi (sau khi quay xong tui sẽ để vào). Làm xong check xem file zip nộp có nhỏ hơn 20MB không nhé`
 
 **AI output:**
-- Xây dựng [`tests/md_to_html.py`](../tests/md_to_html.py) và [`tests/export_pdfs.mjs`](../tests/export_pdfs.mjs) kết xuất bộ 3 tài liệu PDF nộp bài (`Main_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`, `Bug_Report.pdf`) có đánh số trang chân trang và bảo toàn toàn bộ bảng biểu, ảnh chụp nội dòng; đồng thời tạo tài liệu hướng dẫn quay Video Demo Task 4 lưu riêng ngoài cây nộp bài (`.local/Task4_Huong_Dan_Quay_Demo_Skills.pdf`).
-- Đối chiếu độc lập từng mục Rubric giữa kho bài làm hiện tại và bài tham chiếu trong `docs/temp/HW03`, từ đó đề xuất và thực thi 5 hạng mục nâng cấp dựa trên 100% dữ liệu thực nghiệm gốc của phạm vi `M1`/`F1`:
-  1. Làm mới toàn bộ 30 tệp ảnh `screenshots/github_issues/*.png` (nhúng ảnh `P3` chụp trực tiếp từ `OPPO Reno10 5G` ngày `15/11/2026` cho `ISSUE-01, 04, 18, 24, 27`) và đồng bộ chú thích phương pháp dựng ảnh tại `Main_Report.md` §6.3 cùng `Bug_Report.md` §4.
-  2. Bổ sung Mục `4.3` tại `Main_Report.md` đối chiếu ranh giới kỹ thuật giữa đo kiểm tự động (`Playwright` / `dom_probe.js`) và kiểm chứng trực tiếp trên trình duyệt cài đặt / thiết bị vật lý thật qua 5 tình huống thực nghiệm (`SV-20`, `SV-06`, `CL-22/CL-35`, `CL-07`, `SV-12`).
-  3. Bổ sung phân tích đối chiếu bản nháp AI đóng băng Bước 1 (`Nhóm A: 7/20 mục` AI chạm khái niệm gần kề nhưng thiếu chiều sâu biên/tọa độ vs `Nhóm B: 13/20 mục` AI bỏ trống hoàn toàn do đọc mã tĩnh) theo năng lực Bloom-AI `G9.3` tại `Main_Report.md` §3.4.2.
-  4. Bổ sung định nghĩa tường minh thang đo 4 mức `Usability Severity Scale` (`Critical = 4`, `Major = 3`, `Minor = 2`, `Cosmetic = 1`) tại `Main_Report.md` §5.8 và `usability/findings.md` §1.
-  5. Mở rộng `ai_audit_export.py` hỗ trợ cờ `--summary`, lập [`ai_log/audit_summary.md`](audit_summary.md) phân loại kiểm toán toàn bộ 25 lượt tương tác AI (`7 VALID = 28.0%`, `18 INCOMPLETE = 72.0%`, `0 INVALID = 0.0%`), kết xuất lại `AI_Critique_and_Audit_Report.md` và cập nhật lại cả 3 tệp PDF.
+- Xây dựng [`tests/md_to_html.py`](../tests/md_to_html.py) và [`tests/export_pdfs.mjs`](../tests/export_pdfs.mjs) kết xuất bộ 6 tài liệu PDF chuẩn in A4 (`Main_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`, `Bug_Report.pdf` và bộ 3 biểu mẫu chính sách AI của Khoa `ai-forms/AI-02_Audit_Report_23120199.pdf`, `AI-03_Disclosure_Form_23120199.pdf`, `AI-05_Privacy_Checklist_23120199.pdf`), kèm hướng dẫn trình bày Task 4 lưu riêng ngoài cây nộp bài (`.local/Task4_Huong_Dan_Quay_Demo_Skills.pdf`).
+- Thực thi 5 hạng mục nâng cấp chất lượng báo cáo dựa trên 100% dữ liệu thực nghiệm gốc của phạm vi `M1`/`F1`: (1) làm mới 30 ảnh `screenshots/github_issues/*.png` đồng bộ ảnh `P3` ngày `15/11/2026` và chú thích dựng API; (2) bổ sung Mục `4.3` tại `Main_Report.md` đối chiếu đo kiểm tự động với kiểm chứng trực tiếp trên trình duyệt/thiết bị thật; (3) bổ sung phân tích `Nhóm A (7/20)` vs `Nhóm B (13/20)` đối chiếu bản nháp AI đóng băng Bước 1 theo Bloom-AI `G9.3` tại `§3.4.2`; (4) định nghĩa thang đo 4 mức `Usability Severity Scale` tại `Main_Report.md` §5.8 và `usability/findings.md` §1; (5) lập [`ai_log/audit_summary.md`](audit_summary.md) phân loại kiểm toán 25 lượt tương tác (`7 VALID = 28.0%`, `18 INCOMPLETE = 72.0%`, `0 INVALID = 0.0%`).
+- Dọn dẹp toàn bộ file giữ chỗ `.gitkeep` dư thừa, thư mục rỗng `scripts/`, dữ liệu tạm `evidence_raw/`, `docs/temp/`, trả `eshop-sut/` về sạch nguyên bản commit `1a9304a`; bổ sung cây thư mục gói nộp bài vào `Main_Report.md` §13, xuất lịch sử `git_commit_log.txt`, nén bảng màu PNG giữ nguyên độ phân giải gốc (`task3_cross_platform/` giữ nguyên bản `100%`) và xây dựng [`tests/build_submission_zip.py`](../tests/build_submission_zip.py) đóng gói tệp nộp bài đạt dung lượng gọn dưới ngưỡng `20 MB` của Moodle (chỉ chừa lại duy nhất vị trí điền link YouTube Demo Task 4).
 
-**Kept:** Giữ nguyên bộ công cụ kết xuất PDF chuẩn A4, 30 ảnh `screenshots/github_issues/*.png` đã đồng bộ ngày `15/11/2026` và toàn bộ 5 hạng mục nâng cấp phân tích trên dữ liệu gốc `M1`/`F1`.
+**Kept:** Giữ nguyên bộ 6 tệp PDF chuẩn A4, 3 biểu mẫu `ai-forms/` chuẩn `FIT@HCMUS 2026 v1.0`, toàn bộ 5 hạng mục nâng cấp phân tích, `git_commit_log.txt` và kịch bản đóng gói `.zip < 20MB`.
 **Changed:**
-- Ở lượt xuất PDF đầu tiên, phát hiện bảng rộng 13 cột trong `Main_Report.pdf` bị tràn lề phải `353px` do gán `nowrap` cho chuỗi `<= 13` ký tự và đường dẫn dài trong `<code>` không ngắt dòng tại dấu `/` và `_` -> cập nhật `tests/md_to_html.py` chèn `<wbr>` và phân tầng `wide-table` / `ultra-wide-table` đạt `docOverflow = 0px` trên cả 3 báo cáo PDF.
-- Khi cập nhật Mục `3.4.2` của `Main_Report.md`, phát hiện bảng tóm tắt cũ xếp lệch nhóm 5 mã `SV-14`, `SV-15`, `SV-17`, `SV-19`, `SV-20` so với `checklist/checklist.json`, `checklist/sv_items.md` và Mục `3.4.3` -> đã chuẩn hóa khớp tuyệt đối `100%` giữa mọi tệp.
-- Theo chỉ đạo của sinh viên, tạm hoãn Mục 6 (cập nhật cây thư mục đóng gói tại §13, mở `Public` GitHub repo, xuất `git_commit_log.txt` và nén `.zip`) sang sau khi hoàn thành Video Demo Task 4.
-**Rejected:** Tuyệt đối không sao chép bất kỳ câu chữ, nhận định, cấu trúc prompt hay số liệu nào từ bài tham chiếu trong `docs/temp/HW03` (tuân thủ nghiêm Mục 17 Academic Integrity).
-**By hand:** Sinh viên kiểm tra trực tiếp bố cục hiển thị của các tệp PDF, chọn lọc danh sách hạng mục cần nâng cấp (`1..5`), quyết định thứ tự hoàn thành Task 4 trước khi đóng gói cây thư mục cuối cùng và kiểm duyệt toàn bộ kết quả.
+- Sửa CSS bảng rộng 13 cột tràn lề phải `353px` về `docOverflow = 0px` trên toàn bộ các tệp PDF, và rút gọn đoạn Kết luận Mục 5 trong `AI-02_Audit_Report_23120199.md` từ `180` từ về `132` từ (nằm chuẩn trong ngưỡng `80–150` từ của biểu mẫu).
+- Chuẩn hóa lại 5 mã `SV-14, SV-15, SV-17, SV-19, SV-20` trong bảng tóm tắt `§3.4.2.1` khớp tuyệt đối `100%` với `checklist/checklist.json` và `sv_items.md`.
+- Tinh chỉnh lại hướng dẫn quay Demo Task 4 chỉ tập trung giải thích ý nghĩa 35 tệp trong 2 Agent Skills và dẫn chuyện điểm chỉnh bài qua từng Step đã hoàn thành (bỏ việc bật lại server hay chạy tạo lại bài mới), đồng thời làm rõ ghi chú `Entry 21` theo Cách 1A để khớp tuyệt đối với `git_commit_log.txt`.
+**Rejected:** Tuyệt đối không sao chép bất kỳ câu chữ, nhận định, cấu trúc prompt hay số liệu nào từ bài tham chiếu (tuân thủ nghiêm Mục 17 Academic Integrity), và loại trừ hoàn toàn các thư mục tạm/`node_modules`/`.mp4` nặng khỏi gói `.zip` nộp Moodle.
+**By hand:** Sinh viên kiểm tra duyệt nội dung 3 biểu mẫu `ai-forms/`, chọn phương án đồng bộ nhật ký Cách 1A, kiểm tra kích thước gói `.zip < 20MB` và tự thực hiện quay — gắn link YouTube Video Demo Task 4 trước khi nộp lên Moodle.
 
 ---

@@ -195,7 +195,7 @@ th, td {
   border: 1px solid #cbd5e1;
   padding: 4px 5px;
   vertical-align: top;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   word-break: normal;
 }
 td.nowrap, th.nowrap {
@@ -223,12 +223,41 @@ img {
 """
 
 
+def _embed_pdf_images(body: str, base_dir: Path) -> str:
+    """Convert local <img src="..."> into optimized JPEG data-URIs (max 1200px wide, q=82) for compact A4 PDFs."""
+    import base64
+    import io
+    from PIL import Image
+
+    def _repl(m: re.Match) -> str:
+        prefix, raw_src, suffix = m.group(1), m.group(2), m.group(3)
+        if raw_src.startswith(("http://", "https://", "data:", "file:")):
+            return m.group(0)
+        img_path = (base_dir / raw_src).resolve()
+        if not img_path.is_file():
+            return m.group(0)
+        with Image.open(img_path) as im:
+            im_rgb = im.convert("RGB")
+            w, h = im_rgb.size
+            if w > 880:
+                new_h = int(round(h * 880 / w))
+                im_rgb = im_rgb.resize((880, new_h), Image.Resampling.LANCZOS)
+            buf = io.BytesIO()
+            im_rgb.save(buf, format="JPEG", quality=70, optimize=True)
+            b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+        return f'{prefix}data:image/jpeg;base64,{b64}{suffix}'
+
+    return re.sub(r'(<img\b[^>]*?\bsrc=")(.*?)(")', _repl, body)
+
+
 def main() -> None:
-    if len(sys.argv) < 3:
-        print("Usage: md_to_html.py <input.md> <output.html>", file=sys.stderr)
+    args = [a for a in sys.argv[1:] if a != "--pdf-opt"]
+    pdf_opt = "--pdf-opt" in sys.argv[1:]
+    if len(args) < 2:
+        print("Usage: md_to_html.py <input.md> <output.html> [--pdf-opt]", file=sys.stderr)
         sys.exit(1)
-    src = Path(sys.argv[1])
-    dst = Path(sys.argv[2])
+    src = Path(args[0]).resolve()
+    dst = Path(args[1]).resolve()
     md_raw = src.read_text(encoding="utf-8")
     md_norm = normalize_gfm_lists_and_blocks(md_raw)
     body = markdown.markdown(
@@ -275,6 +304,8 @@ def main() -> None:
         return f"<table{t_class}>{t_inner}</table>"
 
     body = re.sub(r"<table>(.*?)</table>", _process_table, body, flags=re.DOTALL)
+    if pdf_opt:
+        body = _embed_pdf_images(body, src.parent)
     html = f"""<!DOCTYPE html>
 <html lang="vi">
 <head>

@@ -25,6 +25,21 @@ const TARGETS = [
     pdf: 'Bug_Report.pdf',
     docLabel: 'Bug Report (BUG-01..BUG-28) — HW03-AI',
   },
+  {
+    md: 'ai-forms/AI-02_Audit_Report_23120199.md',
+    pdf: 'ai-forms/AI-02_Audit_Report_23120199.pdf',
+    docLabel: '[AI-02] FIT@HCMUS — AI Audit Report (23120199)',
+  },
+  {
+    md: 'ai-forms/AI-03_Disclosure_Form_23120199.md',
+    pdf: 'ai-forms/AI-03_Disclosure_Form_23120199.pdf',
+    docLabel: '[AI-03] FIT@HCMUS — AI Use Disclosure Form (23120199)',
+  },
+  {
+    md: 'ai-forms/AI-05_Privacy_Checklist_23120199.md',
+    pdf: 'ai-forms/AI-05_Privacy_Checklist_23120199.pdf',
+    docLabel: '[AI-05] FIT@HCMUS — AI Privacy Checklist (23120199)',
+  },
 ];
 
 async function run() {
@@ -33,9 +48,9 @@ async function run() {
     for (const t of TARGETS) {
       const mdPath = path.join(ROOT, t.md);
       const pdfPath = path.join(ROOT, t.pdf);
-      const tmpHtmlPath = path.join(ROOT, `.tmp_${path.basename(t.md, '.md')}.html`);
+      const tmpHtmlPath = path.join(path.dirname(mdPath), `.tmp_${path.basename(t.md, '.md')}.html`);
       try {
-        execFileSync('python', ['-B', path.join(ROOT, 'tests', 'md_to_html.py'), mdPath, tmpHtmlPath], {
+        execFileSync('python', ['-B', path.join(ROOT, 'tests', 'md_to_html.py'), mdPath, tmpHtmlPath, '--pdf-opt'], {
           stdio: 'inherit',
         });
         const page = await browser.newPage({ viewport: { width: 703, height: 994 } });
@@ -72,6 +87,25 @@ async function run() {
             </div>`,
         });
         await page.close();
+        execFileSync(
+          'python',
+          [
+            '-B',
+            '-c',
+            `import fitz, os, sys
+p = sys.argv[1]
+doc = fitz.open(p)
+doc.subset_fonts()
+if hasattr(doc, 'rewrite_images'):
+    doc.rewrite_images(dpi_threshold=75, dpi_target=72, quality=68)
+tmp = p + '.opt.pdf'
+doc.save(tmp, garbage=4, deflate=True, deflate_images=True, deflate_fonts=True)
+doc.close()
+os.replace(tmp, p)`,
+            pdfPath,
+          ],
+          { stdio: 'inherit' }
+        );
         const sizeMB = (fs.statSync(pdfPath).size / (1024 * 1024)).toFixed(2);
         console.log(
           `[OK] ${t.pdf} (${sizeMB} MB | tables=${diag.tables} | docOverflow=${diag.docOverflow}px | brokenImgs=${diag.brokenImgs})`
