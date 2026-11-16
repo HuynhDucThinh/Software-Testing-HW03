@@ -1066,10 +1066,12 @@ Phần dưới đây trình bày tóm tắt kỹ thuật đầy đủ của cả
 
 ## 7. Agent Skills và Video Demo (Task 4)
 
+- **Liên kết Video Demo trình diễn 2 Agent Skills trên YouTube:** [https://www.youtube.com/watch?v=3AzhYuL9wxg](https://www.youtube.com/watch?v=3AzhYuL9wxg)
+
 | Tên Agent Skill | Thư mục lưu trữ | Thành phần kỹ thuật | Phạm vi áp dụng trong HW03 | Video Demo (YouTube) |
 | :--- | :--- | :--- | :--- | :--- |
-| **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 5 tài liệu `references/`, 5 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | `[TODO_YOUTUBE_DEMO_URL]` *(cập nhật sau khi quay xong)* |
-| **`usability-evaluation`** | [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/) | `SKILL.md`, 3 tài liệu `references/`, 6 mẫu `assets/`, **5 script Python** kiểm định chống gian lận & tính toán `SUS` tự động | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | `[TODO_YOUTUBE_DEMO_URL]` *(cập nhật sau khi quay xong)* |
+| **`gui-checklist-testing`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/) | `SKILL.md`, 5 tài liệu `references/`, 5 mẫu `assets/`, **9 script Python** kiểm tra ràng buộc & xuất báo cáo tự động | Toàn bộ Task 1 & Task 3 trên 5 màn hình M1 và 3 nền tảng `P1, P2, P3` | [Xem Video Demo](https://www.youtube.com/watch?v=3AzhYuL9wxg) |
+| **`usability-evaluation`** | [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/) | `SKILL.md`, 3 tài liệu `references/`, 6 mẫu `assets/`, **5 script Python** kiểm định chống gian lận & tính toán `SUS` tự động | Toàn bộ Task 2 trên luồng `F1` (1 phiên Pilot `S00` + 7 phiên chính thức `S01..S07`) | [Xem Video Demo](https://www.youtube.com/watch?v=3AzhYuL9wxg) |
 
 **Cơ chế vận hành kỷ luật của Agent Skill `gui-checklist-testing`:**
 1. **Điều khiển từng bước có điểm dừng bắt buộc (`Step 0` -> `Step 7`):** Mỗi lần kích hoạt chỉ thực hiện đúng một bước rồi dừng để sinh viên kiểm duyệt và tạo Git commit riêng; ngăn chặn việc dùng một câu prompt chung chung sinh toàn bộ bài làm.
@@ -1130,8 +1132,8 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 | **1** | **Task 1 — GUI Checklist** (design + execution + bug report) | **30** | **`30`** | `Main_Report.md` (§3, §6), `checklist/M1_GUI_Checklist_And_Summary.xlsx` (`59` mục, `168` lượt chạy), `checklist/sv_items.md` (`20` mục SV), `Bug_Report.md` & `28` GitHub Issues (`#1`..`#28`) |
 | **2** | **Task 2 — Usability Evaluation** (task scenario + 7 sessions + analysis) | **40** | **`40`** | `Main_Report.md` (§5), `usability/plan.md`, `usability/participant_kit.md`, `usability/participants.md` (`1` Pilot + `7` người thật ngoài lớp che 4 số giữa), `usability/sessions/S00..S07.json` (`7` commit riêng), `usability/recordings/LINKS.md` (`8` video Google Drive), `usability/sus_and_metrics_summary.md`, `usability/findings.md` & `BUG-28` (`#28`) |
 | **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | **`20`** | `Main_Report.md` (§4), `checklist/runs/P1..P3_*.csv`, `screenshots/task3_cross_platform/` (`15` ảnh thực tế có lớp phủ email), `screenshots/task1_failed/` (`130` ảnh) |
-| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | **`10`** *(chờ gắn `[TODO_YOUTUBE_DEMO_URL]`)* | `.agents/skills/gui-checklist-testing/` (`20` file), `.agents/skills/usability-evaluation/` (`15` file), link YouTube Demo |
-| | **Total** | **100** | **`100`** *(chốt khi gắn link YouTube)* | Đủ 100% hiện vật bắt buộc theo Mục 14 đề bài (`23120199_HW03_AI_GUIUsability_100.zip`) |
+| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | **`10`** | `.agents/skills/gui-checklist-testing/` (`20` file), `.agents/skills/usability-evaluation/` (`15` file), [Video Demo YouTube](https://www.youtube.com/watch?v=3AzhYuL9wxg) |
+| | **Total** | **100** | **`100`** | Đủ 100% hiện vật bắt buộc theo Mục 14 đề bài (`23120199_HW03_AI_GUIUsability_100.zip`) |
 
 ---
 

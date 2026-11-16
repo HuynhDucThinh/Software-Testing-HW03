@@ -107,7 +107,7 @@ Trong quá trình thực hiện bài tập cùng AI, em phát hiện nhiều sai
 | `Entry 22` | `Antigravity` | `2026-11-15 11:25 – 11:42 +07:00` | Task 1 & Task 3 (Hoàn thiện bằng chứng ảnh mục `Failed` trên nền tảng di động thật `P3`) |
 | `Entry 23` | `Antigravity` | `2026-11-15 11:51 – 12:08 +07:00` | Mục 9 & Mục 10 đề bài (Chuẩn hóa tiêu đề 3 báo cáo chính, rà soát quy định nhật ký AI và đồng bộ bản `critique.md` do sinh viên biên tập) |
 | `Entry 24` | `Antigravity` | `2026-11-15 12:10 – 12:14 +07:00` | Task 4 — Agent Skills (Đồng bộ quy tắc của `.agents/skills/gui-checklist-testing/SKILL.md`, `references/hw03-rules.md` và `assets/`) |
-| `Entry 25` | `Antigravity` | `2026-11-15 15:15 – 2026-11-16 11:10 +07:00` | Mục 1..6, Mục 9, Mục 12, Mục 14 & Đóng gói PDF/ZIP (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf` + 3 biểu mẫu `ai-forms/*.md` & `.pdf`; nâng cấp 5 hạng mục chiều sâu phân tích; dọn file tạm, xuất `git_commit_log.txt` và đóng gói `.zip < 20MB`) |
+| `Entry 25` | `Antigravity` | `2026-11-15 15:15 – 2026-11-16 12:30 +07:00` | Mục 1..7, Mục 9, Mục 12, Mục 14 & Khóa sổ đóng gói PDF/ZIP (Xuất 6 báo cáo/biểu mẫu PDF chuẩn A4; nâng cấp 5 hạng mục chiều sâu phân tích; dọn file tạm, gắn link Video Demo YouTube Task 4, xuất `git_commit_log.txt` và đóng gói `23120199_HW03_AI_GUIUsability_100.zip < 20MB`) |
 
 ---
 
@@ -818,8 +818,8 @@ Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task
 ### Entry 25 — 2026-11-15..16 - Xuất bộ báo cáo PDF chuẩn A4, hoàn thiện 3 biểu mẫu AI-02/03/05 và chuẩn hóa gói nộp dưới 20MB
 
 - **Tool:** `Antigravity`
-- **Date and time:** `2026-11-15 15:15 – 2026-11-16 11:10 +07:00`
-- **Task / Step:** Mục 1..6, Mục 9, Mục 12, Mục 14 & Đóng gói PDF/ZIP (Xuất `Main_Report.pdf`, `Bug_Report.pdf`, `AI_Critique_and_Audit_Report.pdf` + 3 biểu mẫu `ai-forms/*.md` & `.pdf`; nâng cấp 5 hạng mục chiều sâu phân tích; dọn file tạm, xuất `git_commit_log.txt` và đóng gói `.zip < 20MB`)
+- **Date and time:** `2026-11-15 15:15 – 2026-11-16 12:30 +07:00`
+- **Task / Step:** Mục 1..7, Mục 9, Mục 12, Mục 14 & Khóa sổ đóng gói PDF/ZIP (Xuất 6 báo cáo/biểu mẫu PDF chuẩn A4; nâng cấp 5 hạng mục chiều sâu phân tích; dọn file tạm, gắn link Video Demo YouTube Task 4, xuất `git_commit_log.txt` và đóng gói `23120199_HW03_AI_GUIUsability_100.zip < 20MB`)
 
 **Prompt:**
 
@@ -829,6 +829,7 @@ Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task
 - `@[d:\KCPM\GUI & Usability Testing\docs\temp\HW03] Đây là bài làm khác mà tui đã đề cập, bạn xem bài làm này và so sánh với bài tập của tôi rồi cho điểm hai bài. Sau đó, gợi ý các nội dung chỉnh sửa bài làm của tôi để đạt điểm tối đa (không tính nội dung task 4)` -> `1, 2, 3, 4, 5 => thực hiện chỉnh sửa giúp tôi. Cây thư mục sẽ được thực hiện sau khi hoàn thành task 4. Làm xong báo cáo kết quả`
 - `@[d:\KCPM\GUI & Usability Testing\docs\[AI-02] - FIT@HCMUS - AI Audit Report_En.docx.md] @[d:\KCPM\GUI & Usability Testing\docs\[AI-03] - FIT@HCMUS - AI Disclosure Form_En.docx.md] @[d:\KCPM\GUI & Usability Testing\docs\[AI-05] - FIT@HCMUS - AI Privacy Checklist_En.docx.md] đã thêm 3 file này tạo bản sao, viết lại nội dung cho phù hợp, lưu đúng folder, đúng tên => chờ tui check => tui báo xong rồi mới chuyển sang pdf`
 - `Trạng thái hiện tại trong code đã up to date với remote chưa? Sau đó, gợi ý chỉnh sửa, xóa các file tạm... để chuẩn bị nộp bài (chỉ được gợi ý chưa thực hiện)` -> `Cách 1A (Khuyên dùng — an toàn nhất)... Tui chọn cách này, bạn tiến hành hoàn thiện toàn bộ các nội dung đã nói bên trên để chuẩn bị nộp bài @[d:\KCPM\GUI & Usability Testing\docs\2026.HW03.GUI Usability_En.md] đọc kỹ quy định nộp để nộp cho đủ nhé. Chỉ cần chừa lại link video thôi (sau khi quay xong tui sẽ để vào). Làm xong check xem file zip nộp có nhỏ hơn 20MB không nhé`
+- `https://www.youtube.com/watch?v=3AzhYuL9wxg bỏ link này vô báo cáo và xuất file zip mới cho tôi nộp bài nhé. file zip cần đúng tên, nội dung nộp bài cần đầy đủ theo quy định. Minh chứng kết quả lên đây cho tôi`
 ~~~
 
 **AI output:**
@@ -836,7 +837,7 @@ Với mâu thuẫn quy tắc trong gui-checklist-testing/SKILL.md: Khi sang Task
 ~~~text
 - Xây dựng [`tests/md_to_html.py`](../tests/md_to_html.py) và [`tests/export_pdfs.mjs`](../tests/export_pdfs.mjs) kết xuất bộ 6 tài liệu PDF chuẩn in A4 (`Main_Report.pdf`, `AI_Critique_and_Audit_Report.pdf`, `Bug_Report.pdf` và bộ 3 biểu mẫu chính sách AI của Khoa `ai-forms/AI-02_Audit_Report_23120199.pdf`, `AI-03_Disclosure_Form_23120199.pdf`, `AI-05_Privacy_Checklist_23120199.pdf`), kèm hướng dẫn trình bày Task 4 lưu riêng ngoài cây nộp bài (`.local/Task4_Huong_Dan_Quay_Demo_Skills.pdf`).
 - Thực thi 5 hạng mục nâng cấp chất lượng báo cáo dựa trên 100% dữ liệu thực nghiệm gốc của phạm vi `M1`/`F1`: (1) làm mới 30 ảnh `screenshots/github_issues/*.png` đồng bộ ảnh `P3` ngày `15/11/2026` và chú thích dựng API; (2) bổ sung Mục `4.3` tại `Main_Report.md` đối chiếu đo kiểm tự động với kiểm chứng trực tiếp trên trình duyệt/thiết bị thật; (3) bổ sung phân tích `Nhóm A (7/20)` vs `Nhóm B (13/20)` đối chiếu bản nháp AI đóng băng Bước 1 theo Bloom-AI `G9.3` tại `§3.4.2`; (4) định nghĩa thang đo 4 mức `Usability Severity Scale` tại `Main_Report.md` §5.8 và `usability/findings.md` §1; (5) lập [`ai_log/audit_summary.md`](audit_summary.md) phân loại kiểm toán 25 lượt tương tác (`7 VALID = 28.0%`, `18 INCOMPLETE = 72.0%`, `0 INVALID = 0.0%`).
-- Dọn dẹp toàn bộ file giữ chỗ `.gitkeep` dư thừa, thư mục rỗng `scripts/`, dữ liệu tạm `evidence_raw/`, `docs/temp/`, trả `eshop-sut/` về sạch nguyên bản commit `1a9304a`; bổ sung cây thư mục gói nộp bài vào `Main_Report.md` §13, xuất lịch sử `git_commit_log.txt`, nén bảng màu PNG giữ nguyên độ phân giải gốc (`task3_cross_platform/` giữ nguyên bản `100%`) và xây dựng [`tests/build_submission_zip.py`](../tests/build_submission_zip.py) đóng gói tệp nộp bài đạt dung lượng gọn dưới ngưỡng `20 MB` của Moodle (chỉ chừa lại duy nhất vị trí điền link YouTube Demo Task 4).
+- Dọn dẹp toàn bộ file giữ chỗ `.gitkeep` dư thừa, thư mục rỗng `scripts/`, dữ liệu tạm `evidence_raw/`, `docs/temp/`, các tệp `.mp4` cục bộ đã tải lên Google Drive và trả `eshop-sut/` về sạch nguyên bản commit `1a9304a`; gắn liên kết Video Demo YouTube (`https://www.youtube.com/watch?v=3AzhYuL9wxg`), chốt bảng tự đánh giá điểm `100/100` tại `README.md` và `Main_Report.md` (§7, §12, §13), cập nhật `git_commit_log.txt` và chạy [`tests/build_submission_zip.py`](../tests/build_submission_zip.py) đóng gói tệp nộp bài hoàn chỉnh `23120199_HW03_AI_GUIUsability_100.zip` đạt dung lượng gọn dưới ngưỡng `20 MB` của Moodle.
 ~~~
 
 - **Kept (Giữ nguyên):** Giữ nguyên bộ 6 tệp PDF chuẩn A4, 3 biểu mẫu `ai-forms/` chuẩn `FIT@HCMUS 2026 v1.0`, toàn bộ 5 hạng mục nâng cấp phân tích, `git_commit_log.txt` và kịch bản đóng gói `.zip < 20MB`.

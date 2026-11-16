@@ -20,7 +20,7 @@
 | **Mã bài tập (`Assignment ID`):** | `HW03-AI` |
 | **Tên bài tập (`Assignment Title`):** | `GUI & Usability Testing on EShop` (Phạm vi `M1: Register, Login, ForgotPassword, Profile, Header` & Luồng `F1: Đăng ký -> Đăng nhập -> Cập nhật hồ sơ`) |
 | **Cấp độ sử dụng AI (`AI Use Category 1–5`):** | `Category 4` — *AI-Assisted Generation with Mandatory Human Review & Audit* (`AI Policy: Open` · Năng lực Bloom-AI `G9.3 Analyse` & `G9.4 Collaborate`) |
-| **Ngày hoàn thành (`Date`):** | `15/11/2026` |
+| **Ngày hoàn thành (`Date`):** | `16/11/2026` |
 | **Họ tên sinh viên (`Student name`):** | Huỳnh Đức Thịnh |
 | **Mã số sinh viên (`Student ID`):** | `23120199` (`23120199@student.hcmus.edu.vn`) |
 
@@ -110,7 +110,7 @@ Toàn bộ 25 câu lệnh `Prompt` nguyên văn được đính kèm tại Phụ
 | **Lớp / Khóa (`Class / Cohort`):** | `CSC13003 – 23_3 (Khóa K2023)` |
 | **Môn học (`Course`):** | `CS423 / CSC13003 – Software Testing (Kiểm chứng Phần mềm)` |
 | **Giảng viên & Trợ giảng (`Instructors`):** | TS. Lâm Quang Vũ, TS. Trần Duy Hoàng, ThS. Trần Thị Bích Hạnh, ThS. Trương Phước Lộc, ThS. Hồ Tuấn Thanh |
-| **Ngày ký (`Date`):** | `15/11/2026` |
+| **Ngày ký (`Date`):** | `16/11/2026` |
 | **Chữ ký (`Signature`):** | *Huỳnh Đức Thịnh (Đã ký xác nhận điện tử — `23120199`)* |
 
 ---

@@ -82,7 +82,7 @@ Software-Testing-HW03/
 | **Tổng kết quả lượt chạy (Passed / Failed / N/A / Blocked)** | **38 Passed / 130 Failed / 9 N/A / 0 Blocked** | `45 / 59` mục độc lập phát hiện lỗi (`Failed`) trên ít nhất 1 nền tảng (`14 / 59` mục `Passed` hoàn toàn) |
 | **Tổng số Bugs đã báo cáo (GitHub Issues)** | **28 Bugs (`#1`..`#28`)** | `5 Critical`, `11 Major`, `11 Minor`, `1 Cosmetic` (`27` Task 1 + `1` mới `BUG-28` Task 2) — [GitHub Issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues) & [`Bug_Report.md`](Bug_Report.md) |
 | **Số người tham gia Usability (Participants)** | **7 người thật ngoài lớp học (`P01..P07`) + 1 Pilot (`P00`)** | `100% non-IT`, SĐT che 4 số giữa; **`SUS = 48.6 ± 11.3` (`Hạng F — Poor`)**, `8` video quay màn hình trên [Google Drive](https://drive.google.com/drive/folders/1IB2Zh8lavgSNagaKdTyaWhBYH24_f8OL) |
-| **Video Demo Agent Skills (YouTube)** | `[TODO_YOUTUBE_DEMO_URL]` *(cập nhật sau khi quay xong)* | Link video trình diễn 2 Agent Skills |
+| **Video Demo Agent Skills (YouTube)** | **[Xem trên YouTube](https://www.youtube.com/watch?v=3AzhYuL9wxg)** | `https://www.youtube.com/watch?v=3AzhYuL9wxg` (trình diễn kiến trúc & quy trình từng bước của 2 Agent Skills) |
 
 ### 3.2. Kết quả thực thi Checklist theo từng nền tảng (Task 1 & Task 3)
 
@@ -136,5 +136,5 @@ Software-Testing-HW03/
 | **1** | **Task 1 — GUI Checklist** (design + execution + bug report) | **30** | **`30`** | [`checklist/M1_GUI_Checklist_And_Summary.xlsx`](checklist/M1_GUI_Checklist_And_Summary.xlsx), [`Bug_Report.md`](Bug_Report.md), `28` [GitHub Issues](https://github.com/HuynhDucThinh/Software-Testing-HW03/issues) |
 | **2** | **Task 2 — Usability Evaluation** (task scenario + 7 sessions + analysis) | **40** | **`40`** | [`usability/plan.md`](usability/plan.md), [`usability/participants.md`](usability/participants.md), [`usability/sessions/`](usability/sessions/), [`usability/recordings/LINKS.md`](usability/recordings/LINKS.md), [`usability/sus_and_metrics_summary.md`](usability/sus_and_metrics_summary.md), [`usability/findings.md`](usability/findings.md), [`Main_Report.md`](Main_Report.md) (§5) |
 | **3** | **Task 3 — Cross-Browser / Cross-Platform** (>= 3 platforms) | **20** | **`20`** | [`screenshots/task3_cross_platform/`](screenshots/task3_cross_platform/) (`15` ảnh), [`checklist/runs/`](checklist/runs/), [`Main_Report.md`](Main_Report.md) (§4) |
-| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | **`10`** *(chờ gắn `[TODO_YOUTUBE_DEMO_URL]`)* | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/), [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/), link YouTube Demo |
-| | **Total** | **100** | **`100`** *(chốt khi gắn link YouTube)* | Đủ hiện vật bắt buộc theo Mục 14 đề bài (`23120199_HW03_AI_GUIUsability_100.zip`) |
+| **4** | **Agent Skills** (skills + YouTube demo video) | **10** | **`10`** | [`.agents/skills/gui-checklist-testing/`](.agents/skills/gui-checklist-testing/), [`.agents/skills/usability-evaluation/`](.agents/skills/usability-evaluation/), [Video Demo YouTube](https://www.youtube.com/watch?v=3AzhYuL9wxg) |
+| | **Total** | **100** | **`100`** | Đủ hiện vật bắt buộc theo Mục 14 đề bài (`23120199_HW03_AI_GUIUsability_100.zip`) |

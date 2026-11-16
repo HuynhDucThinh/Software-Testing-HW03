@@ -75,7 +75,7 @@
 | **Lớp / Khóa (`Class / Cohort`):** | `CSC13003 – 23_3 (Khóa K2023)` |
 | **Môn học (`Course`):** | `CS423 / CSC13003 – Software Testing (Kiểm chứng Phần mềm)` |
 | **Giảng viên & Trợ giảng (`Instructors`):** | TS. Lâm Quang Vũ, TS. Trần Duy Hoàng, ThS. Trần Thị Bích Hạnh, ThS. Trương Phước Lộc, ThS. Hồ Tuấn Thanh |
-| **Ngày ký (`Date`):** | `15/11/2026` |
+| **Ngày ký (`Date`):** | `16/11/2026` |
 | **Chữ ký (`Signature`):** | *Huỳnh Đức Thịnh (Đã ký xác nhận điện tử — `23120199`)* |
 
 ---

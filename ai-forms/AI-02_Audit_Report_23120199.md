@@ -20,7 +20,7 @@
 | **Mã số sinh viên (`Student ID`):** | `23120199` (`23120199@student.hcmus.edu.vn`) |
 | **Lớp / Khóa (`Class / Cohort`):** | `CSC13003 – 23_3 (Khóa K2023)` |
 | **Mã bài tập (`Assignment ID`):** | `HW03-AI` — GUI & Usability Testing trên hệ thống EShop (Phạm vi `M1` & Luồng `F1`) |
-| **Thời gian thực hiện (`Assignment date`):** | `11/11/2026 – 15/11/2026` |
+| **Thời gian thực hiện (`Assignment date`):** | `11/11/2026 – 16/11/2026` |
 | **Công cụ AI đã sử dụng (`AI tool(s) used`):** | `Google Antigravity IDE` (tích hợp các mô hình ngôn ngữ lớn `Google Gemini` & `Anthropic Claude`) |
 | **Có sử dụng công cụ AI? (`AI tool(s) used`):** | `[x] Yes` &nbsp;&nbsp; `[ ] No` |
 
@@ -106,7 +106,7 @@ Qua 25 lượt kiểm toán, AI phát huy hiệu quả ở các tác vụ lặp 
 | **Lớp / Khóa (`Class / Cohort`):** | `CSC13003 – 23_3 (Khóa K2023)` |
 | **Môn học (`Course`):** | `CS423 / CSC13003 – Software Testing (Kiểm chứng Phần mềm)` |
 | **Giảng viên & Trợ giảng (`Instructors`):** | TS. Lâm Quang Vũ, TS. Trần Duy Hoàng, ThS. Trần Thị Bích Hạnh, ThS. Trương Phước Lộc, ThS. Hồ Tuấn Thanh |
-| **Ngày ký (`Date`):** | `15/11/2026` |
+| **Ngày ký (`Date`):** | `16/11/2026` |
 | **Chữ ký (`Signature`):** | *Huỳnh Đức Thịnh (Đã ký xác nhận điện tử — `23120199`)* |
 
 ---
